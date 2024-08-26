@@ -1,0 +1,34 @@
+# Geography 385: Python Primer
+
+::: {.callout-note}
+Note that this is an **optional** exercise. If you successfully complete the Python primer, you will earn [3 tokens](../syllabus.qmd#tokens).
+:::
+
+The SDSU Course Catalogue entry for our course reads:
+
+> Analysis of spatially distributed data, including computer applications. Spatial sampling, descriptive statistics for areal data, inferential statistics, and the use of maps in data analysis.
+
+To achieve this, we will adopt a computational approach based on the Python programming language. As the course progresses, we will introduce the elements of Python necessary for spatial data analysis. However, this is a course in spatial data analysis, not Python programming.
+The course assumes no previous experience with Python (or programming), what we
+cover will be self-contained and start from basic principles. To bolster your
+understanding of Python, I suggest taking the Python Primer.[^credit] [^383]
+
+[^383]: If you are interested in further exploring Python for geography, an excellent course is [Geog 383](https://catalog.sdsu.edu/search_advanced.php?cur_cat_oid=10&search_database=Search&search_db=Search&cpage=1&ecpage=1&ppage=1&spage=1&tpage=1&location=3&filter%5Bkeyword%5D=GEOG+383&filter%5Bexact_match%5D=1).
+[^credit]: The Python Primer is inspired by and modeled after the work of [Robert Talbert](https://hackmd.io/@rtalbert235/SyGf82cWY).
+
+## Instructions
+
+1. Go to <http://www.codeacademy.com> and create a free account, or sign in with a social media or GitHub account.
+2. Take the self-paced entry-level minicourse on *Python 2*.[^python3]
+3. The minicourse has 12 units, each with 1-2 lessons to be done in a browser. Complete the first 9 units of the course, up to and including "Exam Statistics."
+
+::: {.callout-tip}
+## Time Requirements
+Completing this primer should take between 6-8 hours.
+You should spread out your effort in 30-minute chunks over a few weeks.
+:::
+
+[^python3]: Do not sign up for the Python 3 course as it is not free. We will cover the main differences between Python 2 and Python 3 in the studio sessions.
+
+## Submission (Due: September 23, 3:30 PM)
+When you have completed the nine units, take a screenshot that shows your name on the screen as well as all the checks. Upload the screenshot to [Canvas](https://sdsu.instructure.com/courses/157862/assignments/1336814).

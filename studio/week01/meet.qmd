@@ -1,0 +1,75 @@
+---
+title: "Studio   1: Google Meet for Studio Collaboration"
+format: html
+jupyter: python3
+---
+
+
+## Purpose
+This handout provides instructions on how to use Google Meet for small group work, including creating a meeting, sharing screens (with sound off), and using the chat feature to collaborate on in-class studios.
+
+## Getting Started with Google Meet
+
+1. **Designating a Group Leader**
+   - The instructor will designate a group leader for each group.
+   - The group leader will be responsible for creating the Google Meet session.
+
+2. **Creating a Google Meet Session**
+   - The group leader should sign in to their Google account.
+   - Go to [Google Meet](https://meet.google.com).
+   - Click on the "New meeting" button and select "Start an instant meeting."
+   - Once in the meeting, click on "Add others" to get the meeting link.
+   - Copy the meeting link and share it with the other group members through email, chat, or any communication platform you are using.
+
+3. **Joining the Google Meet Session**
+   - Each group member should click the link provided by the group leader to join the session.
+   - Allow Google Meet to access your microphone and camera if prompted.
+   - Mute your microphone by clicking the microphone icon at the bottom of the screen to reduce background noise.
+
+## Sharing Your Screen
+
+Screen sharing helps all group members see the same content, making collaboration easier.
+
+1. **How to Share Your Screen**
+   - Once in the Google Meet, click on the "Present Now" button at the bottom right of the screen.
+   - Select "Your Entire Screen" or "A Window," depending on what you want to share.
+   - Click "Share" to start sharing your screen.
+
+2. **Keeping Your Microphone Off**
+   - Keep your microphone muted while sharing your screen to avoid feedback or echo. Use the chat for communication or unmute only when necessary.
+
+## Using the Chat Feature
+
+The chat feature is useful for collaboration without speaking out loud.
+
+1. **Open the Chat**
+   - Click on the chat icon (speech bubble) in the top right corner of the screen to open the chat window.
+
+2. **Communicate Effectively**
+   - Use the chat to ask questions, share links, and discuss the studio.
+   - Keep your messages clear and concise to avoid misunderstandings.
+
+## Best Practices for Google Meet Collaboration
+
+- **Stay Muted When Not Speaking**: We will be in person, so no need to use your
+  microphone in class.
+- **Use the Chat to Communicate**: Share your thoughts and questions in the chat to maintain a smooth flow of discussion.
+- **Keep Your Camera On**: This helps the group stay engaged and allows for
+  better non-verbal communication. 
+- **Be Respectful**: Listen to others, avoid interrupting, and provide constructive feedback.
+- **Ensure Only One Person Shares at a Time**: This helps avoid confusion and keeps the focus on the task at hand.
+
+## Troubleshooting Tips
+
+- **Audio Issues**: If others cannot hear you, check that your microphone is not muted and that Google Meet is using the correct microphone in the settings.
+- **Screen Sharing Problems**: Ensure that your browser has permission to share your screen.
+- **Connectivity Issues**: If you experience lag or get disconnected, try refreshing your browser or checking your internet connection.
+
+## Wrapping Up
+
+At the end of the studio, the group leader should summarize the group’s
+discussion and findings. The leader will hand in the summary on Canvas.
+
+For additional assistance, refer to the [Google Meet Help Center](https://support.google.com/meet) or contact your instructor.
+
+Happy collaborating!

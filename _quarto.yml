@@ -17,8 +17,12 @@ website:
         menu:
           - text: "Python Primer"
             href: studio/python_course.qmd
-              #- text: "09-28 Juptyer"
-              #href: studio/week01/jupyter.qmd
+          - text: "09-28 Juptyer Hub Introduction"
+            href: studio/week01/intro.qmd
+          - text: "09-28 Collaboration"
+            href: studio/week01/meet.qmd
+          - text: "09-28 Juptyer"
+            href: studio/week01/jupyter.qmd
       - text: "References"
         menu:
           - text: "References"
@@ -33,8 +37,12 @@ website:
           href: lectures/week01/lecture.qmd
         - text: "09-26 Spatial Data Analysis"
           href: lectures/week01/lecture_sda.qmd
-            #- text: "09-28 Jupyter"
-            #  href: studio/week01/jupyter.qmd
+        - text: "09-28 Jupyter Hub"
+          href: studio/week01/intro.qmd
+        - text: "09-28 Collaboration"
+          href: studio/week01/meet.qmd
+        - text: "09-28 Jupyter"
+          href: studio/week01/jupyter.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"

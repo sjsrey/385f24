@@ -1,0 +1,88 @@
+---
+title: "Studio   1: Working with Jupyter Notebooks on JupyterHub"
+format: html
+jupyter: python3
+---
+
+
+In this exercise, you will practice basic operations in Jupyter notebooks, including writing and running Python code, working with Markdown cells, and performing simple data operations.
+
+## 1. Setting Up the Notebook
+
+1. Create a new notebook.
+2. Rename it to `GroupX.ipynb` where `X` is your group number. 
+
+Add some structure at the top cells:
+
+```markdown
+# Group Exercise 1
+
+This notebook is for practicing basic operations in Jupyter notebooks. It includes examples of using Python code and Markdown cells to document the work.
+```
+
+## 2. Basic Code Operations
+
+In this section, you'll write and run some simple Python code.
+
+```python
+# Task 1: Print a welcome message
+print("Welcome to JupyterHub!")
+```
+
+```python
+# Task 2: Perform a simple arithmetic operation
+10 * 3
+```
+
+## 3. Working with Data
+
+In this section, you'll work with a small dataset. The dataset could be provided in different formats, such as a list of numbers or a CSV file.
+
+### Load and Display the Dataset
+
+```python
+data = [10, 20, 30, 40, 50, 70]
+
+# Display the dataset
+data
+```
+
+### Perform a Basic Analysis
+
+```python
+# Task: Calculate the sum of the numbers in the dataset
+sum(data)
+```
+
+```python
+# Task: Calculate the mean of the numbers in the dataset
+mean_value = sum(data) / len(data)
+mean_value
+```
+
+Is the data skewed? If so, in what way?
+
+
+## 4. Documenting the Analysis
+
+Use Markdown cells to document your code and results. For example:
+
+```markdown
+## Dataset Analysis
+
+We loaded a dataset containing the numbers 10, 20, 30, 40, 50, 70. Below is the sum and mean of these numbers.
+
+With regard to skewness, we find ....
+```
+
+## 5. Final Touches and Submission
+In the top cell of the notebook, add a Markdown cell that lists all the group
+participants (leader first).
+
+Review your notebook as a group. Ensure that it is well-organized and the code is properly documented.
+Use the ability to move cells around to reorganize as needed.
+
+
+Once done, save your notebook and submit it as a pdf.
+
+Have the group leader turn the pdf in on canvas.

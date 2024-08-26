@@ -246,7 +246,7 @@ graded on a pass/fail basis.
 
 ## Studio Participation
 
-Each Wednesday, we will x focus on hands-on exercises that explore the
+Each Wednesday, we will focus on hands-on exercises that explore the
 material from lecture. Each student will be assigned to a small group that works
 together to carry out a set of spatial data analysis tasks. At the end of the
 session each group will submit a single notebook demonstrating their work.
