@@ -1,0 +1,416 @@
+---
+title: "Geography 385 Spatial Data Analysis"
+subtitle: "Fall 2024"
+format:
+  html:
+    theme: cosmo 
+  pdf:
+    colorlinks: true
+---
+
+<hr>
+
+
+## Class Meetings
+
+| Meeting | Location | Time                    |
+|---------|----------|-------------------------|
+| Lecture | LSN 111 | Mon & Wed 3:30 - 4:45pm |
+
+## Instructor
+
+| Name                                                     | Office hours                                                                  | Location                                                                                                                      |
+|----------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| [Sergio Rey](https://geography.sdsu.edu/people/bios/rey) | [Mon 9:00 - 10:00 (by appointment)](https://calendly.com/sjsrey/office-hours) | [PSFA 361G](https://map.concept3d.com/?id=801#!ce/12160?ct/62917,40419,40418,20161,15205,48503,54894,16202,12164?m/147097?s/) |
+
+
+
+## Introduction
+
+Welcome to 385: Spatial Data Analysis!
+
+
+The purpose of this course is to introduce you to methods of spatial data
+analysis. The focus is on both the conceptual and applied aspects of spatial
+statistical methods. We will place particular emphasis on the computational
+aspects of Exploratory Spatial Data Analysis (ESDA) methods for diﬀerent types
+of spatial data including point processes, lattice data, geostatistical data,
+network data, and spatial interaction.  Throughout the course you will gain
+valuable hands-on experience with several specialized software packages for
+spatial data analysis. The overriding goal of the course is for you to acquire
+familiarity with the fundamental methodological and operational issues in the
+statistical analysis of geographic information and the ability to extend these
+methods in your own research.
+
+The course takes an explicitly computational thinking approach to its
+pedagogy. Students are introduced to computational concepts and tools that are
+increasingly important to research that engages with geospatial data. By
+adopting these tools, students acquire a deeper engagement with, and mastery of,
+the substantive concepts. Put differently, students will *learn to code*. But
+this is a means to the end goal: students will *code to learn* spatial data
+analysis.
+
+
+In the scope of a 15-week semester course we can only introduce a handful
+of the key concepts and methods relevant to the field of spatial data analysis. As
+such, the course is not intended as an exhaustive treatment. Instead,
+the goal is that students will acquire an understanding of the more
+common and useful methods and practices, and use the course as an entry
+point for further engagement with the field.
+
+## Prerequisites
+
+
+- [GEOG 101](https://catalog.sdsu.edu/preview_course_nopop.php?catoid=5&coid=31440) or [GEOG 102](https://catalog.sdsu.edu/preview_course_nopop.php?catoid=5&coid=31442) 
+- [STAT 250](https://catalog.sdsu.edu/preview_course_nopop.php?catoid=5&coid=33000) or comparable course in statistics.
+
+All students are required to complete the [prerequisite assessment quiz](https://sdsu.instructure.com/courses/157862/quizzes/324219) before 2024-08-28 3:30pm.
+
+## Computational Learning
+
+We will be using [open
+source](https://en.wikipedia.org/wiki/Open-source_software) geospatial
+software throughout the course together with [Jupyter
+Notebooks](https://jupyter.org), and [Python](https://python.org) as our
+scripting language.
+
+All software for the course will be made available through
+[JupyterHub](https://jupyter.org/) a web-based framework. Students
+wishing to install these materials on their own machines will be given
+instructions to do so, **but this is not required**.
+
+## Readings
+
+All required readings are available through the links listed
+below. Assigned readings should be completed before the date listed in
+the schedule (see below). Readings are a critical part of the
+discussions we will hold in class, and therefore being prepared for class
+means having completed the readings and thought about the
+content. It will be difficult to do well in this course without having
+completed the readings.
+
+| Abbrevation | Source                                                                                        |
+|-------------|-----------------------------------------------------------------------------------------------|
+| [GDA][gda]  | Tenkanen, H., V. Heikinheimo, D. Whipp (2023) Python for Geographic Data Analysis. CRC Press. |
+| [GDS][gds]  | Rey, S.J., D. Arribas-Bel, L.J. Wolf (2023) Geographic Data Science with Python. CRC Press.   |
+
+
+## Schedule (Planned)
+
+| Week |  Date | Topic                           | Reading | Due                    |
+|------+-------+---------------------------------+---------+------------------------|
+|    1 |  8-26 | Introduction                    |         | [Prerequisite Quiz][quiz]   |
+|      |  8-28 | Jupyter                         |         |                        |
+|    2 |  9-02 | Labor Day (Holiday)             |         |                        |
+|      |  9-04 | Pandas                          |         |                        |
+|    3 |  9-09 | Spatial Data Analysis           |         |                        |
+|      |  9-11 | Geopandas                       |         |                        |
+|    4 |  9-16 | Area Unit Data                  |         | Topic Approval         |
+|      |  9-18 | Geoprocessing: Area Units       |         |                        |
+|    5 |  9-23 | Visualizing Area Unit Data      |         | [Python Primer][pp]    |
+|      |  9-25 | Choropleth Mapping              |         |                        |
+|    6 |  9-30 | Spatial Weights                 |         | Project Proposal       |
+|      | 10-02 | Neighbor Relations              |         | Peer Evaluation 1      |
+|    7 | 10-07 | Global Spatial Autocorrelation  |         |                        |
+|      | 10-09 | Testing for Clustering          |         |                        |
+|    8 | 10-14 | Local Spatial Autocorrelation   |         | Data Acquisition       |
+|      | 10-16 | Cluster Detection               |         | Peer Evaluation 2      |
+|    9 | 10-21 | Clustering Area Unit Data       |         |                        |
+|      | 10-23 | Region Building                 |         |                        |
+|   10 | 10-28 | Point Pattern Data              |         |                        |
+|      | 10-30 | Geoprocessing: Points           |         |                        |
+|   11 | 11-04 | Centrography                    |         | Data Visualization     |
+|      | 11-06 | Describing Point Patterns       |         | Peer Evaluation 3      |
+|   12 | 11-11 | Veteran's Day (Holiday)         |         |                        |
+|      | 11-13 | Point Process Simulation        |         |                        |
+|   13 | 11-18 | Nearest Neighbor Statistics     |         | Data Analysis          |
+|      | 11-20 | Testing for Randomness          |         | Peer Evaluation 4      |
+|   14 | 11-25 | Distance Based Statistics       |         |                        |
+|      | 11-27 | Thanksgiving (Holiday)          |         |                        |
+|   15 | 12-02 | Clustering Point Pattern Data   |         | Narrative              |
+|      | 12-04 | DBScan                          |         |                        |
+|   16 | 12-09 | Integrating Point and Area Data |         |                        |
+|      | 12-11 | Geoprocessing: Synthesis        |         | Computational Notebook |
+|   17 | 12-18 | Final Presentations (1-3pm)     |         |                        |
+
+			  				  
+[pp]: studio/python_course.qmd
+[quiz]: https://sdsu.instructure.com/courses/157862/quizzes/324219
+
+
+[gda]: https://pythongis.org/index.html
+[gds]: https://geographicdata.science/book/intro.html 
+[gds1]: https://geographicdata.science/book/notebooks/01_geo_thinking.html
+[gds2]: https://geographicdata.science/book/notebooks/02_geospatial_computational_environment.html
+[gds3]: https://geographicdata.science/book/notebooks/03_spatial_data.html
+[gds8.1]: https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html
+[gds8.2]: https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html#centrography
+[gds8.3]: https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html#randomness-clustering
+[gds9]: https://geographicdata.science/book/notebooks/09_spatial_inequality.html
+[gds11]: https://geographicdata.science/book/notebooks/11_regression.html 
+[gdsii]: https://geographicdata.science/book/intro_part_ii.html
+[gds5]:  https://geographicdata.science/book/notebooks/05_choropleth.html
+[gds6.1]:  https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html#understanding-spatial-autocorrelation
+[gds4]: https://geographicdata.science/book/notebooks/04_spatial_weights.html
+[gds5.1]:  https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html#binary-case-join-counts
+[gds5.2]: https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html#continuous-case-moran-plot-and-moran-s-i
+[gds6]: https://geographicdata.science/book/notebooks/07_local_autocorrelation.html
+[gsags]: https://www.spatialanalysisonline.com/HTML/geostatistical_interpolation_m.htm?zoom_highlightsub=geostatistical
+[gsakrg]: https://www.spatialanalysisonline.com/HTML/kriging_interpolation.htm 
+[gsaint]: https://www.spatialanalysisonline.com/HTML/deterministic_interpolation_me.htm
+[gsanet]: https://www.spatialanalysisonline.com/HTML/network_and_location_analysis.htm
+[gsareg]: https://www.spatialanalysisonline.com/HTML/regression_overview.htm?zoom_highlightsub=regression
+[sahmv]: https://www.statsref.com/HTML/multivariate_distributions.html?zoom_highlightsub=multivariate
+[sahcor]: https://www.statsref.com/HTML/correlation.html
+[sahinf]: https://www.statsref.com/HTML/simple_regression.html
+[python]: http://python.org
+[ds6]: https://www.spatialanalysisonline.com/HTML/surface_and_field_analysis.htm
+[ds65]: https://www.spatialanalysisonline.com/HTML/deterministic_interpolation_me.htm
+[ds67]: https://www.spatialanalysisonline.com/HTML/geostatistical_interpolation_m.htm
+
+
+## Grading
+
+
+
+GEOG385 uses [specification
+grading](https://www.insidehighered.com/views/2016/01/19/new-ways-grade-more-effectively-essay)
+in evaluating student work and in determining your final course grade.
+Your course grade will be based on the quality and quantity of the work
+that you submit that is evaluated to be of an acceptable level of
+quality. The acceptable level of quality demonstrates competency in the
+concepts and methods covered in the course.
+
+There is a two-step process for determination of your final course grade
+at the end of the quarter:
+
+1.  Using your quizzes and  exercises, your **base grade** is
+    determined.
+2.  Using your final exam results, determine if your base grade includes
+    a \"plus\", \"minus\", or level drop to form the course grade.
+
+
+### Base Grade
+For Step 1, the base grade is determined using the following
+specification:
+
+| Level | Thresholds                             |
+|-------|----------------------------------------|
+| A-    |  All the B- Thresholds                |
+|       |  Pass 11 or more reading quizzes      |
+|       |  Participate in 12 or more studios    |
+|       |  Complete 4 peer evaluations          |
+|       |  Presentation of Computational Essay  |
+| B-    |  All the C- Thresholds                |
+|       |  Pass 9 or more reading quizzes       |
+|       |  Participate in 8 or more studios     |
+|       |  Complete 3 peer evaluations          |
+|       |  Computational Essay                  |
+| C-    |  All the D- Thresholds                |
+|       |  Pass 6 or more reading quizzes       |
+|       |  Participate in 6 or more studios     |
+|       |  Complete 2 peer evaluations          |
+| D-    |  Pass 4 or more reading quizzes       |
+|       |  Participate in 4 or more studios     |
+|       |  Complete 1 peer evaluation           |
+| F     |  Failing to clear all the D- Thresholds |
+
+
+### Final Grade
+For Step 2, your final course grade is determined as follows:
+
+
+If your base grade is not an A-:  
+
+- 2 tokens can increment a  B(C,D)- to a B(CD)
+- 3 tokens can increment a B(C,D)- to a B(CD)+
+
+  
+If your base grade is an A-:  
+
+- 2 tokens increments an A- to an A
+- 3 tokens increments an A- to an A and earns a recommendation certificate
+
+::: {.callout-note}
+Note that SDSU grading policy does not allow A+ grades.
+:::
+
+ 
+
+## Quizzes
+
+Starting in week three, there will be a quiz due before a session that pertains to
+the background reading that is required before our work in class.  Quizzes are
+graded on a pass/fail basis.
+
+
+## Studio Participation
+
+Each Wednesday we will shift the focus to hands-on exercises that explore the
+material from lecture. Each student will be assigned to a small group that works
+together to carry out a set of spatial data analysis tasks. At the end of the
+session each group will submit a single notebook demonstrating their work.
+
+
+Each notebook is graded using a **CRN** rubric that classifies work with
+marks of **C** (\"Demonstrates Competence\"), **R** (\"Needs
+Revision\"), or **N** (\"Not assessable\"):
+
+Of each notebook the following questions will be asked: Does the work
+demonstrate that the student understands the concepts? Does the work
+demonstrate competence and meet the expectations outlined in the
+exercise?
+
+If the answer is \"yes\" to both of the questions, the group passes the
+hurdle for that studio.
+
+If the initial submission does not clear the hurdle, then a second question is
+asked: Is there evidence of partial understanding of the concepts? If the answer
+to this question is \"Yes\" the group can exchange one token (from each student)
+to attempt a revision of their work. If the answer is \"No\", the group does not
+clear the hurdle for this exercise and will not have the opportunity to revise
+their work.
+
+
+## Computational Essay
+
+
+Each student will have the opportunity to write a computational essay using Jupyter notebooks to apply the methods of ESDA to a topic of their choice, approved by the instructor. The essay should demonstrate your ability to analyze spatial data, identify patterns, and interpret the results using ESDA techniques.
+
+### Instructions
+
+#### 1. Topic Selection
+
+Select a topic of interest that involves spatial data. The topic should be
+relevant to your field of study or personal interest. Ensure that the data is
+accessible and suitable for spatial analysis. Submit your topic for approval by
+the instructor by **September 16**. If you are unsure about a topic, speak to
+the professor.
+
+#### 2. Data Acquisition
+
+Identify and acquire spatial data related to your chosen topic. This may include data from public repositories, government databases, or other reliable sources.
+
+#### 3. ESDA Techniques
+
+Apply appropriate ESDA methods such as spatial autocorrelation, clustering, and visualization techniques to explore your data. Use libraries like PySAL, GeoPandas, or others as needed.
+
+#### 4. Analysis and Interpretation
+
+Document your analysis in a Jupyter notebook. Include clear explanations of the methods used, the rationale behind your choices, and a discussion of your findings. Visualizations should be integrated into the narrative to support your analysis.
+
+#### 5. Submission
+
+Submit your Jupyter notebook along with a brief (500-word) reflection on what you learned from the analysis and how ESDA techniques enhanced your understanding of the topic.
+At submission you can indicate whether you wish to present your computational
+essay during the final period.
+
+### Deadline
+
+Submit your completed essay  by **December 12, Midnight**.
+
+
+## Final Exam Activity
+Our final exam activity is scheduled for December 18 from 1-3pm. Students who
+applied to submit their computational essay will present during this
+period. 
+
+
+
+## Tokens {#sec-tokens}
+
+Each student is provided with three tokens at the beginning of the
+semester.
+
+### Using Tokens
+
+
+1. Credit for a reading quiz that was failed (1 token).
+
+1. Obtaining a one-day extension for a milestone  prior to due date (1 token).
+
+1. Handing in a milestone activity one day late without permission (2 tokens).
+
+2. Revising  a milestone  that was submitted on-time but evaluated as \"Needing
+   Revision\" (1 token).
+
+1. Revising a studio exercise that needs revision (1 token).
+
+3. Requesting a make-up date for the presentation **by 2024-12-01 17:00** (3 tokens)
+
+4. Missing a studio session (3 tokens).
+
+5. Any tokens remaining after determination of the base grade will be used to
+   determine the final course grade (see above).
+   
+   
+To use a token you must complete a request using the [token spending form](https://docs.google.com/forms/d/e/1FAIpQLSeYNuN6sB5KuP5ZM_L72N5zRNk_CmXWXmLDqBCZAp1znkMWbg/viewform?usp=sf_link).
+
+### Earning Tokens
+
+Additional tokens can be earned in several ways:
+
+- Submitting topics for discussion in lectures in our board
+- Attending an in-person [office hour](https://calendly.com/sjsrey/office-hours) to discuss a proposed question/topic
+- Attending a geography colloquium (write a paragraph description)
+- Completing the [python primer](studio/python_course.qmd) (3 tokens)
+
+
+
+## Policies
+### Accommodations
+If you are a student with a disability and are in need of
+accommodations for this class, please contact Student Ability
+Success Center at (619) 594-6473 as soon as possible.  Please know
+accommodations are not retroactive, and I cannot provide
+accommodations based upon disability until I have received an
+accommodation letter from Student Ability Success Center.
+
+### Privacy and Intellectual Property
+Student Privacy and Intellectual Property: The Family Educational
+Rights and Privacy Act (FERPA) mandates the protection of student
+information, including contact information, grades, and graded
+assignments. I will use Canvas to communicate with you,
+and I will not post grades or leave graded assignments in public
+places. Students will be notified at the time of an assignment if
+copies of student work will be retained beyond the end of the semester
+or used as examples for future students or the wider public. Students
+maintain intellectual property rights to work products they create as
+part of this course unless they are formally notified otherwise.
+
+
+### Academic Integrity
+
+The SDSU student academic integrity policy lists violations in detail.
+These violations fall into eight broad areas that include but are not
+limited to: cheating, fabrication, plagiarism, facilitating academic
+misconduct, unauthorized collaboration, interference or sabotage,
+non-compliance with research regulations and retaliation. For more
+information about the SDSU student academic integrity policy, please see
+the following: <https://sacd.sdsu.edu/student-rights/academic-dishonesty>.
+
+
+### Code of Conduct
+
+As course instructor, I am dedicated to providing a harassment-free
+learning experience for all students, regardless of gender, sexual
+orientation, disability, physical appearance, body size, race, religion,
+or choice of operating system. All course participants are expected to
+show respect and courtesy to other students throughout the semester. As
+a learning community we do not tolerate harassment of participants in
+any form.
+
+-   All communication should be appropriate for a professional audience
+    including people of many different backgrounds. Sexual language and
+    imagery are not appropriate in this course.
+
+-   Be kind to others. Do not insult or put down other students. Behave
+    professionally. Remember that harassment and sexist, racist, or
+    exclusionary jokes are not appropriate for this course.
+
+-   Students violating these rules may be asked to leave the course, and
+    their violations will be reported to the SDSU administration.
+
+This code of conduct is an adaptation of the [SciPy 2018 Code of
+Conduct](https://scipy2018.scipy.org/ehome/299527/648147/index9a04.html).
+

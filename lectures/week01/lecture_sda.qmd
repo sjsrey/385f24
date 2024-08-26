@@ -1,0 +1,276 @@
+---
+title: "Introduction to Spatial Data Analysis"
+format: 
+  revealjs:
+    theme: simple
+    transition: slide
+    slide-number: false
+    center: true
+    toc: true
+    toc-title: Outline
+    toc-depth: 1
+    incremental: true
+    css: ../../css/custom-reveal.scss
+---
+
+	
+# Introduction to Exploratory Spatial Data Analysis
+
+	
+## Definition of Spatial Data Analysis ###
+
+- Spatial data analysis involves examining *locations*, attributes, and relationships of features in *spatial* data using statistical and computational techniques.
+
+## Exploratory Data Analysis (EDA)
+- EDA coined by John Tukey [@tukey1977ExploratoryData]
+- Set of statistical tools designed to
+  - discover "indications of unexpected phenomena"
+  - "display the unanticipated"
+  - "uncover potentially explicable patterns"
+  
+## EDA Approach
+
+- *Abductive* reasoning
+- Interaction between data exploration and human perception to
+  - detect patterns
+  - formulation of hypotheses
+
+
+## Exploratory Spatial Data Analysis (ESDA)
+
+
+> A collection of techniques to describe and visualize spatial distributions,
+> identify atypical locations or spatial outliers, discover patterns of spatial
+> association, clusters or hot spots and suggest spatial regimes or other forms
+> of spatial heterogeneity
+
+@anselin1999InteractiveTechniques
+
+## Exploratory Spatial Data Analysis (ESDA)
+- EDA extended to spatial data 
+- Maps play a central role, but it doesn't end with maps
+- Geovisualization, geospatial visual analytics
+- Combine visualizations with specialized quantitive measures
+
+## Importance of Spatial Data Analysis ####
+
+- Applications in various fields: urban planning, environmental science, public health, economics, etc.
+- Growing relevance with the rise of Geographic Information Systems (GIS) and spatial technologies.
+
+
+
+## Historical Context ####
+
+- Early use in geography and epidemiology.
+- Evolution with the development of GIS and advanced computational tools.
+
+## Snow Map 
+
+<div style="text-align: center;">
+  <img src="images/snow1.png" style="max-width: 50%; height: auto;">
+</div>
+
+@Arribas-Bel2017
+
+## Snow Map 
+
+<div style="text-align: center;">
+  <img src="images/snow2.png" style="max-width: 50%; height: auto;">
+</div>
+
+
+
+@Arribas-Bel2017
+
+
+
+
+## Scope of Spatial Analysis
+
+<div style="text-align: center;">
+  <img src="images/pysallit.png" style="max-width: 60%; height: auto;">
+</div>
+
+@rey2022PySALEcosystem
+
+# Types of Spatial Data  ##
+
+
+
+## Vector Data ###
+
+- **Definition:** Represents spatial features using points, lines, and polygons.
+- **Examples:**
+  - Points: Locations of cities, schools, or hospitals.
+  - Lines: Roads, rivers, or pipelines.
+  - Polygons: Land parcels, administrative boundaries, or lakes.
+- **Applications:** Urban planning, transportation networks, cadastral mapping.
+
+## Vector Data ##
+
+<div style="text-align: center;">
+  <img src="images/vector.png" style="max-width: 50%; height: auto;">
+</div>
+
+
+
+## Raster Data ###
+
+- **Definition:** Represents spatial phenomena as a grid of cells or pixels, each with a value representing a specific attribute.
+- **Examples:**
+  - Satellite images, digital elevation models (DEMs), land cover maps.
+- **Applications:** Environmental monitoring, remote sensing, agricultural analysis.
+
+## Raster Data ##
+
+<div style="text-align: center;">
+  <img src="images/ndvi_image_spatial_structure.png" style="max-width: 50%; height: auto;">
+</div>
+
+
+
+
+## Attribute Data ###
+
+- **Definition:** Non-spatial information associated with spatial features.
+- **Examples:**
+  - Population data linked to census tracts, land use types associated with parcels.
+- **Importance:** Provides context and meaning to spatial locations and features.
+
+
+## Attribute Data ###
+<div style="text-align: center;">
+  <img src="images/attributes.png" style="max-width: 50%; height: auto;">
+</div>
+
+
+
+## Spatio-Temporal Data ###
+
+- **Definition:** Spatial data that includes a time component, showing how spatial phenomena change over time.
+- **Examples:**
+  - Spread of diseases, changes in land use, migration patterns.
+- **Applications:** Epidemiology, climate change studies, urban development.
+
+
+## Spatio-Temporal Data ###
+<div style="text-align: center;">
+  <img src="images/Washington-Arlington-Alexandria_DC-VA-MD-WV.gif" style="max-width: 50%; height: auto;">
+</div>
+
+@knaap2019GeosnapGeospatial
+
+
+
+
+# Spatial Data Sources and Acquisition
+<!-- 10 Minutes -->
+
+
+
+## Remote Sensing ###
+
+- **Definition:** The process of collecting data about the Earth's surface from a distance, typically using satellites or aircraft.
+- **Examples:** Landsat, MODIS, LiDAR.
+- **Applications:** Environmental monitoring, disaster management, agricultural assessments.
+
+
+
+## Geographic Information Systems (GIS) ###
+
+- **Definition:** A system designed to capture, store, manipulate, analyze, manage, and present spatial or geographic data.
+- **Components:** Hardware, software, data, methods, and people.
+- **Applications:** Urban planning, transportation, environmental management.
+
+
+
+## Global Positioning System (GPS) ###
+
+- **Definition:** A satellite-based navigation system that provides location and time information.
+- **Applications:** Navigation, mapping, field data collection.
+
+
+
+## Crowdsourced Data ###
+
+- **Definition:** Data collected from a large number of people, often through mobile devices or online platforms.
+- **Examples:** OpenStreetMap, social media check-ins.
+- **Applications:** Disaster response, urban planning, public health monitoring.
+
+
+
+# Key Concepts in Spatial Data Analysis ##
+
+
+
+<!-- 10 Minutes -->
+## Spatial Autocorrelation ###
+
+- **Definition:** The degree to which objects close to each other in space are also similar in other attributes.
+- **Examples:** Clustered patterns of disease, similar land uses in neighboring areas.
+- **Measurement:** Moran's I, Geary's C.
+
+## Spatial Autocorrelation ##
+
+
+<div style="text-align: center;">
+  <img src="images/autocorrelation.png" style="max-width: 60%; height: auto;">
+</div>
+
+
+
+## Spatial Scale and Resolution ###
+
+- **Definition:** The level of detail at which spatial data is observed or represented.
+- **Examples:** Global, regional, local scales.
+- **Implications:** Affects the analysis and interpretation of spatial data.
+
+
+
+## Modifiable Areal Unit Problem (MAUP) ###
+
+- **Definition:** The issue that the results of spatial analysis can vary depending on the spatial units used.
+- **Examples:** Changing the boundaries of districts can change the outcomes of an analysis.
+- **Considerations:** Important in the design and interpretation of spatial studies.
+
+## Modifiable Areal Unit Problem (MAUP) ###
+
+
+<div style="text-align: center;">
+  <img src="images/maup_example.png" style="max-width: 60%; height: auto;">
+</div>
+
+## Spatial Interpolation ###
+
+- **Definition:** The process of estimating unknown values at certain locations based on known values at other locations.
+- **Examples:** Estimating temperature or pollution levels across a region.
+- **Methods:** Kriging, Inverse Distance Weighting (IDW).
+
+## Spatial Interpolation ##
+
+<div style="text-align: center;">
+  <img src="images/idw.png" style="max-width: 95%; height: auto;">
+</div>
+
+
+
+# Conclusion   ##
+
+
+
+## Recap of Key Points ###
+
+- Definitions of EDA, ESDA
+- Types and Sources of Spatial Data
+- Key Concepts in Spatial Data Analysis
+
+## Questions ###
+
+<div style="text-align: center;">
+  <img src="images/question.jpg" style="max-width: 60%; height: auto;">
+</div>
+
+
+  
+	  
+## References 
