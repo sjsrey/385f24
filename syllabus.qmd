@@ -27,7 +27,7 @@ format:
 
 ## Introduction
 
-Welcome to 385: Spatial Data Analysis!
+Welcome to GEOG 385: Spatial Data Analysis!
 
 
 The purpose of this course is to introduce you to methods of spatial data
@@ -75,7 +75,7 @@ Notebooks](https://jupyter.org), and [Python](https://python.org) as our
 scripting language.
 
 All software for the course will be made available through
-[JupyterHub](https://jupyter.org/) a web-based framework. Students
+[JupyterHub](https://jupyter.org/), a web-based framework. Students
 wishing to install these materials on their own machines will be given
 instructions to do so, **but this is not required**.
 
@@ -173,7 +173,7 @@ completed the readings.
 
 
 
-GEOG385 uses [specification
+GEOG 385 uses [specification
 grading](https://www.insidehighered.com/views/2016/01/19/new-ways-grade-more-effectively-essay)
 in evaluating student work and in determining your final course grade.
 Your course grade will be based on the quality and quantity of the work
@@ -246,7 +246,7 @@ graded on a pass/fail basis.
 
 ## Studio Participation
 
-Each Wednesday we will shift the focus to hands-on exercises that explore the
+Each Wednesday, we will x focus on hands-on exercises that explore the
 material from lecture. Each student will be assigned to a small group that works
 together to carry out a set of spatial data analysis tasks. At the end of the
 session each group will submit a single notebook demonstrating their work.
@@ -271,11 +271,22 @@ to attempt a revision of their work. If the answer is \"No\", the group does not
 clear the hurdle for this exercise and will not have the opportunity to revise
 their work.
 
+For our studio sessions on Wednesdays, it is essential that you bring your own
+device, such as a laptop or tablet. These sessions will involve hands-on
+activities that require access to software and online resources. Having your own
+device will allow you to fully participate and engage with the exercises. Please
+ensure your device is charged and ready to use at the start of each studio
+session. If you have any concerns about this requirement, please reach out to me
+in advance so we can make necessary arrangements.
 
 ## Computational Essay
 
 
-Each student will have the opportunity to write a computational essay using Jupyter notebooks to apply the methods of ESDA to a topic of their choice, approved by the instructor. The essay should demonstrate your ability to analyze spatial data, identify patterns, and interpret the results using ESDA techniques.
+Each student will have the opportunity to write a computational essay using
+Jupyter notebooks to apply the methods of ESDA to a topic of their choice,
+approved by the instructor. The essay should demonstrate your ability to analyze
+spatial data, identify patterns, and interpret the results using ESDA
+techniques.
 
 ### Instructions
 
@@ -304,6 +315,14 @@ Document your analysis in a Jupyter notebook. Include clear explanations of the 
 Submit your Jupyter notebook along with a brief (500-word) reflection on what you learned from the analysis and how ESDA techniques enhanced your understanding of the topic.
 At submission you can indicate whether you wish to present your computational
 essay during the final period.
+
+
+:::{.callout-important}
+
+You must demonstrate competency on each of the stages above to have the
+computational essay count towards your base grade.
+:::
+
 
 ### Deadline
 
