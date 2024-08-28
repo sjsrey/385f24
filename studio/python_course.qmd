@@ -19,7 +19,7 @@ understanding of Python, I suggest taking the Python Primer.[^credit] [^383]
 ## Instructions
 
 1. Go to <http://www.codeacademy.com> and create a free account, or sign in with a social media or GitHub account.
-2. Take the self-paced entry-level minicourse on *Python 2*.[^python3]
+2. Take the self-paced entry-level minicourse on [*Python 2*](https://www.codecademy.com/learn/learn-python).[^python3]
 3. The minicourse has 12 units, each with 1-2 lessons to be done in a browser. Complete the first 9 units of the course, up to and including "Exam Statistics."
 
 ::: {.callout-tip}

@@ -8,18 +8,28 @@ jupyter: python3
 ## Purpose
 This handout provides instructions on how to use Google Meet for small group work, including creating a meeting, sharing screens (with sound off), and using the chat feature to collaborate on in-class studios.
 
+## Find Your Team
+
+Teams are randomly constructed. To find your team:
+
+1. Visit the link for the team assignments for [Studio 1][S1].
+2. The first person listed is the group leader. If the first person is not
+   present, the first person next on the list who is present is the group leader
+   for the studio.
+
+
+[S1]: https://sdsu.instructure.com/courses/157862/discussion_topics/1088270
+
 ## Getting Started with Google Meet
 
-1. **Designating a Group Leader**
-   - The instructor will designate a group leader for each group.
+
+1. **Group Leader**
    - The group leader will be responsible for creating the Google Meet session.
 
 2. **Creating a Google Meet Session**
    - The group leader should sign in to their Google account.
-   - Go to [Google Meet](https://meet.google.com).
-   - Click on the "New meeting" button and select "Start an instant meeting."
-   - Once in the meeting, click on "Add others" to get the meeting link.
-   - Copy the meeting link and share it with the other group members through email, chat, or any communication platform you are using.
+   - Using the Team Meeting link at the bottom of the [Studio 1][S1] Team
+     listing, the Group Leader should start the meeting..
 
 3. **Joining the Google Meet Session**
    - Each group member should click the link provided by the group leader to join the session.

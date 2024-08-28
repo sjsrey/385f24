@@ -1,16 +1,9 @@
 ---
 title: "Week 1 Lecture: Course Overview"
-format: 
-  revealjs:
-    theme: simple
-    transition: slide
-    slide-number: true
-    center: true
-    toc-title: Outline
-    toc: true
-    incremental: true
-    css: styles/custom-reveal.scss
+format: html
 ---
+
+In this first lecture we will provide an overview of the course.
 
 
 ## Syllabus
