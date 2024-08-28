@@ -53,7 +53,7 @@
     "href": "syllabus.html#schedule-planned",
     "title": "Geography 385 Spatial Data Analysis",
     "section": "Schedule (Planned)",
-    "text": "Schedule (Planned)\n\n\n\nWeek\nDate\nTopic\nReading\nDue\n\n\n\n\n1\n8-26\nIntroduction\n\nPrerequisite Quiz\n\n\n\n8-28\nJupyter\n\n\n\n\n2\n9-02\nLabor Day (Holiday)\n\n\n\n\n\n9-04\nPandas\n\n\n\n\n3\n9-09\nSpatial Data Analysis\n\n\n\n\n\n9-11\nGeopandas\n\n\n\n\n4\n9-16\nArea Unit Data\n\nTopic Approval\n\n\n\n9-18\nGeoprocessing: Area Units\n\n\n\n\n5\n9-23\nVisualizing Area Unit Data\n\nPython Primer\n\n\n\n9-25\nChoropleth Mapping\n\n\n\n\n6\n9-30\nSpatial Weights\n\nProject Proposal\n\n\n\n10-02\nNeighbor Relations\n\nPeer Evaluation 1\n\n\n7\n10-07\nGlobal Spatial Autocorrelation\n\n\n\n\n\n10-09\nTesting for Clustering\n\n\n\n\n8\n10-14\nLocal Spatial Autocorrelation\n\nData Acquisition\n\n\n\n10-16\nCluster Detection\n\nPeer Evaluation 2\n\n\n9\n10-21\nClustering Area Unit Data\n\n\n\n\n\n10-23\nRegion Building\n\n\n\n\n10\n10-28\nPoint Pattern Data\n\n\n\n\n\n10-30\nGeoprocessing: Points\n\n\n\n\n11\n11-04\nCentrography\n\nData Visualization\n\n\n\n11-06\nDescribing Point Patterns\n\nPeer Evaluation 3\n\n\n12\n11-11\nVeteran’s Day (Holiday)\n\n\n\n\n\n11-13\nPoint Process Simulation\n\n\n\n\n13\n11-18\nNearest Neighbor Statistics\n\nData Analysis\n\n\n\n11-20\nTesting for Randomness\n\nPeer Evaluation 4\n\n\n14\n11-25\nDistance Based Statistics\n\n\n\n\n\n11-27\nThanksgiving (Holiday)\n\n\n\n\n15\n12-02\nClustering Point Pattern Data\n\nNarrative\n\n\n\n12-04\nDBScan\n\n\n\n\n16\n12-09\nIntegrating Point and Area Data\n\n\n\n\n\n12-11\nGeoprocessing: Synthesis\n\nComputational Notebook\n\n\n17\n12-18\nFinal Presentations (1-3pm)"
+    "text": "Schedule (Planned)\n\n\n\nWeek\nDate\nTopic\nReading\nDue\n\n\n\n\n1\n8-26\nIntroduction\n\nPrerequisite Quiz\n\n\n\n8-28\nJupyter\n\n\n\n\n2\n9-02\nLabor Day (Holiday)\n\n\n\n\n\n9-04\nPandas\nGDA 3\n\n\n\n3\n9-09\nSpatial Data Analysis\nGDS 1\n\n\n\n\n9-11\nGeopandas\nGDA 6\n\n\n\n4\n9-16\nArea Unit Data\nGDS 3\nTopic Approval\n\n\n\n9-18\nGeoprocessing: Area Units\nGDA 6\n\n\n\n5\n9-23\nVisualizing Area Unit Data\nGDS 5\nPython Primer\n\n\n\n9-25\nChoropleth Mapping\n\n\n\n\n6\n9-30\nSpatial Weights\nGDS 4\nProject Proposal\n\n\n\n10-02\nNeighbor Relations\n\nPeer Evaluation 1\n\n\n7\n10-07\nGlobal Spatial Autocorrelation\nGDS 6\n\n\n\n\n10-09\nTesting for Clustering\n\n\n\n\n8\n10-14\nLocal Spatial Autocorrelation\nGDS 7\nData Acquisition\n\n\n\n10-16\nCluster Detection\n\nPeer Evaluation 2\n\n\n9\n10-21\nClustering Area Unit Data\nGDS 10\n\n\n\n\n10-23\nRegion Building\n\n\n\n\n10\n10-28\nPoint Pattern Data\nGDS 8.1\n\n\n\n\n10-30\nGeoprocessing: Points\n\n\n\n\n11\n11-04\nCentrography\nGDS8.2\nData Visualization\n\n\n\n11-06\nDescribing Point Patterns\n\nPeer Evaluation 3\n\n\n12\n11-11\nVeteran’s Day (Holiday)\n\n\n\n\n\n11-13\nPoint Process Simulation\nGDS 8.3\n\n\n\n13\n11-18\nNearest Neighbor Statistics\n\nData Analysis\n\n\n\n11-20\nTesting for Randomness\n\nPeer Evaluation 4\n\n\n14\n11-25\nDistance Based Statistics\n\n\n\n\n\n11-27\nThanksgiving (Holiday)\n\n\n\n\n15\n12-02\nClustering Point Pattern Data\n\nNarrative\n\n\n\n12-04\nDBScan\n\n\n\n\n16\n12-09\nIntegrating Point and Area Data\n\n\n\n\n\n12-11\nGeoprocessing: Synthesis\n\nComputational Notebook\n\n\n17\n12-18\nFinal Presentations (1-3pm)"
   },
   {
     "objectID": "syllabus.html#grading",
@@ -119,8 +119,19 @@
     "text": "Please refer to the course syllabus for detailed information on course structure, grading, and policies."
   },
   {
-    "objectID": "lectures/week01/lecture.html#syllabus",
-    "href": "lectures/week01/lecture.html#syllabus",
+    "objectID": "lectures/week01/index.html",
+    "href": "lectures/week01/index.html",
+    "title": "Week 1 Lecture: Course Overview",
+    "section": "",
+    "text": "In this first lecture we will provide an overview of the course.",
+    "crumbs": [
+      "Home",
+      "09-26 Course Overview"
+    ]
+  },
+  {
+    "objectID": "lectures/week01/index.html#syllabus",
+    "href": "lectures/week01/index.html#syllabus",
     "title": "Week 1 Lecture: Course Overview",
     "section": "Syllabus",
     "text": "Syllabus\nReview Course Syllabus",
@@ -130,8 +141,8 @@
     ]
   },
   {
-    "objectID": "lectures/week01/lecture.html#spatial-data-analysis",
-    "href": "lectures/week01/lecture.html#spatial-data-analysis",
+    "objectID": "lectures/week01/index.html#spatial-data-analysis",
+    "href": "lectures/week01/index.html#spatial-data-analysis",
     "title": "Week 1 Lecture: Course Overview",
     "section": "Spatial Data Analysis",
     "text": "Spatial Data Analysis\nlecture",
@@ -139,6 +150,521 @@
       "Home",
       "09-26 Course Overview"
     ]
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#definition-of-spatial-data-analysis",
+    "href": "lectures/week01/lecture_sda.html#definition-of-spatial-data-analysis",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Definition of Spatial Data Analysis",
+    "text": "Definition of Spatial Data Analysis\n\nSpatial data analysis involves examining locations, attributes, and relationships of features in spatial data using statistical and computational techniques."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#exploratory-data-analysis-eda",
+    "href": "lectures/week01/lecture_sda.html#exploratory-data-analysis-eda",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nEDA coined by John Tukey (Tukey 1977)\nSet of statistical tools designed to\n\ndiscover “indications of unexpected phenomena”\n“display the unanticipated”\n“uncover potentially explicable patterns”"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#eda-approach",
+    "href": "lectures/week01/lecture_sda.html#eda-approach",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "EDA Approach",
+    "text": "EDA Approach\n\nAbductive reasoning\nInteraction between data exploration and human perception to\n\ndetect patterns\nformulation of hypotheses"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#exploratory-spatial-data-analysis-esda",
+    "href": "lectures/week01/lecture_sda.html#exploratory-spatial-data-analysis-esda",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Exploratory Spatial Data Analysis (ESDA)",
+    "text": "Exploratory Spatial Data Analysis (ESDA)\n\nA collection of techniques to describe and visualize spatial distributions, identify atypical locations or spatial outliers, discover patterns of spatial association, clusters or hot spots and suggest spatial regimes or other forms of spatial heterogeneity\n\nAnselin (1999)"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#exploratory-spatial-data-analysis-esda-1",
+    "href": "lectures/week01/lecture_sda.html#exploratory-spatial-data-analysis-esda-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Exploratory Spatial Data Analysis (ESDA)",
+    "text": "Exploratory Spatial Data Analysis (ESDA)\n\nEDA extended to spatial data\nMaps play a central role, but it doesn’t end with maps\nGeovisualization, geospatial visual analytics\nCombine visualizations with specialized quantitive measures"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#importance-of-spatial-data-analysis",
+    "href": "lectures/week01/lecture_sda.html#importance-of-spatial-data-analysis",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Importance of Spatial Data Analysis",
+    "text": "Importance of Spatial Data Analysis\n\nApplications in various fields: urban planning, environmental science, public health, economics, etc.\nGrowing relevance with the rise of Geographic Information Systems (GIS) and spatial technologies."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#historical-context",
+    "href": "lectures/week01/lecture_sda.html#historical-context",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Historical Context",
+    "text": "Historical Context\n\nEarly use in geography and epidemiology.\nEvolution with the development of GIS and advanced computational tools."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#snow-map",
+    "href": "lectures/week01/lecture_sda.html#snow-map",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Snow Map",
+    "text": "Snow Map\n\n\n\nArribas-Bel, de Graaff, and Rey (2017)"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#snow-map-1",
+    "href": "lectures/week01/lecture_sda.html#snow-map-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Snow Map",
+    "text": "Snow Map\n\n\n\nArribas-Bel, de Graaff, and Rey (2017)"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#scope-of-spatial-analysis",
+    "href": "lectures/week01/lecture_sda.html#scope-of-spatial-analysis",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Scope of Spatial Analysis",
+    "text": "Scope of Spatial Analysis\n\n\n\nRey et al. (2022)"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#vector-data",
+    "href": "lectures/week01/lecture_sda.html#vector-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Vector Data",
+    "text": "Vector Data\n\nDefinition: Represents spatial features using points, lines, and polygons.\nExamples:\n\nPoints: Locations of cities, schools, or hospitals.\nLines: Roads, rivers, or pipelines.\nPolygons: Land parcels, administrative boundaries, or lakes.\n\nApplications: Urban planning, transportation networks, cadastral mapping."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#vector-data-1",
+    "href": "lectures/week01/lecture_sda.html#vector-data-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Vector Data",
+    "text": "Vector Data"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#raster-data",
+    "href": "lectures/week01/lecture_sda.html#raster-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Raster Data",
+    "text": "Raster Data\n\nDefinition: Represents spatial phenomena as a grid of cells or pixels, each with a value representing a specific attribute.\nExamples:\n\nSatellite images, digital elevation models (DEMs), land cover maps.\n\nApplications: Environmental monitoring, remote sensing, agricultural analysis."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#raster-data-1",
+    "href": "lectures/week01/lecture_sda.html#raster-data-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Raster Data",
+    "text": "Raster Data"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#attribute-data",
+    "href": "lectures/week01/lecture_sda.html#attribute-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Attribute Data",
+    "text": "Attribute Data\n\nDefinition: Non-spatial information associated with spatial features.\nExamples:\n\nPopulation data linked to census tracts, land use types associated with parcels.\n\nImportance: Provides context and meaning to spatial locations and features."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#attribute-data-1",
+    "href": "lectures/week01/lecture_sda.html#attribute-data-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Attribute Data",
+    "text": "Attribute Data"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#spatio-temporal-data",
+    "href": "lectures/week01/lecture_sda.html#spatio-temporal-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatio-Temporal Data",
+    "text": "Spatio-Temporal Data\n\nDefinition: Spatial data that includes a time component, showing how spatial phenomena change over time.\nExamples:\n\nSpread of diseases, changes in land use, migration patterns.\n\nApplications: Epidemiology, climate change studies, urban development."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#spatio-temporal-data-1",
+    "href": "lectures/week01/lecture_sda.html#spatio-temporal-data-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatio-Temporal Data",
+    "text": "Spatio-Temporal Data\n\n\n\nKnaap et al. (2019)"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#remote-sensing",
+    "href": "lectures/week01/lecture_sda.html#remote-sensing",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Remote Sensing",
+    "text": "Remote Sensing\n\nDefinition: The process of collecting data about the Earth’s surface from a distance, typically using satellites or aircraft.\nExamples: Landsat, MODIS, LiDAR.\nApplications: Environmental monitoring, disaster management, agricultural assessments."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#geographic-information-systems-gis",
+    "href": "lectures/week01/lecture_sda.html#geographic-information-systems-gis",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Geographic Information Systems (GIS)",
+    "text": "Geographic Information Systems (GIS)\n\nDefinition: A system designed to capture, store, manipulate, analyze, manage, and present spatial or geographic data.\nComponents: Hardware, software, data, methods, and people.\nApplications: Urban planning, transportation, environmental management."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#global-positioning-system-gps",
+    "href": "lectures/week01/lecture_sda.html#global-positioning-system-gps",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Global Positioning System (GPS)",
+    "text": "Global Positioning System (GPS)\n\nDefinition: A satellite-based navigation system that provides location and time information.\nApplications: Navigation, mapping, field data collection."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#crowdsourced-data",
+    "href": "lectures/week01/lecture_sda.html#crowdsourced-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Crowdsourced Data",
+    "text": "Crowdsourced Data\n\nDefinition: Data collected from a large number of people, often through mobile devices or online platforms.\nExamples: OpenStreetMap, social media check-ins.\nApplications: Disaster response, urban planning, public health monitoring."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#spatial-autocorrelation",
+    "href": "lectures/week01/lecture_sda.html#spatial-autocorrelation",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Autocorrelation",
+    "text": "Spatial Autocorrelation\n\nDefinition: The degree to which objects close to each other in space are also similar in other attributes.\nExamples: Clustered patterns of disease, similar land uses in neighboring areas.\nMeasurement: Moran’s I, Geary’s C."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#spatial-autocorrelation-1",
+    "href": "lectures/week01/lecture_sda.html#spatial-autocorrelation-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Autocorrelation",
+    "text": "Spatial Autocorrelation"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#spatial-scale-and-resolution",
+    "href": "lectures/week01/lecture_sda.html#spatial-scale-and-resolution",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Scale and Resolution",
+    "text": "Spatial Scale and Resolution\n\nDefinition: The level of detail at which spatial data is observed or represented.\nExamples: Global, regional, local scales.\nImplications: Affects the analysis and interpretation of spatial data."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#modifiable-areal-unit-problem-maup",
+    "href": "lectures/week01/lecture_sda.html#modifiable-areal-unit-problem-maup",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Modifiable Areal Unit Problem (MAUP)",
+    "text": "Modifiable Areal Unit Problem (MAUP)\n\nDefinition: The issue that the results of spatial analysis can vary depending on the spatial units used.\nExamples: Changing the boundaries of districts can change the outcomes of an analysis.\nConsiderations: Important in the design and interpretation of spatial studies."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#modifiable-areal-unit-problem-maup-1",
+    "href": "lectures/week01/lecture_sda.html#modifiable-areal-unit-problem-maup-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Modifiable Areal Unit Problem (MAUP)",
+    "text": "Modifiable Areal Unit Problem (MAUP)"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#spatial-interpolation",
+    "href": "lectures/week01/lecture_sda.html#spatial-interpolation",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Interpolation",
+    "text": "Spatial Interpolation\n\nDefinition: The process of estimating unknown values at certain locations based on known values at other locations.\nExamples: Estimating temperature or pollution levels across a region.\nMethods: Kriging, Inverse Distance Weighting (IDW)."
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#spatial-interpolation-1",
+    "href": "lectures/week01/lecture_sda.html#spatial-interpolation-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Interpolation",
+    "text": "Spatial Interpolation"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#recap-of-key-points",
+    "href": "lectures/week01/lecture_sda.html#recap-of-key-points",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Recap of Key Points",
+    "text": "Recap of Key Points\n\nDefinitions of EDA, ESDA\nTypes and Sources of Spatial Data\nKey Concepts in Spatial Data Analysis"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#questions",
+    "href": "lectures/week01/lecture_sda.html#questions",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Questions",
+    "text": "Questions"
+  },
+  {
+    "objectID": "lectures/week01/lecture_sda.html#references",
+    "href": "lectures/week01/lecture_sda.html#references",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\n\nAnselin, L. 1999. “Interactive Techniques and Exploratory Spatial Data Analysis.” In Geographical Information Systems: Principles, Techniques, Management and Applications, edited by P. A. Longley, M. Goodchild, D. J. Maguire, and D. W. Rhind, 251–64.\n\n\nArribas-Bel, Daniel, Thomas de Graaff, and Sergio J. Rey. 2017. “Looking at John Snow’s Cholera Map from the Twenty First Century: A Practical Primer on Reproducibility and Open Science.” In Regional Research Frontiers - Vol. 2: Methodological Advances, Regional Systems Modeling and Open Sciences, edited by Randall Jackson and Peter Schaeffer, 283–306. Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-50590-9_17.\n\n\nKnaap, Elijah, Wei Kang, Sergio Rey, Levi John Wolf, Renan Xavier Cortes, and Su Han. 2019. “Geosnap: The Geospatial Neighborhood Analysis Package.” Zenodo. https://doi.org/10.5281/ZENODO.3526163.\n\n\nRey, Sergio J., Luc Anselin, Pedro Amaral, Dani Arribas-Bel, Renan Xavier Cortes, James David Gaboardi, Wei Kang, et al. 2022. “The PySAL Ecosystem: Philosophy and Implementation.” Geographical Analysis 54 (3): 467–87. https://doi.org/10.1111/gean.12276.\n\n\nTukey, J. W. 1977. Exploratory Data Analysis. New York: Addison-Wesley."
+  },
+  {
+    "objectID": "studio/python_course.html",
+    "href": "studio/python_course.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "studio/python_course.html#instructions",
+    "href": "studio/python_course.html#instructions",
+    "title": "",
+    "section": "Instructions",
+    "text": "Instructions\n\nGo to http://www.codeacademy.com and create a free account, or sign in with a social media or GitHub account.\nTake the self-paced entry-level minicourse on Python 2.3\nThe minicourse has 12 units, each with 1-2 lessons to be done in a browser. Complete the first 9 units of the course, up to and including “Exam Statistics.”\n\n\n\n\n\n\n\nTime Requirements\n\n\n\nCompleting this primer should take between 6-8 hours. You should spread out your effort in 30-minute chunks over a few weeks."
+  },
+  {
+    "objectID": "studio/python_course.html#submission-due-september-23-330-pm",
+    "href": "studio/python_course.html#submission-due-september-23-330-pm",
+    "title": "",
+    "section": "Submission (Due: September 23, 3:30 PM)",
+    "text": "Submission (Due: September 23, 3:30 PM)\nWhen you have completed the nine units, take a screenshot that shows your name on the screen as well as all the checks. Upload the screenshot to Canvas."
+  },
+  {
+    "objectID": "studio/python_course.html#footnotes",
+    "href": "studio/python_course.html#footnotes",
+    "title": "",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe Python Primer is inspired by and modeled after the work of Robert Talbert.↩︎\nIf you are interested in further exploring Python for geography, an excellent course is Geog 383.↩︎\nDo not sign up for the Python 3 course as it is not free. We will cover the main differences between Python 2 and Python 3 in the studio sessions.↩︎"
+  },
+  {
+    "objectID": "studio/week01/index.html",
+    "href": "studio/week01/index.html",
+    "title": "Studio 1: Jupyter Hub",
+    "section": "",
+    "text": "In this first studio session, we will do three things:\n\nGet started with Jupyter Hub\nSet up collaboration in studios\nCollaborate on our first studio activity",
+    "crumbs": [
+      "Home",
+      "09-28 Studio 1: Jupyter Hub"
+    ]
+  },
+  {
+    "objectID": "studio/week01/jupyter.html",
+    "href": "studio/week01/jupyter.html",
+    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
+    "section": "",
+    "text": "In this exercise, you will practice basic operations in Jupyter notebooks, including writing and running Python code, working with Markdown cells, and performing simple data operations."
+  },
+  {
+    "objectID": "studio/week01/jupyter.html#setting-up-the-notebook",
+    "href": "studio/week01/jupyter.html#setting-up-the-notebook",
+    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
+    "section": "1. Setting Up the Notebook",
+    "text": "1. Setting Up the Notebook\n\nCreate a new notebook.\nRename it to GroupX.ipynb where X is your group number.\n\nAdd some structure at the top cells:\n# Group Exercise 1\n\nThis notebook is for practicing basic operations in Jupyter notebooks. It includes examples of using Python code and Markdown cells to document the work.\nAdd a subsection with the name Team and underneath the subsection add a bulleted list with the names of the team members.\nPut the leader’s name in bold.\nAdd a second subsection that contains a second bulleted list. Give the subsection the title Links In this list add a link to a site that each group member suggests as interesting to the class."
+  },
+  {
+    "objectID": "studio/week01/jupyter.html#basic-code-operations",
+    "href": "studio/week01/jupyter.html#basic-code-operations",
+    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
+    "section": "2. Basic Code Operations",
+    "text": "2. Basic Code Operations\nIn this section, you’ll write and run some simple Python code.\n# Task 1: Print a welcome message\nprint(\"Welcome to JupyterHub!\")\n# Task 2: Perform a simple arithmetic operation\n10 * 3\nprint(f'The value 10 * 3 is equal to {10 * 3}')\nRun these cells, and explore what happens as you change some of the values.\nCreate some new code cells that extend on these ideas."
+  },
+  {
+    "objectID": "studio/week01/jupyter.html#working-with-data",
+    "href": "studio/week01/jupyter.html#working-with-data",
+    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
+    "section": "3. Working with Data",
+    "text": "3. Working with Data\nIn this section, you’ll work with a small dataset.\n\nLoad and Display the Dataset\ndata = [100, 20, 90, 40, 50, 30, 10]\n\n# Display the dataset\ndata\n\n\nPerform a Basic Analysis\n# Task: Calculate the sum of the numbers in the dataset\nsum(data)\n# Task: Calculate the mean of the numbers in the dataset\nmean_value = sum(data) / len(data)\nmean_value\nHow would you sort the data using python? Show your answer in a code cell.\nAs a group, come up with an answer to the questions: Is the data skewed? If so, in what way? Add Markdown cells that describe your reasoning used to come up with your answers."
+  },
+  {
+    "objectID": "studio/week01/jupyter.html#documenting-the-analysis",
+    "href": "studio/week01/jupyter.html#documenting-the-analysis",
+    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
+    "section": "4. Documenting the Analysis",
+    "text": "4. Documenting the Analysis\nUse Markdown cells to document your code and results. For example:\n## Dataset Analysis\n\nWe loaded a dataset containing the numbers 10, 20, 30, 40, 50, 90, 100. Below is the sum and mean of these numbers.\n\nWith regard to skewness, we find ...."
+  },
+  {
+    "objectID": "studio/week01/jupyter.html#final-touches-and-submission",
+    "href": "studio/week01/jupyter.html#final-touches-and-submission",
+    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
+    "section": "5. Final Touches and Submission",
+    "text": "5. Final Touches and Submission\nReview your notebook as a group. Ensure that it is well-organized and the code is properly documented. Use the ability to move cells around to reorganize as needed.\nOnce done, save your notebook as a pdf.\nHave the group leader turn the pdf in on canvas."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#class-meetings",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#class-meetings",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Class Meetings",
+    "text": "Class Meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nLSN 111\nMon & Wed 3:30 - 4:45pm"
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#instructor",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#instructor",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Instructor",
+    "text": "Instructor\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nSergio Rey\nMon 9:00 - 10:00 (by appointment)\nPSFA 361G"
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#introduction",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#introduction",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Introduction",
+    "text": "Introduction\nWelcome to 385: Spatial Data Analysis!\nThe purpose of this course is to introduce you to methods of spatial data analysis. The focus is on both the conceptual and applied aspects of spatial statistical methods. We will place particular emphasis on the computational aspects of Exploratory Spatial Data Analysis (ESDA) methods for diﬀerent types of spatial data including point processes, lattice data, geostatistical data, network data, and spatial interaction. Throughout the course you will gain valuable hands-on experience with several specialized software packages for spatial data analysis. The overriding goal of the course is for you to acquire familiarity with the fundamental methodological and operational issues in the statistical analysis of geographic information and the ability to extend these methods in your own research.\nThe course takes an explicitly computational thinking approach to its pedagogy. Students are introduced to computational concepts and tools that are increasingly important to research that engages with geospatial data. By adopting these tools, students acquire a deeper engagement with, and mastery of, the substantive concepts. Put differently, students will learn to code. But this is a means to the end goal: students will code to learn spatial data analysis.\nIn the scope of a 15-week semester course we can only introduce a handful of the key concepts and methods relevant to the field of spatial data analysis. As such, the course is not intended as an exhaustive treatment. Instead, the goal is that students will acquire an understanding of the more common and useful methods and practices, and use the course as an entry point for further engagement with the field."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#prerequisites",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#prerequisites",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nGEOG 101 or GEOG 102\nSTAT 250 or comparable course in statistics.\n\nAll students are required to complete the prerequisite assessment quiz before 2024-08-28 3:30pm."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#computational-learning",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#computational-learning",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Computational Learning",
+    "text": "Computational Learning\nWe will be using open source geospatial software throughout the course together with Jupyter Notebooks, and Python as our scripting language.\nAll software for the course will be made available through JupyterHub a web-based framework. Students wishing to install these materials on their own machines will be given instructions to do so, but this is not required."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#readings",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#readings",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Readings",
+    "text": "Readings\nAll required readings are available through the links listed below. Assigned readings should be completed before the date listed in the schedule (see below). Readings are a critical part of the discussions we will hold in class, and therefore being prepared for class means having completed the readings and thought about the content. It will be difficult to do well in this course without having completed the readings.\n\n\n\nAbbrevation\nSource\n\n\n\n\nGDA\nTenkanen, H., V. Heikinheimo, D. Whipp (2023) Python for Geographic Data Analysis. CRC Press.\n\n\nGDS\nRey, S.J., D. Arribas-Bel, L.J. Wolf (2023) Geographic Data Science with Python. CRC Press."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#schedule-planned",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#schedule-planned",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Schedule (Planned)",
+    "text": "Schedule (Planned)\n\n\n\nWeek\nDate\nTopic\nReading\nDue\n\n\n\n\n1\n8-26\nIntroduction\n\nPrerequisite Quiz\n\n\n\n8-28\nJupyter\n\n\n\n\n2\n9-02\nLabor Day (Holiday)\n\n\n\n\n\n9-04\nPandas\n\n\n\n\n3\n9-09\nSpatial Data Analysis\n\n\n\n\n\n9-11\nGeopandas\n\n\n\n\n4\n9-16\nArea Unit Data\n\nTopic Approval\n\n\n\n9-18\nGeoprocessing: Area Units\n\n\n\n\n5\n9-23\nVisualizing Area Unit Data\n\nPython Primer\n\n\n\n9-25\nChoropleth Mapping\n\n\n\n\n6\n9-30\nSpatial Weights\n\nProject Proposal\n\n\n\n10-02\nNeighbor Relations\n\nPeer Evaluation 1\n\n\n7\n10-07\nGlobal Spatial Autocorrelation\n\n\n\n\n\n10-09\nTesting for Clustering\n\n\n\n\n8\n10-14\nLocal Spatial Autocorrelation\n\nData Acquisition\n\n\n\n10-16\nCluster Detection\n\nPeer Evaluation 2\n\n\n9\n10-21\nClustering Area Unit Data\n\n\n\n\n\n10-23\nRegion Building\n\n\n\n\n10\n10-28\nPoint Pattern Data\n\n\n\n\n\n10-30\nGeoprocessing: Points\n\n\n\n\n11\n11-04\nCentrography\n\nData Visualization\n\n\n\n11-06\nDescribing Point Patterns\n\nPeer Evaluation 3\n\n\n12\n11-11\nVeteran’s Day (Holiday)\n\n\n\n\n\n11-13\nPoint Process Simulation\n\n\n\n\n13\n11-18\nNearest Neighbor Statistics\n\nData Analysis\n\n\n\n11-20\nTesting for Randomness\n\nPeer Evaluation 4\n\n\n14\n11-25\nDistance Based Statistics\n\n\n\n\n\n11-27\nThanksgiving (Holiday)\n\n\n\n\n15\n12-02\nClustering Point Pattern Data\n\nNarrative\n\n\n\n12-04\nDBScan\n\n\n\n\n16\n12-09\nIntegrating Point and Area Data\n\n\n\n\n\n12-11\nGeoprocessing: Synthesis\n\nComputational Notebook\n\n\n17\n12-18\nFinal Presentations (1-3pm)"
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#grading",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#grading",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Grading",
+    "text": "Grading\nGEOG385 uses specification grading in evaluating student work and in determining your final course grade. Your course grade will be based on the quality and quantity of the work that you submit that is evaluated to be of an acceptable level of quality. The acceptable level of quality demonstrates competency in the concepts and methods covered in the course.\nThere is a two-step process for determination of your final course grade at the end of the quarter:\n\nUsing your quizzes and exercises, your base grade is determined.\nUsing your final exam results, determine if your base grade includes a \"plus\", \"minus\", or level drop to form the course grade.\n\n\nBase Grade\nFor Step 1, the base grade is determined using the following specification:\n\n\n\nLevel\nThresholds\n\n\n\n\nA-\nAll the B- Thresholds\n\n\n\nPass 11 or more reading quizzes\n\n\n\nParticipate in 12 or more studios\n\n\n\nComplete 4 peer evaluations\n\n\n\nPresentation of Computational Essay\n\n\nB-\nAll the C- Thresholds\n\n\n\nPass 9 or more reading quizzes\n\n\n\nParticipate in 8 or more studios\n\n\n\nComplete 3 peer evaluations\n\n\n\nComputational Essay\n\n\nC-\nAll the D- Thresholds\n\n\n\nPass 6 or more reading quizzes\n\n\n\nParticipate in 6 or more studios\n\n\n\nComplete 2 peer evaluations\n\n\nD-\nPass 4 or more reading quizzes\n\n\n\nParticipate in 4 or more studios\n\n\n\nComplete 1 peer evaluation\n\n\nF\nFailing to clear all the D- Thresholds\n\n\n\n\n\nFinal Grade\nFor Step 2, your final course grade is determined as follows:\nIf your base grade is not an A-:\n\n2 tokens can increment a B(C,D)- to a B(CD)\n3 tokens can increment a B(C,D)- to a B(CD)+\n\nIf your base grade is an A-:\n\n2 tokens increments an A- to an A\n3 tokens increments an A- to an A and earns a recommendation certificate\n\n\n\n\n\n\n\nNote\n\n\n\nNote that SDSU grading policy does not allow A+ grades."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#quizzes",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#quizzes",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Quizzes",
+    "text": "Quizzes\nStarting in week three, there will be a quiz due before a session that pertains to the background reading that is required before our work in class. Quizzes are graded on a pass/fail basis."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#studio-participation",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#studio-participation",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Studio Participation",
+    "text": "Studio Participation\nEach Wednesday we will shift the focus to hands-on exercises that explore the material from lecture. Each student will be assigned to a small group that works together to carry out a set of spatial data analysis tasks. At the end of the session each group will submit a single notebook demonstrating their work.\nEach notebook is graded using a CRN rubric that classifies work with marks of C (\"Demonstrates Competence\"), R (\"Needs Revision\"), or N (\"Not assessable\"):\nOf each notebook the following questions will be asked: Does the work demonstrate that the student understands the concepts? Does the work demonstrate competence and meet the expectations outlined in the exercise?\nIf the answer is \"yes\" to both of the questions, the group passes the hurdle for that studio.\nIf the initial submission does not clear the hurdle, then a second question is asked: Is there evidence of partial understanding of the concepts? If the answer to this question is \"Yes\" the group can exchange one token (from each student) to attempt a revision of their work. If the answer is \"No\", the group does not clear the hurdle for this exercise and will not have the opportunity to revise their work."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#computational-essay",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#computational-essay",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Computational Essay",
+    "text": "Computational Essay\nEach student will have the opportunity to write a computational essay using Jupyter notebooks to apply the methods of ESDA to a topic of their choice, approved by the instructor. The essay should demonstrate your ability to analyze spatial data, identify patterns, and interpret the results using ESDA techniques.\n\nInstructions\n\n1. Topic Selection\nSelect a topic of interest that involves spatial data. The topic should be relevant to your field of study or personal interest. Ensure that the data is accessible and suitable for spatial analysis. Submit your topic for approval by the instructor by September 16. If you are unsure about a topic, speak to the professor.\n\n\n2. Data Acquisition\nIdentify and acquire spatial data related to your chosen topic. This may include data from public repositories, government databases, or other reliable sources.\n\n\n3. ESDA Techniques\nApply appropriate ESDA methods such as spatial autocorrelation, clustering, and visualization techniques to explore your data. Use libraries like PySAL, GeoPandas, or others as needed.\n\n\n4. Analysis and Interpretation\nDocument your analysis in a Jupyter notebook. Include clear explanations of the methods used, the rationale behind your choices, and a discussion of your findings. Visualizations should be integrated into the narrative to support your analysis.\n\n\n5. Submission\nSubmit your Jupyter notebook along with a brief (500-word) reflection on what you learned from the analysis and how ESDA techniques enhanced your understanding of the topic. At submission you can indicate whether you wish to present your computational essay during the final period.\n\n\n\nDeadline\nSubmit your completed essay by December 12, Midnight."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#final-exam-activity",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#final-exam-activity",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Final Exam Activity",
+    "text": "Final Exam Activity\nOur final exam activity is scheduled for December 18 from 1-3pm. Students who applied to submit their computational essay will present during this period."
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#sec-tokens",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#sec-tokens",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Tokens",
+    "text": "Tokens\nEach student is provided with three tokens at the beginning of the semester.\n\nUsing Tokens\n\nCredit for a reading quiz that was failed (1 token).\nObtaining a one-day extension for a milestone prior to due date (1 token).\nHanding in a milestone activity one day late without permission (2 tokens).\nRevising a milestone that was submitted on-time but evaluated as \"Needing Revision\" (1 token).\nRevising a studio exercise that needs revision (1 token).\nRequesting a make-up date for the presentation by 2024-12-01 17:00 (3 tokens)\nMissing a studio session (3 tokens).\nAny tokens remaining after determination of the base grade will be used to determine the final course grade (see above).\n\nTo use a token you must complete a request using the token spending form.\n\n\nEarning Tokens\nAdditional tokens can be earned in several ways:\n\nSubmitting topics for discussion in lectures in our board\nAttending an in-person office hour to discuss a proposed question/topic\nAttending a geography colloquium (write a paragraph description)\nCompleting the python primer (3 tokens)"
+  },
+  {
+    "objectID": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#policies",
+    "href": "syllabus.sync-conflict-20240827-091045-65OXBSO.html#policies",
+    "title": "Geography 385 Spatial Data Analysis",
+    "section": "Policies",
+    "text": "Policies\n\nAccommodations\nIf you are a student with a disability and are in need of accommodations for this class, please contact Student Ability Success Center at (619) 594-6473 as soon as possible. Please know accommodations are not retroactive, and I cannot provide accommodations based upon disability until I have received an accommodation letter from Student Ability Success Center.\n\n\nPrivacy and Intellectual Property\nStudent Privacy and Intellectual Property: The Family Educational Rights and Privacy Act (FERPA) mandates the protection of student information, including contact information, grades, and graded assignments. I will use Canvas to communicate with you, and I will not post grades or leave graded assignments in public places. Students will be notified at the time of an assignment if copies of student work will be retained beyond the end of the semester or used as examples for future students or the wider public. Students maintain intellectual property rights to work products they create as part of this course unless they are formally notified otherwise.\n\n\nAcademic Integrity\nThe SDSU student academic integrity policy lists violations in detail. These violations fall into eight broad areas that include but are not limited to: cheating, fabrication, plagiarism, facilitating academic misconduct, unauthorized collaboration, interference or sabotage, non-compliance with research regulations and retaliation. For more information about the SDSU student academic integrity policy, please see the following: https://sacd.sdsu.edu/student-rights/academic-dishonesty.\n\n\nCode of Conduct\nAs course instructor, I am dedicated to providing a harassment-free learning experience for all students, regardless of gender, sexual orientation, disability, physical appearance, body size, race, religion, or choice of operating system. All course participants are expected to show respect and courtesy to other students throughout the semester. As a learning community we do not tolerate harassment of participants in any form.\n\nAll communication should be appropriate for a professional audience including people of many different backgrounds. Sexual language and imagery are not appropriate in this course.\nBe kind to others. Do not insult or put down other students. Behave professionally. Remember that harassment and sexist, racist, or exclusionary jokes are not appropriate for this course.\nStudents violating these rules may be asked to leave the course, and their violations will be reported to the SDSU administration.\n\nThis code of conduct is an adaptation of the SciPy 2018 Code of Conduct."
+  },
+  {
+    "objectID": "studio/week01/intro.html",
+    "href": "studio/week01/intro.html",
+    "title": "Studio 1: Introduction to Jupyter Hub",
+    "section": "",
+    "text": "In this Session we introduce the computational environment for the course."
+  },
+  {
+    "objectID": "studio/week01/intro.html#logging-on-to-jupyter-hub",
+    "href": "studio/week01/intro.html#logging-on-to-jupyter-hub",
+    "title": "Studio 1: Introduction to Jupyter Hub",
+    "section": "Logging on to Jupyter Hub",
+    "text": "Logging on to Jupyter Hub\nEach registered student is given an account on our course Jupyter Hub installation.\nIf you are on campus, and using a campus IP, go to http://130.191.118.182/hub/login\n\n\n\nlogon\n\n\nYour Username is the prefix of your SDSU email (the part before the @).\nFor the Password, you set that the first time you log on. It can be anything you choose, but you must remember it.\nIf you are off-campus, you must first connect to the university’s Virtual Private Network."
+  },
+  {
+    "objectID": "studio/week01/intro.html#interface",
+    "href": "studio/week01/intro.html#interface",
+    "title": "Studio 1: Introduction to Jupyter Hub",
+    "section": "Interface",
+    "text": "Interface\nWe will be exploring the components of the Jupyter Lab Interface.\n\nMain work area\nleft sidebar\nmenu bar\nfile browser\n\n\n\n\nlogon\n\n\n\nMain work area\nThe main work area arranges activities and documents into panels of tabs.\nDocuments can be notebooks, text files, while activities can be terminals or code consoles.\nIt currently has a single tab entitled Launcher which contains a set of, well, launchers.\n\n\nLeft sidebar\nThe left sidebar contains a file browser (next to the main work area). The thin panel to the left of the file browser has three icons for:\n\ncommand pallet\ntable of contents\nextension manager"
+  },
+  {
+    "objectID": "studio/week01/intro.html#notebooks",
+    "href": "studio/week01/intro.html#notebooks",
+    "title": "Studio 1: Introduction to Jupyter Hub",
+    "section": "Notebooks",
+    "text": "Notebooks\nLet’s open our first document.\nDouble-click the Square icon under Notebook in the Launcher tab.\nThis will result in:\n\n\n\nnotebook\n\n\nNow, the main work area has a single tab with the title Untitled.ipynb. This is our first jupyter notebook.\nThe extension ipynb tells us so.\nWe also see that the filename is showing up in the file browser.\nIt is good practice to give your notebooks (and files) meaningful names. To do so you can right click on the tab or in the file browser and give it a new name introduction.ipynb.\n\n\n\nnotebook renamed"
+  },
+  {
+    "objectID": "studio/week01/intro.html#cell-types",
+    "href": "studio/week01/intro.html#cell-types",
+    "title": "Studio 1: Introduction to Jupyter Hub",
+    "section": "Cell Types",
+    "text": "Cell Types\nA notebook is composed of cells. Currently, our notebook as a single cell.\nCells can be of different types. There are three possible types:\n\nCode\nMarkdown\nRaw\n\nWhat happens with the contents of a cell depends upon its type. We can have cells of different types in the same notebook - in other words, all the cells in a notebook do not have to be of the same type. This opens up rich possibilities for creating computational documents.\n\nCode\nThe type of a cell is indicated in the dropdown of the tabs icon bar. Our current cell is of type Code.\nA code cell should contain, well, code. By this we mean, a set of statements that the kernel for our language can understand. Think of the kernel as a machine that is going to take our code and convert it into some type of result or action.\nIn our case, the kernel is Python. This is indicated in the upper right portion of the notebook tab.\nLet’s enter some code in our code cell:\n\nEnter 3**2\nShift-return\n\n\n\n\nRunning a code cell\n\n\nWhen we used the key-chord Shift-return (while holding the shift key down also hit return) from inside the code cell, this took the contents of the cell 3**2 and passed it off to the Python interpreter. Since this was legit Python code, we got a result of 9 in an output cell.\nThen the interface gives us a new empty code cell, so we can continue if we wish.\nBut, instead of continuing, let’s say we wanted a different calculation. Put the cursor back in the first code cell and change this to 10 * 3**2 and rerun the cell.\n\n\n\nRe-running a code cell\n\n\nAgain, this is legit Python code so we get a new result. The other things that have changed are the numbers on the left of the cells. Now we have a [2] in front of the code cell and its output cell. This indicates that we have run 2 code cells in this session.\nThe current cell is indicated by the blue vertical bar. This is where we would enter new code as we progress.\nLet’s progress.\nIn the current cell, enter x = 10 * 3**2 and run the cell.\n\n\n\nRunning a code cell with an assignment\n\n\nWe don’t get an output cell in this case. This is because our code is an assignment statement. This means we assign the value of the statement on the right of the = into the variable x on the left side.\nTo see the value of x, enter x in the next code cell and run the cell:\n\n\n\nRunning a code cell with an output\n\n\nWith this, we have the basics of entering Python code and running it. Let’s turn our attention to the next type of cell: Markdown.\n\n\nMarkdown\nMarkdown is a markup language invented by John Gruber to make it easier for humans to write web pages.\nLet’s change the type of the current cell. There are two ways to do this.\nThe first way is to click on the cell type dropdown (currently set to Code) and select Markdown. This results in:\n\n\n\nChanging to Markdown\n\n\nWe still have the blue indicator to the left of the current cell. But we no longer of the [ ]: next to the cell.\nTo enter some Markdown, put the cursor in the cell and enter:\nThis next word will be **bold**.\n\n\n\nEditing Markdown\n\n\nThen run the Markdown cell with Shift-return:\n\n\n\n“Running” Markdown\n\n\nThis is a bit different from what we saw when we ran a code cell. In the case of a Markdown cell, what happens is that when we “run” the cell, the contents of the cell gets handed off to a different kernel, one that knows the Markdown markup. The kernel then translate from the markdown input and returns actual html that gets rendered in the same cell.\nWe can change our cell by double-clicking in it. Let’s add some more Markdown by changing the cell contents to:\n## Markdown Cells\n\nHere we are demonstrating `Markdown`.\n\nThe next word will be in **bold**.\n\nThe next word will be in *italics*.\n\n### Lists\n\nWe can do unordered lists:\n\n- dog\n- cat\n- monkey\n\nAs well as ordered lists\n\n1. dogs\n1. monkey\n1. cat\n\n\n\nMore Markdown\n\n\nOnce we have entered this, “run” the cell with Shift-return:\n\n\n\nMore Rendered Markdown\n\n\nBefore we do more with Markdown, let’s learn a bit about our last cell type Raw.\n\n\nRaw\nTo see the utility of the Raw cell type, double-click into the Markdown cell. In the cell, copy all the contents of the cell (click and drag with the mouse, then Control-C (Linux/Windows) Command-C (Mac) ).\nMove the cursor into the next cell and paste (Control-V (Linux/Windows), Command-V (Mac)).\nThen, in this last cell change the cell type to Raw so your screen should look like:\n\n\n\nRaw Cell Type\n\n\nNext, jump up to the Markdown cell, and run that cell to render it. Then, render the Raw cell:\n\n\n\nRaw Cell As Reference\n\n\nThis shows us that we can use Raw cells to display the syntax used to get a rendered cell. This can be helpful to document how things were done."
+  },
+  {
+    "objectID": "studio/week01/intro.html#cell-modes",
+    "href": "studio/week01/intro.html#cell-modes",
+    "title": "Studio 1: Introduction to Jupyter Hub",
+    "section": "Cell Modes",
+    "text": "Cell Modes\nIn addition to having different cell types, cells have two modes.\n\nCommand Mode\nEdit Mode\n\nThese are mutually exclusive modes - only one is active. In other words, you a cell is either in command mode or edit mode.\n\nCommand Mode (Running Cells)\nIn command mode we can, not suprsingly, run cells. We already know how to do this. Make the cell active (by moving the cursor to the cell), then use Ctrl-return.\nHow do we know we are in command mode? A couple of ways.\nIf you are in a code cell, if the cell does not have a blue border, you are in command mode:\n\n\n\nCode cell in Command mode\n\n\nIf the code cell has a blue border you are in edit mode:\n\n\n\nCode cell in Edit mode\n\n\nIf you are in edit mode and want to switch to command mode, use the Esc key.\nIf you are in command mode and want to switch to edit mode, simply click in the cell to start editing.\nIn addition to letting us run cells, command mode also allows us to manipulate cells. The two sets of most common manipulations we do in command mode are:\n\nCut and paste cells (move)\nSplit and merge cells\n\nTo demonstrate the first, recall the figure that had the Raw cell below the Markdown cell. It might be more helpful to have the Raw cell before (above) the Markdown cell.\nTo do this.\nFrom the empty code cell:\n\nEnter command mode (Esc)\nHit the k key. This moves the cursor up into the raw cell.\nHit the x key. This will cut the current cell.\nMove up two cells by repeating k k\nPaste the cut cell with v\n\nYour notebook should now look something like:\n\n\n\nCode cell in Edit mode\n\n\nTo demonstrate splitting cells, let’s say we want to break our Markdown cell into two separate Markdown cells such that the Lists subsection is in its own cell.\nTo do this,\n\nMake the Markdown cell active by moving down one with j.\nOnce the Markdown cell is active, get into edit mode (click into the cell).\nMove the cursor to the empty ilne before Lists.\nCtrl-Shift-- (That’s the Ctrl key held down, with the Shift key followed by -).\n\nThe result should be:\n\n\n\nSpliltting a cell\n\n\nTo merge cells together.\n\nEnter command mode\nShift-k to select the current cell and the cell above it.\nShift-m to merge the two cells.\n\n\n\n\nMerging two cells\n\n\n\n\nEdit Mode\nLet’s create an empty cell and edit it. Assume we want to add a new cell above the current cell. This is done with a.\n\n\n\nCreating a new cell above the current cell\n\n\nLet’s make this a Markdown cell, using the second approach I hinted at above.\n\nEnter command mode\nm\n\nNote that it is lower-case m here. Now we can enter Markdown by clicking in the new cell and filling it in with whatever we want. For example:\n### Using Raw and Markdown cells\nThe cell below will be the rendered markdown. The cell above is the raw markdown in a raw cell for reference\nRendering the cell should give:\n\n\n\nRendered new cell\n\n\nAs our notebooks grow, it would be nice to be able to jump around without endlessly scrolling. Remember the table of contents that lives in the Left sidebar? This can come in handy when you have a long Markdown document and can use the TOC to jump around quickly.\nTo see this work, let’s first go to the top of the notebook by scrolling up. Then, 1. Add a new cell above the current cell. 2. Make it a Markdown Cell 3. Enter ## Python code cells 4. Render the cell\nAfter rendering, the cell, click the table of contents icon in the left sidebar:\n\n\n\nTable of Contents\n\n\nYou can now click on the entries in the table of contents to jump to that section/subsection in the notebook."
+  },
+  {
+    "objectID": "studio/week01/intro.html#saving-and-exporting",
+    "href": "studio/week01/intro.html#saving-and-exporting",
+    "title": "Studio 1: Introduction to Jupyter Hub",
+    "section": "Saving and Exporting",
+    "text": "Saving and Exporting\nIt is good practice to save your notebook as you go. Use Ctrl-s to do so or Command-s (mac).\nIf there are any unsaved changes, the little black dot in the notebook tab will be visible:\n\n\n\nUnsaved changes\n\n\nAfter saving your notebook, it will live on the course server, so you can come back to it later (see logging off below). Sometimes, you will need to export or download a copy of your notebook to hand in for credit. To do this:\n\nMake sure the notebook you want to save is the active tab in the main work area\nClick on the file browser icon in the left side bar.\nFrom the Menu bar: File-Save and Export Notebook As-pdf\n\nThis should create a pdf file on your local computer that you can hand in.\nIf you get an error that looks like:\n\n\n\nSaving error\n\n\nThis is due to having the Raw cell in the notebook. To fix it, simply delete the Raw cell and try to export again. We won’t be using Raw cells in the assignments so this won’t be an issue moving forward."
+  },
+  {
+    "objectID": "studio/week01/meet.html",
+    "href": "studio/week01/meet.html",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "",
+    "text": "This handout provides instructions on how to use Google Meet for small group work, including creating a meeting, sharing screens (with sound off), and using the chat feature to collaborate on in-class studios."
+  },
+  {
+    "objectID": "studio/week01/meet.html#purpose",
+    "href": "studio/week01/meet.html#purpose",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "",
+    "text": "This handout provides instructions on how to use Google Meet for small group work, including creating a meeting, sharing screens (with sound off), and using the chat feature to collaborate on in-class studios."
+  },
+  {
+    "objectID": "studio/week01/meet.html#find-your-team",
+    "href": "studio/week01/meet.html#find-your-team",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "Find Your Team",
+    "text": "Find Your Team\nTeams are randomly constructed. To find your team:\n\nVisit the link for the team assignments for Studio 1.\nThe first person listed is the group leader. If the first person is not present, the first person next on the list who is present is the group leader for the studio."
+  },
+  {
+    "objectID": "studio/week01/meet.html#getting-started-with-google-meet",
+    "href": "studio/week01/meet.html#getting-started-with-google-meet",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "Getting Started with Google Meet",
+    "text": "Getting Started with Google Meet\n\nGroup Leader\n\nThe group leader will be responsible for creating the Google Meet session.\n\nCreating a Google Meet Session\n\nThe group leader should sign in to their Google account.\nUsing the Team Meeting link at the bottom of the Studio 1 Team listing, the Group Leader should start the meeting..\n\nJoining the Google Meet Session\n\nEach group member should click the link provided by the group leader to join the session.\nAllow Google Meet to access your microphone and camera if prompted.\nMute your microphone by clicking the microphone icon at the bottom of the screen to reduce background noise."
+  },
+  {
+    "objectID": "studio/week01/meet.html#sharing-your-screen",
+    "href": "studio/week01/meet.html#sharing-your-screen",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "Sharing Your Screen",
+    "text": "Sharing Your Screen\nScreen sharing helps all group members see the same content, making collaboration easier.\n\nHow to Share Your Screen\n\nOnce in the Google Meet, click on the “Present Now” button at the bottom right of the screen.\nSelect “Your Entire Screen” or “A Window,” depending on what you want to share.\nClick “Share” to start sharing your screen.\n\nKeeping Your Microphone Off\n\nKeep your microphone muted while sharing your screen to avoid feedback or echo. Use the chat for communication or unmute only when necessary."
+  },
+  {
+    "objectID": "studio/week01/meet.html#using-the-chat-feature",
+    "href": "studio/week01/meet.html#using-the-chat-feature",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "Using the Chat Feature",
+    "text": "Using the Chat Feature\nThe chat feature is useful for collaboration without speaking out loud.\n\nOpen the Chat\n\nClick on the chat icon (speech bubble) in the top right corner of the screen to open the chat window.\n\nCommunicate Effectively\n\nUse the chat to ask questions, share links, and discuss the studio.\nKeep your messages clear and concise to avoid misunderstandings."
+  },
+  {
+    "objectID": "studio/week01/meet.html#best-practices-for-google-meet-collaboration",
+    "href": "studio/week01/meet.html#best-practices-for-google-meet-collaboration",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "Best Practices for Google Meet Collaboration",
+    "text": "Best Practices for Google Meet Collaboration\n\nStay Muted When Not Speaking: We will be in person, so no need to use your microphone in class.\nUse the Chat to Communicate: Share your thoughts and questions in the chat to maintain a smooth flow of discussion.\nKeep Your Camera On: This helps the group stay engaged and allows for better non-verbal communication.\nBe Respectful: Listen to others, avoid interrupting, and provide constructive feedback.\nEnsure Only One Person Shares at a Time: This helps avoid confusion and keeps the focus on the task at hand."
+  },
+  {
+    "objectID": "studio/week01/meet.html#troubleshooting-tips",
+    "href": "studio/week01/meet.html#troubleshooting-tips",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "Troubleshooting Tips",
+    "text": "Troubleshooting Tips\n\nAudio Issues: If others cannot hear you, check that your microphone is not muted and that Google Meet is using the correct microphone in the settings.\nScreen Sharing Problems: Ensure that your browser has permission to share your screen.\nConnectivity Issues: If you experience lag or get disconnected, try refreshing your browser or checking your internet connection."
+  },
+  {
+    "objectID": "studio/week01/meet.html#wrapping-up",
+    "href": "studio/week01/meet.html#wrapping-up",
+    "title": "Studio 1: Google Meet for Studio Collaboration",
+    "section": "Wrapping Up",
+    "text": "Wrapping Up\nAt the end of the studio, the group leader should summarize the group’s discussion and findings. The leader will hand in the summary on Canvas.\nFor additional assistance, refer to the Google Meet Help Center or contact your instructor.\nHappy collaborating!"
   },
   {
     "objectID": "studio/meet.html",
@@ -176,426 +702,18 @@
     "text": "Additional Resources\n\nGoogle Meet Help Center\n\nGood luck with your activity, and make the most of your collaborative time!"
   },
   {
-    "objectID": "studio/week01/jupyter.html",
-    "href": "studio/week01/jupyter.html",
-    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
-    "section": "",
-    "text": "In this exercise, you will practice basic operations in Jupyter notebooks, including writing and running Python code, working with Markdown cells, and performing simple data operations.\n\n\nRename this notebook to include your group name.\n# Group Exercise 1\n\nThis notebook is for practicing basic operations in Jupyter notebooks. It includes examples of using Python code and Markdown cells to document the work.\n\n\n\nIn this section, you’ll write and run some simple Python code.\n# Task 1: Print a welcome message\nprint(\"Welcome to JupyterHub!\")\n# Task 2: Perform a simple arithmetic operation\n10 * 3\n\n\n\nIn this section, you’ll work with a small dataset. The dataset could be provided in different formats, such as a list of numbers or a CSV file.\n\n\n# Task: Load the dataset\n# If using a CSV file, uncomment the following lines and provide the correct path to the file.\n# import pandas as pd\n# data = pd.read_csv(\"path_to_your_file.csv\")\n\n# For demonstration, here's a simple Python list of numbers\ndata = [10, 20, 30, 40, 50]\n\n# Display the dataset\ndata\n\n\n\n# Task: Calculate the sum of the numbers in the dataset\nsum(data)\n# Task: Calculate the mean of the numbers in the dataset\nmean_value = sum(data) / len(data)\nmean_value\n\n\n\n\nUse Markdown cells to document your code and results. For example:\n## Dataset Analysis\n\nWe loaded a dataset containing the numbers 10, 20, 30, 40, and 50. Below is the sum and mean of these numbers.\n\n\n\nReview your notebook as a group. Ensure that it is well-organized and the code is properly documented.\nOnce done, save your notebook and submit it via the designated method."
+    "objectID": "lectures/week01/lecture.html#syllabus",
+    "href": "lectures/week01/lecture.html#syllabus",
+    "title": "Week 1 Lecture: Course Overview",
+    "section": "Syllabus",
+    "text": "Syllabus\nReview Course Syllabus"
   },
   {
-    "objectID": "studio/week01/jupyter.html#setting-up-the-notebook",
-    "href": "studio/week01/jupyter.html#setting-up-the-notebook",
-    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
-    "section": "",
-    "text": "Rename this notebook to include your group name.\n# Group Exercise 1\n\nThis notebook is for practicing basic operations in Jupyter notebooks. It includes examples of using Python code and Markdown cells to document the work."
-  },
-  {
-    "objectID": "studio/week01/jupyter.html#basic-code-operations",
-    "href": "studio/week01/jupyter.html#basic-code-operations",
-    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
-    "section": "",
-    "text": "In this section, you’ll write and run some simple Python code.\n# Task 1: Print a welcome message\nprint(\"Welcome to JupyterHub!\")\n# Task 2: Perform a simple arithmetic operation\n10 * 3"
-  },
-  {
-    "objectID": "studio/week01/jupyter.html#working-with-data",
-    "href": "studio/week01/jupyter.html#working-with-data",
-    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
-    "section": "",
-    "text": "In this section, you’ll work with a small dataset. The dataset could be provided in different formats, such as a list of numbers or a CSV file.\n\n\n# Task: Load the dataset\n# If using a CSV file, uncomment the following lines and provide the correct path to the file.\n# import pandas as pd\n# data = pd.read_csv(\"path_to_your_file.csv\")\n\n# For demonstration, here's a simple Python list of numbers\ndata = [10, 20, 30, 40, 50]\n\n# Display the dataset\ndata\n\n\n\n# Task: Calculate the sum of the numbers in the dataset\nsum(data)\n# Task: Calculate the mean of the numbers in the dataset\nmean_value = sum(data) / len(data)\nmean_value"
-  },
-  {
-    "objectID": "studio/week01/jupyter.html#documenting-the-analysis",
-    "href": "studio/week01/jupyter.html#documenting-the-analysis",
-    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
-    "section": "",
-    "text": "Use Markdown cells to document your code and results. For example:\n## Dataset Analysis\n\nWe loaded a dataset containing the numbers 10, 20, 30, 40, and 50. Below is the sum and mean of these numbers."
-  },
-  {
-    "objectID": "studio/week01/jupyter.html#final-touches-and-submission",
-    "href": "studio/week01/jupyter.html#final-touches-and-submission",
-    "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
-    "section": "",
-    "text": "Review your notebook as a group. Ensure that it is well-organized and the code is properly documented.\nOnce done, save your notebook and submit it via the designated method."
-  },
-  {
-    "objectID": "studio/python_course.html",
-    "href": "studio/python_course.html",
-    "title": "",
-    "section": "",
-    "text": "Code"
-  },
-  {
-    "objectID": "studio/python_course.html#instructions",
-    "href": "studio/python_course.html#instructions",
-    "title": "",
-    "section": "Instructions",
-    "text": "Instructions\n\nGo to http://www.codeacademy.com and create a free account, or sign in with a social media or GitHub account.\nTake the self-paced entry-level minicourse on Python 2.3\nThe minicourse has 12 units, each with 1-2 lessons to be done in a browser. Complete the first 9 units of the course, up to and including “Exam Statistics.”\n\n\n\n\n\n\n\nTime Requirements\n\n\n\nCompleting this primer should take between 6-8 hours. You should spread out your effort in 30-minute chunks over a few weeks."
-  },
-  {
-    "objectID": "studio/python_course.html#submission-due-september-23-330-pm",
-    "href": "studio/python_course.html#submission-due-september-23-330-pm",
-    "title": "",
-    "section": "Submission (Due: September 23, 3:30 PM)",
-    "text": "Submission (Due: September 23, 3:30 PM)\nWhen you have completed the nine units, take a screenshot that shows your name on the screen as well as all the checks. Upload the screenshot to Canvas."
-  },
-  {
-    "objectID": "studio/python_course.html#footnotes",
-    "href": "studio/python_course.html#footnotes",
-    "title": "",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe Python Primer is inspired by and modeled after the work of Robert Talbert.↩︎\nIf you are interested in further exploring Python for geography, an excellent course is Geog 383.↩︎\nDo not sign up for the Python 3 course as it is not free. We will cover the main differences between Python 2 and Python 3 in the studio sessions.↩︎"
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#definition-of-spatial-data-analysis",
-    "href": "lectures/week01/lecture_sda.html#definition-of-spatial-data-analysis",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Definition of Spatial Data Analysis",
-    "text": "Definition of Spatial Data Analysis\n\nSpatial data analysis involves examining locations, attributes, and relationships of features in spatial data using statistical and computational techniques.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#exploratory-data-analysis-eda",
-    "href": "lectures/week01/lecture_sda.html#exploratory-data-analysis-eda",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\n\nEDA coined by John Tukey (Tukey 1977)\nSet of statistical tools designed to\n\ndiscover “indications of unexpected phenomena”\n“display the unanticipated”\n“uncover potentially explicable patterns”",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#eda-approach",
-    "href": "lectures/week01/lecture_sda.html#eda-approach",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "EDA Approach",
-    "text": "EDA Approach\n\nAbductive reasoning\nInteraction between data exploration and human perception to\n\ndetect patterns\nformulation of hypotheses",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#exploratory-spatial-data-analysis-esda",
-    "href": "lectures/week01/lecture_sda.html#exploratory-spatial-data-analysis-esda",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Exploratory Spatial Data Analysis (ESDA)",
-    "text": "Exploratory Spatial Data Analysis (ESDA)\n\nA collection of techniques to describe and visualize spatial distributions, identify atypical locations or spatial outliers, discover patterns of spatial association, clusters or hot spots and suggest spatial regimes or other forms of spatial heterogeneity\n\nAnselin (1999)",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#exploratory-spatial-data-analysis-esda-1",
-    "href": "lectures/week01/lecture_sda.html#exploratory-spatial-data-analysis-esda-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Exploratory Spatial Data Analysis (ESDA)",
-    "text": "Exploratory Spatial Data Analysis (ESDA)\n\nEDA extended to spatial data\nMaps play a central role, but it doesn’t end with maps\nGeovisualization, geospatial visual analytics\nCombine visualizations with specialized quantitive measures",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#importance-of-spatial-data-analysis",
-    "href": "lectures/week01/lecture_sda.html#importance-of-spatial-data-analysis",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Importance of Spatial Data Analysis",
-    "text": "Importance of Spatial Data Analysis\n\nApplications in various fields: urban planning, environmental science, public health, economics, etc.\nGrowing relevance with the rise of Geographic Information Systems (GIS) and spatial technologies.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#historical-context",
-    "href": "lectures/week01/lecture_sda.html#historical-context",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Historical Context",
-    "text": "Historical Context\n\nEarly use in geography and epidemiology.\nEvolution with the development of GIS and advanced computational tools.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#snow-map",
-    "href": "lectures/week01/lecture_sda.html#snow-map",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Snow Map",
-    "text": "Snow Map\n\n\n\nArribas-Bel, de Graaff, and Rey (2017)",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#snow-map-1",
-    "href": "lectures/week01/lecture_sda.html#snow-map-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Snow Map",
-    "text": "Snow Map\n\n\n\nArribas-Bel, de Graaff, and Rey (2017)",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#scope-of-spatial-analysis",
-    "href": "lectures/week01/lecture_sda.html#scope-of-spatial-analysis",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Scope of Spatial Analysis",
-    "text": "Scope of Spatial Analysis\n\n\n\nRey et al. (2022)",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#vector-data",
-    "href": "lectures/week01/lecture_sda.html#vector-data",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Vector Data",
-    "text": "Vector Data\n\nDefinition: Represents spatial features using points, lines, and polygons.\nExamples:\n\nPoints: Locations of cities, schools, or hospitals.\nLines: Roads, rivers, or pipelines.\nPolygons: Land parcels, administrative boundaries, or lakes.\n\nApplications: Urban planning, transportation networks, cadastral mapping.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#vector-data-1",
-    "href": "lectures/week01/lecture_sda.html#vector-data-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Vector Data",
-    "text": "Vector Data",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#raster-data",
-    "href": "lectures/week01/lecture_sda.html#raster-data",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Raster Data",
-    "text": "Raster Data\n\nDefinition: Represents spatial phenomena as a grid of cells or pixels, each with a value representing a specific attribute.\nExamples:\n\nSatellite images, digital elevation models (DEMs), land cover maps.\n\nApplications: Environmental monitoring, remote sensing, agricultural analysis.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#raster-data-1",
-    "href": "lectures/week01/lecture_sda.html#raster-data-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Raster Data",
-    "text": "Raster Data",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#attribute-data",
-    "href": "lectures/week01/lecture_sda.html#attribute-data",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Attribute Data",
-    "text": "Attribute Data\n\nDefinition: Non-spatial information associated with spatial features.\nExamples:\n\nPopulation data linked to census tracts, land use types associated with parcels.\n\nImportance: Provides context and meaning to spatial locations and features.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#attribute-data-1",
-    "href": "lectures/week01/lecture_sda.html#attribute-data-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Attribute Data",
-    "text": "Attribute Data",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#spatio-temporal-data",
-    "href": "lectures/week01/lecture_sda.html#spatio-temporal-data",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Spatio-Temporal Data",
-    "text": "Spatio-Temporal Data\n\nDefinition: Spatial data that includes a time component, showing how spatial phenomena change over time.\nExamples:\n\nSpread of diseases, changes in land use, migration patterns.\n\nApplications: Epidemiology, climate change studies, urban development.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#spatio-temporal-data-1",
-    "href": "lectures/week01/lecture_sda.html#spatio-temporal-data-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Spatio-Temporal Data",
-    "text": "Spatio-Temporal Data\n\n\n\nKnaap et al. (2019)",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#remote-sensing",
-    "href": "lectures/week01/lecture_sda.html#remote-sensing",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Remote Sensing",
-    "text": "Remote Sensing\n\nDefinition: The process of collecting data about the Earth’s surface from a distance, typically using satellites or aircraft.\nExamples: Landsat, MODIS, LiDAR.\nApplications: Environmental monitoring, disaster management, agricultural assessments.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#geographic-information-systems-gis",
-    "href": "lectures/week01/lecture_sda.html#geographic-information-systems-gis",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Geographic Information Systems (GIS)",
-    "text": "Geographic Information Systems (GIS)\n\nDefinition: A system designed to capture, store, manipulate, analyze, manage, and present spatial or geographic data.\nComponents: Hardware, software, data, methods, and people.\nApplications: Urban planning, transportation, environmental management.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#global-positioning-system-gps",
-    "href": "lectures/week01/lecture_sda.html#global-positioning-system-gps",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Global Positioning System (GPS)",
-    "text": "Global Positioning System (GPS)\n\nDefinition: A satellite-based navigation system that provides location and time information.\nApplications: Navigation, mapping, field data collection.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#crowdsourced-data",
-    "href": "lectures/week01/lecture_sda.html#crowdsourced-data",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Crowdsourced Data",
-    "text": "Crowdsourced Data\n\nDefinition: Data collected from a large number of people, often through mobile devices or online platforms.\nExamples: OpenStreetMap, social media check-ins.\nApplications: Disaster response, urban planning, public health monitoring.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#spatial-autocorrelation",
-    "href": "lectures/week01/lecture_sda.html#spatial-autocorrelation",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Spatial Autocorrelation",
-    "text": "Spatial Autocorrelation\n\nDefinition: The degree to which objects close to each other in space are also similar in other attributes.\nExamples: Clustered patterns of disease, similar land uses in neighboring areas.\nMeasurement: Moran’s I, Geary’s C.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#spatial-autocorrelation-1",
-    "href": "lectures/week01/lecture_sda.html#spatial-autocorrelation-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Spatial Autocorrelation",
-    "text": "Spatial Autocorrelation",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#spatial-scale-and-resolution",
-    "href": "lectures/week01/lecture_sda.html#spatial-scale-and-resolution",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Spatial Scale and Resolution",
-    "text": "Spatial Scale and Resolution\n\nDefinition: The level of detail at which spatial data is observed or represented.\nExamples: Global, regional, local scales.\nImplications: Affects the analysis and interpretation of spatial data.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#modifiable-areal-unit-problem-maup",
-    "href": "lectures/week01/lecture_sda.html#modifiable-areal-unit-problem-maup",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Modifiable Areal Unit Problem (MAUP)",
-    "text": "Modifiable Areal Unit Problem (MAUP)\n\nDefinition: The issue that the results of spatial analysis can vary depending on the spatial units used.\nExamples: Changing the boundaries of districts can change the outcomes of an analysis.\nConsiderations: Important in the design and interpretation of spatial studies.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#modifiable-areal-unit-problem-maup-1",
-    "href": "lectures/week01/lecture_sda.html#modifiable-areal-unit-problem-maup-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Modifiable Areal Unit Problem (MAUP)",
-    "text": "Modifiable Areal Unit Problem (MAUP)",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#spatial-interpolation",
-    "href": "lectures/week01/lecture_sda.html#spatial-interpolation",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Spatial Interpolation",
-    "text": "Spatial Interpolation\n\nDefinition: The process of estimating unknown values at certain locations based on known values at other locations.\nExamples: Estimating temperature or pollution levels across a region.\nMethods: Kriging, Inverse Distance Weighting (IDW).",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#spatial-interpolation-1",
-    "href": "lectures/week01/lecture_sda.html#spatial-interpolation-1",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Spatial Interpolation",
-    "text": "Spatial Interpolation",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#recap-of-key-points",
-    "href": "lectures/week01/lecture_sda.html#recap-of-key-points",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Recap of Key Points",
-    "text": "Recap of Key Points\n\nDefinitions of EDA, ESDA\nTypes and Sources of Spatial Data\nKey Concepts in Spatial Data Analysis",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#questions",
-    "href": "lectures/week01/lecture_sda.html#questions",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "Questions",
-    "text": "Questions",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
-  },
-  {
-    "objectID": "lectures/week01/lecture_sda.html#references",
-    "href": "lectures/week01/lecture_sda.html#references",
-    "title": "Introduction to Spatial Data Analysis",
-    "section": "References",
-    "text": "References\n\n\n\n\n\n\n\n\nAnselin, L. 1999. “Interactive Techniques and Exploratory Spatial Data Analysis.” In Geographical Information Systems: Principles, Techniques, Management and Applications, edited by P. A. Longley, M. Goodchild, D. J. Maguire, and D. W. Rhind, 251–64.\n\n\nArribas-Bel, Daniel, Thomas de Graaff, and Sergio J. Rey. 2017. “Looking at John Snow’s Cholera Map from the Twenty First Century: A Practical Primer on Reproducibility and Open Science.” In Regional Research Frontiers - Vol. 2: Methodological Advances, Regional Systems Modeling and Open Sciences, edited by Randall Jackson and Peter Schaeffer, 283–306. Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-50590-9_17.\n\n\nKnaap, Elijah, Wei Kang, Sergio Rey, Levi John Wolf, Renan Xavier Cortes, and Su Han. 2019. “Geosnap: The Geospatial Neighborhood Analysis Package.” Zenodo. https://doi.org/10.5281/ZENODO.3526163.\n\n\nRey, Sergio J., Luc Anselin, Pedro Amaral, Dani Arribas-Bel, Renan Xavier Cortes, James David Gaboardi, Wei Kang, et al. 2022. “The PySAL Ecosystem: Philosophy and Implementation.” Geographical Analysis 54 (3): 467–87. https://doi.org/10.1111/gean.12276.\n\n\nTukey, J. W. 1977. Exploratory Data Analysis. New York: Addison-Wesley.",
-    "crumbs": [
-      "Home",
-      "09-26 Spatial Data Analysis"
-    ]
+    "objectID": "lectures/week01/lecture.html#spatial-data-analysis",
+    "href": "lectures/week01/lecture.html#spatial-data-analysis",
+    "title": "Week 1 Lecture: Course Overview",
+    "section": "Spatial Data Analysis",
+    "text": "Spatial Data Analysis\nlecture"
   },
   {
     "objectID": "lectures/week01/studio.html",

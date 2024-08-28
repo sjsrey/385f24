@@ -132,12 +132,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
         <li>
-    <a class="dropdown-item" href="../../lectures/week01/lecture.html">
+    <a class="dropdown-item" href="../../lectures/week01/index.html">
  <span class="dropdown-text">09-26 Course Overview</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../lectures/week01/lecture_sda.html">
- <span class="dropdown-text">09-26 Spatial Data Analysis</span></a>
   </li>  
     </ul>
   </li>
@@ -147,8 +143,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-studio">    
         <li>
-    <a class="dropdown-item" href="../../studio/python_course.html">
- <span class="dropdown-text">Python Primer</span></a>
+    <a class="dropdown-item" href="../../studio/week01/index.html">
+ <span class="dropdown-text">09-28 Studio 1: Juptyer Hub Introduction</span></a>
   </li>  
     </ul>
   </li>
@@ -194,14 +190,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lectures/week01/lecture.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/week01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">09-26 Course Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lectures/week01/lecture_sda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-26 Spatial Data Analysis</span></a>
+  <a href="../../studio/week01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-28 Studio 1: Jupyter Hub</span></a>
   </div>
 </li>
     </ul>
@@ -214,14 +210,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#group-exercise-1-working-with-jupyter-notebooks-on-jupyterhub" id="toc-group-exercise-1-working-with-jupyter-notebooks-on-jupyterhub" class="nav-link active" data-scroll-target="#group-exercise-1-working-with-jupyter-notebooks-on-jupyterhub">Group Exercise 1: Working with Jupyter Notebooks on JupyterHub</a>
-  <ul class="collapse">
-  <li><a href="#setting-up-the-notebook" id="toc-setting-up-the-notebook" class="nav-link" data-scroll-target="#setting-up-the-notebook">1. Setting Up the Notebook</a></li>
+  <li><a href="#setting-up-the-notebook" id="toc-setting-up-the-notebook" class="nav-link active" data-scroll-target="#setting-up-the-notebook">1. Setting Up the Notebook</a></li>
   <li><a href="#basic-code-operations" id="toc-basic-code-operations" class="nav-link" data-scroll-target="#basic-code-operations">2. Basic Code Operations</a></li>
   <li><a href="#working-with-data" id="toc-working-with-data" class="nav-link" data-scroll-target="#working-with-data">3. Working with Data</a></li>
   <li><a href="#documenting-the-analysis" id="toc-documenting-the-analysis" class="nav-link" data-scroll-target="#documenting-the-analysis">4. Documenting the Analysis</a></li>
   <li><a href="#final-touches-and-submission" id="toc-final-touches-and-submission" class="nav-link" data-scroll-target="#final-touches-and-submission">5. Final Touches and Submission</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -247,15 +240,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="group-exercise-1-working-with-jupyter-notebooks-on-jupyterhub" class="level1">
-<h1>Group Exercise 1: Working with Jupyter Notebooks on JupyterHub</h1>
 <p>In this exercise, you will practice basic operations in Jupyter notebooks, including writing and running Python code, working with Markdown cells, and performing simple data operations.</p>
 <section id="setting-up-the-notebook" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-the-notebook">1. Setting Up the Notebook</h2>
-<p>Rename this notebook to include your group name.</p>
+<ol type="1">
+<li>Create a new notebook.</li>
+<li>Rename it to <code>GroupX.ipynb</code> where <code>X</code> is your group number.</li>
+</ol>
+<p>Add some structure at the top cells:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Group Exercise 1</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>This notebook is for practicing basic operations in Jupyter notebooks. It includes examples of using Python code and Markdown cells to document the work.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Add a subsection with the name <code>Team</code> and underneath the subsection add a bulleted list with the names of the team members.</p>
+<p>Put the leader’s name in bold.</p>
+<p>Add a second subsection that contains a second bulleted list. Give the subsection the title <code>Links</code> In this list add a <a href="https://www.markdownguide.org/basic-syntax/#formatting-links">link</a> to a site that each group member suggests as interesting to the class.</p>
 </section>
 <section id="basic-code-operations" class="level2">
 <h2 class="anchored" data-anchor-id="basic-code-operations">2. Basic Code Operations</h2>
@@ -264,48 +262,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Welcome to JupyterHub!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 2: Perform a simple arithmetic operation</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The value 10 * 3 is equal to </span><span class="sc">{</span><span class="dv">10</span> <span class="op">*</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run these cells, and explore what happens as you change some of the values.</p>
+<p>Create some new code cells that extend on these ideas.</p>
 </section>
 <section id="working-with-data" class="level2">
 <h2 class="anchored" data-anchor-id="working-with-data">3. Working with Data</h2>
-<p>In this section, you’ll work with a small dataset. The dataset could be provided in different formats, such as a list of numbers or a CSV file.</p>
+<p>In this section, you’ll work with a small dataset.</p>
 <section id="load-and-display-the-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="load-and-display-the-dataset">Load and Display the Dataset</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Load the dataset</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># If using a CSV file, uncomment the following lines and provide the correct path to the file.</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas as pd</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># data = pd.read_csv("path_to_your_file.csv")</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For demonstration, here's a simple Python list of numbers</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the dataset</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">20</span>, <span class="dv">90</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">30</span>, <span class="dv">10</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the dataset</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="perform-a-basic-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="perform-a-basic-analysis">Perform a Basic Analysis</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Calculate the sum of the numbers in the dataset</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Calculate the mean of the numbers in the dataset</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mean_value <span class="op">=</span> <span class="bu">sum</span>(data) <span class="op">/</span> <span class="bu">len</span>(data)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mean_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Calculate the sum of the numbers in the dataset</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Calculate the mean of the numbers in the dataset</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mean_value <span class="op">=</span> <span class="bu">sum</span>(data) <span class="op">/</span> <span class="bu">len</span>(data)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>mean_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>How would you sort the data using python? Show your answer in a code cell.</p>
+<p>As a group, come up with an answer to the questions: Is the data skewed? If so, in what way? Add Markdown cells that describe your reasoning used to come up with your answers.</p>
 </section>
 </section>
 <section id="documenting-the-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="documenting-the-analysis">4. Documenting the Analysis</h2>
 <p>Use Markdown cells to document your code and results. For example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dataset Analysis</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>We loaded a dataset containing the numbers 10, 20, 30, 40, and 50. Below is the sum and mean of these numbers.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dataset Analysis</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>We loaded a dataset containing the numbers 10, 20, 30, 40, 50, 90, 100. Below is the sum and mean of these numbers.</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>With regard to skewness, we find ....</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="final-touches-and-submission" class="level2">
 <h2 class="anchored" data-anchor-id="final-touches-and-submission">5. Final Touches and Submission</h2>
-<p>Review your notebook as a group. Ensure that it is well-organized and the code is properly documented.</p>
-<p>Once done, save your notebook and submit it via the designated method.</p>
+<p>Review your notebook as a group. Ensure that it is well-organized and the code is properly documented. Use the ability to <a href="../../studio/week01/intro.html#command-mode-running-cells">move cells around</a> to reorganize as needed.</p>
+<p>Once done, <a href="../../studio/week01/intro.html#saving-and-exporting">save your notebook as a pdf</a>.</p>
+<p>Have the group leader turn the pdf in on <a href="https://sdsu.instructure.com/courses/157862/assignments/1379443">canvas</a>.</p>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -780,87 +779,114 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Studio   1: Working with Jupyter Notebooks on JupyterHub"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Group Exercise 1: Working with Jupyter Notebooks on JupyterHub</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>In this exercise, you will practice basic operations in Jupyter notebooks, including writing and running Python code, working with Markdown cells, and performing simple data operations.</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Setting Up the Notebook</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>Rename this notebook to include your group name.</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Group Exercise 1</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>This notebook is for practicing basic operations in Jupyter notebooks. It includes examples of using Python code and Markdown cells to document the work.</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Basic Code Operations</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>In this section, you'll write and run some simple Python code.</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 1: Print a welcome message</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Welcome to JupyterHub!"</span>)</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 2: Perform a simple arithmetic operation</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="op">*</span> <span class="dv">3</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Working with Data</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>In this section, you'll work with a small dataset. The dataset could be provided in different formats, such as a list of numbers or a CSV file.</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Load and Display the Dataset</span></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Load the dataset</span></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># If using a CSV file, uncomment the following lines and provide the correct path to the file.</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas as pd</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co"># data = pd.read_csv("path_to_your_file.csv")</span></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co"># For demonstration, here's a simple Python list of numbers</span></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the dataset</span></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>data</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Perform a Basic Analysis</span></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Calculate the sum of the numbers in the dataset</span></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(data)</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Calculate the mean of the numbers in the dataset</span></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>mean_value <span class="op">=</span> <span class="bu">sum</span>(data) <span class="op">/</span> <span class="bu">len</span>(data)</span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>mean_value</span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Documenting the Analysis</span></span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>Use Markdown cells to document your code and results. For example:</span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dataset Analysis</span></span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>We loaded a dataset containing the numbers 10, 20, 30, 40, and 50. Below is the sum and mean of these numbers.</span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Final Touches and Submission</span></span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>Review your notebook as a group. Ensure that it is well-organized and the code is properly documented.</span>
-<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>Once done, save your notebook and submit it via the designated method.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Studio   1: Working with Jupyter Notebooks on JupyterHub"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>In this exercise, you will practice basic operations in Jupyter notebooks, including writing and running Python code, working with Markdown cells, and performing simple data operations.</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Setting Up the Notebook</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Create a new notebook.</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Rename it to <span class="in">`GroupX.ipynb`</span> where <span class="in">`X`</span> is your group number. </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>Add some structure at the top cells:</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Group Exercise 1</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>This notebook is for practicing basic operations in Jupyter notebooks. It includes examples of using Python code and Markdown cells to document the work.</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>Add a subsection with the name <span class="in">`Team`</span> and underneath the subsection add a</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>bulleted list with the names of the team members.</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>Put the leader's name in bold.</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>Add a second subsection that contains a second bulleted list. Give the</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>subsection the title <span class="in">`Links`</span> In this list add a</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">link</span><span class="co">](https://www.markdownguide.org/basic-syntax/#formatting-links)</span> to a site</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>that each group member suggests as interesting to the class.</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Basic Code Operations</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>In this section, you'll write and run some simple Python code.</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 1: Print a welcome message</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Welcome to JupyterHub!"</span>)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 2: Perform a simple arithmetic operation</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The value 10 * 3 is equal to </span><span class="sc">{</span><span class="dv">10</span> <span class="op">*</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>Run these cells, and explore what happens as you change some of the values.</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>Create some new code cells that extend on these ideas.</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Working with Data</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>In this section, you'll work with a small dataset.</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### Load and Display the Dataset</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">20</span>, <span class="dv">90</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">30</span>, <span class="dv">10</span>]</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the dataset</span></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>data</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### Perform a Basic Analysis</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Calculate the sum of the numbers in the dataset</span></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(data)</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Task: Calculate the mean of the numbers in the dataset</span></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>mean_value <span class="op">=</span> <span class="bu">sum</span>(data) <span class="op">/</span> <span class="bu">len</span>(data)</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>mean_value</span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>How would you sort the data using python? Show your answer in a code cell.</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>As a group, come up with an answer to the questions:</span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>Is the data skewed? If so, in what way?</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>Add Markdown cells that describe your reasoning used to come up with your answers.</span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Documenting the Analysis</span></span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>Use Markdown cells to document your code and results. For example:</span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dataset Analysis</span></span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>We loaded a dataset containing the numbers 10, 20, 30, 40, 50, 90, 100. Below is the sum and mean of these numbers.</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>With regard to skewness, we find ....</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Final Touches and Submission</span></span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>Review your notebook as a group. Ensure that it is well-organized and the code is properly documented.</span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>Use the ability to <span class="co">[</span><span class="ot">move cells around</span><span class="co">](intro.qmd#command-mode-running-cells)</span> to reorganize as needed.</span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>Once done, <span class="co">[</span><span class="ot">save your notebook as a pdf</span><span class="co">](intro.qmd#saving-and-exporting)</span>.</span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>Have the group leader turn the pdf in on <span class="co">[</span><span class="ot">canvas</span><span class="co">](https://sdsu.instructure.com/courses/157862/assignments/1379443)</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
