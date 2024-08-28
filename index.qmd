@@ -1,0 +1,14 @@
+---
+title: "Course Home"
+---
+
+# Welcome to Geography 385 Spatial Data Analysis
+This course will take you through 15 weeks of engaging lectures and hands-on
+studios, designed to give you practical experience in Spatial Data Analysis . 
+
+
+Use the sidebar to navigate through the weekly content.
+
+## Syllabus
+
+Please refer to the [course syllabus](syllabus.qmd) for detailed information on course structure, grading, and policies.

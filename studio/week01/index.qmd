@@ -1,0 +1,13 @@
+---
+title: "Studio   1: Jupyter Hub"
+format: html
+jupyter: python3
+---
+
+In this first studio session, we will do three things:
+
+
+1. [Get started with Jupyter Hub](intro.qmd)
+2. [Set up collaboration in studios](meet.qmd)
+3. [Collaborate on our first studio activity](jupyter.qmd)
+
