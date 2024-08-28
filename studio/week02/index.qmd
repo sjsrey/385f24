@@ -1,0 +1,6 @@
+---
+title: "Week 2 Studio: Pandas"
+---
+This week we introduce Pandas:
+
+- [Introduction to Pandas](pandas.ipynb)
