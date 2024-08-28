@@ -9,11 +9,11 @@ website:
         href: index.qmd
       - text: "Lectures"
         menu:
-          - text: "09-26 Course Overview"
+          - text: "08-26 Course Overview"
             href: lectures/week01/index.qmd
       - text: "Studio"
         menu:
-          - text: "09-28 Studio 1: Juptyer Hub Introduction"
+          - text: "08-28 Studio 1: Juptyer Hub Introduction"
             href: studio/week01/index.qmd
       - text: "References"
         menu:
@@ -25,9 +25,9 @@ website:
   sidebar:
     - section: "Weeks"
       contents:
-        - text: "09-26 Course Overview"
+        - text: "08-26 Course Overview"
           href: lectures/week01/index.qmd
-        - text: "09-28 Studio 1: Jupyter Hub"
+        - text: "08-28 Studio 1: Jupyter Hub"
           href: studio/week01/index.qmd
     - section: "Resources"
       contents:
