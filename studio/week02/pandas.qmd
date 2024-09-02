@@ -10,7 +10,7 @@ jupyter: python3
 
 ## Introduction
 
-In this notebook we introduce [pandas](https://pandas.pydata.org/) which is the main package for working with
+In this notebook we introduce [pandas](https://pandas.pydata.org/) [@mckinney-proc-scipy-2010]  which is the main package for working with
 data in Python.
 
 
