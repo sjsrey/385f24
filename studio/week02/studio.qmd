@@ -1,0 +1,52 @@
+---
+title: Studio 02 Pandas
+author: Serge Rey
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+## Instructions
+
+Using the `merged.csv` file you created in the studio, answer the following
+questions.
+
+The team leader will submit a pdf version of the notebook showing all the work
+to answer the questions.
+
+The first cell of the notebook should have a list of the team members (first and
+last names) with the team leader in bold. (Hint: Markdown cell).
+
+
+## Setup
+```{python}
+import pandas as pd
+
+df = pd.read_csv("merged.csv")
+```
+
+
+## Which region has the capital city with the largest population of all capital cities?
+
+```{python}
+
+# your code here
+```
+
+
+
+## Which region contains the largest number of people living in its capital cities?
+
+```{python}
+
+# your code here
+
+
+```
+
+##  Which region has the capital cities with the highest population density (median)?
+```{python}
+# your code here
+```
+

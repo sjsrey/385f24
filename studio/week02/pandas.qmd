@@ -1,0 +1,474 @@
+---
+title: Introduction to Pandas
+author: Serge Rey
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+
+## Introduction
+
+In this notebook we introduce [pandas](https://pandas.pydata.org/) which is the main package for working with
+data in Python.
+
+
+## Import
+
+We start by importing the package, and aliasing it as `pd`
+
+
+```{python}
+import pandas as pd
+```
+
+Aliasing allows us to use `pd` in place of having to type out `pandas` in what
+follows.
+
+## DataFrame Creation
+
+Pandas main data structure is called a `DataFrame`. We will create our first
+DataFrame by reading a `csv` file.
+
+
+```{python}
+home = "/home/serge"                    # <1>
+cities_df = pd.read_csv(f"{home}/data/385/studio02/cities.csv")
+```
+
+1. Change the value `home` to be equal to `jupyter-student` where `student` is
+   your id.
+
+
+::: {.callout-warning}
+Be sure to reread the instructions to change the path in the previous cell if
+you wish to follow along in your own notebook.
+:::
+
+Asking for the values of the `cities_df` give us:
+
+```{python}
+cities_df
+```
+
+This data set is composed of the capital cities for the 50 states.
+
+We can see what type of object `cities_df` is using `type`:
+
+```{python}
+type(cities_df)
+```
+
+As an analogy, you can think of a DataFrame as a spreadsheet with rows and
+columns. This mental model will help to orient you. We will see that the
+DataFrame extends spreadsheets in powerful ways for data analysis.
+
+A DataFrame, like most Python objects, has a number of `attributes` and
+`methods`.
+
+Its `shape` attribute tells us how many observations and variables we have.
+
+
+```{python}
+cities_df.shape
+```
+
+In this case our data set has 50 observations on 4 variables.
+
+## Series
+
+Each variable is stored as a `Series`:
+
+```{python}
+type(cities_df.longitude)
+```
+
+```{python}
+cities_df.longitude
+```
+
+When we ask for the contents of the series, we see two columns of numbers. The
+first is a set of integers which is the index. Each value in the index locates
+the particular observation in the series.
+
+The next column of values stores the values of the series. Here the values are
+[decimal degrees](https://xkcd.com/2170/) of longitude for the capital cities.
+
+## Data Types
+
+The `info` method of the DataFrame will summarize information about our DataFrame
+
+```{python}
+cities_df.info()
+```
+We have four columns, the first two of which are of type `object` and the last
+two are of type `float64`.
+
+The names of our variables in the DataFrame are stored in the `columns` attribute:
+```{python}
+cities_df.columns
+```
+
+We can use the column name to access the particular series:
+
+```{python}
+cities_df.longitude
+```
+
+```{python}
+cities_df.name
+```
+
+As each series is an object, it too comes with attributes and methods:
+
+```{python}
+cities_df.longitude.max()
+```
+
+```{python}
+cities_df.name.max()
+```
+
+```{python}
+cities_df.longitude.mean()
+```
+
+```{python}
+cities_df.name.min()
+```
+
+
+```{python}
+cities_df.longitude.describe()
+```
+
+```{python}
+cities_df.name.describe()
+```
+
+Note how the same method behaves for series of different types.
+
+
+
+## Creating new series
+
+A common workflow in data analysis is to create, or derive, new variables based
+upon existing variables. For example, let's define a variable that will denote
+whether a capital city is in the east or west of the country. Here we will use
+the median longitude as the comparison point: 
+
+```{python}
+cities_df.longitude.median()
+```
+
+```{python}
+cities_df.longitude < cities_df.longitude.median()
+```
+This creates a series that has data type `bool`, meaning True if the city is at
+a longitude less than that of the median longitude. False if it is east of that
+value.
+We can use this information to create a new series on the DataFrame called `east`:
+
+```{python}
+cities_df['east'] = cities_df.longitude > cities_df.longitude.median()
+```
+
+And, we can do this for a second variable `south`:
+
+```{python}
+cities_df['south'] = cities_df.latitude < cities_df.latitude.median()
+```
+
+Based on those two Boolean variables we can create an additional variable called
+`region` that tells us which of four regions the capital city is located in.
+
+```{python}
+cities_df['region'] = 4 * cities_df.east * cities_df.south + 3 * (1 - cities_df.east) * cities_df.south \
+                      + 2 * (1-cities_df.east) * (1-cities_df.south) + cities_df.east * (1-cities_df.south)
+                     
+```
+`region` takes on four values, 1 if the city is in the North East, 2 North West,
+3 South West, and 4 South East. 
+
+```{python}
+cities_df.head(20)
+```
+
+## Plotting
+Pandas comes with built-in plotting facilities.
+We can try out the default `plot` method:
+
+```{python}
+cities_df.plot('longitude', 'latitude')
+```
+
+This isn't quite what we want as the default is to plot the first series and the
+second series together with line segments connecting each pair of sequential
+observations.
+
+But we can try a different method to get what we want:
+
+```{python}
+cities_df.plot.scatter('longitude', 'latitude')
+```
+That's better as now we see the cities represented as points. 
+
+::: {.callout-warning}
+We are treating `longitude` and `latitude` as Cartesian coordinates in the
+plots. This is technically not correct as they are spherical coordinates. We
+will correct this later on in the course when we get to spatial data analysis proper.
+:::
+
+There are a number of powerful visualization packages in Python that allow us to
+go beyond what is available in Pandas. To see one of them here, we import `seaborn`
+```{python}
+import seaborn as sbn
+```
+and redo our plot:
+```{python}
+sbn.scatterplot(cities_df, x='longitude', y='latitude');
+```
+So far, not much difference from what we did with `pandas`. But we can specify a
+`hue` variable to distinguish what region the cities are in:
+```{python}
+sbn.scatterplot(cities_df, x='longitude', y='latitude', hue='region');
+```
+Great. But the numbers on the legend are not that informative. Let's change them:
+```{python}
+cities_df.region.map({1:'NE', 2:'NW', 3:'SW', 4:'SE'})
+```
+
+```{python}
+cities_df['region'] = cities_df.region.map({1:'NE', 2:'NW', 3:'SW', 4:'SE'})
+```
+
+```{python}
+sbn.scatterplot(cities_df, x='longitude', y='latitude', hue='region');
+```
+Much better.
+```{python}
+cities_df.head()
+```
+
+## DataFrame Operations
+
+Pandas has a number of powerful methods that allow us to manipulate the
+DataFrame in interesting ways. Here we look at three:
+
+- sorting
+- grouping
+- filtering
+
+
+### Sorting
+
+We can sort the DataFrame by the values of a given column. For example, to find
+the southern-most capital city:
+
+```{python}
+cities_df.sort_values(by='latitude')
+```
+
+To find the northern-most city:
+```{python}
+cities_df.sort_values(by='latitude', ascending=False)
+```
+
+If we don't want to see all the other columns, we can subset the dataframe
+first:
+
+```{python}
+cities_df[['name', 'description', 'latitude']].sort_values(by='latitude', ascending=False)
+```
+
+
+
+
+### Grouping
+
+The `groupby` method of the DataFrame allows us to split the dataframe, apply a
+function, and combine the results. This allows us to group data in interesting
+ways.
+
+Suppose we wanted to know how many cities were in the east and west?
+```{python}
+cities_df.groupby(by='east').count()
+```
+
+And for south and north:
+
+```{python}
+cities_df.groupby(by='south').count()
+```
+
+How about by region?
+
+```{python}
+cities_df.groupby(by='region').count()
+```
+::: {.callout-note}
+As we will see later in the course, there are different notions of a `spatial
+median`. This will unravel the mystery of why we have equal numbers of cities in
+the north and south, and east and west, but not in the four regions.
+:::
+
+In addition to applying the `count` method on the groubby object, we could use
+other functions. For example, we may want to know the median coordinate values
+in each of the four regions:
+
+
+```{python}
+cities_df[['region', 'longitude', 'latitude']].groupby(by='region').median()
+```
+	
+### Filtering
+Filtering allows us to subset the DataFrame based on some conditions. For
+example, what if we wanted to create a new DataFrame that only contained the
+southern capital cities:
+```{python}
+south_df = cities_df[cities_df.south]
+```
+
+```{python}
+south_df.shape
+```
+
+```{python}
+south_df.head()
+```
+
+And to get a DataFrame for the northern cities, we could use a complement filter:
+
+```{python}
+north_df = cities_df[~cities_df.south]
+```
+The `~` operator can be thought of flipping the boolean condition.
+
+```{python}
+north_df.head()
+```
+
+We could combine these to get the DataFrame for cities in the North East region:
+
+```{python}
+ne_df = cities_df[~cities_df.south & cities_df.east]
+```
+
+```{python}
+ne_df.head()
+```
+
+Like most things we will want to do, there are typically multiple ways to
+accomplish this in Python. Here we can get a set of regional DataFrames in one shot:
+
+```{python}
+dfs = {r:data for r, data in cities_df.groupby('region')}
+```
+
+```{python}
+dfs
+```
+
+They are stored in a dictionary, so we could access each one using the region 'key'.
+```{python}
+dfs['NE'].head()
+```
+
+## Merge
+
+A common workflow in spatial analysis is combining different data sets. Often we
+will have information on the locations or geographical coordinates in one data
+set, but that data set may not include any substantive attribute information. We
+may have a second data set that has the attribute information we are interested
+in, but this second data set lacks geographical coordinates. So we will have
+cause to `merge` the two data sets
+
+```{python}
+
+population_df = pd.read_csv(f"{home}/data/385/studio02/captial_population.csv")
+```
+
+```{python}
+population_df.head()
+```
+
+```{python}
+merged = pd.merge(cities_df, population_df, left_on='name', right_on='State')
+```
+
+```{python}
+merged.head()
+```
+
+```{python}
+merged.shape
+```
+
+```{python}
+merged = pd.merge(cities_df, population_df[['CityPop', 'rank_in_state', 'area', 'State']], left_on='name', right_on='State')
+```
+
+```{python}
+merged.shape
+```
+
+## Saving Files
+
+In addition to reading data files, as we did at the beginning of this session,
+pandas can also create files to save to disk. It is very useful to separate your
+more complicated data analysis workflows into stages. Typically, the earlier
+stages will involve data reading, creation of new variables, and or merging
+different data sets. Much like we have done here. Subsequent steps would be
+analyzing the data that we have just constructed.
+
+We do not want to have to repeat the data processing steps each time we need to
+carry out the analysis. To avoid this, we have our data processing notebooks
+save the newly created data to external files. This way the analysis notebooks
+only have to read these newly created files - we do not have to recreate them.
+
+
+Let's save our latest DataFrame to a csv so we can use it again later.
+
+```{python}
+merged.to_csv("merged.csv", index=False)
+```
+
+We can show that the merge above will work irrespective of order.
+
+
+```{python}
+merged.sort_values(by='description')
+```
+
+Let's write this out to a second new file:
+
+```{python}
+merged.sort_values(by='description').to_csv('merged1.csv', index=False)
+```
+
+Now read it in and redo a merge to compare to what we did above
+
+```{python}
+pop_df = pd.read_csv('merged1.csv')
+```
+
+```{python}
+pop_df.head()
+```
+
+```{python}
+merged1 = pd.merge(cities_df, pop_df[['CityPop', 'rank_in_state', 'area', 'State']], left_on='name', right_on='State')
+```
+
+```{python}
+merged1.shape
+```
+
+```{python}
+merged1.head()
+```
+
+```{python}
+merged.head()
+```
