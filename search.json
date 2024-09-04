@@ -4,7 +4,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Anselin, L. 1999. “Interactive Techniques and Exploratory Spatial Data Analysis.” In Geographical Information Systems: Principles, Techniques, Management and Applications, edited by P. A. Longley, M. Goodchild, D. J. Maguire, and D. W. Rhind, 251–64.\n\n\nArribas-Bel, Daniel, Thomas de Graaff, and Sergio J. Rey. 2017. “Looking at John Snow’s Cholera Map from the Twenty First Century: A Practical Primer on Reproducibility and Open Science.” In Regional Research Frontiers - Vol. 2: Methodological Advances, Regional Systems Modeling and Open Sciences, edited by Randall Jackson and Peter Schaeffer, 283–306. Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-50590-9_17.\n\n\nKnaap, Elijah, Wei Kang, Sergio Rey, Levi John Wolf, Renan Xavier Cortes, and Su Han. 2019. “Geosnap: The Geospatial Neighborhood Analysis Package.” Zenodo. https://doi.org/10.5281/ZENODO.3526163.\n\n\nRey, Sergio J., Luc Anselin, Pedro Amaral, Dani Arribas-Bel, Renan Xavier Cortes, James David Gaboardi, Wei Kang, et al. 2022. “The PySAL Ecosystem: Philosophy and Implementation.” Geographical Analysis 54 (3): 467–87. https://doi.org/10.1111/gean.12276.\n\n\nTukey, J. W. 1977. Exploratory Data Analysis. New York: Addison-Wesley."
+    "text": "Anselin, L. 1999. “Interactive Techniques and Exploratory Spatial Data Analysis.” In Geographical Information Systems: Principles, Techniques, Management and Applications, edited by P. A. Longley, M. Goodchild, D. J. Maguire, and D. W. Rhind, 251–64.\n\n\nArribas-Bel, Daniel, Thomas de Graaff, and Sergio J. Rey. 2017. “Looking at John Snow’s Cholera Map from the Twenty First Century: A Practical Primer on Reproducibility and Open Science.” In Regional Research Frontiers - Vol. 2: Methodological Advances, Regional Systems Modeling and Open Sciences, edited by Randall Jackson and Peter Schaeffer, 283–306. Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-50590-9_17.\n\n\nKnaap, Elijah, Wei Kang, Sergio Rey, Levi John Wolf, Renan Xavier Cortes, and Su Han. 2019. “Geosnap: The Geospatial Neighborhood Analysis Package.” Zenodo. https://doi.org/10.5281/ZENODO.3526163.\n\n\nMcKinney, Wes. 2010. “Data Structures for Statistical Computing in Python.” In Proceedings of the 9th Python in Science Conference, edited by Stéfan van der Walt and Jarrod Millman, 56–61. https://doi.org/10.25080/Majora-92bf1922-00a .\n\n\nRey, Sergio J., Luc Anselin, Pedro Amaral, Dani Arribas-Bel, Renan Xavier Cortes, James David Gaboardi, Wei Kang, et al. 2022. “The PySAL Ecosystem: Philosophy and Implementation.” Geographical Analysis 54 (3): 467–87. https://doi.org/10.1111/gean.12276.\n\n\nTukey, J. W. 1977. Exploratory Data Analysis. New York: Addison-Wesley."
   },
   {
     "objectID": "syllabus.html#class-meetings",
@@ -376,6 +376,244 @@
     "text": "References\n\n\n\n\n\n\n\n\nAnselin, L. 1999. “Interactive Techniques and Exploratory Spatial Data Analysis.” In Geographical Information Systems: Principles, Techniques, Management and Applications, edited by P. A. Longley, M. Goodchild, D. J. Maguire, and D. W. Rhind, 251–64.\n\n\nArribas-Bel, Daniel, Thomas de Graaff, and Sergio J. Rey. 2017. “Looking at John Snow’s Cholera Map from the Twenty First Century: A Practical Primer on Reproducibility and Open Science.” In Regional Research Frontiers - Vol. 2: Methodological Advances, Regional Systems Modeling and Open Sciences, edited by Randall Jackson and Peter Schaeffer, 283–306. Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-50590-9_17.\n\n\nKnaap, Elijah, Wei Kang, Sergio Rey, Levi John Wolf, Renan Xavier Cortes, and Su Han. 2019. “Geosnap: The Geospatial Neighborhood Analysis Package.” Zenodo. https://doi.org/10.5281/ZENODO.3526163.\n\n\nRey, Sergio J., Luc Anselin, Pedro Amaral, Dani Arribas-Bel, Renan Xavier Cortes, James David Gaboardi, Wei Kang, et al. 2022. “The PySAL Ecosystem: Philosophy and Implementation.” Geographical Analysis 54 (3): 467–87. https://doi.org/10.1111/gean.12276.\n\n\nTukey, J. W. 1977. Exploratory Data Analysis. New York: Addison-Wesley."
   },
   {
+    "objectID": "lectures/week03/index.html",
+    "href": "lectures/week03/index.html",
+    "title": "Week 3 Lecture: Spatial Data Analysis",
+    "section": "",
+    "text": "lecture"
+  },
+  {
+    "objectID": "lectures/week03/index.html#spatial-data-analysis",
+    "href": "lectures/week03/index.html#spatial-data-analysis",
+    "title": "Week 3 Lecture: Spatial Data Analysis",
+    "section": "",
+    "text": "lecture"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#definition-of-spatial-data-analysis",
+    "href": "lectures/week03/lecture_sda.html#definition-of-spatial-data-analysis",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Definition of Spatial Data Analysis",
+    "text": "Definition of Spatial Data Analysis\n\nSpatial data analysis involves examining locations, attributes, and relationships of features in spatial data using statistical and computational techniques."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#exploratory-data-analysis-eda",
+    "href": "lectures/week03/lecture_sda.html#exploratory-data-analysis-eda",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nEDA coined by John Tukey (Tukey 1977)\nSet of statistical tools designed to\n\ndiscover “indications of unexpected phenomena”\n“display the unanticipated”\n“uncover potentially explicable patterns”"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#eda-approach",
+    "href": "lectures/week03/lecture_sda.html#eda-approach",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "EDA Approach",
+    "text": "EDA Approach\n\nAbductive reasoning\nInteraction between data exploration and human perception to\n\ndetect patterns\nformulation of hypotheses"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#exploratory-spatial-data-analysis-esda",
+    "href": "lectures/week03/lecture_sda.html#exploratory-spatial-data-analysis-esda",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Exploratory Spatial Data Analysis (ESDA)",
+    "text": "Exploratory Spatial Data Analysis (ESDA)\n\nA collection of techniques to describe and visualize spatial distributions, identify atypical locations or spatial outliers, discover patterns of spatial association, clusters or hot spots and suggest spatial regimes or other forms of spatial heterogeneity\n\nAnselin (1999)"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#exploratory-spatial-data-analysis-esda-1",
+    "href": "lectures/week03/lecture_sda.html#exploratory-spatial-data-analysis-esda-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Exploratory Spatial Data Analysis (ESDA)",
+    "text": "Exploratory Spatial Data Analysis (ESDA)\n\nEDA extended to spatial data\nMaps play a central role, but it doesn’t end with maps\nGeovisualization, geospatial visual analytics\nCombine visualizations with specialized quantitive measures"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#importance-of-spatial-data-analysis",
+    "href": "lectures/week03/lecture_sda.html#importance-of-spatial-data-analysis",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Importance of Spatial Data Analysis",
+    "text": "Importance of Spatial Data Analysis\n\nApplications in various fields: urban planning, environmental science, public health, economics, etc.\nGrowing relevance with the rise of Geographic Information Systems (GIS) and spatial technologies."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#historical-context",
+    "href": "lectures/week03/lecture_sda.html#historical-context",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Historical Context",
+    "text": "Historical Context\n\nEarly use in geography and epidemiology.\nEvolution with the development of GIS and advanced computational tools."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#snow-map",
+    "href": "lectures/week03/lecture_sda.html#snow-map",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Snow Map",
+    "text": "Snow Map\n\n\n\nArribas-Bel, de Graaff, and Rey (2017)"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#snow-map-1",
+    "href": "lectures/week03/lecture_sda.html#snow-map-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Snow Map",
+    "text": "Snow Map\n\n\n\nArribas-Bel, de Graaff, and Rey (2017)"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#scope-of-spatial-analysis",
+    "href": "lectures/week03/lecture_sda.html#scope-of-spatial-analysis",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Scope of Spatial Analysis",
+    "text": "Scope of Spatial Analysis\n\n\n\nRey et al. (2022)"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#vector-data",
+    "href": "lectures/week03/lecture_sda.html#vector-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Vector Data",
+    "text": "Vector Data\n\nDefinition: Represents spatial features using points, lines, and polygons.\nExamples:\n\nPoints: Locations of cities, schools, or hospitals.\nLines: Roads, rivers, or pipelines.\nPolygons: Land parcels, administrative boundaries, or lakes.\n\nApplications: Urban planning, transportation networks, cadastral mapping."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#vector-data-1",
+    "href": "lectures/week03/lecture_sda.html#vector-data-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Vector Data",
+    "text": "Vector Data"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#raster-data",
+    "href": "lectures/week03/lecture_sda.html#raster-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Raster Data",
+    "text": "Raster Data\n\nDefinition: Represents spatial phenomena as a grid of cells or pixels, each with a value representing a specific attribute.\nExamples:\n\nSatellite images, digital elevation models (DEMs), land cover maps.\n\nApplications: Environmental monitoring, remote sensing, agricultural analysis."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#raster-data-1",
+    "href": "lectures/week03/lecture_sda.html#raster-data-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Raster Data",
+    "text": "Raster Data"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#attribute-data",
+    "href": "lectures/week03/lecture_sda.html#attribute-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Attribute Data",
+    "text": "Attribute Data\n\nDefinition: Non-spatial information associated with spatial features.\nExamples:\n\nPopulation data linked to census tracts, land use types associated with parcels.\n\nImportance: Provides context and meaning to spatial locations and features."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#attribute-data-1",
+    "href": "lectures/week03/lecture_sda.html#attribute-data-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Attribute Data",
+    "text": "Attribute Data"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#spatio-temporal-data",
+    "href": "lectures/week03/lecture_sda.html#spatio-temporal-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatio-Temporal Data",
+    "text": "Spatio-Temporal Data\n\nDefinition: Spatial data that includes a time component, showing how spatial phenomena change over time.\nExamples:\n\nSpread of diseases, changes in land use, migration patterns.\n\nApplications: Epidemiology, climate change studies, urban development."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#spatio-temporal-data-1",
+    "href": "lectures/week03/lecture_sda.html#spatio-temporal-data-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatio-Temporal Data",
+    "text": "Spatio-Temporal Data\n\n\n\nKnaap et al. (2019)"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#remote-sensing",
+    "href": "lectures/week03/lecture_sda.html#remote-sensing",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Remote Sensing",
+    "text": "Remote Sensing\n\nDefinition: The process of collecting data about the Earth’s surface from a distance, typically using satellites or aircraft.\nExamples: Landsat, MODIS, LiDAR.\nApplications: Environmental monitoring, disaster management, agricultural assessments."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#geographic-information-systems-gis",
+    "href": "lectures/week03/lecture_sda.html#geographic-information-systems-gis",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Geographic Information Systems (GIS)",
+    "text": "Geographic Information Systems (GIS)\n\nDefinition: A system designed to capture, store, manipulate, analyze, manage, and present spatial or geographic data.\nComponents: Hardware, software, data, methods, and people.\nApplications: Urban planning, transportation, environmental management."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#global-positioning-system-gps",
+    "href": "lectures/week03/lecture_sda.html#global-positioning-system-gps",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Global Positioning System (GPS)",
+    "text": "Global Positioning System (GPS)\n\nDefinition: A satellite-based navigation system that provides location and time information.\nApplications: Navigation, mapping, field data collection."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#crowdsourced-data",
+    "href": "lectures/week03/lecture_sda.html#crowdsourced-data",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Crowdsourced Data",
+    "text": "Crowdsourced Data\n\nDefinition: Data collected from a large number of people, often through mobile devices or online platforms.\nExamples: OpenStreetMap, social media check-ins.\nApplications: Disaster response, urban planning, public health monitoring."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#spatial-autocorrelation",
+    "href": "lectures/week03/lecture_sda.html#spatial-autocorrelation",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Autocorrelation",
+    "text": "Spatial Autocorrelation\n\nDefinition: The degree to which objects close to each other in space are also similar in other attributes.\nExamples: Clustered patterns of disease, similar land uses in neighboring areas.\nMeasurement: Moran’s I, Geary’s C."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#spatial-autocorrelation-1",
+    "href": "lectures/week03/lecture_sda.html#spatial-autocorrelation-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Autocorrelation",
+    "text": "Spatial Autocorrelation"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#spatial-scale-and-resolution",
+    "href": "lectures/week03/lecture_sda.html#spatial-scale-and-resolution",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Scale and Resolution",
+    "text": "Spatial Scale and Resolution\n\nDefinition: The level of detail at which spatial data is observed or represented.\nExamples: Global, regional, local scales.\nImplications: Affects the analysis and interpretation of spatial data."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#modifiable-areal-unit-problem-maup",
+    "href": "lectures/week03/lecture_sda.html#modifiable-areal-unit-problem-maup",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Modifiable Areal Unit Problem (MAUP)",
+    "text": "Modifiable Areal Unit Problem (MAUP)\n\nDefinition: The issue that the results of spatial analysis can vary depending on the spatial units used.\nExamples: Changing the boundaries of districts can change the outcomes of an analysis.\nConsiderations: Important in the design and interpretation of spatial studies."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#modifiable-areal-unit-problem-maup-1",
+    "href": "lectures/week03/lecture_sda.html#modifiable-areal-unit-problem-maup-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Modifiable Areal Unit Problem (MAUP)",
+    "text": "Modifiable Areal Unit Problem (MAUP)"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#spatial-interpolation",
+    "href": "lectures/week03/lecture_sda.html#spatial-interpolation",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Interpolation",
+    "text": "Spatial Interpolation\n\nDefinition: The process of estimating unknown values at certain locations based on known values at other locations.\nExamples: Estimating temperature or pollution levels across a region.\nMethods: Kriging, Inverse Distance Weighting (IDW)."
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#spatial-interpolation-1",
+    "href": "lectures/week03/lecture_sda.html#spatial-interpolation-1",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Spatial Interpolation",
+    "text": "Spatial Interpolation"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#recap-of-key-points",
+    "href": "lectures/week03/lecture_sda.html#recap-of-key-points",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Recap of Key Points",
+    "text": "Recap of Key Points\n\nDefinitions of EDA, ESDA\nTypes and Sources of Spatial Data\nKey Concepts in Spatial Data Analysis"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#questions",
+    "href": "lectures/week03/lecture_sda.html#questions",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "Questions",
+    "text": "Questions"
+  },
+  {
+    "objectID": "lectures/week03/lecture_sda.html#references",
+    "href": "lectures/week03/lecture_sda.html#references",
+    "title": "Introduction to Spatial Data Analysis",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\n\nAnselin, L. 1999. “Interactive Techniques and Exploratory Spatial Data Analysis.” In Geographical Information Systems: Principles, Techniques, Management and Applications, edited by P. A. Longley, M. Goodchild, D. J. Maguire, and D. W. Rhind, 251–64.\n\n\nArribas-Bel, Daniel, Thomas de Graaff, and Sergio J. Rey. 2017. “Looking at John Snow’s Cholera Map from the Twenty First Century: A Practical Primer on Reproducibility and Open Science.” In Regional Research Frontiers - Vol. 2: Methodological Advances, Regional Systems Modeling and Open Sciences, edited by Randall Jackson and Peter Schaeffer, 283–306. Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-50590-9_17.\n\n\nKnaap, Elijah, Wei Kang, Sergio Rey, Levi John Wolf, Renan Xavier Cortes, and Su Han. 2019. “Geosnap: The Geospatial Neighborhood Analysis Package.” Zenodo. https://doi.org/10.5281/ZENODO.3526163.\n\n\nRey, Sergio J., Luc Anselin, Pedro Amaral, Dani Arribas-Bel, Renan Xavier Cortes, James David Gaboardi, Wei Kang, et al. 2022. “The PySAL Ecosystem: Philosophy and Implementation.” Geographical Analysis 54 (3): 467–87. https://doi.org/10.1111/gean.12276.\n\n\nTukey, J. W. 1977. Exploratory Data Analysis. New York: Addison-Wesley."
+  },
+  {
     "objectID": "studio/python_course.html",
     "href": "studio/python_course.html",
     "title": "",
@@ -455,6 +693,178 @@
     "title": "Studio 1: Working with Jupyter Notebooks on JupyterHub",
     "section": "5. Final Touches and Submission",
     "text": "5. Final Touches and Submission\nReview your notebook as a group. Ensure that it is well-organized and the code is properly documented. Use the ability to move cells around to reorganize as needed.\nOnce done, save your notebook as a pdf.\nHave the group leader turn the pdf in on canvas."
+  },
+  {
+    "objectID": "studio/week02/studio.html",
+    "href": "studio/week02/studio.html",
+    "title": "Studio 02 Pandas",
+    "section": "",
+    "text": "Teams\nDUE: Wednesday, September 11, 2024 3:30pm\nUsing the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+  },
+  {
+    "objectID": "studio/week02/studio.html#instructions",
+    "href": "studio/week02/studio.html#instructions",
+    "title": "Studio 02 Pandas",
+    "section": "",
+    "text": "Teams\nDUE: Wednesday, September 11, 2024 3:30pm\nUsing the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+  },
+  {
+    "objectID": "studio/week02/studio.html#setup",
+    "href": "studio/week02/studio.html#setup",
+    "title": "Studio 02 Pandas",
+    "section": "Setup",
+    "text": "Setup\n\nimport pandas as pd\n\ndf = pd.read_csv(\"merged.csv\")"
+  },
+  {
+    "objectID": "studio/week02/studio.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
+    "href": "studio/week02/studio.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
+    "title": "Studio 02 Pandas",
+    "section": "Which region has the capital city with the largest population of all capital cities?",
+    "text": "Which region has the capital city with the largest population of all capital cities?\n\n# your code here"
+  },
+  {
+    "objectID": "studio/week02/studio.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
+    "href": "studio/week02/studio.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
+    "title": "Studio 02 Pandas",
+    "section": "Which region contains the largest number of people living in its capital cities?",
+    "text": "Which region contains the largest number of people living in its capital cities?\n\n# your code here"
+  },
+  {
+    "objectID": "studio/week02/studio.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
+    "href": "studio/week02/studio.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
+    "title": "Studio 02 Pandas",
+    "section": "Which region has the capital cities with the highest population density (median)?",
+    "text": "Which region has the capital cities with the highest population density (median)?\n\n# your code here"
+  },
+  {
+    "objectID": "studio/week02/key.html",
+    "href": "studio/week02/key.html",
+    "title": "Studio 02 Pandas",
+    "section": "",
+    "text": "Using the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+  },
+  {
+    "objectID": "studio/week02/key.html#instructions",
+    "href": "studio/week02/key.html#instructions",
+    "title": "Studio 02 Pandas",
+    "section": "",
+    "text": "Using the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+  },
+  {
+    "objectID": "studio/week02/key.html#setup",
+    "href": "studio/week02/key.html#setup",
+    "title": "Studio 02 Pandas",
+    "section": "Setup",
+    "text": "Setup\n\nimport pandas as pd\n\ndf = pd.read_csv(\"merged.csv\")"
+  },
+  {
+    "objectID": "studio/week02/key.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
+    "href": "studio/week02/key.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
+    "title": "Studio 02 Pandas",
+    "section": "Which region has the capital city with the largest population of all capital cities?",
+    "text": "Which region has the capital city with the largest population of all capital cities?\n\ndf[['region', 'CityPop', 'description']].sort_values(by='CityPop', ascending=False)\n\n\n\n\n\n\n\n\nregion\nCityPop\ndescription\n\n\n\n\n2\nSW\n1608139\nPhoenix\n\n\n42\nSW\n961855\nAustin\n\n\n34\nNE\n905748\nColumbus\n\n\n13\nSE\n887642\nIndianapolis\n\n\n5\nSW\n715522\nDenver\n\n\n41\nSE\n689447\nNashville\n\n\n35\nSW\n681054\nOklahoma City\n\n\n20\nNE\n675647\nBoston\n\n\n4\nSW\n524943\nSacramento\n\n\n10\nSE\n498715\nAtlanta&lt;br&gt;\n\n\n31\nSE\n467665\nRaleigh\n\n\n8\nSW\n350964\nHonolulu\n\n\n22\nNW\n311527\nSt. Paul\n\n\n26\nNW\n291082\nLincoln\n\n\n48\nNE\n269840\nMadison\n\n\n11\nNW\n235684\nBoise\n\n\n17\nSW\n227470\nBaton Rouge\n\n\n45\nSE\n226610\nRichmond\n\n\n14\nNW\n214133\nDes Moines\n\n\n3\nSW\n202591\nLittle Rock\n\n\n0\nSE\n200603\nMontgomery\n\n\n43\nNW\n199723\nSalt Lake City\n\n\n9\nSE\n196169\nTallahassee\n\n\n38\nNE\n190934\nProvidence\n\n\n36\nNW\n175535\nSalem\n\n\n23\nSW\n153701\nJackson\n\n\n39\nSE\n136632\nColumbia\n\n\n15\nSW\n126587\nTopeka\n\n\n6\nNE\n121054\nHartford&lt;br&gt;\n\n\n12\nNE\n114394\nSpringfield\n\n\n21\nNE\n112644\nLansing\n\n\n33\nNE\n99224\nAlbany\n\n\n29\nNE\n90871\nTrenton\n\n\n30\nSW\n87505\nSanta Fe\n\n\n32\nNW\n73622\nBismarck\n\n\n49\nNW\n65132\nCheyenne\n\n\n27\nSW\n58639\nCarson City\n\n\n46\nNW\n55605\nOlympia\n\n\n37\nNE\n50099\nHarrisburg\n\n\n47\nSE\n48864\nCharleston\n\n\n28\nNE\n43976\nConcord\n\n\n24\nSW\n43228\nJefferson City\n\n\n19\nSE\n40812\nAnnapolis\n\n\n7\nSE\n39403\nDover\n\n\n1\nNW\n32255\nJuneau\n\n\n25\nNW\n32091\nHelena\n\n\n16\nSE\n28602\nFrankfort\n\n\n18\nNE\n18899\nAugusta\n\n\n40\nNW\n14091\nPierre\n\n\n44\nNE\n8074\nMontpelier"
+  },
+  {
+    "objectID": "studio/week02/key.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
+    "href": "studio/week02/key.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
+    "title": "Studio 02 Pandas",
+    "section": "Which region contains the largest number of people living in its capital cities?",
+    "text": "Which region contains the largest number of people living in its capital cities?\n\ndf[['region', 'CityPop']].groupby(by='region').sum()\n\n\n\n\n\n\n\n\nCityPop\n\n\nregion\n\n\n\n\n\nNE\n2701404\n\n\nNW\n1700480\n\n\nSE\n3461164\n\n\nSW\n5742198"
+  },
+  {
+    "objectID": "studio/week02/key.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
+    "href": "studio/week02/key.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
+    "title": "Studio 02 Pandas",
+    "section": "Which region has the capital cities with the highest population density (median)?",
+    "text": "Which region has the capital cities with the highest population density (median)?\n\ndf['density'] = df.CityPop / df.area\ndf[['density', 'region']].groupby(by='region').median()\n\n\n\n\n\n\n\n\ndensity\n\n\nregion\n\n\n\n\n\nNE\n4306.932953\n\n\nNW\n2955.899130\n\n\nSE\n1997.773548\n\n\nSW\n2345.978552"
+  },
+  {
+    "objectID": "studio/week02/index.html",
+    "href": "studio/week02/index.html",
+    "title": "Week 2 Studio: Pandas",
+    "section": "",
+    "text": "This week we introduce Pandas:\n\nIntroduction to Pandas\nStudio exercise",
+    "crumbs": [
+      "Home",
+      "09-04 Studio 2: Pandas"
+    ]
+  },
+  {
+    "objectID": "studio/week02/pandas.html",
+    "href": "studio/week02/pandas.html",
+    "title": "Introduction to Pandas",
+    "section": "",
+    "text": "In this notebook we introduce pandas (McKinney 2010) which is the main package for working with data in Python."
+  },
+  {
+    "objectID": "studio/week02/pandas.html#introduction",
+    "href": "studio/week02/pandas.html#introduction",
+    "title": "Introduction to Pandas",
+    "section": "",
+    "text": "In this notebook we introduce pandas (McKinney 2010) which is the main package for working with data in Python."
+  },
+  {
+    "objectID": "studio/week02/pandas.html#import",
+    "href": "studio/week02/pandas.html#import",
+    "title": "Introduction to Pandas",
+    "section": "Import",
+    "text": "Import\nWe start by importing the package, and aliasing it as pd\n\nimport pandas as pd\n\nAliasing allows us to use pd in place of having to type out pandas in what follows."
+  },
+  {
+    "objectID": "studio/week02/pandas.html#dataframe-creation",
+    "href": "studio/week02/pandas.html#dataframe-creation",
+    "title": "Introduction to Pandas",
+    "section": "DataFrame Creation",
+    "text": "DataFrame Creation\nPandas main data structure is called a DataFrame. We will create our first DataFrame by reading a csv file.\n\n1home = \"/home/serge\"\ncities_df = pd.read_csv(f\"{home}/data/385/studio02/cities.csv\")\n\n\n1\n\nChange the value home to be equal to jupyter-student where student is your id.\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nBe sure to reread the instructions to change the path in the previous cell if you wish to follow along in your own notebook.\n\n\nAsking for the values of the cities_df give us:\n\ncities_df\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\n\n\n5\nColorado\nDenver\n39.739227\n-104.984856\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\n\n\n7\nDelaware\nDover\n39.157307\n-75.519722\n\n\n8\nHawaii\nHonolulu\n21.307442\n-157.857376\n\n\n9\nFlorida\nTallahassee\n30.438118\n-84.281296\n\n\n10\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n-84.388229\n\n\n11\nIdaho\nBoise\n43.617775\n-116.199722\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\n\n\n13\nIndiana\nIndianapolis\n39.768623\n-86.162643\n\n\n14\nIowa\nDes Moines\n41.591087\n-93.603729\n\n\n15\nKansas\nTopeka\n39.048191\n-95.677956\n\n\n16\nKentucky\nFrankfort\n38.186722\n-84.875374\n\n\n17\nLouisiana\nBaton Rouge\n30.457069\n-91.187393\n\n\n18\nMaine\nAugusta\n44.307167\n-69.781693\n\n\n19\nMaryland\nAnnapolis\n38.978764\n-76.490936\n\n\n20\nMassachusetts\nBoston\n42.358162\n-71.063698\n\n\n21\nMichigan\nLansing\n42.733635\n-84.555328\n\n\n22\nMinnesota\nSt. Paul\n44.955097\n-93.102211\n\n\n23\nMississippi\nJackson\n32.303848\n-90.182106\n\n\n24\nMissouri\nJefferson City\n38.579201\n-92.172935\n\n\n25\nMontana\nHelena\n46.585709\n-112.018417\n\n\n26\nNebraska\nLincoln\n40.808075\n-96.699654\n\n\n27\nNevada\nCarson City\n39.163914\n-119.766121\n\n\n28\nNew Hampshire\nConcord\n43.206898\n-71.537994\n\n\n29\nNew Jersey\nTrenton\n40.220596\n-74.769913\n\n\n30\nNew Mexico\nSanta Fe\n35.682240\n-105.939728\n\n\n31\nNorth Carolina\nRaleigh\n35.780430\n-78.639099\n\n\n32\nNorth Dakota\nBismarck\n46.820850\n-100.783318\n\n\n33\nNew York\nAlbany\n42.652843\n-73.757874\n\n\n34\nOhio\nColumbus\n39.961346\n-82.999069\n\n\n35\nOklahoma\nOklahoma City\n35.492207\n-97.503342\n\n\n36\nOregon\nSalem\n44.938461\n-123.030403\n\n\n37\nPennsylvania\nHarrisburg\n40.264378\n-76.883598\n\n\n38\nRhode Island\nProvidence\n41.830914\n-71.414963\n\n\n39\nSouth Carolina\nColumbia\n34.000343\n-81.033211\n\n\n40\nSouth Dakota\nPierre\n44.367031\n-100.346405\n\n\n41\nTennessee\nNashville\n36.165810\n-86.784241\n\n\n42\nTexas\nAustin\n30.274670\n-97.740349\n\n\n43\nUtah\nSalt Lake City\n40.777477\n-111.888237\n\n\n44\nVermont\nMontpelier\n44.262436\n-72.580536\n\n\n45\nVirginia\nRichmond\n37.538857\n-77.433640\n\n\n46\nWashington\nOlympia\n47.035805\n-122.905014\n\n\n47\nWest Virginia\nCharleston\n38.336246\n-81.612328\n\n\n48\nWisconsin\nMadison\n43.074684\n-89.384445\n\n\n49\nWyoming\nCheyenne\n41.140259\n-104.820236\n\n\n\n\n\n\n\nThis data set is composed of the capital cities for the 50 states.\nWe can see what type of object cities_df is using type:\n\ntype(cities_df)\n\npandas.core.frame.DataFrame\n\n\nAs an analogy, you can think of a DataFrame as a spreadsheet with rows and columns. This mental model will help to orient you. We will see that the DataFrame extends spreadsheets in powerful ways for data analysis.\nA DataFrame, like most Python objects, has a number of attributes and methods.\nIts shape attribute tells us how many observations and variables we have.\n\ncities_df.shape\n\n(50, 4)\n\n\nIn this case our data set has 50 observations on 4 variables."
+  },
+  {
+    "objectID": "studio/week02/pandas.html#series",
+    "href": "studio/week02/pandas.html#series",
+    "title": "Introduction to Pandas",
+    "section": "Series",
+    "text": "Series\nEach variable is stored as a Series:\n\ntype(cities_df.longitude)\n\npandas.core.series.Series\n\n\n\ncities_df.longitude\n\n0     -86.300568\n1    -134.420212\n2    -112.096962\n3     -92.288986\n4    -121.493629\n5    -104.984856\n6     -72.682198\n7     -75.519722\n8    -157.857376\n9     -84.281296\n10    -84.388229\n11   -116.199722\n12    -89.654961\n13    -86.162643\n14    -93.603729\n15    -95.677956\n16    -84.875374\n17    -91.187393\n18    -69.781693\n19    -76.490936\n20    -71.063698\n21    -84.555328\n22    -93.102211\n23    -90.182106\n24    -92.172935\n25   -112.018417\n26    -96.699654\n27   -119.766121\n28    -71.537994\n29    -74.769913\n30   -105.939728\n31    -78.639099\n32   -100.783318\n33    -73.757874\n34    -82.999069\n35    -97.503342\n36   -123.030403\n37    -76.883598\n38    -71.414963\n39    -81.033211\n40   -100.346405\n41    -86.784241\n42    -97.740349\n43   -111.888237\n44    -72.580536\n45    -77.433640\n46   -122.905014\n47    -81.612328\n48    -89.384445\n49   -104.820236\nName: longitude, dtype: float64\n\n\nWhen we ask for the contents of the series, we see two columns of numbers. The first is a set of integers which is the index. Each value in the index locates the particular observation in the series.\nThe next column of values stores the values of the series. Here the values are decimal degrees of longitude for the capital cities."
+  },
+  {
+    "objectID": "studio/week02/pandas.html#data-types",
+    "href": "studio/week02/pandas.html#data-types",
+    "title": "Introduction to Pandas",
+    "section": "Data Types",
+    "text": "Data Types\nThe info method of the DataFrame will summarize information about our DataFrame\n\ncities_df.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 50 entries, 0 to 49\nData columns (total 4 columns):\n #   Column       Non-Null Count  Dtype  \n---  ------       --------------  -----  \n 0   name         50 non-null     object \n 1   description  50 non-null     object \n 2   latitude     50 non-null     float64\n 3   longitude    50 non-null     float64\ndtypes: float64(2), object(2)\nmemory usage: 1.7+ KB\n\n\nWe have four columns, the first two of which are of type object and the last two are of type float64.\nThe names of our variables in the DataFrame are stored in the columns attribute:\n\ncities_df.columns\n\nIndex(['name', 'description', 'latitude', 'longitude'], dtype='object')\n\n\nWe can use the column name to access the particular series:\n\ncities_df.longitude\n\n0     -86.300568\n1    -134.420212\n2    -112.096962\n3     -92.288986\n4    -121.493629\n5    -104.984856\n6     -72.682198\n7     -75.519722\n8    -157.857376\n9     -84.281296\n10    -84.388229\n11   -116.199722\n12    -89.654961\n13    -86.162643\n14    -93.603729\n15    -95.677956\n16    -84.875374\n17    -91.187393\n18    -69.781693\n19    -76.490936\n20    -71.063698\n21    -84.555328\n22    -93.102211\n23    -90.182106\n24    -92.172935\n25   -112.018417\n26    -96.699654\n27   -119.766121\n28    -71.537994\n29    -74.769913\n30   -105.939728\n31    -78.639099\n32   -100.783318\n33    -73.757874\n34    -82.999069\n35    -97.503342\n36   -123.030403\n37    -76.883598\n38    -71.414963\n39    -81.033211\n40   -100.346405\n41    -86.784241\n42    -97.740349\n43   -111.888237\n44    -72.580536\n45    -77.433640\n46   -122.905014\n47    -81.612328\n48    -89.384445\n49   -104.820236\nName: longitude, dtype: float64\n\n\n\ncities_df.name\n\n0            Alabama\n1             Alaska\n2            Arizona\n3           Arkansas\n4         California\n5           Colorado\n6        Connecticut\n7           Delaware\n8             Hawaii\n9            Florida\n10           Georgia\n11             Idaho\n12          Illinois\n13           Indiana\n14              Iowa\n15            Kansas\n16          Kentucky\n17         Louisiana\n18             Maine\n19          Maryland\n20     Massachusetts\n21          Michigan\n22         Minnesota\n23       Mississippi\n24          Missouri\n25           Montana\n26          Nebraska\n27            Nevada\n28     New Hampshire\n29        New Jersey\n30        New Mexico\n31    North Carolina\n32      North Dakota\n33          New York\n34              Ohio\n35          Oklahoma\n36            Oregon\n37      Pennsylvania\n38      Rhode Island\n39    South Carolina\n40      South Dakota\n41         Tennessee\n42             Texas\n43              Utah\n44           Vermont\n45          Virginia\n46        Washington\n47     West Virginia\n48         Wisconsin\n49           Wyoming\nName: name, dtype: object\n\n\nAs each series is an object, it too comes with attributes and methods:\n\ncities_df.longitude.max()\n\nnp.float64(-69.781693)\n\n\n\ncities_df.name.max()\n\n'Wyoming'\n\n\n\ncities_df.longitude.mean()\n\nnp.float64(-93.46593707999999)\n\n\n\ncities_df.name.min()\n\n'Alabama'\n\n\n\ncities_df.longitude.describe()\n\ncount     50.000000\nmean     -93.465937\nstd       18.669710\nmin     -157.857376\n25%     -103.811006\n50%      -89.918533\n75%      -79.237627\nmax      -69.781693\nName: longitude, dtype: float64\n\n\n\ncities_df.name.describe()\n\ncount          50\nunique         50\ntop       Alabama\nfreq            1\nName: name, dtype: object\n\n\nNote how the same method behaves for series of different types."
+  },
+  {
+    "objectID": "studio/week02/pandas.html#creating-new-series",
+    "href": "studio/week02/pandas.html#creating-new-series",
+    "title": "Introduction to Pandas",
+    "section": "Creating new series",
+    "text": "Creating new series\nA common workflow in data analysis is to create, or derive, new variables based upon existing variables. For example, let’s define a variable that will denote whether a capital city is in the east or west of the country. Here we will use the median longitude as the comparison point:\n\ncities_df.longitude.median()\n\nnp.float64(-89.9185335)\n\n\n\ncities_df.longitude &lt; cities_df.longitude.median()\n\n0     False\n1      True\n2      True\n3      True\n4      True\n5      True\n6     False\n7     False\n8      True\n9     False\n10    False\n11     True\n12    False\n13    False\n14     True\n15     True\n16    False\n17     True\n18    False\n19    False\n20    False\n21    False\n22     True\n23     True\n24     True\n25     True\n26     True\n27     True\n28    False\n29    False\n30     True\n31    False\n32     True\n33    False\n34    False\n35     True\n36     True\n37    False\n38    False\n39    False\n40     True\n41    False\n42     True\n43     True\n44    False\n45    False\n46     True\n47    False\n48    False\n49     True\nName: longitude, dtype: bool\n\n\nThis creates a series that has data type bool, meaning True if the city is at a longitude less than that of the median longitude. False if it is east of that value. We can use this information to create a new series on the DataFrame called east:\n\ncities_df['east'] = cities_df.longitude &gt; cities_df.longitude.median()\n\nAnd, we can do this for a second variable south:\n\ncities_df['south'] = cities_df.latitude &lt; cities_df.latitude.median()\n\nBased on those two Boolean variables we can create an additional variable called region that tells us which of four regions the capital city is located in.\n\ncities_df['region'] = 4 * cities_df.east * cities_df.south + 3 * (1 - cities_df.east) * cities_df.south \\\n                      + 2 * (1-cities_df.east) * (1-cities_df.south) + cities_df.east * (1-cities_df.south)\n\nregion takes on four values, 1 if the city is in the North East, 2 North West, 3 South West, and 4 South East.\n\ncities_df.head(20)\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\n4\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\n2\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\n3\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\n3\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\n3\n\n\n5\nColorado\nDenver\n39.739227\n-104.984856\nFalse\nTrue\n3\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\nTrue\nFalse\n1\n\n\n7\nDelaware\nDover\n39.157307\n-75.519722\nTrue\nTrue\n4\n\n\n8\nHawaii\nHonolulu\n21.307442\n-157.857376\nFalse\nTrue\n3\n\n\n9\nFlorida\nTallahassee\n30.438118\n-84.281296\nTrue\nTrue\n4\n\n\n10\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n-84.388229\nTrue\nTrue\n4\n\n\n11\nIdaho\nBoise\n43.617775\n-116.199722\nFalse\nFalse\n2\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\nTrue\nFalse\n1\n\n\n13\nIndiana\nIndianapolis\n39.768623\n-86.162643\nTrue\nTrue\n4\n\n\n14\nIowa\nDes Moines\n41.591087\n-93.603729\nFalse\nFalse\n2\n\n\n15\nKansas\nTopeka\n39.048191\n-95.677956\nFalse\nTrue\n3\n\n\n16\nKentucky\nFrankfort\n38.186722\n-84.875374\nTrue\nTrue\n4\n\n\n17\nLouisiana\nBaton Rouge\n30.457069\n-91.187393\nFalse\nTrue\n3\n\n\n18\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\n1\n\n\n19\nMaryland\nAnnapolis\n38.978764\n-76.490936\nTrue\nTrue\n4"
+  },
+  {
+    "objectID": "studio/week02/pandas.html#plotting",
+    "href": "studio/week02/pandas.html#plotting",
+    "title": "Introduction to Pandas",
+    "section": "Plotting",
+    "text": "Plotting\nPandas comes with built-in plotting facilities. We can try out the default plot method:\n\ncities_df.plot('longitude', 'latitude')\n\n\n\n\n\n\n\n\nThis isn’t quite what we want as the default is to plot the first series and the second series together with line segments connecting each pair of sequential observations.\nBut we can try a different method to get what we want:\n\ncities_df.plot.scatter('longitude', 'latitude')\n\n\n\n\n\n\n\n\nThat’s better as now we see the cities represented as points.\n\n\n\n\n\n\nWarning\n\n\n\nWe are treating longitude and latitude as Cartesian coordinates in the plots. This is technically not correct as they are spherical coordinates. We will correct this later on in the course when we get to spatial data analysis proper.\n\n\nThere are a number of powerful visualization packages in Python that allow us to go beyond what is available in Pandas. To see one of them here, we import seaborn\n\nimport seaborn as sbn\n\nand redo our plot:\n\nsbn.scatterplot(cities_df, x='longitude', y='latitude');\n\n\n\n\n\n\n\n\nSo far, not much difference from what we did with pandas. But we can specify a hue variable to distinguish what region the cities are in:\n\nsbn.scatterplot(cities_df, x='longitude', y='latitude', hue='region');\n\n\n\n\n\n\n\n\nGreat. But the numbers on the legend are not that informative. Let’s change them:\n\ncities_df.region.map({1:'NE', 2:'NW', 3:'SW', 4:'SE'})\n\n0     SE\n1     NW\n2     SW\n3     SW\n4     SW\n5     SW\n6     NE\n7     SE\n8     SW\n9     SE\n10    SE\n11    NW\n12    NE\n13    SE\n14    NW\n15    SW\n16    SE\n17    SW\n18    NE\n19    SE\n20    NE\n21    NE\n22    NW\n23    SW\n24    SW\n25    NW\n26    NW\n27    SW\n28    NE\n29    NE\n30    SW\n31    SE\n32    NW\n33    NE\n34    NE\n35    SW\n36    NW\n37    NE\n38    NE\n39    SE\n40    NW\n41    SE\n42    SW\n43    NW\n44    NE\n45    SE\n46    NW\n47    SE\n48    NE\n49    NW\nName: region, dtype: object\n\n\n\ncities_df['region'] = cities_df.region.map({1:'NE', 2:'NW', 3:'SW', 4:'SE'})\n\n\nsbn.scatterplot(cities_df, x='longitude', y='latitude', hue='region');\n\n\n\n\n\n\n\n\nMuch better.\n\ncities_df.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW"
+  },
+  {
+    "objectID": "studio/week02/pandas.html#dataframe-operations",
+    "href": "studio/week02/pandas.html#dataframe-operations",
+    "title": "Introduction to Pandas",
+    "section": "DataFrame Operations",
+    "text": "DataFrame Operations\nPandas has a number of powerful methods that allow us to manipulate the DataFrame in interesting ways. Here we look at three:\n\nsorting\ngrouping\nfiltering\n\n\nSorting\nWe can sort the DataFrame by the values of a given column. For example, to find the southern-most capital city:\n\ncities_df.sort_values(by='latitude')\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\n\n\n\n\n8\nHawaii\nHonolulu\n21.307442\n-157.857376\nFalse\nTrue\nSW\n\n\n42\nTexas\nAustin\n30.274670\n-97.740349\nFalse\nTrue\nSW\n\n\n9\nFlorida\nTallahassee\n30.438118\n-84.281296\nTrue\nTrue\nSE\n\n\n17\nLouisiana\nBaton Rouge\n30.457069\n-91.187393\nFalse\nTrue\nSW\n\n\n23\nMississippi\nJackson\n32.303848\n-90.182106\nFalse\nTrue\nSW\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n\n\n10\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n-84.388229\nTrue\nTrue\nSE\n\n\n39\nSouth Carolina\nColumbia\n34.000343\n-81.033211\nTrue\nTrue\nSE\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n\n\n35\nOklahoma\nOklahoma City\n35.492207\n-97.503342\nFalse\nTrue\nSW\n\n\n30\nNew Mexico\nSanta Fe\n35.682240\n-105.939728\nFalse\nTrue\nSW\n\n\n31\nNorth Carolina\nRaleigh\n35.780430\n-78.639099\nTrue\nTrue\nSE\n\n\n41\nTennessee\nNashville\n36.165810\n-86.784241\nTrue\nTrue\nSE\n\n\n45\nVirginia\nRichmond\n37.538857\n-77.433640\nTrue\nTrue\nSE\n\n\n16\nKentucky\nFrankfort\n38.186722\n-84.875374\nTrue\nTrue\nSE\n\n\n47\nWest Virginia\nCharleston\n38.336246\n-81.612328\nTrue\nTrue\nSE\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n\n\n24\nMissouri\nJefferson City\n38.579201\n-92.172935\nFalse\nTrue\nSW\n\n\n19\nMaryland\nAnnapolis\n38.978764\n-76.490936\nTrue\nTrue\nSE\n\n\n15\nKansas\nTopeka\n39.048191\n-95.677956\nFalse\nTrue\nSW\n\n\n7\nDelaware\nDover\n39.157307\n-75.519722\nTrue\nTrue\nSE\n\n\n27\nNevada\nCarson City\n39.163914\n-119.766121\nFalse\nTrue\nSW\n\n\n5\nColorado\nDenver\n39.739227\n-104.984856\nFalse\nTrue\nSW\n\n\n13\nIndiana\nIndianapolis\n39.768623\n-86.162643\nTrue\nTrue\nSE\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\nTrue\nFalse\nNE\n\n\n34\nOhio\nColumbus\n39.961346\n-82.999069\nTrue\nFalse\nNE\n\n\n29\nNew Jersey\nTrenton\n40.220596\n-74.769913\nTrue\nFalse\nNE\n\n\n37\nPennsylvania\nHarrisburg\n40.264378\n-76.883598\nTrue\nFalse\nNE\n\n\n43\nUtah\nSalt Lake City\n40.777477\n-111.888237\nFalse\nFalse\nNW\n\n\n26\nNebraska\nLincoln\n40.808075\n-96.699654\nFalse\nFalse\nNW\n\n\n49\nWyoming\nCheyenne\n41.140259\n-104.820236\nFalse\nFalse\nNW\n\n\n14\nIowa\nDes Moines\n41.591087\n-93.603729\nFalse\nFalse\nNW\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\nTrue\nFalse\nNE\n\n\n38\nRhode Island\nProvidence\n41.830914\n-71.414963\nTrue\nFalse\nNE\n\n\n20\nMassachusetts\nBoston\n42.358162\n-71.063698\nTrue\nFalse\nNE\n\n\n33\nNew York\nAlbany\n42.652843\n-73.757874\nTrue\nFalse\nNE\n\n\n21\nMichigan\nLansing\n42.733635\n-84.555328\nTrue\nFalse\nNE\n\n\n48\nWisconsin\nMadison\n43.074684\n-89.384445\nTrue\nFalse\nNE\n\n\n28\nNew Hampshire\nConcord\n43.206898\n-71.537994\nTrue\nFalse\nNE\n\n\n11\nIdaho\nBoise\n43.617775\n-116.199722\nFalse\nFalse\nNW\n\n\n44\nVermont\nMontpelier\n44.262436\n-72.580536\nTrue\nFalse\nNE\n\n\n18\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\nNE\n\n\n40\nSouth Dakota\nPierre\n44.367031\n-100.346405\nFalse\nFalse\nNW\n\n\n36\nOregon\nSalem\n44.938461\n-123.030403\nFalse\nFalse\nNW\n\n\n22\nMinnesota\nSt. Paul\n44.955097\n-93.102211\nFalse\nFalse\nNW\n\n\n25\nMontana\nHelena\n46.585709\n-112.018417\nFalse\nFalse\nNW\n\n\n32\nNorth Dakota\nBismarck\n46.820850\n-100.783318\nFalse\nFalse\nNW\n\n\n46\nWashington\nOlympia\n47.035805\n-122.905014\nFalse\nFalse\nNW\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n\n\n\n\n\n\n\nTo find the northern-most city:\n\ncities_df.sort_values(by='latitude', ascending=False)\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\n\n\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n\n\n46\nWashington\nOlympia\n47.035805\n-122.905014\nFalse\nFalse\nNW\n\n\n32\nNorth Dakota\nBismarck\n46.820850\n-100.783318\nFalse\nFalse\nNW\n\n\n25\nMontana\nHelena\n46.585709\n-112.018417\nFalse\nFalse\nNW\n\n\n22\nMinnesota\nSt. Paul\n44.955097\n-93.102211\nFalse\nFalse\nNW\n\n\n36\nOregon\nSalem\n44.938461\n-123.030403\nFalse\nFalse\nNW\n\n\n40\nSouth Dakota\nPierre\n44.367031\n-100.346405\nFalse\nFalse\nNW\n\n\n18\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\nNE\n\n\n44\nVermont\nMontpelier\n44.262436\n-72.580536\nTrue\nFalse\nNE\n\n\n11\nIdaho\nBoise\n43.617775\n-116.199722\nFalse\nFalse\nNW\n\n\n28\nNew Hampshire\nConcord\n43.206898\n-71.537994\nTrue\nFalse\nNE\n\n\n48\nWisconsin\nMadison\n43.074684\n-89.384445\nTrue\nFalse\nNE\n\n\n21\nMichigan\nLansing\n42.733635\n-84.555328\nTrue\nFalse\nNE\n\n\n33\nNew York\nAlbany\n42.652843\n-73.757874\nTrue\nFalse\nNE\n\n\n20\nMassachusetts\nBoston\n42.358162\n-71.063698\nTrue\nFalse\nNE\n\n\n38\nRhode Island\nProvidence\n41.830914\n-71.414963\nTrue\nFalse\nNE\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\nTrue\nFalse\nNE\n\n\n14\nIowa\nDes Moines\n41.591087\n-93.603729\nFalse\nFalse\nNW\n\n\n49\nWyoming\nCheyenne\n41.140259\n-104.820236\nFalse\nFalse\nNW\n\n\n26\nNebraska\nLincoln\n40.808075\n-96.699654\nFalse\nFalse\nNW\n\n\n43\nUtah\nSalt Lake City\n40.777477\n-111.888237\nFalse\nFalse\nNW\n\n\n37\nPennsylvania\nHarrisburg\n40.264378\n-76.883598\nTrue\nFalse\nNE\n\n\n29\nNew Jersey\nTrenton\n40.220596\n-74.769913\nTrue\nFalse\nNE\n\n\n34\nOhio\nColumbus\n39.961346\n-82.999069\nTrue\nFalse\nNE\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\nTrue\nFalse\nNE\n\n\n13\nIndiana\nIndianapolis\n39.768623\n-86.162643\nTrue\nTrue\nSE\n\n\n5\nColorado\nDenver\n39.739227\n-104.984856\nFalse\nTrue\nSW\n\n\n27\nNevada\nCarson City\n39.163914\n-119.766121\nFalse\nTrue\nSW\n\n\n7\nDelaware\nDover\n39.157307\n-75.519722\nTrue\nTrue\nSE\n\n\n15\nKansas\nTopeka\n39.048191\n-95.677956\nFalse\nTrue\nSW\n\n\n19\nMaryland\nAnnapolis\n38.978764\n-76.490936\nTrue\nTrue\nSE\n\n\n24\nMissouri\nJefferson City\n38.579201\n-92.172935\nFalse\nTrue\nSW\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n\n\n47\nWest Virginia\nCharleston\n38.336246\n-81.612328\nTrue\nTrue\nSE\n\n\n16\nKentucky\nFrankfort\n38.186722\n-84.875374\nTrue\nTrue\nSE\n\n\n45\nVirginia\nRichmond\n37.538857\n-77.433640\nTrue\nTrue\nSE\n\n\n41\nTennessee\nNashville\n36.165810\n-86.784241\nTrue\nTrue\nSE\n\n\n31\nNorth Carolina\nRaleigh\n35.780430\n-78.639099\nTrue\nTrue\nSE\n\n\n30\nNew Mexico\nSanta Fe\n35.682240\n-105.939728\nFalse\nTrue\nSW\n\n\n35\nOklahoma\nOklahoma City\n35.492207\n-97.503342\nFalse\nTrue\nSW\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n\n\n39\nSouth Carolina\nColumbia\n34.000343\n-81.033211\nTrue\nTrue\nSE\n\n\n10\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n-84.388229\nTrue\nTrue\nSE\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n\n\n23\nMississippi\nJackson\n32.303848\n-90.182106\nFalse\nTrue\nSW\n\n\n17\nLouisiana\nBaton Rouge\n30.457069\n-91.187393\nFalse\nTrue\nSW\n\n\n9\nFlorida\nTallahassee\n30.438118\n-84.281296\nTrue\nTrue\nSE\n\n\n42\nTexas\nAustin\n30.274670\n-97.740349\nFalse\nTrue\nSW\n\n\n8\nHawaii\nHonolulu\n21.307442\n-157.857376\nFalse\nTrue\nSW\n\n\n\n\n\n\n\nIf we don’t want to see all the other columns, we can subset the dataframe first:\n\ncities_df[['name', 'description', 'latitude']].sort_values(by='latitude', ascending=False)\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\n\n\n\n\n1\nAlaska\nJuneau\n58.301598\n\n\n46\nWashington\nOlympia\n47.035805\n\n\n32\nNorth Dakota\nBismarck\n46.820850\n\n\n25\nMontana\nHelena\n46.585709\n\n\n22\nMinnesota\nSt. Paul\n44.955097\n\n\n36\nOregon\nSalem\n44.938461\n\n\n40\nSouth Dakota\nPierre\n44.367031\n\n\n18\nMaine\nAugusta\n44.307167\n\n\n44\nVermont\nMontpelier\n44.262436\n\n\n11\nIdaho\nBoise\n43.617775\n\n\n28\nNew Hampshire\nConcord\n43.206898\n\n\n48\nWisconsin\nMadison\n43.074684\n\n\n21\nMichigan\nLansing\n42.733635\n\n\n33\nNew York\nAlbany\n42.652843\n\n\n20\nMassachusetts\nBoston\n42.358162\n\n\n38\nRhode Island\nProvidence\n41.830914\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n\n\n14\nIowa\nDes Moines\n41.591087\n\n\n49\nWyoming\nCheyenne\n41.140259\n\n\n26\nNebraska\nLincoln\n40.808075\n\n\n43\nUtah\nSalt Lake City\n40.777477\n\n\n37\nPennsylvania\nHarrisburg\n40.264378\n\n\n29\nNew Jersey\nTrenton\n40.220596\n\n\n34\nOhio\nColumbus\n39.961346\n\n\n12\nIllinois\nSpringfield\n39.798363\n\n\n13\nIndiana\nIndianapolis\n39.768623\n\n\n5\nColorado\nDenver\n39.739227\n\n\n27\nNevada\nCarson City\n39.163914\n\n\n7\nDelaware\nDover\n39.157307\n\n\n15\nKansas\nTopeka\n39.048191\n\n\n19\nMaryland\nAnnapolis\n38.978764\n\n\n24\nMissouri\nJefferson City\n38.579201\n\n\n4\nCalifornia\nSacramento\n38.576668\n\n\n47\nWest Virginia\nCharleston\n38.336246\n\n\n16\nKentucky\nFrankfort\n38.186722\n\n\n45\nVirginia\nRichmond\n37.538857\n\n\n41\nTennessee\nNashville\n36.165810\n\n\n31\nNorth Carolina\nRaleigh\n35.780430\n\n\n30\nNew Mexico\nSanta Fe\n35.682240\n\n\n35\nOklahoma\nOklahoma City\n35.492207\n\n\n3\nArkansas\nLittle Rock\n34.746613\n\n\n39\nSouth Carolina\nColumbia\n34.000343\n\n\n10\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n\n\n2\nArizona\nPhoenix\n33.448143\n\n\n0\nAlabama\nMontgomery\n32.377716\n\n\n23\nMississippi\nJackson\n32.303848\n\n\n17\nLouisiana\nBaton Rouge\n30.457069\n\n\n9\nFlorida\nTallahassee\n30.438118\n\n\n42\nTexas\nAustin\n30.274670\n\n\n8\nHawaii\nHonolulu\n21.307442\n\n\n\n\n\n\n\n\n\nGrouping\nThe groupby method of the DataFrame allows us to split the dataframe, apply a function, and combine the results. This allows us to group data in interesting ways.\nSuppose we wanted to know how many cities were in the east and west?\n\ncities_df.groupby(by='east').count()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\nsouth\nregion\n\n\neast\n\n\n\n\n\n\n\n\n\n\nFalse\n25\n25\n25\n25\n25\n25\n\n\nTrue\n25\n25\n25\n25\n25\n25\n\n\n\n\n\n\n\nAnd for south and north:\n\ncities_df.groupby(by='south').count()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nregion\n\n\nsouth\n\n\n\n\n\n\n\n\n\n\nFalse\n25\n25\n25\n25\n25\n25\n\n\nTrue\n25\n25\n25\n25\n25\n25\n\n\n\n\n\n\n\nHow about by region?\n\ncities_df.groupby(by='region').count()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\n\n\nregion\n\n\n\n\n\n\n\n\n\n\nNE\n13\n13\n13\n13\n13\n13\n\n\nNW\n12\n12\n12\n12\n12\n12\n\n\nSE\n12\n12\n12\n12\n12\n12\n\n\nSW\n13\n13\n13\n13\n13\n13\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nAs we will see later in the course, there are different notions of a spatial median. This will unravel the mystery of why we have equal numbers of cities in the north and south, and east and west, but not in the four regions.\n\n\nIn addition to applying the count method on the groubby object, we could use other functions. For example, we may want to know the median coordinate values in each of the four regions:\n\ncities_df[['region', 'longitude', 'latitude']].groupby(by='region').median()\n\n\n\n\n\n\n\n\nlongitude\nlatitude\n\n\nregion\n\n\n\n\n\n\nNE\n-73.757874\n42.358162\n\n\nNW\n-108.354236\n44.652746\n\n\nSE\n-82.946812\n36.852334\n\n\nSW\n-97.740349\n35.492207\n\n\n\n\n\n\n\n\n\nFiltering\nFiltering allows us to subset the DataFrame based on some conditions. For example, what if we wanted to create a new DataFrame that only contained the southern capital cities:\n\nsouth_df = cities_df[cities_df.south]\n\n\nsouth_df.shape\n\n(25, 7)\n\n\n\nsouth_df.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n\n\n5\nColorado\nDenver\n39.739227\n-104.984856\nFalse\nTrue\nSW\n\n\n\n\n\n\n\nAnd to get a DataFrame for the northern cities, we could use a complement filter:\n\nnorth_df = cities_df[~cities_df.south]\n\nThe ~ operator can be thought of flipping the boolean condition.\n\nnorth_df.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\n\n\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\nTrue\nFalse\nNE\n\n\n11\nIdaho\nBoise\n43.617775\n-116.199722\nFalse\nFalse\nNW\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\nTrue\nFalse\nNE\n\n\n14\nIowa\nDes Moines\n41.591087\n-93.603729\nFalse\nFalse\nNW\n\n\n\n\n\n\n\nWe could combine these to get the DataFrame for cities in the North East region:\n\nne_df = cities_df[~cities_df.south & cities_df.east]\n\n\nne_df.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\n\n\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\nTrue\nFalse\nNE\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\nTrue\nFalse\nNE\n\n\n18\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\nNE\n\n\n20\nMassachusetts\nBoston\n42.358162\n-71.063698\nTrue\nFalse\nNE\n\n\n21\nMichigan\nLansing\n42.733635\n-84.555328\nTrue\nFalse\nNE\n\n\n\n\n\n\n\nLike most things we will want to do, there are typically multiple ways to accomplish this in Python. Here we can get a set of regional DataFrames in one shot:\n\ndfs = {r:data for r, data in cities_df.groupby('region')}\n\n\ndfs\n\n{'NE':              name   description   latitude  longitude  east  south region\n 6     Connecticut  Hartford&lt;br&gt;  41.764046 -72.682198  True  False     NE\n 12       Illinois   Springfield  39.798363 -89.654961  True  False     NE\n 18          Maine       Augusta  44.307167 -69.781693  True  False     NE\n 20  Massachusetts        Boston  42.358162 -71.063698  True  False     NE\n 21       Michigan       Lansing  42.733635 -84.555328  True  False     NE\n 28  New Hampshire       Concord  43.206898 -71.537994  True  False     NE\n 29     New Jersey       Trenton  40.220596 -74.769913  True  False     NE\n 33       New York        Albany  42.652843 -73.757874  True  False     NE\n 34           Ohio      Columbus  39.961346 -82.999069  True  False     NE\n 37   Pennsylvania    Harrisburg  40.264378 -76.883598  True  False     NE\n 38   Rhode Island    Providence  41.830914 -71.414963  True  False     NE\n 44        Vermont    Montpelier  44.262436 -72.580536  True  False     NE\n 48      Wisconsin       Madison  43.074684 -89.384445  True  False     NE,\n 'NW':             name     description   latitude   longitude   east  south region\n 1         Alaska          Juneau  58.301598 -134.420212  False  False     NW\n 11         Idaho           Boise  43.617775 -116.199722  False  False     NW\n 14          Iowa      Des Moines  41.591087  -93.603729  False  False     NW\n 22     Minnesota        St. Paul  44.955097  -93.102211  False  False     NW\n 25       Montana          Helena  46.585709 -112.018417  False  False     NW\n 26      Nebraska         Lincoln  40.808075  -96.699654  False  False     NW\n 32  North Dakota        Bismarck  46.820850 -100.783318  False  False     NW\n 36        Oregon           Salem  44.938461 -123.030403  False  False     NW\n 40  South Dakota          Pierre  44.367031 -100.346405  False  False     NW\n 43          Utah  Salt Lake City  40.777477 -111.888237  False  False     NW\n 46    Washington         Olympia  47.035805 -122.905014  False  False     NW\n 49       Wyoming        Cheyenne  41.140259 -104.820236  False  False     NW,\n 'SE':               name   description   latitude  longitude  east  south region\n 0          Alabama    Montgomery  32.377716 -86.300568  True   True     SE\n 7         Delaware         Dover  39.157307 -75.519722  True   True     SE\n 9          Florida   Tallahassee  30.438118 -84.281296  True   True     SE\n 10         Georgia   Atlanta&lt;br&gt;  33.749027 -84.388229  True   True     SE\n 13         Indiana  Indianapolis  39.768623 -86.162643  True   True     SE\n 16        Kentucky     Frankfort  38.186722 -84.875374  True   True     SE\n 19        Maryland     Annapolis  38.978764 -76.490936  True   True     SE\n 31  North Carolina       Raleigh  35.780430 -78.639099  True   True     SE\n 39  South Carolina      Columbia  34.000343 -81.033211  True   True     SE\n 41       Tennessee     Nashville  36.165810 -86.784241  True   True     SE\n 45        Virginia      Richmond  37.538857 -77.433640  True   True     SE\n 47   West Virginia    Charleston  38.336246 -81.612328  True   True     SE,\n 'SW':            name     description   latitude   longitude   east  south region\n 2       Arizona         Phoenix  33.448143 -112.096962  False   True     SW\n 3      Arkansas     Little Rock  34.746613  -92.288986  False   True     SW\n 4    California      Sacramento  38.576668 -121.493629  False   True     SW\n 5      Colorado          Denver  39.739227 -104.984856  False   True     SW\n 8        Hawaii        Honolulu  21.307442 -157.857376  False   True     SW\n 15       Kansas          Topeka  39.048191  -95.677956  False   True     SW\n 17    Louisiana     Baton Rouge  30.457069  -91.187393  False   True     SW\n 23  Mississippi         Jackson  32.303848  -90.182106  False   True     SW\n 24     Missouri  Jefferson City  38.579201  -92.172935  False   True     SW\n 27       Nevada     Carson City  39.163914 -119.766121  False   True     SW\n 30   New Mexico        Santa Fe  35.682240 -105.939728  False   True     SW\n 35     Oklahoma   Oklahoma City  35.492207  -97.503342  False   True     SW\n 42        Texas          Austin  30.274670  -97.740349  False   True     SW}\n\n\nThey are stored in a dictionary, so we could access each one using the region ‘key’.\n\ndfs['NE'].head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\n\n\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\nTrue\nFalse\nNE\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\nTrue\nFalse\nNE\n\n\n18\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\nNE\n\n\n20\nMassachusetts\nBoston\n42.358162\n-71.063698\nTrue\nFalse\nNE\n\n\n21\nMichigan\nLansing\n42.733635\n-84.555328\nTrue\nFalse\nNE"
+  },
+  {
+    "objectID": "studio/week02/pandas.html#merge",
+    "href": "studio/week02/pandas.html#merge",
+    "title": "Introduction to Pandas",
+    "section": "Merge",
+    "text": "Merge\nA common workflow in spatial analysis is combining different data sets. Often we will have information on the locations or geographical coordinates in one data set, but that data set may not include any substantive attribute information. We may have a second data set that has the attribute information we are interested in, but this second data set lacks geographical coordinates. So we will have cause to merge the two data sets\n\npopulation_df = pd.read_csv(f\"{home}/data/385/studio02/captial_population.csv\")\n\n\npopulation_df.head()\n\n\n\n\n\n\n\n\nState\nCapital\nSince\nArea\nCityPop\nMSAPop\nCSAPop\nrank_in_state\narea\n\n\n\n\n0\nAlabama\nMontgomery\n1846\n159.8 sq mi (414 km2)\n200603\n386047\n476207.0\n3\n159.8\n\n\n1\nAlaska\nJuneau\n1906\n2,716.7 sq mi (7,036 km2)\n32255\n32255\nNaN\n3\n2716.7\n\n\n2\nArizona\nPhoenix\n1889\n517.6 sq mi (1,341 km2)\n1608139\n4845832\n4899104.0\n1\n517.6\n\n\n3\nArkansas\nLittle Rock\n1821\n116.2 sq mi (301 km2)\n202591\n748031\n912604.0\n1\n116.2\n\n\n4\nCalifornia\nSacramento\n1854\n97.9 sq mi (254 km2)\n524943\n2397382\n2680831.0\n6\n97.9\n\n\n\n\n\n\n\n\nmerged = pd.merge(cities_df, population_df, left_on='name', right_on='State')\n\n\nmerged.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nState\nCapital\nSince\nArea\nCityPop\nMSAPop\nCSAPop\nrank_in_state\narea\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\nAlabama\nMontgomery\n1846\n159.8 sq mi (414 km2)\n200603\n386047\n476207.0\n3\n159.8\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\nAlaska\nJuneau\n1906\n2,716.7 sq mi (7,036 km2)\n32255\n32255\nNaN\n3\n2716.7\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\nArizona\nPhoenix\n1889\n517.6 sq mi (1,341 km2)\n1608139\n4845832\n4899104.0\n1\n517.6\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\nArkansas\nLittle Rock\n1821\n116.2 sq mi (301 km2)\n202591\n748031\n912604.0\n1\n116.2\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\nCalifornia\nSacramento\n1854\n97.9 sq mi (254 km2)\n524943\n2397382\n2680831.0\n6\n97.9\n\n\n\n\n\n\n\n\nmerged.shape\n\n(50, 16)\n\n\n\nmerged = pd.merge(cities_df, population_df[['CityPop', 'rank_in_state', 'area', 'State']], left_on='name', right_on='State')\n\n\nmerged.shape\n\n(50, 11)"
+  },
+  {
+    "objectID": "studio/week02/pandas.html#saving-files",
+    "href": "studio/week02/pandas.html#saving-files",
+    "title": "Introduction to Pandas",
+    "section": "Saving Files",
+    "text": "Saving Files\nIn addition to reading data files, as we did at the beginning of this session, pandas can also create files to save to disk. It is very useful to separate your more complicated data analysis workflows into stages. Typically, the earlier stages will involve data reading, creation of new variables, and or merging different data sets. Much like we have done here. Subsequent steps would be analyzing the data that we have just constructed.\nWe do not want to have to repeat the data processing steps each time we need to carry out the analysis. To avoid this, we have our data processing notebooks save the newly created data to external files. This way the analysis notebooks only have to read these newly created files - we do not have to recreate them.\nLet’s save our latest DataFrame to a csv so we can use it again later.\n\nmerged.to_csv(\"merged.csv\", index=False)\n\nWe can show that the merge above will work irrespective of order.\n\nmerged.sort_values(by='description')\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nCityPop\nrank_in_state\narea\nState\n\n\n\n\n33\nNew York\nAlbany\n42.652843\n-73.757874\nTrue\nFalse\nNE\n99224\n6\n21.40\nNew York\n\n\n19\nMaryland\nAnnapolis\n38.978764\n-76.490936\nTrue\nTrue\nSE\n40812\n7\n6.73\nMaryland\n\n\n10\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n-84.388229\nTrue\nTrue\nSE\n498715\n1\n133.50\nGeorgia\n\n\n18\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\nNE\n18899\n10\n55.40\nMaine\n\n\n42\nTexas\nAustin\n30.274670\n-97.740349\nFalse\nTrue\nSW\n961855\n4\n305.10\nTexas\n\n\n17\nLouisiana\nBaton Rouge\n30.457069\n-91.187393\nFalse\nTrue\nSW\n227470\n2\n76.80\nLouisiana\n\n\n32\nNorth Dakota\nBismarck\n46.820850\n-100.783318\nFalse\nFalse\nNW\n73622\n2\n26.90\nNorth Dakota\n\n\n11\nIdaho\nBoise\n43.617775\n-116.199722\nFalse\nFalse\nNW\n235684\n1\n63.80\nIdaho\n\n\n20\nMassachusetts\nBoston\n42.358162\n-71.063698\nTrue\nFalse\nNE\n675647\n1\n89.60\nMassachusetts\n\n\n27\nNevada\nCarson City\n39.163914\n-119.766121\nFalse\nTrue\nSW\n58639\n6\n143.40\nNevada\n\n\n47\nWest Virginia\nCharleston\n38.336246\n-81.612328\nTrue\nTrue\nSE\n48864\n1\n31.60\nWest Virginia\n\n\n49\nWyoming\nCheyenne\n41.140259\n-104.820236\nFalse\nFalse\nNW\n65132\n1\n21.10\nWyoming\n\n\n39\nSouth Carolina\nColumbia\n34.000343\n-81.033211\nTrue\nTrue\nSE\n136632\n2\n125.20\nSouth Carolina\n\n\n34\nOhio\nColumbus\n39.961346\n-82.999069\nTrue\nFalse\nNE\n905748\n1\n210.30\nOhio\n\n\n28\nNew Hampshire\nConcord\n43.206898\n-71.537994\nTrue\nFalse\nNE\n43976\n3\n64.30\nNew Hampshire\n\n\n5\nColorado\nDenver\n39.739227\n-104.984856\nFalse\nTrue\nSW\n715522\n1\n153.30\nColorado\n\n\n14\nIowa\nDes Moines\n41.591087\n-93.603729\nFalse\nFalse\nNW\n214133\n1\n75.80\nIowa\n\n\n7\nDelaware\nDover\n39.157307\n-75.519722\nTrue\nTrue\nSE\n39403\n2\n22.40\nDelaware\n\n\n16\nKentucky\nFrankfort\n38.186722\n-84.875374\nTrue\nTrue\nSE\n28602\n15\n14.70\nKentucky\n\n\n37\nPennsylvania\nHarrisburg\n40.264378\n-76.883598\nTrue\nFalse\nNE\n50099\n9\n8.11\nPennsylvania\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\nTrue\nFalse\nNE\n121054\n4\n17.30\nConnecticut\n\n\n25\nMontana\nHelena\n46.585709\n-112.018417\nFalse\nFalse\nNW\n32091\n6\n14.00\nMontana\n\n\n8\nHawaii\nHonolulu\n21.307442\n-157.857376\nFalse\nTrue\nSW\n350964\n1\n68.40\nHawaii\n\n\n13\nIndiana\nIndianapolis\n39.768623\n-86.162643\nTrue\nTrue\nSE\n887642\n1\n361.50\nIndiana\n\n\n23\nMississippi\nJackson\n32.303848\n-90.182106\nFalse\nTrue\nSW\n153701\n1\n104.90\nMississippi\n\n\n24\nMissouri\nJefferson City\n38.579201\n-92.172935\nFalse\nTrue\nSW\n43228\n15\n27.30\nMissouri\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n32255\n3\n2716.70\nAlaska\n\n\n21\nMichigan\nLansing\n42.733635\n-84.555328\nTrue\nFalse\nNE\n112644\n5\n35.00\nMichigan\n\n\n26\nNebraska\nLincoln\n40.808075\n-96.699654\nFalse\nFalse\nNW\n291082\n2\n74.60\nNebraska\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n202591\n1\n116.20\nArkansas\n\n\n48\nWisconsin\nMadison\n43.074684\n-89.384445\nTrue\nFalse\nNE\n269840\n2\n68.70\nWisconsin\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n200603\n3\n159.80\nAlabama\n\n\n44\nVermont\nMontpelier\n44.262436\n-72.580536\nTrue\nFalse\nNE\n8074\n6\n10.20\nVermont\n\n\n41\nTennessee\nNashville\n36.165810\n-86.784241\nTrue\nTrue\nSE\n689447\n1\n525.90\nTennessee\n\n\n35\nOklahoma\nOklahoma City\n35.492207\n-97.503342\nFalse\nTrue\nSW\n681054\n1\n620.30\nOklahoma\n\n\n46\nWashington\nOlympia\n47.035805\n-122.905014\nFalse\nFalse\nNW\n55605\n23\n16.70\nWashington\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n1608139\n1\n517.60\nArizona\n\n\n40\nSouth Dakota\nPierre\n44.367031\n-100.346405\nFalse\nFalse\nNW\n14091\n9\n13.00\nSouth Dakota\n\n\n38\nRhode Island\nProvidence\n41.830914\n-71.414963\nTrue\nFalse\nNE\n190934\n1\n18.50\nRhode Island\n\n\n31\nNorth Carolina\nRaleigh\n35.780430\n-78.639099\nTrue\nTrue\nSE\n467665\n2\n114.60\nNorth Carolina\n\n\n45\nVirginia\nRichmond\n37.538857\n-77.433640\nTrue\nTrue\nSE\n226610\n4\n60.10\nVirginia\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n524943\n6\n97.90\nCalifornia\n\n\n36\nOregon\nSalem\n44.938461\n-123.030403\nFalse\nFalse\nNW\n175535\n3\n45.70\nOregon\n\n\n43\nUtah\nSalt Lake City\n40.777477\n-111.888237\nFalse\nFalse\nNW\n199723\n1\n109.10\nUtah\n\n\n30\nNew Mexico\nSanta Fe\n35.682240\n-105.939728\nFalse\nTrue\nSW\n87505\n4\n37.30\nNew Mexico\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\nTrue\nFalse\nNE\n114394\n7\n54.00\nIllinois\n\n\n22\nMinnesota\nSt. Paul\n44.955097\n-93.102211\nFalse\nFalse\nNW\n311527\n2\n52.80\nMinnesota\n\n\n9\nFlorida\nTallahassee\n30.438118\n-84.281296\nTrue\nTrue\nSE\n196169\n8\n95.70\nFlorida\n\n\n15\nKansas\nTopeka\n39.048191\n-95.677956\nFalse\nTrue\nSW\n126587\n5\n56.00\nKansas\n\n\n29\nNew Jersey\nTrenton\n40.220596\n-74.769913\nTrue\nFalse\nNE\n90871\n10\n7.66\nNew Jersey\n\n\n\n\n\n\n\nLet’s write this out to a second new file:\n\nmerged.sort_values(by='description').to_csv('merged1.csv', index=False)\n\nNow read it in and redo a merge to compare to what we did above\n\npop_df = pd.read_csv('merged1.csv')\n\n\npop_df.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nCityPop\nrank_in_state\narea\nState\n\n\n\n\n0\nNew York\nAlbany\n42.652843\n-73.757874\nTrue\nFalse\nNE\n99224\n6\n21.40\nNew York\n\n\n1\nMaryland\nAnnapolis\n38.978764\n-76.490936\nTrue\nTrue\nSE\n40812\n7\n6.73\nMaryland\n\n\n2\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n-84.388229\nTrue\nTrue\nSE\n498715\n1\n133.50\nGeorgia\n\n\n3\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\nNE\n18899\n10\n55.40\nMaine\n\n\n4\nTexas\nAustin\n30.274670\n-97.740349\nFalse\nTrue\nSW\n961855\n4\n305.10\nTexas\n\n\n\n\n\n\n\n\nmerged1 = pd.merge(cities_df, pop_df[['CityPop', 'rank_in_state', 'area', 'State']], left_on='name', right_on='State')\n\n\nmerged1.shape\n\n(50, 11)\n\n\n\nmerged1.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nCityPop\nrank_in_state\narea\nState\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n200603\n3\n159.8\nAlabama\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n32255\n3\n2716.7\nAlaska\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n1608139\n1\n517.6\nArizona\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n202591\n1\n116.2\nArkansas\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n524943\n6\n97.9\nCalifornia\n\n\n\n\n\n\n\n\nmerged.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nCityPop\nrank_in_state\narea\nState\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n200603\n3\n159.8\nAlabama\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n32255\n3\n2716.7\nAlaska\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n1608139\n1\n517.6\nArizona\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n202591\n1\n116.2\nArkansas\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n524943\n6\n97.9\nCalifornia"
   },
   {
     "objectID": "studio/week01/intro.html",
@@ -602,6 +1012,41 @@
     "title": "",
     "section": "Additional Resources",
     "text": "Additional Resources\n\nGoogle Meet Help Center\n\nGood luck with your activity, and make the most of your collaborative time!"
+  },
+  {
+    "objectID": "lectures/week03/lecture.html#syllabus",
+    "href": "lectures/week03/lecture.html#syllabus",
+    "title": "Week 1 Lecture: Course Overview",
+    "section": "Syllabus",
+    "text": "Syllabus\nReview Course Syllabus"
+  },
+  {
+    "objectID": "lectures/week03/lecture.html#spatial-data-analysis",
+    "href": "lectures/week03/lecture.html#spatial-data-analysis",
+    "title": "Week 1 Lecture: Course Overview",
+    "section": "Spatial Data Analysis",
+    "text": "Spatial Data Analysis\nlecture"
+  },
+  {
+    "objectID": "lectures/week03/studio.html",
+    "href": "lectures/week03/studio.html",
+    "title": "Week 1 Studio: Jupyter",
+    "section": "",
+    "text": "Objective 1\nObjective 2\n\n\n\n\n[Studio module instructions go here…]"
+  },
+  {
+    "objectID": "lectures/week03/studio.html#objectives",
+    "href": "lectures/week03/studio.html#objectives",
+    "title": "Week 1 Studio: Jupyter",
+    "section": "",
+    "text": "Objective 1\nObjective 2"
+  },
+  {
+    "objectID": "lectures/week03/studio.html#instructions",
+    "href": "lectures/week03/studio.html#instructions",
+    "title": "Week 1 Studio: Jupyter",
+    "section": "",
+    "text": "[Studio module instructions go here…]"
   },
   {
     "objectID": "lectures/week01/lecture.html#syllabus",
