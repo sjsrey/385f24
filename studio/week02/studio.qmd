@@ -9,6 +9,9 @@ jupyter: python3
 
 ## Instructions
 
+[Teams](https://sdsu.instructure.com/courses/157862/assignments/1393475)  
+**DUE: Wednesday, September 11, 2024 3:30pm** 
+
 Using the `merged.csv` file you created in the studio, answer the following
 questions.
 
