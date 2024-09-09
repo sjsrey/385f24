@@ -1,0 +1,7 @@
+---
+title: "Week 3 Studio: GeoPandas"
+---
+This week we introduce GeoPandas:
+
+- [Introduction to GeoPandas](studio3_geopandas.qmd)
+- [Studio exercise](studio.qmd)

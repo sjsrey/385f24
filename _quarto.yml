@@ -17,6 +17,8 @@ website:
             href: studio/week01/index.qmd
           - text: "09-04 Studio 2: Pandas"
             href: studio/week02/index.qmd
+          - text: "09-11 Studio 3: GeoPandas"
+            href: studio/week03/index.qmd
       - text: "References"
         href: references.qmd
     right:
@@ -33,6 +35,8 @@ website:
           href: studio/week02/index.qmd
         - text: "09-09 Spatial Data Analysis"
           href: lectures/week03/index.qmd
+        - text: "09-11 Studio 3: GeoPandas"
+          href: studio/week03/index.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"
@@ -42,7 +46,7 @@ format:
   html:
     css: styles/custom.scss
     toc: true
-    toc-depth: 2
+    toc-depth: 3
     code-fold: true
     code-tools: true
 
