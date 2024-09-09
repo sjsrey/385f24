@@ -18,9 +18,7 @@ website:
           - text: "09-04 Studio 2: Pandas"
             href: studio/week02/index.qmd
       - text: "References"
-        menu:
-          - text: "References"
-            href: references.qmd
+        href: references.qmd
     right:
       - text: "About"
         href: about.qmd
@@ -33,6 +31,8 @@ website:
           href: studio/week01/index.qmd
         - text: "09-04 Studio 2: Pandas"
           href: studio/week02/index.qmd
+        - text: "09-09 Spatial Data Analysis"
+          href: lectures/week03/index.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"

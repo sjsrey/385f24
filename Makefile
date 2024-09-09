@@ -17,6 +17,6 @@ clean:
 
 # Publish the Quarto project (example, adapt as needed)
 publish: render
-	rsync -avz _site/ your-server.com:/path/to/your/site
+	quarto publish gh-pages
 
 .PHONY: all preview render clean publish
