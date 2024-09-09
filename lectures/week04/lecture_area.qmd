@@ -1,0 +1,108 @@
+---
+title: "Methods for Area Unit Data"
+format: 
+  revealjs:
+    theme: simple
+    transition: slide
+    slide-number: false
+    center: true
+    toc: true
+    toc-title: Outline
+    toc-depth: 1
+    incremental: true
+    css: ../../css/custom-reveal.scss
+---
+
+	
+# Introduction
+
+## What is Area Unit Data?
+- Analysis of data associated with spatial zones or areas
+- Areas may be regular in shape and size, or irregular
+
+## Focus in Area Unit Data Analysis
+- Variation in an attribute across our spatial units
+- The spatial variation is not continuous
+- Spatial units are polygons
+  - variation across polygons
+  - no variation within polygons
+
+## Notation
+
+Our substantive attribute of interest is $Y$.
+
+Our process is represented as:
+
+$$
+\{ Y(A_i), \ A_i \in A_1, A_2, \ldots, A_n \}
+$$
+
+$$
+A_1 \cup A_2 \cup \ldots \cup A_n = {R}
+$$
+
+- $Y(A_i)$ is a set of *random variables* indexed by sub-regions
+- $A_1, A_2, \ldots , A_n$ are *sub-regions* of ${R}$
+
+## Objectives
+
+- Infer whether there are a spatial trend or pattern in the attribute values
+  recorded over the sub-regions
+- First order variation: Trend in the mean
+- Second order variation: Spatial dependence
+ 
+# Types of Area Unit Data  ##
+
+
+
+## Irregular Units
+## From Points to Polygons
+# Visualizing Area Unit Data
+<!-- 10 Minutes -->
+
+
+
+## Choropleths
+## Design
+## Interactivity
+# Analyzing Area Unit Data ##
+
+
+
+<!-- 10 Minutes -->
+## Spatial Autocorrelation ###
+
+- **Definition:** The degree to which objects close to each other in space are also similar in other attributes.
+- **Examples:** Clustered patterns of disease, similar land uses in neighboring areas.
+- **Measurement:** Moran's I, Geary's C.
+
+## Spatial Autocorrelation ##
+
+
+<div style="text-align: center;">
+  <img src="images/autocorrelation.png" style="max-width: 60%; height: auto;">
+</div>
+
+
+
+# Examples
+# Conclusion   ##
+
+
+
+## Recap of Key Points ###
+
+- Definitions of EDA, ESDA
+- Types and Sources of Spatial Data
+- Key Concepts in Spatial Data Analysis
+
+## Questions ###
+
+<div style="text-align: center;">
+  <img src="images/question.jpg" style="max-width: 60%; height: auto;">
+</div>
+
+
+  
+	  
+## References 
