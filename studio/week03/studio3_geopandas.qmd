@@ -285,16 +285,32 @@ All the area, distance, and other measurements done with shapely objects utilize
 [Cartesian coordinates](https://shapely.readthedocs.io/en/stable/manual.html#coordinate-systems).
 :::
 
-## Geopandas
+## GeoPandas
 
-[Geopandas](https://geopandas.org/en/stable/) [@kelsey_jordahl_2020_3946761] is a
+[GeoPandas](https://geopandas.org/en/stable/) [@kelsey_jordahl_2020_3946761] is a
 python  package that makes working with geospatial data easier. It relies on
 shapely and other libraries to extend the datatypes used by Pandas to allow
 spatial operations on geometric types.
 
+The two important classes in GeoPandas are:
+
+- `GeoSeries`
+- `GeoDataFrame`
+
+These are spatial extensions of the `Series` and `DataFrame` classes from `pandas`.
+
+
+### import and aliasing
+
+
 ```{python}
 import geopandas as gpd
 ```
+
+### GeoSeries
+
+A [`GeoSeries`](https://geopandas.org/en/stable/docs/reference/geoseries.html) is essentially a `pandas` `Series` object designed to store
+`shapely` geometry types:
 
 ```{python}
 streets = gpd.GeoSeries(street_lines)
@@ -323,7 +339,13 @@ schools.plot()
 ```{python}
 type(schools)
 ```
-```
+
+### GeoDataFrame
+
+A
+[`GeoDataFrame`](https://geopandas.org/en/stable/docs/reference/geodataframe.html)
+is similar to a pandas DataFrame but includes at least one `GeoSeries` and
+supports spatial operations on its data.
 
 ```{python}
 schools_gdf = gpd.GeoDataFrame(geometry=schools)

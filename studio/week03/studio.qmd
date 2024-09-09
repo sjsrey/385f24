@@ -1,0 +1,54 @@
+---
+title: Studio 03 GeoPandas
+author: Serge Rey
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+## Instructions
+
+[Teams](https://sdsu.instructure.com/courses/157862/assignments/1398296)  
+**DUE: Wednesday, September 18, 2024 3:30pm** 
+
+The team leader will submit a pdf version of the notebook showing all the work
+to answer the questions.
+
+The first cell of the notebook should have a list of the team members (first and
+last names) with the team leader in bold. (Hint: Markdown cell).
+
+## Input Files
+The files you will read are:
+
+```
+~/data/385/studio/schools.geojson
+~/data/385/studio/streets.geojson
+~/data/385/studio/catchments.geojson
+```
+
+
+## Reading the spatial data files
+Read in each of three data files to create three geodataframes: `schools`,
+`catchments`, `streets`
+```{python}
+import geopandas as gpd
+
+# uncomment the following line and complete the code
+# schools = gpd.read_file("???")
+```
+
+## Report the number of rows in each GeoDataFrame
+
+## Determine the datatype of the geoseries for each GeoDataFrame
+
+## Determine the student density in each catchment
+Assuming that the catchment student populations are 140, 200, 75, create a new variable that is called `sdensity` that is defined as the ratio of the number of students per unit area of the catchment.
+
+
+## Plot the `sdensity` variable
+## Plotting multiple layers
+
+Read the guide on [Control the order of multiple layers in a plot](https://geopandas.org/en/stable/docs/user_guide/mapping.html#control-the-order-of-multiple-layers-in-a-plot) and plot the three layers together on one plot with the catchments below the streets and schools.
+
+Ensure that the different geometries are visually distinguishable.
