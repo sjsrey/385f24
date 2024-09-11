@@ -42,6 +42,8 @@ website:
           href: lectures/week03/index.qmd
         - text: "09-11 Studio 3: GeoPandas"
           href: studio/week03/index.qmd
+        - text: "09-16 Area Unit Data"
+          href: lectures/week04/lecture_area.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"
