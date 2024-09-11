@@ -1,0 +1,6 @@
+---
+title: "Week 5 Studio: Choropleth Mapping"
+---
+
+- [Choropleths](choro.qmd)
+- [Studio exercise](studio.qmd)

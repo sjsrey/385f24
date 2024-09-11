@@ -15,6 +15,8 @@ website:
             href: lectures/week01/lecture_sda.qmd
           - text: "09-16 Area Unit Data"
             href: lectures/week04/lecture_area.qmd
+          - text: "09-23 Choropleth Mapping"
+            href: lectures/week05/choro.qmd
 	   
       - text: "Studio"
         menu:
@@ -24,8 +26,10 @@ website:
             href: studio/week02/index.qmd
           - text: "09-11 Studio 3: GeoPandas"
             href: studio/week03/index.qmd
-          - text: "09-18 Studio 4: Geosnap and Geoprocessing"
+          - text: "09-18 Studio 4: GeoProcessing"
             href: studio/week04/index.qmd
+          - text: "09-25 Studio 5: Choropleth Mapping "
+            href: studio/week05/index.qmd
       - text: "References"
         href: references.qmd
     right:
@@ -48,6 +52,10 @@ website:
           href: lectures/week04/lecture_area.qmd
         - text: "09-18 Studio 4: Geosnap and Geoprocessing"
           href: studio/week04/index.qmd
+        - text: "09-23 Choropleth Mapping"
+          href: lectures/week05/choro.qmd
+        - text: "09-25 Studio 5: Choropleth Mapping "
+          href: studio/week05/index.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"
