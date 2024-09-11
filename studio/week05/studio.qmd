@@ -1,0 +1,54 @@
+
+---
+title: Studio 05 Choropleth Mapping
+author: Serge Rey
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+## Instructions
+
+[Teams](https://sdsu.instructure.com/courses/157862/assignments/)  
+**DUE: Wednesday, October 2, 2024 3:30pm** 
+
+The team leader will submit a pdf version of the notebook showing all the work
+to answer the questions.
+
+The first cell of the notebook should have a list of the team members (first and
+last names) with the team leader in bold. (Hint: Markdown cell).
+
+## Data
+You will use the `south` data set introduced in the previous lecture for this studio.
+
+## Reading the relevant file to create a GeoDataFrame
+
+```{python}
+#| tags: []
+import libpysal
+import geopandas
+south = libpysal.examples.load_example('South')
+```
+## Reading the shapefile
+```{python}
+#| tags: []
+south_gdf = geopandas.read_file(south.get_path('south.shp'))
+```
+## Explore the documentation of the example
+You will be mapping and analyzing family income inequality in the South.
+Determine the name of the relevant variable to use
+
+## Develop a choropleth map for inequality in 1960.
+
+- Use Quintiles
+- Explore different color maps
+- Develop and document several versions of the map for 1960
+- Justify your final choice
+- Interpret the spatial distribution as it is shown in your final map
+
+## Develop diverging maps of changes in inequality from 1960-1990
+- Justify your color map
+- Justify your classification scheme
+- Interpret the spatial distribution as it is shown in your final map
+
