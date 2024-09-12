@@ -375,6 +375,7 @@ Additional tokens can be earned in several ways:
 - Submitting topics for discussion in lectures in our board
 - Attending an in-person [office hour](https://calendly.com/sjsrey/office-hours) to discuss a proposed question/topic
 - Attending a geography colloquium (write a paragraph description)
+- Identifying a typo or mistake in the published course material
 - Completing the [python primer](studio/python_course.qmd) (3 tokens)
 
 
