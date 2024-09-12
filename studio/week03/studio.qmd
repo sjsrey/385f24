@@ -22,9 +22,9 @@ last names) with the team leader in bold. (Hint: Markdown cell).
 The files you will read are:
 
 ```
-~/data/385/studio/schools.geojson
-~/data/385/studio/streets.geojson
-~/data/385/studio/catchments.geojson
+~/data/385/studio03/schools.geojson
+~/data/385/studio03/streets.geojson
+~/data/385/studio03/catchments.geojson
 ```
 
 
