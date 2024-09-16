@@ -19,6 +19,8 @@ website:
             href: studio/week02/index.qmd
           - text: "09-11 Studio 3: GeoPandas"
             href: studio/week03/index.qmd
+          - text: "09-18 Studio 4: Geosnap and Geoprocessing"
+            href: studio/week04/index.qmd
       - text: "References"
         href: references.qmd
     right:
@@ -37,6 +39,8 @@ website:
           href: lectures/week03/index.qmd
         - text: "09-11 Studio 3: GeoPandas"
           href: studio/week03/index.qmd
+        - text: "09-18 Studio 4: Geosnap and Geoprocessing"
+          href: studio/week04/index.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"

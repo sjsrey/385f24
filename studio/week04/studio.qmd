@@ -35,13 +35,13 @@ from geosnap import DataStore
 datasets = DataStore("/srv/data/geosnap")
 
 # uncomment the following line and complete the code
-bay_ejscreen = gio.get_ejscreen(datasets, msa_fips="????", years=????)
+#bay_ejscreen = gio.get_ejscreen(datasets, msa_fips="????", years=????)
 ```
 
 ## Report whether the current coordinate reference system is currently projected
 
 ```{python}
-bay_ejscreen.????.is_projected
+#bay_ejscreen.????.is_projected
 ```
 
 
@@ -50,7 +50,7 @@ bay_ejscreen.????.is_projected
 hint: a the standard GCS is 4326
 
 ```{python}
-bay_ejscreen = bay_ejscreen.to_crs(????)
+#bay_ejscreen = bay_ejscreen.to_crs(????)
 ```
 
 
@@ -59,9 +59,9 @@ bay_ejscreen = bay_ejscreen.to_crs(????)
 (hint: first take the union of the Bay Area geometries)
 
 ```{python}
-bay_union = bay_ejscreen.???_all()
+#bay_union = bay_ejscreen.???_all()
 
-highways = ox.features_from_polygon(bay_union, tags={"highway": "????"})
+#highways = ox.features_from_polygon(bay_union, tags={"highway": "????"})
 ```
 
 ## Convert the Bay Area GeoDataFrame into an appropriate coordinate system
@@ -69,7 +69,7 @@ highways = ox.features_from_polygon(bay_union, tags={"highway": "????"})
 hint: a reasonable coordinate system for the Bay Area is [EPSG 6419](https://epsg.io/6419)
 
 ```{python}
-bay_ejscreen = bay_ejscreen.to_crs(????)
+#bay_ejscreen = bay_ejscreen.to_crs(????)
 ```
 
 
