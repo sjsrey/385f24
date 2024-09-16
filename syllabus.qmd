@@ -298,7 +298,7 @@ techniques.
 Select a topic of interest that involves spatial data. The topic should be
 relevant to your field of study or personal interest. Ensure that the data is
 accessible and suitable for spatial analysis. Submit your topic for approval by
-the instructor by **September 30**. If you are unsure about a topic, speak to
+the instructor by **September 16**. If you are unsure about a topic, speak to
 the professor.
 
 #### 2. Data Acquisition
@@ -375,7 +375,6 @@ Additional tokens can be earned in several ways:
 - Submitting topics for discussion in lectures in our board
 - Attending an in-person [office hour](https://calendly.com/sjsrey/office-hours) to discuss a proposed question/topic
 - Attending a geography colloquium (write a paragraph description)
-- Identifying a typo or mistake in the published course material
 - Completing the [python primer](studio/python_course.qmd) (3 tokens)
 
 
