@@ -1,0 +1,482 @@
+---
+title: geosnap and geoprocessing
+format: 
+  html:
+    code-fold: false
+execute:
+  cache: true
+jupyter: python3
+---
+
+
+# Geosnap
+
+`geosnap` - the geospatial neighborhood analysis package - provides a suite of tools for understanding the composition and extent of [endogenous] neighborhoods and regions in a study area. It provides: 
+
+ - simple access to commonly-used [datasets in urban and regional analyses](https://open.quiltdata.com/b/spatial-ucr):
+     - demographic data (Census/ACS)
+     - employment (LEHD)
+     - environment (EPA)
+     - travel infrastructure (OSM)
+     - public education systems (NCES)
+ - an easy interface to build geodemographic typologies
+     - classic aspatial typologies
+     - constrained homogenous regions
+ - built-in functionality to facilitate spatiotemporal analysis
+     - within time-period standardization
+     - boundary harmonization
+     - inflation adjustment
+ - bespoke plotting tools to help visualize neighborhood dynamics
+    - temporally-static choropleth mapping
+    - animated mapping
+ - state-of-the-art techniques for modeling neighborhood change over time
+     - spatial Markov transition models
+     - sequence analysis
+
+Today, we want to focus on getting data from `geosnap`. This involves two basic steps: instantiate a `DataStore` class which points to datasets installed on the 385 course server, then querying the new `DataStore` object using functions from the geosnap `io` (for input-ouput) module
+
+
+```{python}
+import geopandas as gpd
+import pandas as pd
+import geosnap
+geosnap.__version__
+```
+
+
+```{python}
+from geosnap import DataStore
+```
+
+All of the datasets available in `geosnap` can be streamed from the cloud or installed on a local machine for analysis. In many cases, streaming works fine, but for repeated use of the same datasets, it is easier to install the data permanently. We have already done that on the course server. To ensure `geosnap` can access that data, we instantiate a new DataStore object pointing to the location of the data
+
+
+```{python}
+datasets = DataStore("/srv/data/geosnap")
+```
+
+The `datasets` object can now be used to read and write data from the `"/srv/data/geosnap/"` folder, which is where the course data lives).
+
+As a quick shorthand to see the available datasets, you can use the `dir` function to peek inside the `datasets` object
+
+
+```{python}
+dir(datasets)
+```
+
+Each of these is a dataset that can be accessed. For more information on the datasets, see [the geosnap datasets page](https://open.quiltdata.com/b/spatial-ucr).
+
+As one example, we can collect data from the U.S. Census American Community Survey (5-year survey estimates) using the `get_acs` function in geosnap's `io` module.
+
+
+```{python}
+from geosnap import io as gio
+```
+
+First we import the `io` module, aliased as `gio`, then we query the DataStore (called `datasets`) for ACS data at the tract level for state 06 (which is California) and year 2016 (which is the 2012-2016 ACS).
+
+## Census Data
+
+
+```{python}
+from geosnap.io import get_acs
+
+ca = get_acs(datasets, state_fips=['06'], level='tract', years=[2016])
+```
+
+The `ca` variable now holds a geodataframe of California census data at the tract level. To get a different year or a different geographic level, we could specify different input parameters to the `get_acs` function
+
+
+```{python}
+ca.head()
+```
+
+
+```{python}
+ca.plot()
+```
+
+To trim down the existing dataset, for example to "slice out" the tracts in San Diego county, we use pandas dataframe operations. Here we use the `geoid` column to select tracts that begin with "06073", which is the county FIPS code for San Diego
+
+
+```{python}
+sd = ca[ca.geoid.str.startswith('06073')]
+```
+
+
+```{python}
+sd.plot()
+```
+
+## EPA Environmental Justice Screening Data
+
+The Environmental Protection Agency (EPA)'s envrironmental justice screening
+tool (EJSCREEN) is a national dataset that provides a wealth of environmental
+(and some demographic) data at a blockgroup level. For a full list of indicators
+and their metadata, see the EPA page, but this dataset includes important
+variables like air toxics cancer risk,ozone concentration in the air,
+particulate matter, and proximity to superfund sites.
+
+The EJSCREEN data can be queried similarly to the ACS data. For example to get blockgroup-level data for the Seattle metropolitan region in 2019, we would use the following
+
+```{python}
+sea_ejscreen = gio.get_ejscreen(datasets, msa_fips="42660", years=2019).to_crs(4326)
+```
+
+A description of the variables in the `EJSCREEN` data is available [here](https://open.quiltdata.com/b/spatial-ucr/tree/epa/ejscreen/README.md). A subset of the interesting variables we might examine is provided in the table below
+
+|Variable | Description |
+|---------|--------------|
+| DSLPM	| Diesel particulate matter level in air |
+| CANCER	| Air toxics cancer risk |
+| RESP	| Air toxics respiratory hazard index |
+| PTRAF	| Traffic proximity and volume |
+| PWDIS	| Indicator for major direct dischargers to water |
+| PNPL	| Proximity to National Priorities List (NPL) sites |
+| PRMP	| Proximity to Risk Management Plan (RMP) facilities |
+| PTSDF	| Proximity to Treatment Storage and Disposal (TSDF) facilities |
+| OZONE	| Ozone level in air |
+| PM25	| PM2.5 level in air |
+
+
+```{python}
+sea_ejscreen.plot()
+```
+
+
+# Geoprocessing
+
+Once a dataset is selected, we often need to perform more transformations and data operations than  this notebook we cover a subset of geoprocessing methods:
+
+- Reading & Writing geospatial data
+- Coordinate reference system transformations
+- Spatial joins
+- Spatial aggregations
+
+
+```{python}
+sea_ejscreen.head()
+```
+
+
+```{python}
+sea_ejscreen.shape
+```
+
+This dataset has 2,483 observations (rows) and 368 attributes (columns)
+
+
+```{python}
+sea_ejscreen.columns
+```
+
+
+Two important pieces of information distinguish a `GeoDataFrame` from a simple aspatial `DataFrame`: a 'geometry' column that defines the shape and of each feature, and a Coordinate Reference System (CRS) that stores metadata about *how* the shape is encoded.
+
+
+```{python}
+sea_ejscreen.geometry
+```
+
+Since the Seattle blockgroups are polygons, naturally they are represented as a shapely `Polygon` (or `MultiPolygon`, meaning there are multiple shapes that combine to create a single blockgroup) object. This means, essentially, that each polygon is represented as a set of coordinates that define the polygon border. The *units* of those coordinates are stored in the GeoDataFrame's Coordinate Reference System  attribute `crs`
+
+
+```{python}
+sea_ejscreen.crs
+```
+
+In this case, the blockgroups stored in Latitude/Longitude using the well-known WGS84 datum. Latitude/Longitude is called a 'geographic coordinate system' because the coordinates refer to locations on a spheroid, and the data have not been projected onto a flat plane.
+
+
+```{python}
+sea_ejscreen.crs.is_projected
+```
+
+
+```{python}
+sea_ejscreen.crs.is_geographic
+```
+
+Naturally, the CRS defined on the GeoDataFrame governs the behavior of any spatial operation performed against the dataset, like computing the area of each polygon, the area of intersection with another dataset, or the distance between observations
+
+
+```{python}
+sea_ejscreen.area
+```
+
+Note that we get a warning from GeoPandas when trying to compute the are of a polygon stored in a geographic CRS. But we can estimate an appropriate [Universal Transverse Mercator (UTM)](https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system) Zone for the center of the Seattle Metro dataset, then reproject the blockgroups into that system, and recompute the area.
+
+
+```{python}
+# get the UTM zone for Chicago
+utm_crs = sea_ejscreen.estimate_utm_crs()
+utm_crs
+```
+
+Seattle falls inside UTM Zone 10 North (apparently), and since UTM is measured in meters, the second `area` calculation shows the (correct) area of each blockgroup as square kilometers.
+
+
+```{python}
+# reproject into UTM and convert area in square meters to square kilometers
+sea_ejscreen.to_crs(utm_crs).area / 1e6
+```
+
+One other difference between a DataFrame and a GeoDataFrame is the `plot` method has been overloaded to generate a quick map 
+
+
+```{python}
+sea_ejscreen.plot()
+```
+
+## Geospatial Operations
+
+Geopandas can carry out [all standard GIS operations](https://geopandas.org/en/stable/docs/user_guide/geometric_manipulations.html) using methods implemented on a GeoDataFrame, for example
+
+- clip: "cut" the extent of one dataset using the boundaries of another
+- dissolve: aggregate geometries using a common value from an attribute (e.g. remove interior boundaries from larger container polygons, e.g. counties within a state)
+- simplify: remove vertices from the input geometries
+- buffer: extend the boundaries of input geometries by a fixed distance (always returns polygons)
+- centroid: compute the geometric center of input geometries (always returns points)
+- convex/concave hull: compute the most efficient convex/convave polygon that contains vertices from all input geometries
+
+By combining these operations along with spatial predicates, we can create queries based on the [topological relationships](https://www.spatialanalysisonline.com/HTML/index.html?topology.htm) between two sets of geographic units, which is often critical for creating variables of interest.
+
+To demonstrate, we will first collect data from [OpenStreetMap](https://openstreetmap.org) (OSM), specifically highways in the Seattle metro. In OSM parlance, this means we're querying for ["highways" with the "motorway" tag](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dmotorway) (which means "the highest-performance roads within a territory. It should be used only on roads with  control of access, or selected roads with  limited access depending on the local context and prevailing convention. Those roads are generally referred to as motorways, freeways or expressways in English.")
+
+
+```{python}
+import osmnx as ox
+```
+
+
+```{python}
+highways = ox.features_from_polygon(
+    sea_ejscreen.union_all(), tags={"highway": "motorway"}
+)
+```
+
+This returns a new GeoDataFrame storing each highway as a line feature. 
+
+
+```{python}
+highways.head()
+```
+
+
+```{python}
+highways.plot()
+```
+
+Notice in the call to `features_from_polygon` above, we used the `unary_union` operator on the Seattle tracts dataframe. This effectively combines all the tracts into a single polygon so we are querying anything that intersects *any* tract, rather than querying intersections with each tract individually. We can do the same thing on the highway GeoDataFrame to see the effect
+
+
+```{python}
+# note in geopandas <1.0 this is `highways.unary_union`
+
+hw_union = highways.union_all()
+```
+
+
+```{python}
+hw_union
+```
+
+Now `hw_union` is a single shapely.Polygon with no attribute information
+
+
+```{python}
+gpd.GeoDataFrame(geometry=[hw_union], crs=4326).explore(tiles='CartoDB Positron')
+```
+
+
+## Integrating Spatial Datasets
+
+
+Let's assume the role of a public health epidemiologist who is interested in equity issues surrounding exposure to highways and automobile emissions. We may be interested in who lives near the highway and whether the population nearby experiences a heightened exposure to toxic emissions.
+
+### Select by Location
+
+One simple question would be, which tracts have a highway run through them? We can formalize that by asking which tracts *intersect* the highway system.
+
+
+```{python}
+highway_blockgroups = sea_ejscreen[sea_ejscreen.intersects(hw_union)]
+highway_blockgroups.plot()
+```
+
+A more complicated question is, which tracts are within 1.5km of a road? This is 'complicated' because it forces us to formalize an ill-defined relationship: the distance between a polygon and the nearest point on a line. What does it mean for the polygon to be 'within' 1.5km? Does that mean the whole tract? most of it? any part of it?
+
+If we can define a most suitable distance measure, the technical selection is easy to execute using an intermediate geometry.
+
+
+```{python}
+road_buffer = highways.to_crs(highways.estimate_utm_crs()).buffer(1500)
+```
+
+
+```{python}
+gpd.GeoDataFrame(geometry=[road_buffer.union_all()], crs=road_buffer.crs).explore(tiles='CartoDB Positron')
+```
+
+
+```{python}
+sea_ejscreen.crs
+```
+
+
+```{python}
+sea_ejscreen[sea_ejscreen.intersects(road_buffer.union_all())]
+```
+
+This gives us back nothing... There is no intersection because the EJSCREEN data is still stored in Lat/Long, but we reprojected the road buffer into UTM
+
+
+```{python}
+sea_ejscreen = sea_ejscreen.to_crs(road_buffer.crs)
+```
+
+By selecting the tracts that intersect with the interstate buffer, we are codifying the tracts as 'near the highway' if *any portion* of a tract is within 1.5km. This can be an awkard choice when polygons are irregularly shaped or heteogeneously sized (Census tracts are both). This means large tracts get included as 'near', even when a small portion of the polygon is within the 1.5km threshold (like the tract on the far Eastern edge).
+
+
+```{python}
+sea_ejscreen[sea_ejscreen.intersects(road_buffer.union_all())].plot()
+```
+
+Alternatively, we might ask, which tracts have *their center* within 1.5km of a highway? Or more formally, which tracts have their centroids intersect with the 1500m buffer.
+
+
+```{python}
+sea_ejscreen[sea_ejscreen.centroid.intersects(road_buffer.union_all())].plot()
+```
+
+If we are happy with that definition of proximity, we can use the spatial selection to create and update a new attribute on the dataframe. Here, we will select the tracts whose centroids are within the threshold distance, then create a new column called "highway_buffer", set to "inside" (using the indices of the spatial selection to define which rows are being set). 
+
+
+```{python}
+# get the dataframe index of the tracts intersecting the buffer
+
+inside_idx = sea_ejscreen[
+    sea_ejscreen.centroid.intersects(road_buffer.union_all())
+].index
+```
+
+
+```{python}
+# set the 'highway_buffer' attribute to 'inside' for the indices within
+sea_ejscreen.loc[inside_idx, "highway_buffer"] = "inside"
+
+# fill all NaN values in the column with 'outside'
+sea_ejscreen["highway_buffer"] = sea_ejscreen["highway_buffer"].fillna("outside").astype('category')
+```
+
+Now 'highway_buffer' is a binary variable defining whether a tract is "near" a highway or not. We could have set these values to one and zero, but setting them as a categorical variable means that the geopandas `plot` method uses a different kind of coloring scheme that matches the data more appropriately.
+
+
+```{python}
+sea_ejscreen[['highway_buffer', 'geometry']].explore("highway_buffer", legend=True, tiles='CartoDB Positron')
+```
+
+Then, we can use this spatial distinction as a grouping variable to look at average values inside versus outside the threshold zone.
+
+
+```{python}
+sea_ejscreen.groupby("highway_buffer")[["PM25", "DSLPM", "MINORPCT"]].mean()
+```
+
+On average, both PM2.5 and Disel Particulate Matter levels are higher for tracts located within 1.5km of an OSM 'motorway' (what we think is probably an interstate highway). The share of residents identifying as a racial or ethnic miority is also 12% higher on average.
+
+
+
+### Spatial Join
+
+In the example above, we use only the geometric relationship between observations to make selections from one dataset. In other cases, we need to attach attribute data from one dataset to the other using spatial relationships. For example we might want to count the number of health clinics that fall inside each census tract. This actually entails two operations: attaching census tract identifiers to each clinic, then aggregating by tract identifier and counting all clinics within
+
+Once again we will query OSM, this time looking for an [amenity with the 'clinic' tag](https://wiki.openstreetmap.org/wiki/Key:amenity)
+
+
+```{python}
+clinics = ox.features_from_polygon(
+    sea_ejscreen.to_crs(4326).union_all(), tags={"amenity": "clinic"}
+)
+clinics = clinics.reset_index().set_index("id")
+```
+
+
+```{python}
+clinics.head()
+```
+
+The `clinics` dataset now has manuy types of clinics, and also has a mixed geometry type; some clinics are stored as polygons (where the building footprint has been digitized) whereas others are simply stored as points. Lets filter the dataset to include only those defined as clinic (e.g. not counseling) and only points (not polygons)
+
+We can do this in two steps like
+
+```{python}
+clinics = clinics[(clinics.healthcare == "clinic") & (clinics.element == "node")]
+```
+
+
+```{python}
+clinics.explore(tiles='CartoDB Positron', tooltip=['name', 'healthcare'])
+```
+
+
+
+
+```{python}
+clinics = clinics.to_crs(sea_ejscreen.crs)
+```
+
+
+```{python}
+clinics_geoid = clinics.sjoin(sea_ejscreen[["geoid", "geometry"]])
+```
+
+
+```{python}
+clinics_geoid.head()
+```
+
+Now we want to count clinics in each `geoid`. Since we know `osmid` uniquely identifies each clinic, we can reset the index, then groupby the 'geoid' variable, counting the unique 'osmid's in each one
+
+
+```{python}
+clinic_count = clinics_geoid.reset_index().groupby("geoid").count()["id"]
+```
+
+
+```{python}
+clinic_count
+```
+
+`clinic_count` is now a pandas series where the index refers to the census tract of interest and the value corresponds to the number of clinics that fall inside.
+
+
+```{python}
+sea_ejscreen = sea_ejscreen.merge(
+    clinic_count.rename("clinic_count"), left_on="geoid", right_index=True, how="left"
+)
+```
+
+
+```{python}
+sea_ejscreen.clinic_count
+```
+
+Now the `sea_ejscreen` GeoDataFrame has a new column called 'clinic_count' that holds the number of clinics inside. Since we know that NaN (Not a number) refers to zero in this case, we can go ahead and fill the missing data.
+
+
+```{python}
+sea_ejscreen["clinic_count"] = sea_ejscreen["clinic_count"].fillna(0)
+```
+
+
+```{python}
+sea_ejscreen[['clinic_count', 'geometry']].explore(
+    "clinic_count", scheme='fisher_jenks', cmap='Reds', tiles='CartoDB DarkMatter', style_kwds=dict(weight=0.2)
+)
+```
+
+
+```{python}
+
+```

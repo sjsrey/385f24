@@ -1,0 +1,7 @@
+---
+title: "Week 4 Studio: `geosnap`"
+---
+This week we introduce `geosnap`:
+
+- [Introduction to geosnap and geoprocessing](studio4_geosnap.qmd)
+- [Studio exercise](studio.qmd)
