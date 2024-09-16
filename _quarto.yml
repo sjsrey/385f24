@@ -11,6 +11,11 @@ website:
         menu:
           - text: "08-26 Course Overview"
             href: lectures/week01/index.qmd
+          - text: "09-09 Spatial Data Analysis"
+            href: lectures/week01/lecture_sda.qmd
+          - text: "09-16 Area Unit Data"
+            href: lectures/week04/lecture_area.qmd
+	   
       - text: "Studio"
         menu:
           - text: "08-28 Studio 1: Juptyer Hub Introduction"
@@ -37,6 +42,8 @@ website:
           href: lectures/week03/index.qmd
         - text: "09-11 Studio 3: GeoPandas"
           href: studio/week03/index.qmd
+        - text: "09-16 Area Unit Data"
+          href: lectures/week04/lecture_area.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"
