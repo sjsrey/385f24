@@ -144,6 +144,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../lectures/week04/lecture_area.html">
  <span class="dropdown-text">09-16 Area Unit Data</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week05/choro.html">
+ <span class="dropdown-text">09-23 Choropleth Mapping</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -242,6 +246,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">09-16 Area Unit Data</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week05/choro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-23 Choropleth Mapping</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -303,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reading-the-relevant-file-to-create-a-geodataframe" class="level2">
 <h2 class="anchored" data-anchor-id="reading-the-relevant-file-to-create-a-geodataframe">Reading the relevant file to create a GeoDataFrame</h2>
-<div id="469aa4ca" class="cell" data-tags="[]" data-execution_count="1">
+<div id="3102e0d1" class="cell" data-tags="[]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> libpysal</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>south <span class="op">=</span> libpysal.examples.load_example(<span class="st">'South'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -311,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reading-the-shapefile" class="level2">
 <h2 class="anchored" data-anchor-id="reading-the-shapefile">Reading the shapefile</h2>
-<div id="6bd872cc" class="cell" data-tags="[]" data-execution_count="2">
+<div id="64c2ee27" class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>south_gdf <span class="op">=</span> geopandas.read_file(south.get_path(<span class="st">'south.shp'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -322,7 +332,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="develop-a-choropleth-map-for-inequality-in-1960." class="level2">
 <h2 class="anchored" data-anchor-id="develop-a-choropleth-map-for-inequality-in-1960.">Develop a choropleth map for inequality in 1960.</h2>
 <ul>
-<li>Use Quintiles</li>
+<li>Develop a statistical graphic of the inequality distribution</li>
+<li>Explore different classification schemes</li>
 <li>Explore different color maps</li>
 <li>Develop and document several versions of the map for 1960</li>
 <li>Justify your final choice</li>
@@ -856,16 +867,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Develop a choropleth map for inequality in 1960.</span></span>
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use Quintiles</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Explore different color maps</span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Develop and document several versions of the map for 1960</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Justify your final choice</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpret the spatial distribution as it is shown in your final map</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Develop diverging maps of changes in inequality from 1960-1990</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Justify your color map</span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Justify your classification scheme</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpret the spatial distribution as it is shown in your final map</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Develop a statistical graphic of the inequality distribution</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Explore different classification schemes</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Explore different color maps</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Develop and document several versions of the map for 1960</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Justify your final choice</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpret the spatial distribution as it is shown in your final map</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Develop diverging maps of changes in inequality from 1960-1990</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Justify your color map</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Justify your classification scheme</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpret the spatial distribution as it is shown in your final map</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
