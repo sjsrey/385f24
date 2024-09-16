@@ -1,0 +1,80 @@
+---
+title: Studio 04 Geosnap and Geoprocessing
+author: Eli Knaap
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+## Instructions
+
+[Teams](https://sdsu.instructure.com/courses/157862/assignments/1398296)  
+**DUE: Wednesday, September 25, 2024 3:30pm** 
+
+The team leader will submit a pdf version of the notebook showing all the work
+to answer the questions.
+
+The first cell of the notebook should have a list of the team members (first and
+last names) with the team leader in bold. (Hint: Markdown cell).
+
+## Input Files
+
+None. You will collect all data from `geosnap`
+
+## Reading the spatial data files
+
+Use geosnap to collect 2017 environmental justice screening data for the San Francisco metropolitan region
+
+(hint: the MSA fips code for the Bay Area is 41860)
+
+
+```{python}
+from geosnap import DataStore
+
+datasets = DataStore("/srv/data/geosnap")
+
+# uncomment the following line and complete the code
+bay_ejscreen = gio.get_ejscreen(datasets, msa_fips="????", years=????)
+```
+
+## Report whether the current coordinate reference system is currently projected
+
+```{python}
+bay_ejscreen.????.is_projected
+```
+
+
+## Convert the GeoDataFrame into a geographic coordinate system
+
+hint: a the standard GCS is 4326
+
+```{python}
+bay_ejscreen = bay_ejscreen.to_crs(????)
+```
+
+
+## Collect highway data in the Bay Area from Open street map
+
+(hint: first take the union of the Bay Area geometries)
+
+```{python}
+bay_union = bay_ejscreen.???_all()
+
+highways = ox.features_from_polygon(bay_union, tags={"highway": "????"})
+```
+
+## Convert the Bay Area GeoDataFrame into an appropriate coordinate system
+
+hint: a reasonable coordinate system for the Bay Area is [EPSG 6419](https://epsg.io/6419)
+
+```{python}
+bay_ejscreen = bay_ejscreen.to_crs(????)
+```
+
+
+## Select the Bay Area Census Blockgroups that are within 2000 meters of a highway
+
+hint: first buffer the highway then take the intersection (ensure your geodataframes share a coordinate system before taking the intersection)
+
+## what is the median of the variable `PM25` for the blockgroups in the highway zone?
