@@ -146,9 +146,15 @@ sea_ejscreen.plot()
 
 # Geoprocessing
 
-Once a dataset is selected, we often need to perform more transformations and data operations than  this notebook we cover a subset of geoprocessing methods:
+Once a dataset is selected, we often need to perform more transformations and
+data operations than can be performed via table operations. That is, we often
+want to *use* the spatial information stored in each observation as a way of
+transforming, subsetting, aggregating, or otherwise manipulating the data.
 
-- Reading & Writing geospatial data
+These kinds of operations that rely on geospatial information are often called
+*geoprocessing* operations, and in this notebook we cover a subset of
+geoprocessing methods:
+
 - Coordinate reference system transformations
 - Spatial joins
 - Spatial aggregations
@@ -208,7 +214,7 @@ Note that we get a warning from GeoPandas when trying to compute the are of a po
 
 
 ```{python}
-# get the UTM zone for Chicago
+# get the UTM zone for Seattle
 utm_crs = sea_ejscreen.estimate_utm_crs()
 utm_crs
 ```
