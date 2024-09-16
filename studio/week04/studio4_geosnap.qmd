@@ -13,7 +13,7 @@ jupyter: python3
 
 `geosnap` - the geospatial neighborhood analysis package - provides a suite of tools for understanding the composition and extent of [endogenous] neighborhoods and regions in a study area. It provides: 
 
- - simple access to commonly-used datasets in urban and regional analyses (https://open.quiltdata.com/b/spatial-ucr)
+ - simple access to commonly-used [datasets in urban and regional analyses](https://open.quiltdata.com/b/spatial-ucr):
      - demographic data (Census/ACS)
      - employment (LEHD)
      - environment (EPA)
