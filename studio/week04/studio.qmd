@@ -9,7 +9,7 @@ jupyter: python3
 
 ## Instructions
 
-[Teams](https://sdsu.instructure.com/courses/157862/assignments/1398296)  
+[Teams](https://sdsu.instructure.com/courses/157862/assignments/1402793)  
 **DUE: Wednesday, September 25, 2024 3:30pm** 
 
 The team leader will submit a pdf version of the notebook showing all the work
