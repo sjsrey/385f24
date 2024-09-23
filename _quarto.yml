@@ -28,8 +28,8 @@ website:
             href: studio/week03/index.qmd
           - text: "09-18 Studio 4: GeoProcessing"
             href: studio/week04/index.qmd
-          #- text: "09-25 Studio 5: Choropleth Mapping "
-          #  href: studio/week05/index.qmd
+          - text: "09-25 Studio 5: Choropleth Mapping "
+            href: studio/week05/index.qmd
       - text: "References"
         href: references.qmd
     right:
