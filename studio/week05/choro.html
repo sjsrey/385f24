@@ -11,7 +11,6 @@
   <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="Serge Rey">
-  <meta name="dcterms.date" content="2023-02-23">
   <title>Geography 385: Spatial Data Analysis – Visualization for Area Unit Data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -95,7 +94,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="../../css/custom-reveal.scss">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -406,7 +425,6 @@ Serge Rey
 </div>
 </div>
 
-  <p class="date">2023-02-23</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Outline</h2>
@@ -415,6 +433,7 @@ Serge Rey
 <li class="fragment"><a href="#/choropleth-mapping" id="/toc-choropleth-mapping">Choropleth Mapping</a></li>
 <li class="fragment"><a href="#/classification-schemes" id="/toc-classification-schemes">Classification Schemes</a></li>
 <li class="fragment"><a href="#/map-customization" id="/toc-map-customization">Map Customization</a></li>
+<li class="fragment"><a href="#/conclusion" id="/toc-conclusion">Conclusion</a></li>
 </ul>
 </nav>
 </section>
@@ -425,20 +444,20 @@ Serge Rey
 </section>
 <section id="imports" class="slide level2 center">
 <h2>Imports</h2>
-<div id="35ccd07f" class="cell" data-tags="[]" data-execution_count="1">
+<div id="61e0a145" class="cell" data-tags="[]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> geopandas</span>
 <span id="cb1-2"><a></a><span class="im">import</span> libpysal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="example" class="slide level2 center">
 <h2>Example</h2>
-<div id="90934dc1" class="cell" data-tags="[]" data-execution_count="2">
+<div id="752e4148" class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>south <span class="op">=</span> libpysal.examples.load_example(<span class="st">'South'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="inspecting-the-example" class="slide level2 center">
 <h2>Inspecting the example</h2>
-<div id="ec51d7bd" class="cell" data-tags="[]" data-execution_count="3">
+<div id="9023682d" class="cell" data-tags="[]" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>libpysal.examples.explain(<span class="st">'South'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 
@@ -449,7 +468,7 @@ Serge Rey
 </section>
 <section id="reading-the-shapefile" class="slide level2 center">
 <h2>Reading the shapefile</h2>
-<div id="20682ddb" class="cell" data-tags="[]" data-execution_count="4">
+<div id="69900145" class="cell" data-tags="[]" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>south_gdf <span class="op">=</span> geopandas.read_file(south.get_path(<span class="st">'south.shp'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
@@ -460,7 +479,7 @@ Serge Rey
 </section>
 <section id="plotting-the-geometries" class="slide level2 center">
 <h2>Plotting the Geometries</h2>
-<div id="20632668" class="cell" data-tags="[]" data-execution_count="5">
+<div id="1a15d30d" class="cell" data-tags="[]" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>south_gdf.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -473,13 +492,13 @@ Serge Rey
 </section>
 <section id="plotting-the-attribute-distribution" class="slide level2 center">
 <h2>Plotting the attribute distribution</h2>
-<div id="c3c40219" class="cell" data-tags="[]" data-execution_count="6">
+<div id="08ac9787" class="cell" data-tags="[]" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">import</span> seaborn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="plotting-the-attribute-distribution-1" class="slide level2 center">
 <h2>Plotting the attribute distribution</h2>
-<div id="1c9787d7" class="cell" data-tags="[]" data-execution_count="7">
+<div id="edd2382f" class="cell" data-tags="[]" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>seaborn.displot(south_gdf, x<span class="op">=</span><span class="st">'HR60'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -492,7 +511,7 @@ Serge Rey
 </section>
 <section id="alternative-view-of-the-attribute-distribution" class="slide level2 center">
 <h2>Alternative view of the attribute distribution</h2>
-<div id="426c94c0" class="cell" data-tags="[]" data-execution_count="8">
+<div id="895ecd49" class="cell" data-tags="[]" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>south_gdf.HR60.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>count    1412.000000
@@ -509,7 +528,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="spatial-distribution-default-choropleth" class="slide level2 center">
 <h2>Spatial Distribution (Default Choropleth)</h2>
-<div id="389c23ce" class="cell" data-tags="[]" data-execution_count="9">
+<div id="70958dc2" class="cell" data-tags="[]" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -522,7 +541,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="spatial-distribution-changing-the-classification" class="slide level2 center">
 <h2>Spatial Distribution (Changing the classification)</h2>
-<div id="353b26fe" class="cell" data-tags="[]" data-execution_count="10">
+<div id="b1f53521" class="cell" data-tags="[]" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>, scheme<span class="op">=</span><span class="st">'Quantiles'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -535,7 +554,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="spatial-distribution-adding-a-legend" class="slide level2 center">
 <h2>Spatial Distribution (Adding a legend)</h2>
-<div id="6507680b" class="cell" data-tags="[]" data-execution_count="11">
+<div id="941ac6cf" class="cell" data-tags="[]" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>, scheme<span class="op">=</span><span class="st">'Quantiles'</span>, legend<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -554,13 +573,13 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="mapclassify" class="slide level2 center">
 <h2>Mapclassify</h2>
-<div id="05a21e6c" class="cell" data-tags="[]" data-execution_count="12">
+<div id="87aecf5e" class="cell" data-tags="[]" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="im">import</span> mapclassify</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="quantiles" class="slide level2 center">
 <h2>Quantiles</h2>
-<div id="f8086c6d" class="cell" data-tags="[]" data-execution_count="13">
+<div id="b5707414" class="cell" data-tags="[]" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>mapclassify.Quantiles(south_gdf.HR60)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>Quantiles
@@ -577,7 +596,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="quantiles-changing-the-number-of-classes" class="slide level2 center">
 <h2>Quantiles: Changing the number of classes</h2>
-<div id="cd06c9b6" class="cell" data-tags="[]" data-execution_count="14">
+<div id="96e8de44" class="cell" data-tags="[]" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>mapclassify.Quantiles(south_gdf.HR60, k<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>Quantiles
@@ -599,7 +618,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="equal-interval" class="slide level2 center">
 <h2>Equal Interval</h2>
-<div id="385777c3" class="cell" data-tags="[]" data-execution_count="15">
+<div id="b52c5868" class="cell" data-tags="[]" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>mapclassify.EqualInterval(south_gdf.HR60, k<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>EqualInterval
@@ -621,7 +640,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="maximum-breaks" class="slide level2 center">
 <h2>Maximum Breaks</h2>
-<div id="f4013ccf" class="cell" data-execution_count="16">
+<div id="b2daf1c6" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>mapclassify.MaximumBreaks(south_gdf.HR60, k<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>MaximumBreaks
@@ -643,7 +662,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="fisher-jenks" class="slide level2 center">
 <h2>Fisher-Jenks</h2>
-<div id="6be463fa" class="cell" data-execution_count="17">
+<div id="01e117cb" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>mapclassify.FisherJenks(south_gdf.HR60, k<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>FisherJenks
@@ -665,7 +684,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="boxplot" class="slide level2 center">
 <h2>BoxPlot</h2>
-<div id="313c24c7" class="cell" data-execution_count="18">
+<div id="a403c3d0" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>mapclassify.BoxPlot(south_gdf.HR60)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>BoxPlot
@@ -683,7 +702,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="head-tail" class="slide level2 center">
 <h2>Head Tail</h2>
-<div id="2d12728f" class="cell" data-execution_count="19">
+<div id="7aeec9f2" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>mapclassify.HeadTailBreaks(south_gdf.HR60)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>HeadTailBreaks
@@ -714,7 +733,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="legends" class="slide level2 center">
 <h2>Legends</h2>
-<div id="568a4cf3" class="cell" data-tags="[]" data-execution_count="20">
+<div id="eb8a93a3" class="cell" data-tags="[]" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>south_gdf[[<span class="st">'STATE_NAME'</span>, <span class="st">'HR60'</span>, <span class="st">'HR90'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <div>
@@ -781,13 +800,13 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="create-a-boolean-variable" class="slide level2 center">
 <h2>Create a Boolean variable</h2>
-<div id="8ed912d1" class="cell" data-tags="[]" data-execution_count="21">
+<div id="a6cbc23d" class="cell" data-tags="[]" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>south_gdf[<span class="st">'increased'</span> ] <span class="op">=</span>  south_gdf.HR90 <span class="op">&gt;</span> south_gdf.HR60</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="mapping-the-boolean-variable" class="slide level2 center">
 <h2>Mapping the Boolean variable</h2>
-<div id="fa759307" class="cell" data-tags="[]" data-execution_count="22">
+<div id="9126fb6e" class="cell" data-tags="[]" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'increased'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -800,14 +819,14 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="change-the-values" class="slide level2 center">
 <h2>Change the values</h2>
-<div id="81445336" class="cell" data-tags="[]" data-execution_count="23">
+<div id="bd25a9bc" class="cell" data-tags="[]" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>v <span class="op">=</span> south_gdf.increased.<span class="bu">map</span>({<span class="va">True</span>: <span class="st">'Increased'</span>, <span class="va">False</span>: <span class="st">'Decreased'</span>})</span>
 <span id="cb31-2"><a></a>south_gdf[<span class="st">'Increased'</span>] <span class="op">=</span> v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="map-the-new-variable" class="slide level2 center">
 <h2>Map the new variable</h2>
-<div id="619d3f96" class="cell" data-tags="[]" data-execution_count="24">
+<div id="21ed0220" class="cell" data-tags="[]" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'Increased'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -820,7 +839,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="legend-positioning" class="slide level2 center">
 <h2>Legend Positioning</h2>
-<div id="464e2979" class="cell" data-tags="[]" data-execution_count="25">
+<div id="81fa2838" class="cell" data-tags="[]" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'Increased'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb33-2"><a></a>               legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="fl">1.3</span>, <span class="dv">1</span>)})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -834,7 +853,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="legend-title" class="slide level2 center">
 <h2>Legend Title</h2>
-<div id="89798f36" class="cell" data-tags="[]" data-execution_count="26">
+<div id="b4076856" class="cell" data-tags="[]" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'Increased'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb34-2"><a></a>               legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="fl">1.3</span>, <span class="dv">1</span>),</span>
 <span id="cb34-3"><a></a>                           <span class="st">'title'</span>:<span class="st">'Homicide Rates 1960-1990'</span>},</span>
@@ -850,7 +869,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="more-adjustments" class="slide level2 center">
 <h2>More Adjustments</h2>
-<div id="f0d11c65" class="cell" data-tags="[]" data-execution_count="27">
+<div id="6817a4c1" class="cell" data-tags="[]" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'Increased'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb35-2"><a></a>               legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="dv">0</span>, <span class="dv">1</span>),</span>
 <span id="cb35-3"><a></a>                           <span class="st">'title'</span>:<span class="st">'Homicide Rates 1960-1990'</span>},</span>
@@ -866,7 +885,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="more-adjustments-1" class="slide level2 center">
 <h2>More Adjustments</h2>
-<div id="1d6df71e" class="cell" data-tags="[]" data-execution_count="28">
+<div id="b6f3baa8" class="cell" data-tags="[]" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'Increased'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb36-2"><a></a>               legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>),</span>
 <span id="cb36-3"><a></a>                           <span class="st">'title'</span>:<span class="st">'Homicide Rates 1960-1990'</span>},</span>
@@ -883,13 +902,13 @@ Name: HR60, dtype: float64</code></pre>
 <section id="color-schemes" class="slide level2 center">
 <h2>Color schemes</h2>
 <ul>
-<li class="fragment">For more info see <a href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib</a></li>
-<li class="fragment">ColorBrewer</li>
+<li class="fragment"><a href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">matplotlib</a> <span class="citation" data-cites="hunter2007Matplotlib2Da">Hunter (<a href="#/references" role="doc-biblioref" onclick="">2007</a>)</span></li>
+<li class="fragment">ColorBrewer <span class="citation" data-cites="harrower2003ColorBrewerorgOnline">Harrower and Brewer (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span> <a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3"><img data-src="colorbrewer.png" alt="colorbrewer"></a></li>
 </ul>
 </section>
 <section id="sequential-color-schemes" class="slide level2 center">
 <h2>Sequential Color Schemes</h2>
-<div id="d9f13d20" class="cell" data-tags="[]" data-execution_count="29">
+<div id="1bb52862" class="cell" data-tags="[]" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>, scheme<span class="op">=</span><span class="st">'Quantiles'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
 <span id="cb37-2"><a></a>                legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="fl">1.3</span>, <span class="dv">1</span>)},</span>
 <span id="cb37-3"><a></a>               cmap<span class="op">=</span><span class="st">'Blues'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -904,7 +923,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="change-the-color-map-single-hue" class="slide level2 center">
 <h2>Change the color map: Single Hue</h2>
-<div id="f5860bd1" class="cell" data-tags="[]" data-execution_count="30">
+<div id="ecd3d161" class="cell" data-tags="[]" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>, scheme<span class="op">=</span><span class="st">'Quantiles'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
 <span id="cb38-2"><a></a>                legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="fl">1.3</span>, <span class="dv">1</span>)},</span>
 <span id="cb38-3"><a></a>               cmap<span class="op">=</span><span class="st">'Greens'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -919,7 +938,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="change-the-color-map-multiple-hues" class="slide level2 center">
 <h2>Change the color map: Multiple Hues</h2>
-<div id="7e69c3f5" class="cell" data-tags="[]" data-execution_count="31">
+<div id="c8e708ae" class="cell" data-tags="[]" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>, scheme<span class="op">=</span><span class="st">'Quantiles'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
 <span id="cb39-2"><a></a>                legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="fl">1.3</span>, <span class="dv">1</span>)},</span>
 <span id="cb39-3"><a></a>               cmap<span class="op">=</span><span class="st">'YlGnBu'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -934,7 +953,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="diverging-color-map" class="slide level2 center">
 <h2>Diverging Color Map</h2>
-<div id="8ef874b0" class="cell" data-tags="[]" data-execution_count="32">
+<div id="4787956e" class="cell" data-tags="[]" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'Increased'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb40-2"><a></a>               legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>),</span>
 <span id="cb40-3"><a></a>                           <span class="st">'title'</span>:<span class="st">'Homicide Rates 1960-1990'</span>},</span>
@@ -951,7 +970,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="alternative-diverging-color-map" class="slide level2 center">
 <h2>Alternative Diverging Color Map</h2>
-<div id="ef559c95" class="cell" data-tags="[]" data-execution_count="33">
+<div id="be98cdc9" class="cell" data-tags="[]" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'Increased'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb41-2"><a></a>               legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>),</span>
 <span id="cb41-3"><a></a>                           <span class="st">'title'</span>:<span class="st">'Homicide Rates 1960-1990'</span>},</span>
@@ -968,7 +987,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="qualitative-color-scheme" class="slide level2 center">
 <h2>Qualitative Color Scheme</h2>
-<div id="ecad60aa" class="cell" data-tags="[]" data-execution_count="34">
+<div id="dae83226" class="cell" data-tags="[]" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'STATE_NAME'</span>, categorical<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -981,7 +1000,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="qualitative-color-scheme-1" class="slide level2 center">
 <h2>Qualitative Color Scheme</h2>
-<div id="afd12731" class="cell" data-tags="[]" data-execution_count="35">
+<div id="bdb57799" class="cell" data-tags="[]" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'STATE_NAME'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -994,7 +1013,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="qualitative-color-scheme-2" class="slide level2 center">
 <h2>Qualitative Color Scheme</h2>
-<div id="1930abfc" class="cell" data-tags="[]" data-execution_count="36">
+<div id="6fbca4f6" class="cell" data-tags="[]" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'STATE_NAME'</span>, categorical<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb44-2"><a></a>               legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="dv">0</span>, <span class="dv">1</span>)})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1008,7 +1027,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="qualitative-color-scheme-3" class="slide level2 center">
 <h2>Qualitative Color Scheme</h2>
-<div id="152b3eea" class="cell" data-execution_count="37">
+<div id="bfb2df24" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb45-2"><a></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb45-3"><a></a>ax <span class="op">=</span> fig.add_axes([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span>
@@ -1035,7 +1054,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="deciles" class="slide level2 center">
 <h2>Deciles</h2>
-<div id="190b67a7" class="cell" data-tags="[]" data-execution_count="38">
+<div id="feb6cb77" class="cell" data-tags="[]" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>, scheme<span class="op">=</span><span class="st">'Quantiles'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
 <span id="cb46-2"><a></a>                legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="fl">1.3</span>, <span class="dv">1</span>)},</span>
 <span id="cb46-3"><a></a>               cmap<span class="op">=</span><span class="st">'YlGnBu'</span>, k<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1050,7 +1069,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="maximum-breaks-1" class="slide level2 center">
 <h2>Maximum Breaks</h2>
-<div id="4b3db76e" class="cell" data-tags="[]" data-execution_count="39">
+<div id="dd1536d4" class="cell" data-tags="[]" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>, scheme<span class="op">=</span><span class="st">'MaximumBreaks'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
 <span id="cb47-2"><a></a>                legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="fl">1.3</span>, <span class="dv">1</span>)},</span>
 <span id="cb47-3"><a></a>               cmap<span class="op">=</span><span class="st">'YlGnBu'</span>, k<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1065,7 +1084,7 @@ Name: HR60, dtype: float64</code></pre>
 </section>
 <section id="fisher-jenks-1" class="slide level2 center">
 <h2>Fisher Jenks</h2>
-<div id="3a9c27d7" class="cell" data-tags="[]" data-execution_count="40">
+<div id="15ab3673" class="cell" data-tags="[]" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>south_gdf.plot(column<span class="op">=</span><span class="st">'HR60'</span>, scheme<span class="op">=</span><span class="st">'FisherJenks'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
 <span id="cb48-2"><a></a>                legend_kwds<span class="op">=</span>{<span class="st">'bbox_to_anchor'</span>: (<span class="fl">1.3</span>, <span class="dv">1</span>)},</span>
 <span id="cb48-3"><a></a>               cmap<span class="op">=</span><span class="st">'YlGnBu'</span>, k<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1077,10 +1096,97 @@ Name: HR60, dtype: float64</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<div>
+
+</div>
+<div id="a33dae5e" class="cell quarto-layout-panel" data-fig-height="5" data-fig-width="12" data-execution_count="41" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="choro_files/figure-revealjs/cell-42-output-1.png" class="quarto-figure quarto-figure-center" width="853"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="choro_files/figure-revealjs/cell-42-output-2.png" class="quarto-figure quarto-figure-center" width="853"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="choro_files/figure-revealjs/cell-42-output-3.png" class="quarto-figure quarto-figure-center" width="853"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-fit" class="slide level2 center">
+<h2>Statistical Fit</h2>
+<div id="aa5a8f53" class="cell" data-tags="[]" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>y <span class="op">=</span> south_gdf.HR60</span>
+<span id="cb49-2"><a></a>q10 <span class="op">=</span> mapclassify.Quantiles(y, k<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb49-3"><a></a>mb10 <span class="op">=</span> mapclassify.MaximumBreaks(y, k<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb49-4"><a></a>fj10 <span class="op">=</span> mapclassify.FisherJenks(y, k<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb49-5"><a></a><span class="bu">print</span>(<span class="ss">f'Deciles: </span><span class="sc">{</span>q10<span class="sc">.</span>adcm<span class="sc">:.1f}</span><span class="ss">, MB: </span><span class="sc">{</span>mb10<span class="sc">.</span>adcm<span class="sc">:.1f}</span><span class="ss">, FJ: </span><span class="sc">{</span>fj10<span class="sc">.</span>adcm<span class="sc">:.1f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Deciles: 1140.3, MB: 5688.1, FJ: 1027.5</code></pre>
+</div>
+</div>
+</section>
+<section id="statistical-fit-1" class="slide level2 center">
+<h2>Statistical Fit</h2>
+<div id="2e61aee9" class="cell" data-execution_count="43">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="choro_files/figure-revealjs/cell-44-output-1.png" width="1418" height="310"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="conclusion" class="title-slide slide level1 center">
+<h1>Conclusion</h1>
+
+</section>
+<section id="recap-of-key-points" class="slide level2 center">
+<h2>Recap of Key Points</h2>
+<ul>
+<li class="fragment">Areal Unit Data</li>
+<li class="fragment">Choropleth Mapping</li>
+<li class="fragment">Classification Schemes</li>
+<li class="fragment">Map Customization</li>
+</ul>
+</section>
+<section id="questions" class="slide level2 center">
+<h2>Questions</h2>
+<div style="text-align: center;">
+<p><img src="../week01/images/question.jpg" style="max-width: 60%; height: auto;"></p>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-harrower2003ColorBrewerorgOnline" class="csl-entry" role="listitem">
+Harrower, Mark, and Cynthia A. Brewer. 2003. <span>“<span>ColorBrewer</span>.org: <span>An Online Tool</span> for <span>Selecting Colour Schemes</span> for <span>Maps</span>.”</span> <em>The Cartographic Journal</em> 40 (1): 27–37. <a href="https://doi.org/10.1179/000870403235002042">https://doi.org/10.1179/000870403235002042</a>.
+</div>
+<div id="ref-hunter2007Matplotlib2Da" class="csl-entry" role="listitem">
+Hunter, John D. 2007. <span>“Matplotlib: <span>A 2D Graphics Environment</span>.”</span> <em>Computing in Science &amp; Engineering</em> 9 (3): 90–95. <a href="https://doi.org/10.1109/MCSE.2007.55">https://doi.org/10.1109/MCSE.2007.55</a>.
 </div>
 </div>
 </section></section>
