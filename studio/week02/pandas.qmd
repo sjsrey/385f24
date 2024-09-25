@@ -33,7 +33,7 @@ DataFrame by reading a `csv` file.
 
 
 ```{python}
-home = "/Users/serge"                    # <1>
+home = "/home/serge"                    # <1>
 cities_df = pd.read_csv(f"{home}/data/385/studio02/cities.csv")
 ```
 

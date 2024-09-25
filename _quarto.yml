@@ -15,11 +15,7 @@ website:
             href: lectures/week01/lecture_sda.qmd
           - text: "09-16 Area Unit Data"
             href: lectures/week04/lecture_area.qmd
-<<<<<<< HEAD
-          - text: "09-23 Choropleth Mapping"
-=======
           - text: "09-23 Choropleth Maps"
->>>>>>> 1ae9cdd (Week 05)
             href: lectures/week05/choro.qmd
 	   
       - text: "Studio"
