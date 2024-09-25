@@ -258,14 +258,14 @@ south_gdf.shape[0]
 south_gdf.groupby(by='STATE_NAME').count()
 ```
 
-## Which county had the highest median homicide rate in 1960?
+## Which state had the highest median county homicide rate in 1960?
 
 ```{python}
 #| tags: []
 south_gdf[['STATE_NAME', 'HR60']].groupby(by='STATE_NAME').median()
 ```
 
-## Which county had the highest maximum homicide rate in 1960?
+## Which county had the highest maximum county homicide rate in 1960?
 
 ```{python}
 #| tags: []
