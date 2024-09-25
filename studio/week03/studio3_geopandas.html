@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geography 385: Spatial Data Analysis - GeoPandas</title>
+<title>GeoPandas – Geography 385: Spatial Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -140,7 +140,7 @@ div.csl-indent {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -150,7 +150,7 @@ div.csl-indent {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lectures</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
@@ -173,7 +173,7 @@ div.csl-indent {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-studio" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-studio" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Studio</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-studio">    
@@ -193,6 +193,10 @@ div.csl-indent {
     <a class="dropdown-item" href="../../studio/week04/index.html">
  <span class="dropdown-text">09-18 Studio 4: GeoProcessing</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week05/index.html">
+ <span class="dropdown-text">09-25 Studio 5: Choropleth Mapping</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -207,17 +211,17 @@ div.csl-indent {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">GeoPandas</li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -267,13 +271,19 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-18 Studio 4: GeoProcessing</span></a>
+ <span class="menu-text">09-18 Studio 4: Geosnap and Geoprocessing</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week05/choro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-23 Choropleth Maps</span></a>
+ <span class="menu-text">09-23 Choropleth Mapping</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-25 Studio 5: Choropleth Mapping</span></a>
   </div>
 </li>
     </ul>
@@ -334,7 +344,7 @@ div.csl-indent {
 </figure>
 </div>
 <p>This figure was built with the following code:</p>
-<div id="de45a3d9" class="cell" data-execution_count="1">
+<div id="5fe5bb39" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Polygon <span class="im">as</span> MplPolygon</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -389,7 +399,7 @@ div.csl-indent {
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_1679253/1512531908.py:33: UserWarning: Setting the 'color' property will override the edgecolor or facecolor properties.
+<pre><code>/tmp/ipykernel_1351698/1512531908.py:33: UserWarning: Setting the 'color' property will override the edgecolor or facecolor properties.
   polygon = MplPolygon(catchment, closed=True, color='orange', alpha=0.5, edgecolor='black')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -411,22 +421,22 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="shapely">shapely</h2>
 <p><a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a> <span class="citation" data-cites="shapely2007">(<a href="#ref-shapely2007" role="doc-biblioref">Gillies et al. 2007--</a>)</span> is a Python package for the manipulation and analysis of <a href="https://www.merriam-webster.com/dictionary/planar">planar</a> geometric objects.</p>
 <p>We can use shapely to build up our example, starting with its <code>Point</code> class:</p>
-<div id="7efabe28" class="cell" data-execution_count="2">
+<div id="7c44b8ce" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely <span class="im">import</span> Point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>Point</code> class can be used to create instances for each of our schools, here using a python <a href="https://www.w3schools.com/Python/python_lists_comprehension.asp">list comprehension</a>:</p>
-<div id="a20cad63" class="cell" data-execution_count="3">
+<div id="d420525d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>school_points <span class="op">=</span> [Point(school) <span class="cf">for</span> school <span class="kw">in</span> schools]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This results in a python list containing three shapely point objects:</p>
-<div id="f4328a57" class="cell" data-execution_count="4">
+<div id="c392dc03" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>school_points</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[&lt;POINT (1.2 1.8)&gt;, &lt;POINT (4.7 5.3)&gt;, &lt;POINT (8.2 8.2)&gt;]</code></pre>
 </div>
 </div>
 <p>If we ask for the first point, we get a rendered point.</p>
-<div id="ad21f92e" class="cell" data-execution_count="5">
+<div id="820919d0" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>school_points[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -437,10 +447,10 @@ div.csl-indent {
 </div>
 </div>
 <p>And, if we unpack the list into individual points, we should see similar behavior.</p>
-<div id="02e478c3" class="cell" data-execution_count="6">
+<div id="21391d15" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>school_0, school_1, school_2 <span class="op">=</span> school_points</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f4c9c536" class="cell" data-execution_count="7">
+<div id="c656f5b5" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>school_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
@@ -450,7 +460,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="efc2d8d9" class="cell" data-execution_count="8">
+<div id="b8200ddf" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>school_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
@@ -460,7 +470,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="1c2b6df7" class="cell" data-execution_count="9">
+<div id="d8639db0" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>school_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
@@ -471,16 +481,16 @@ div.csl-indent {
 </div>
 </div>
 <p>Just like we did for points, we can rely on shapely for dealing with our catchments, but this time using the <code>Polygon</code> class:</p>
-<div id="b89d6310" class="cell" data-execution_count="10">
+<div id="6a69926e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely <span class="im">import</span> Polygon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="322a58dc" class="cell" data-execution_count="11">
+<div id="1604195b" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>catchment_polygons <span class="op">=</span> [Polygon(catchment) <span class="cf">for</span> catchment <span class="kw">in</span> catchments]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3d0314ed" class="cell" data-execution_count="12">
+<div id="4855fa37" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>catchment_0, catchment_1, catchment_2 <span class="op">=</span> catchment_polygons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7d9aaf0e" class="cell" data-execution_count="13">
+<div id="1c5d3f74" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>catchment_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
@@ -490,7 +500,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="a8791fd2" class="cell" data-execution_count="14">
+<div id="2bfa2020" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>catchment_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
@@ -500,7 +510,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="4b886931" class="cell" data-execution_count="15">
+<div id="bc38902e" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>catchment_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
@@ -511,16 +521,16 @@ div.csl-indent {
 </div>
 </div>
 <p>And, finally, we can model the road network using the <code>LineString</code> class:</p>
-<div id="ffd2ad0f" class="cell" data-execution_count="16">
+<div id="b95b4f5e" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely <span class="im">import</span> LineString</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="760586ec" class="cell" data-execution_count="17">
+<div id="9ef20c54" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>street_lines <span class="op">=</span> [LineString(street) <span class="cf">for</span> street <span class="kw">in</span> streets]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1020f1b2" class="cell" data-execution_count="18">
+<div id="e3805bf3" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>street_0, street_1, street_2, street_3 <span class="op">=</span> street_lines</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="da6e676e" class="cell" data-execution_count="19">
+<div id="6967d16f" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>street_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
@@ -530,7 +540,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="c1a7bdad" class="cell" data-execution_count="20">
+<div id="3cd44c48" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>street_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <div>
@@ -540,7 +550,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="7db89083" class="cell" data-execution_count="21">
+<div id="c5e14fde" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>street_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
@@ -550,7 +560,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="b12ebe8a" class="cell" data-execution_count="22">
+<div id="061b67a6" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>street_3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <div>
@@ -562,65 +572,65 @@ div.csl-indent {
 </div>
 <section id="shapely-geometry-types" class="level3">
 <h3 class="anchored" data-anchor-id="shapely-geometry-types">shapely Geometry Types</h3>
-<div id="a1efb5bf" class="cell" data-execution_count="23">
+<div id="aca7041e" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>school_0.geom_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>'Point'</code></pre>
 </div>
 </div>
-<div id="62ca032e" class="cell" data-execution_count="24">
+<div id="aa35d2a4" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>school_2.geom_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>'Point'</code></pre>
 </div>
 </div>
 <p>Points are zero-dimensional geometries, and thus have 0 area and 0 length:</p>
-<div id="d6d9f6b9" class="cell" data-execution_count="25">
+<div id="06e47cff" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>school_0.area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>0.0</code></pre>
 </div>
 </div>
-<div id="685824d5" class="cell" data-execution_count="26">
+<div id="2042f111" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>school_0.length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>0.0</code></pre>
 </div>
 </div>
-<div id="e2733887" class="cell" data-execution_count="27">
+<div id="cb503410" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(school_0.coords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>[(1.2, 1.8)]</code></pre>
 </div>
 </div>
-<div id="bde96bbe" class="cell" data-execution_count="28">
+<div id="292ed629" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(school_2.coords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>[(8.2, 8.2)]</code></pre>
 </div>
 </div>
 <p>LineStrings are one-dimensional geometric objects, having length but 0 area</p>
-<div id="375e9821" class="cell" data-execution_count="29">
+<div id="4351f584" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>street_1.length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>5.841619252963779</code></pre>
 </div>
 </div>
-<div id="6a3bf425" class="cell" data-execution_count="30">
+<div id="561e8c02" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>street_1.area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>0.0</code></pre>
 </div>
 </div>
 <p>Finally, Polygons are two-dimensional geometric objects, having area:</p>
-<div id="dfe753ea" class="cell" data-execution_count="31">
+<div id="7d8f0b25" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>catchment_1.area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>5.5</code></pre>
 </div>
 </div>
 <p>as well as length:</p>
-<div id="0e44ba87" class="cell" data-execution_count="32">
+<div id="ab56f913" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>catchment_1.length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>9.508270432752164</code></pre>
@@ -631,68 +641,68 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="geometry-methods-and-spatial-predicates">geometry methods and spatial predicates</h3>
 <p>The power of these geometries comes from the functions and abilities to evaluate <a href="https://shapely.readthedocs.io/en/stable/predicates.html">spatial predicates</a>. These give us the building blocks of GIS operations for vector spatial data:</p>
 <p>To see this, we can call the <code>distance</code> method of <code>school_0</code> to determine the distance separating it from <code>school_2</code>:</p>
-<div id="996d9193" class="cell" data-execution_count="33">
+<div id="fc1b7988" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>school_0.distance(school_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>9.4847245611035</code></pre>
 </div>
 </div>
 <p>We can also measure the difference between objects of different geometry types:</p>
-<div id="0fc88b61" class="cell" data-execution_count="34">
+<div id="9708d4ea" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>street_1.geom_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>'LineString'</code></pre>
 </div>
 </div>
-<div id="360f04e1" class="cell" data-execution_count="35">
+<div id="b4bb24a9" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>school_0.distance(street_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>2.1633307652783933</code></pre>
 </div>
 </div>
-<div id="4f10207a" class="cell" data-execution_count="36">
+<div id="439bc8e5" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>catchment_0.geom_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>'Polygon'</code></pre>
 </div>
 </div>
-<div id="9c3d2bed" class="cell" data-execution_count="37">
+<div id="8f1f0bbc" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>catchment_0.area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>2.375</code></pre>
 </div>
 </div>
-<div id="e936176f" class="cell" data-execution_count="38">
+<div id="6453c080" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(catchment_0.exterior.coords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>[(0.5, 0.5), (2.0, 1.0), (1.5, 3.0), (0.5, 2.0), (0.5, 0.5)]</code></pre>
 </div>
 </div>
-<div id="384d8a48" class="cell" data-execution_count="39">
+<div id="d3581d78" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>catchment_0.bounds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>(0.5, 0.5, 2.0, 3.0)</code></pre>
 </div>
 </div>
-<div id="16f1841d" class="cell" data-execution_count="40">
+<div id="8589c3db" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>school_0.distance(catchment_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>0.0</code></pre>
 </div>
 </div>
-<div id="bd887bf6" class="cell" data-execution_count="41">
+<div id="ce11d347" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>catchment_0.contains(school_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div id="fdfe3848" class="cell" data-execution_count="42">
+<div id="617ca332" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>catchment_0.contains(school_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>False</code></pre>
 </div>
 </div>
-<div id="07bd93fa" class="cell" data-execution_count="43">
+<div id="82465ebe" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>school_1.distance(catchment_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>3.9408120990476063</code></pre>
@@ -724,17 +734,17 @@ Note
 <p>These are spatial extensions of the <code>Series</code> and <code>DataFrame</code> classes from <code>pandas</code>.</p>
 <section id="import-and-aliasing" class="level3">
 <h3 class="anchored" data-anchor-id="import-and-aliasing">import and aliasing</h3>
-<div id="692c15ad" class="cell" data-execution_count="44">
+<div id="321e81f6" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="geoseries" class="level3">
 <h3 class="anchored" data-anchor-id="geoseries">GeoSeries</h3>
 <p>A <a href="https://geopandas.org/en/stable/docs/reference/geoseries.html"><code>GeoSeries</code></a> is essentially a <code>pandas</code> <code>Series</code> object designed to store <code>shapely</code> geometry types:</p>
-<div id="5557dbc3" class="cell" data-execution_count="45">
+<div id="d1f15787" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>streets <span class="op">=</span> gpd.GeoSeries(street_lines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9b83a17f" class="cell" data-execution_count="46">
+<div id="fb20558b" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>streets.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -744,10 +754,10 @@ Note
 </div>
 </div>
 </div>
-<div id="1c86e727" class="cell" data-execution_count="47">
+<div id="e776e8e4" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>catchments <span class="op">=</span> gpd.GeoSeries(catchment_polygons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9982a02d" class="cell" data-execution_count="48">
+<div id="cb63d18a" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>catchments.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -757,10 +767,10 @@ Note
 </div>
 </div>
 </div>
-<div id="9a3c3e67" class="cell" data-execution_count="49">
+<div id="7cbd3a08" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>schools <span class="op">=</span> gpd.GeoSeries(school_points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="44781af4" class="cell" data-execution_count="50">
+<div id="a12ee1fe" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>schools.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -770,7 +780,7 @@ Note
 </div>
 </div>
 </div>
-<div id="70404e19" class="cell" data-execution_count="51">
+<div id="b2985829" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(schools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>geopandas.geoseries.GeoSeries</code></pre>
@@ -780,17 +790,16 @@ Note
 <section id="geodataframe" class="level3">
 <h3 class="anchored" data-anchor-id="geodataframe">GeoDataFrame</h3>
 <p>A <a href="https://geopandas.org/en/stable/docs/reference/geodataframe.html"><code>GeoDataFrame</code></a> is similar to a pandas DataFrame but includes at least one <code>GeoSeries</code> and supports spatial operations on its data.</p>
-<div id="0fde1004" class="cell" data-execution_count="52">
+<div id="54fb39cf" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>schools_gdf <span class="op">=</span> gpd.GeoDataFrame(geometry<span class="op">=</span>schools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a572c62a" class="cell" data-execution_count="53">
+<div id="678cffa3" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>schools_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="53">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -816,24 +825,22 @@ Note
 </div>
 </div>
 </div>
-</div>
-<div id="645c3479" class="cell" data-execution_count="54">
+<div id="998e086b" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(schools_gdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>geopandas.geodataframe.GeoDataFrame</code></pre>
 </div>
 </div>
-<div id="c8ddb220" class="cell" data-execution_count="55">
+<div id="8984365d" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>schools_gdf[<span class="st">'students'</span>] <span class="op">=</span> [<span class="dv">124</span>, <span class="dv">94</span>, <span class="dv">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f3236c6c" class="cell" data-execution_count="56">
+<div id="c31da98a" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>schools_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="56">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -863,8 +870,7 @@ Note
 </div>
 </div>
 </div>
-</div>
-<div id="4f79e6f1" class="cell" data-execution_count="57">
+<div id="c4be325a" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>schools_gdf.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -874,7 +880,7 @@ Note
 </div>
 </div>
 </div>
-<div id="cdc5ba71" class="cell" data-execution_count="58">
+<div id="d7ffa515" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>schools_gdf.plot(column<span class="op">=</span><span class="st">'students'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -884,10 +890,10 @@ Note
 </div>
 </div>
 </div>
-<div id="6ae5553e" class="cell" data-execution_count="59">
+<div id="414062d3" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>streets_gdf <span class="op">=</span> gpd.GeoDataFrame(geometry<span class="op">=</span>streets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="536af24f" class="cell" data-execution_count="60">
+<div id="eba9a1d9" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>streets_gdf.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -897,17 +903,16 @@ Note
 </div>
 </div>
 </div>
-<div id="2532c144" class="cell" data-execution_count="61">
+<div id="afae6591" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>streets_gdf[<span class="st">'length'</span>] <span class="op">=</span> streets_gdf.length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="da67dddb" class="cell" data-execution_count="62">
+<div id="71c8b38a" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>streets_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="62">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -942,8 +947,7 @@ Note
 </div>
 </div>
 </div>
-</div>
-<div id="86097769" class="cell" data-execution_count="63">
+<div id="bf7b2050" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>streets_gdf.plot(column<span class="op">=</span><span class="st">'length'</span>, legend<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -953,10 +957,10 @@ Note
 </div>
 </div>
 </div>
-<div id="d9e56ce1" class="cell" data-execution_count="64">
+<div id="1ee8e43c" class="cell" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>catchments_gdf <span class="op">=</span> gpd.GeoDataFrame(geometry<span class="op">=</span>catchment_polygons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="efa78420" class="cell" data-execution_count="65">
+<div id="cc22eda5" class="cell" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>catchments_gdf[<span class="st">'area'</span>] <span class="op">=</span> catchments_gdf.area</span>
 <span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>catchments_gdf.plot(column<span class="op">=</span><span class="st">'area'</span>, legend<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -971,7 +975,7 @@ Note
 <section id="the-geometry-of-a-geodataframe" class="level3">
 <h3 class="anchored" data-anchor-id="the-geometry-of-a-geodataframe">The <code>geometry</code> of a GeoDataFrame</h3>
 <p>One of the key differences between a <code>GeoDataFrame</code> and a pandas <code>DataFrame</code> is that the former will have a <code>geometry</code> column that holds a <code>GeoSeries</code>:</p>
-<div id="3d2f59c4" class="cell" data-execution_count="66">
+<div id="6aec258d" class="cell" data-execution_count="67">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>catchments_gdf.geometry</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="66">
 <pre><code>0    POLYGON ((0.5 0.5, 2 1, 1.5 3, 0.5 2, 0.5 0.5))
@@ -980,14 +984,13 @@ Note
 Name: geometry, dtype: geometry</code></pre>
 </div>
 </div>
-<div id="23734fe8" class="cell" data-execution_count="67">
+<div id="364f2510" class="cell" data-execution_count="68">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>catchments_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="67">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1017,9 +1020,8 @@ Name: geometry, dtype: geometry</code></pre>
 </div>
 </div>
 </div>
-</div>
 <p>A <code>GeoDataFrame</code> can contained more than a single <code>GeoSeries</code> but only one can be operative as far as the <code>geometry</code> attribute is concerned. To see this, let’s add a second <code>GeoSeries</code> to the catchments <code>GeoDataFrame</code>:</p>
-<div id="38f43e8c" class="cell" data-execution_count="68">
+<div id="96866b48" class="cell" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>catchments_gdf.centroid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="68">
 <pre><code>0    POINT (1.17544 1.60526)
@@ -1028,15 +1030,14 @@ Name: geometry, dtype: geometry</code></pre>
 dtype: geometry</code></pre>
 </div>
 </div>
-<div id="b8b90730" class="cell" data-execution_count="69">
+<div id="5691f389" class="cell" data-execution_count="70">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>catchments_gdf[<span class="st">'centroid_point'</span>] <span class="op">=</span> catchments_gdf.centroid</span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>catchments_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="69">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1070,9 +1071,8 @@ dtype: geometry</code></pre>
 </div>
 </div>
 </div>
-</div>
 <p>Now we can set the geometry to be the <code>centroid_point</code> <code>GeoSeries</code>:</p>
-<div id="89375fc2" class="cell" data-execution_count="70">
+<div id="93ba4eaa" class="cell" data-execution_count="71">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>catchments_gdf.set_geometry(<span class="st">'centroid_point'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>catchments_gdf.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1084,7 +1084,7 @@ dtype: geometry</code></pre>
 </div>
 </div>
 <p>And we could return to the polygons with:</p>
-<div id="bb6aa7eb" class="cell" data-execution_count="71">
+<div id="c99a2a02" class="cell" data-execution_count="72">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>catchments_gdf.set_geometry(<span class="st">'geometry'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>catchments_gdf.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1245,18 +1245,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1288,7 +1277,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1340,6 +1351,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/sjsrey\.github\.io\/385f24\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1374,7 +1403,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -2228,7 +2261,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb99-720"><a href="#cb99-720" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   - two group bys and division --&gt;</span></span>
 <span id="cb99-721"><a href="#cb99-721" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   - later show them dissove --&gt;</span></span>
 <span id="cb99-722"><a href="#cb99-722" aria-hidden="true" tabindex="-1"></a></span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
