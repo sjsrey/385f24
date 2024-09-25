@@ -17,6 +17,8 @@ website:
             href: lectures/week04/lecture_area.qmd
           - text: "09-23 Choropleth Maps"
             href: lectures/week05/choro.qmd
+          - text: "09-30 Spatial Weights"
+            href: lectures/week06/spatial_weights.qmd
 	   
       - text: "Studio"
         menu:
