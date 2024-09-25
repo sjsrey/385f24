@@ -1,0 +1,51 @@
+name,description,latitude,longitude,east,south,region,CityPop,rank_in_state,area,State
+Alabama,Montgomery,32.377716,-86.300568,True,True,SE,200603,3,159.8,Alabama
+Alaska,Juneau,58.301598,-134.420212,False,False,NW,32255,3,2716.7,Alaska
+Arizona,Phoenix,33.448143,-112.096962,False,True,SW,1608139,1,517.6,Arizona
+Arkansas,Little Rock,34.746613,-92.288986,False,True,SW,202591,1,116.2,Arkansas
+California,Sacramento,38.576668,-121.493629,False,True,SW,524943,6,97.9,California
+Colorado,Denver,39.739227,-104.984856,False,True,SW,715522,1,153.3,Colorado
+Connecticut,Hartford<br>,41.764046,-72.682198,True,False,NE,121054,4,17.3,Connecticut
+Delaware,Dover,39.157307,-75.519722,True,True,SE,39403,2,22.4,Delaware
+Hawaii,Honolulu,21.307442,-157.857376,False,True,SW,350964,1,68.4,Hawaii
+Florida,Tallahassee,30.438118,-84.281296,True,True,SE,196169,8,95.7,Florida
+Georgia,Atlanta<br>,33.749027,-84.388229,True,True,SE,498715,1,133.5,Georgia
+Idaho,Boise,43.617775,-116.199722,False,False,NW,235684,1,63.8,Idaho
+Illinois,Springfield,39.798363,-89.654961,True,False,NE,114394,7,54.0,Illinois
+Indiana,Indianapolis,39.768623,-86.162643,True,True,SE,887642,1,361.5,Indiana
+Iowa,Des Moines,41.591087,-93.603729,False,False,NW,214133,1,75.8,Iowa
+Kansas,Topeka,39.048191,-95.677956,False,True,SW,126587,5,56.0,Kansas
+Kentucky,Frankfort,38.186722,-84.875374,True,True,SE,28602,15,14.7,Kentucky
+Louisiana,Baton Rouge,30.457069,-91.187393,False,True,SW,227470,2,76.8,Louisiana
+Maine,Augusta,44.307167,-69.781693,True,False,NE,18899,10,55.4,Maine
+Maryland,Annapolis,38.978764,-76.490936,True,True,SE,40812,7,6.73,Maryland
+Massachusetts,Boston,42.358162,-71.063698,True,False,NE,675647,1,89.6,Massachusetts
+Michigan,Lansing,42.733635,-84.555328,True,False,NE,112644,5,35.0,Michigan
+Minnesota,St. Paul,44.955097,-93.102211,False,False,NW,311527,2,52.8,Minnesota
+Mississippi,Jackson,32.303848,-90.182106,False,True,SW,153701,1,104.9,Mississippi
+Missouri,Jefferson City,38.579201,-92.172935,False,True,SW,43228,15,27.3,Missouri
+Montana,Helena,46.585709,-112.018417,False,False,NW,32091,6,14.0,Montana
+Nebraska,Lincoln,40.808075,-96.699654,False,False,NW,291082,2,74.6,Nebraska
+Nevada,Carson City,39.163914,-119.766121,False,True,SW,58639,6,143.4,Nevada
+New Hampshire,Concord,43.206898,-71.537994,True,False,NE,43976,3,64.3,New Hampshire
+New Jersey,Trenton,40.220596,-74.769913,True,False,NE,90871,10,7.66,New Jersey
+New Mexico,Santa Fe,35.68224,-105.939728,False,True,SW,87505,4,37.3,New Mexico
+North Carolina,Raleigh,35.78043,-78.639099,True,True,SE,467665,2,114.6,North Carolina
+North Dakota,Bismarck,46.82085,-100.783318,False,False,NW,73622,2,26.9,North Dakota
+New York,Albany,42.652843,-73.757874,True,False,NE,99224,6,21.4,New York
+Ohio,Columbus,39.961346,-82.999069,True,False,NE,905748,1,210.3,Ohio
+Oklahoma,Oklahoma City,35.492207,-97.503342,False,True,SW,681054,1,620.3,Oklahoma
+Oregon,Salem,44.938461,-123.030403,False,False,NW,175535,3,45.7,Oregon
+Pennsylvania,Harrisburg,40.264378,-76.883598,True,False,NE,50099,9,8.11,Pennsylvania
+Rhode Island,Providence,41.830914,-71.414963,True,False,NE,190934,1,18.5,Rhode Island
+South Carolina,Columbia,34.000343,-81.033211,True,True,SE,136632,2,125.2,South Carolina
+South Dakota,Pierre,44.367031,-100.346405,False,False,NW,14091,9,13.0,South Dakota
+Tennessee,Nashville,36.16581,-86.784241,True,True,SE,689447,1,525.9,Tennessee
+Texas,Austin,30.27467,-97.740349,False,True,SW,961855,4,305.1,Texas
+Utah,Salt Lake City,40.777477,-111.888237,False,False,NW,199723,1,109.1,Utah
+Vermont,Montpelier,44.262436,-72.580536,True,False,NE,8074,6,10.2,Vermont
+Virginia,Richmond,37.538857,-77.43364,True,True,SE,226610,4,60.1,Virginia
+Washington,Olympia,47.035805,-122.905014,False,False,NW,55605,23,16.7,Washington
+West Virginia,Charleston,38.336246,-81.612328,True,True,SE,48864,1,31.6,West Virginia
+Wisconsin,Madison,43.074684,-89.384445,True,False,NE,269840,2,68.7,Wisconsin
+Wyoming,Cheyenne,41.140259,-104.820236,False,False,NW,65132,1,21.1,Wyoming
