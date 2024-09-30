@@ -114,9 +114,9 @@ completed the readings.
 |    7 | 10-07 | Global Spatial Autocorrelation  | [GDS 6][gds5]        |                        |
 |      | 10-09 | Testing for Clustering          |         |                        |
 |    8 | 10-14 | Local Spatial Autocorrelation   |  [GDS 7][gds6]       | Project Proposal       |
-|      | 10-16 | Cluster Detection               |         | Peer Evaluation 2      |
+|      | 10-16 | Cluster Detection               |         |       |
 |    9 | 10-21 | Clustering Area Unit Data       |  [GDS 10][gdsreg]       |                        |
-|      | 10-23 | Region Building                 |         |                        |
+|      | 10-23 | Region Building                 |         |  Peer Evaluation 2                      |
 |   10 | 10-28 | Point Pattern Data              |  [GDS 8.1][gds8.1]       |                        |
 |      | 10-30 | Geoprocessing: Points           |         |                        |
 |   11 | 11-04 | Centrography                    |  [GDS8.2][gds8.2]       | Data Visualization     |
@@ -298,7 +298,7 @@ techniques.
 Select a topic of interest that involves spatial data. The topic should be
 relevant to your field of study or personal interest. Ensure that the data is
 accessible and suitable for spatial analysis. Submit your topic for approval by
-the instructor by **September 16**. If you are unsure about a topic, speak to
+the instructor by **September 30**. If you are unsure about a topic, speak to
 the professor.
 
 #### 2. Data Acquisition
