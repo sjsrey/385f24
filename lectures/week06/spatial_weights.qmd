@@ -235,7 +235,9 @@ plot_spatial_weights(bW, df)
 bW.histogram
 ```
 
-Thus, many tracts have no bishop neighbors. But, a few do. A simple way to see these observations in the dataframe is to find all elements of the dataframe that are not "islands," the term for an observation with no neighbors:
+Thus, many tracts have no bishop neighbors. But, a few do. 
+
+## Bishop Connectivity Graph
 
 ```{python}
 plot_spatial_weights(bW, df)
@@ -279,7 +281,7 @@ df_latlong = df.to_crs(4326)
 ```{python}
 knn8_bad = KNN.from_dataframe(df_latlong, k=8) # ignore curvature of the earth
 ```
-
+## Bad KNN
 ```{python}
 knn8_bad.histogram
 ```
@@ -289,10 +291,12 @@ knn8_bad.histogram
 knn8 = KNN.from_dataframe(df_latlong, k=8, radius=radius_mile)
 ```
 
+## Correct KNN
+
 ```{python}
 knn8.histogram
 ```
-
+## Comparison
 ```{python}
 knn8_bad.neighbors[1487]
 ```
@@ -305,16 +309,7 @@ knn8.neighbors[1487]
 set(knn8_bad.neighbors[1487]) == set(knn8.neighbors[1487])
 ```
 
-<div class="alert alert-success" style="font-size:120%">
-<b>Exercise</b>: <br>
-Enumerate the tracts for which ignoring curvature results in an incorrect neighbor set for knn.
-</div>
-
-```{python}
-# %load solutions/02_knn.py
-```
-
-### Kernel W
+## Kernel W
 
 Kernel Weights are continuous distance-based weights that use kernel densities to define the neighbor relationship.
 Typically, they estimate a `bandwidth`, which is a parameter governing how far out observations should be considered neighboring. Then, using this bandwidth, they evaluate a continuous kernel function to provide a weight between 0 and 1.
@@ -323,7 +318,7 @@ Many different choices of kernel functions are supported, and bandwidths can eit
 
 For example, if we want to use **adaptive bandwidths for the map and weight according to a gaussian kernel**:
 
-#### Adaptive gaussian kernel weights
+## Adaptive gaussian kernel weights
 
 bandwidth = the distance to the kth nearest neighbor for each
                   observation
@@ -334,14 +329,23 @@ bandwith is changing across observations
 kernelWa = Kernel.from_dataframe(df, k=10, fixed=False, function='gaussian')
 ```
 
+## Kernel Weights
+
 ```{python}
 plot_spatial_weights(kernelWa, df)
 ```
+## Kernel Weights (Continuous)
+
+```{python}
+kernelWa.weights[0]
+```
+## Adaptive bandwidths
 
 ```{python}
 kernelWa.bandwidth
 ```
 
+## Adaptive bandwidths
 ```{python}
 df.assign(bw=kernelWa.bandwidth.flatten()).plot('bw', cmap='Reds')
 ```
@@ -359,16 +363,12 @@ my = (n+s)/2
 
 ```{python}
 import shapely
-```
-
-```{python}
 centroids = df.geometry.centroid
-```
-
-```{python}
 lon = centroids.apply(lambda p: p.x).values
 lat = centroids.apply(lambda p: p.y).values
 ```
+
+## Regions
 
 ```{python}
 north = lat > my
@@ -389,10 +389,14 @@ quad = nw + ne + sw + se
 quad
 ```
 
+## Regions
+
 ```{python}
 df['quad'] = quad
 df.plot(column="quad", categorical=True)
 ```
+
+## Block Weights
 
 ```{python}
 blockW = libpysal.weights.block_weights(df["quad"])
@@ -406,48 +410,31 @@ blockW.n
 blockW.pct_nonzero
 ```
 
+## Connectivity
+
 ```{python}
 pandas.Series(blockW.cardinalities).plot.hist()
 ```
+
+## Region Membership
 
 ```{python}
 df.groupby(by='quad').count()
 ```
 
-```{python}
-#plot_spatial_weights(blockW, df)
-```
+# Conclusion   ##
 
 
-<div class="alert alert-success" style="font-size:120%">
-<b>Exercise</b>: <br>
-    Which spatial weights structure would be more dense, tracts based on rook contiguity or SoCal tracts based on knn with k=4?
+
+## Recap of Key Points ###
+
+- Spatial Weights
+- Contiguity Weights
+- Distance Based Weights
+
+## Questions ###
+
+<div style="text-align: center;">
+  <img src="../week01/images/question.jpg" style="max-width: 60%; height: auto;">
 </div>
-
-<div class="alert alert-success" style="font-size:120%">
-<b>Exercise</b>: <br>
-    How many tracts have fewer neighbors under rook contiguity relative to knn4?
-</div>
-
-<div class="alert alert-success" style="font-size:120%">
-<b>Exercise</b>: <br>
-    How many tracts have identical neighbors under queen contiguity and queen rook contiguity?
-</div>
-
-```{python}
-# %load solutions/02.py
-```
-
----
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-
-sa/4.0/"><img alt="Creative Commons License" style="border-width:0"
-src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span
-xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Spatial Weights</span> by <a xmlns:cc="http://creativecommons.org/ns#"
-href="http://sergerey.org" property="cc:attributionName"
-rel="cc:attributionURL">Serge Rey</a> is licensed under a <a
-rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
-Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-
-
 
