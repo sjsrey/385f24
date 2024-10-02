@@ -1,0 +1,56 @@
+---
+title: Studio 07 Global Spatial Autocorrelation
+author: Sergio Rey
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+## Instructions
+
+[Teams](https://sdsu.instructure.com/courses/157862/assignments/1402793)  
+**DUE: Wednesday, October 16, 2024 3:30pm** 
+
+The team leader will submit a pdf version of the notebook showing all the work
+to answer the questions.
+
+The first cell of the notebook should have a list of the team members (first and
+last names) with the team leader in bold. (Hint: Markdown cell).
+
+## Input Files
+
+In this studio you will be analyzing the spatial patterns of homicide rates in
+the southern US Counties, from the `South` built-in dataset from `libpysal`.
+
+
+## Join Count Analysis
+
+For each decade that the homicide rate is recorded complete the following:
+
+1. Create a binary variable reporting high and low county homicide rates using
+   the median rate as the threshold. 
+2. Construct a queen contiguity matrix for the counties.
+3. Describe the patterns you see across the decades.
+3. Create a binary map of the spatial distribution for each decade.
+3. Carry out a join counts analysis on the binary variable using the queen
+   contiguity matrix for each decade.
+4. Create a time series plot of the number of BB joins for each decade. 
+5. Provide a narrative interpretation of your findings. Specify the null
+   hypothesis for each decade, and state your decision whether to reject or fail
+   to reject the null hypothesis.
+   
+   
+## Moran's I Analysis
+   
+For each decade that the homicide rate is recorded complete the following:
+
+1. Create a choropleth map of the spatial distribution of the county homicide
+   rates for each decade.
+3. Describe the patterns you see across the decades.
+1. Carry out a Moran's I  analysis on the original homicide variable using the queen
+   contiguity matrix for each decade.
+2. Create a time series plot of the value of the Moran's I statistic.
+3. Provide a narrative interpretation of your findings. Specify the null
+   hypothesis for each decade, and state your decision whether to reject or fail
+   to reject the null hypothesis in each period.
