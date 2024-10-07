@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Serge Rey">
 
-<title>Geography 385: Spatial Data Analysis - Introduction to Pandas</title>
+<title>Introduction to Pandas – Geography 385: Spatial Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -141,7 +141,7 @@ div.csl-indent {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -151,7 +151,7 @@ div.csl-indent {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Lectures</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
@@ -175,10 +175,14 @@ div.csl-indent {
     <a class="dropdown-item" href="../../lectures/week06/spatial_weights.html">
  <span class="dropdown-text">09-30 Spatial Weights</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week07/global.html">
+ <span class="dropdown-text">10-07 Global Spatial Autocorrelation</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-studio" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-studio" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Studio</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-studio">    
@@ -220,17 +224,17 @@ div.csl-indent {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Introduction to Pandas</li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -301,6 +305,12 @@ div.csl-indent {
  <span class="menu-text">09-30 Spatial Weights</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week07/global.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-07 Global Spatial Autocorrelation</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -364,7 +374,7 @@ div.csl-indent {
 <section id="import" class="level2">
 <h2 class="anchored" data-anchor-id="import">Import</h2>
 <p>We start by importing the package, and aliasing it as <code>pd</code></p>
-<div id="95a5878a" class="cell" data-execution_count="1">
+<div id="54a97356" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Aliasing allows us to use <code>pd</code> in place of having to type out <code>pandas</code> in what follows.</p>
@@ -372,7 +382,7 @@ div.csl-indent {
 <section id="dataframe-creation" class="level2">
 <h2 class="anchored" data-anchor-id="dataframe-creation">DataFrame Creation</h2>
 <p>Pandas main data structure is called a <code>DataFrame</code>. We will create our first DataFrame by reading a <code>csv</code> file.</p>
-<div id="b192141b" class="cell" data-execution_count="2">
+<div id="6c28fa48" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>home <span class="op">=</span> <span class="st">"/home/serge"</span></span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>cities_df <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>home<span class="sc">}</span><span class="ss">/data/385/studio02/cities.csv"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
@@ -398,14 +408,13 @@ Warning
 </div>
 </div>
 <p>Asking for the values of the <code>cities_df</code> give us:</p>
-<div id="9c4ec470" class="cell" data-execution_count="3">
+<div id="661838eb" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cities_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -772,10 +781,9 @@ Warning
 </div>
 </div>
 </div>
-</div>
 <p>This data set is composed of the capital cities for the 50 states.</p>
 <p>We can see what type of object <code>cities_df</code> is using <code>type</code>:</p>
-<div id="c122feb8" class="cell" data-execution_count="4">
+<div id="84e1f37b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(cities_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>pandas.core.frame.DataFrame</code></pre>
@@ -784,7 +792,7 @@ Warning
 <p>As an analogy, you can think of a DataFrame as a spreadsheet with rows and columns. This mental model will help to orient you. We will see that the DataFrame extends spreadsheets in powerful ways for data analysis.</p>
 <p>A DataFrame, like most Python objects, has a number of <code>attributes</code> and <code>methods</code>.</p>
 <p>Its <code>shape</code> attribute tells us how many observations and variables we have.</p>
-<div id="3c11ec43" class="cell" data-execution_count="5">
+<div id="570c4912" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cities_df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>(50, 4)</code></pre>
@@ -795,13 +803,13 @@ Warning
 <section id="series" class="level2">
 <h2 class="anchored" data-anchor-id="series">Series</h2>
 <p>Each variable is stored as a <code>Series</code>:</p>
-<div id="5956fc3e" class="cell" data-execution_count="6">
+<div id="77896aa9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(cities_df.longitude)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>pandas.core.series.Series</code></pre>
 </div>
 </div>
-<div id="c232b608" class="cell" data-execution_count="7">
+<div id="8032e424" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cities_df.longitude</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>0     -86.300568
@@ -863,7 +871,7 @@ Name: longitude, dtype: float64</code></pre>
 <section id="data-types" class="level2">
 <h2 class="anchored" data-anchor-id="data-types">Data Types</h2>
 <p>The <code>info</code> method of the DataFrame will summarize information about our DataFrame</p>
-<div id="a9533aa7" class="cell" data-execution_count="8">
+<div id="62f80919" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cities_df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -881,14 +889,14 @@ memory usage: 1.7+ KB</code></pre>
 </div>
 <p>We have four columns, the first two of which are of type <code>object</code> and the last two are of type <code>float64</code>.</p>
 <p>The names of our variables in the DataFrame are stored in the <code>columns</code> attribute:</p>
-<div id="d7837794" class="cell" data-execution_count="9">
+<div id="2597b88b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cities_df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>Index(['name', 'description', 'latitude', 'longitude'], dtype='object')</code></pre>
 </div>
 </div>
 <p>We can use the column name to access the particular series:</p>
-<div id="e2899b7d" class="cell" data-execution_count="10">
+<div id="b700c120" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cities_df.longitude</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>0     -86.300568
@@ -944,7 +952,7 @@ memory usage: 1.7+ KB</code></pre>
 Name: longitude, dtype: float64</code></pre>
 </div>
 </div>
-<div id="64978b4f" class="cell" data-execution_count="11">
+<div id="3f34914d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cities_df.name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>0            Alabama
@@ -1001,31 +1009,31 @@ Name: name, dtype: object</code></pre>
 </div>
 </div>
 <p>As each series is an object, it too comes with attributes and methods:</p>
-<div id="6bda14c0" class="cell" data-execution_count="12">
+<div id="d473aa9a" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cities_df.longitude.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>-69.781693</code></pre>
 </div>
 </div>
-<div id="fb9aa21e" class="cell" data-execution_count="13">
+<div id="9a7e1d3f" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cities_df.name.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>'Wyoming'</code></pre>
 </div>
 </div>
-<div id="f077afff" class="cell" data-execution_count="14">
+<div id="1d5d1396" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cities_df.longitude.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>-93.46593707999999</code></pre>
 </div>
 </div>
-<div id="b8171409" class="cell" data-execution_count="15">
+<div id="30bfcf37" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>cities_df.name.<span class="bu">min</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>'Alabama'</code></pre>
 </div>
 </div>
-<div id="8e4eaab1" class="cell" data-execution_count="16">
+<div id="7948bbcf" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>cities_df.longitude.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>count     50.000000
@@ -1039,7 +1047,7 @@ max      -69.781693
 Name: longitude, dtype: float64</code></pre>
 </div>
 </div>
-<div id="1f0e55b8" class="cell" data-execution_count="17">
+<div id="6a96b294" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>cities_df.name.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>count          50
@@ -1054,13 +1062,13 @@ Name: name, dtype: object</code></pre>
 <section id="creating-new-series" class="level2">
 <h2 class="anchored" data-anchor-id="creating-new-series">Creating new series</h2>
 <p>A common workflow in data analysis is to create, or derive, new variables based upon existing variables. For example, let’s define a variable that will denote whether a capital city is in the east or west of the country. Here we will use the median longitude as the comparison point:</p>
-<div id="22a6dfcb" class="cell" data-execution_count="18">
+<div id="0dc94b51" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>cities_df.longitude.median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>-89.9185335</code></pre>
 </div>
 </div>
-<div id="e8cb099c" class="cell" data-execution_count="19">
+<div id="c2ad3d4d" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>cities_df.longitude <span class="op">&lt;</span> cities_df.longitude.median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>0     False
@@ -1117,27 +1125,26 @@ Name: longitude, dtype: bool</code></pre>
 </div>
 </div>
 <p>This creates a series that has data type <code>bool</code>, meaning True if the city is at a longitude less than that of the median longitude. False if it is east of that value. We can use this information to create a new series on the DataFrame called <code>east</code>:</p>
-<div id="4e1be9a0" class="cell" data-execution_count="20">
+<div id="c88b74b0" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cities_df[<span class="st">'east'</span>] <span class="op">=</span> cities_df.longitude <span class="op">&gt;</span> cities_df.longitude.median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And, we can do this for a second variable <code>south</code>:</p>
-<div id="25a82698" class="cell" data-execution_count="21">
+<div id="6923f349" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>cities_df[<span class="st">'south'</span>] <span class="op">=</span> cities_df.latitude <span class="op">&lt;</span> cities_df.latitude.median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Based on those two Boolean variables we can create an additional variable called <code>region</code> that tells us which of four regions the capital city is located in.</p>
-<div id="5c6803cf" class="cell" data-execution_count="22">
+<div id="b1218edb" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>cities_df[<span class="st">'region'</span>] <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> cities_df.east <span class="op">*</span> cities_df.south <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> cities_df.east) <span class="op">*</span> cities_df.south <span class="op">\</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                      <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> (<span class="dv">1</span><span class="op">-</span>cities_df.east) <span class="op">*</span> (<span class="dv">1</span><span class="op">-</span>cities_df.south) <span class="op">+</span> cities_df.east <span class="op">*</span> (<span class="dv">1</span><span class="op">-</span>cities_df.south)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>region</code> takes on four values, 1 if the city is in the North East, 2 North West, 3 South West, and 4 South East.</p>
-<div id="1ef73bcb" class="cell" data-execution_count="23">
+<div id="ad7f431f" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>cities_df.head(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1357,12 +1364,11 @@ Name: longitude, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="plotting" class="level2">
 <h2 class="anchored" data-anchor-id="plotting">Plotting</h2>
 <p>Pandas comes with built-in plotting facilities. We can try out the default <code>plot</code> method:</p>
-<div id="52a5aa02" class="cell" data-execution_count="24">
+<div id="5949a646" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>cities_df.plot(<span class="st">'longitude'</span>, <span class="st">'latitude'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1374,7 +1380,7 @@ Name: longitude, dtype: bool</code></pre>
 </div>
 <p>This isn’t quite what we want as the default is to plot the first series and the second series together with line segments connecting each pair of sequential observations.</p>
 <p>But we can try a different method to get what we want:</p>
-<div id="fb4c3d5e" class="cell" data-execution_count="25">
+<div id="58aba1f7" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cities_df.plot.scatter(<span class="st">'longitude'</span>, <span class="st">'latitude'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1399,11 +1405,11 @@ Warning
 </div>
 </div>
 <p>There are a number of powerful visualization packages in Python that allow us to go beyond what is available in Pandas. To see one of them here, we import <code>seaborn</code></p>
-<div id="a8bc0799" class="cell" data-execution_count="26">
+<div id="71c0b003" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sbn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and redo our plot:</p>
-<div id="cc529c4c" class="cell" data-execution_count="27">
+<div id="10f357fe" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>sbn.scatterplot(cities_df, x<span class="op">=</span><span class="st">'longitude'</span>, y<span class="op">=</span><span class="st">'latitude'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1414,7 +1420,7 @@ Warning
 </div>
 </div>
 <p>So far, not much difference from what we did with <code>pandas</code>. But we can specify a <code>hue</code> variable to distinguish what region the cities are in:</p>
-<div id="95b393d8" class="cell" data-execution_count="28">
+<div id="ff4ce516" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sbn.scatterplot(cities_df, x<span class="op">=</span><span class="st">'longitude'</span>, y<span class="op">=</span><span class="st">'latitude'</span>, hue<span class="op">=</span><span class="st">'region'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1425,7 +1431,7 @@ Warning
 </div>
 </div>
 <p>Great. But the numbers on the legend are not that informative. Let’s change them:</p>
-<div id="5a36477c" class="cell" data-execution_count="29">
+<div id="482b722b" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>cities_df.region.<span class="bu">map</span>({<span class="dv">1</span>:<span class="st">'NE'</span>, <span class="dv">2</span>:<span class="st">'NW'</span>, <span class="dv">3</span>:<span class="st">'SW'</span>, <span class="dv">4</span>:<span class="st">'SE'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>0     SE
@@ -1481,10 +1487,10 @@ Warning
 Name: region, dtype: object</code></pre>
 </div>
 </div>
-<div id="1510bf68" class="cell" data-execution_count="30">
+<div id="cceada8b" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>cities_df[<span class="st">'region'</span>] <span class="op">=</span> cities_df.region.<span class="bu">map</span>({<span class="dv">1</span>:<span class="st">'NE'</span>, <span class="dv">2</span>:<span class="st">'NW'</span>, <span class="dv">3</span>:<span class="st">'SW'</span>, <span class="dv">4</span>:<span class="st">'SE'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a70ea247" class="cell" data-execution_count="31">
+<div id="e5277654" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>sbn.scatterplot(cities_df, x<span class="op">=</span><span class="st">'longitude'</span>, y<span class="op">=</span><span class="st">'latitude'</span>, hue<span class="op">=</span><span class="st">'region'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1495,14 +1501,13 @@ Name: region, dtype: object</code></pre>
 </div>
 </div>
 <p>Much better.</p>
-<div id="c7c3f891" class="cell" data-execution_count="32">
+<div id="fb76489a" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>cities_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1569,7 +1574,6 @@ Name: region, dtype: object</code></pre>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -1585,14 +1589,13 @@ Name: region, dtype: object</code></pre>
 <section id="sorting" class="level3">
 <h3 class="anchored" data-anchor-id="sorting">Sorting</h3>
 <p>We can sort the DataFrame by the values of a given column. For example, to find the southern-most capital city:</p>
-<div id="9a85769f" class="cell" data-execution_count="33">
+<div id="fee9bd12" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>cities_df.sort_values(by<span class="op">=</span><span class="st">'latitude'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2109,19 +2112,17 @@ Name: region, dtype: object</code></pre>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
 <p>To find the northern-most city:</p>
-<div id="4361081f" class="cell" data-execution_count="34">
+<div id="3ab605d1" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>cities_df.sort_values(by<span class="op">=</span><span class="st">'latitude'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2641,16 +2642,14 @@ Name: region, dtype: object</code></pre>
 </div>
 </div>
 </div>
-</div>
 <p>If we don’t want to see all the other columns, we can subset the dataframe first:</p>
-<div id="ca4784be" class="cell" data-execution_count="35">
+<div id="ae5466e8" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>cities_df[[<span class="st">'name'</span>, <span class="st">'description'</span>, <span class="st">'latitude'</span>]].sort_values(by<span class="op">=</span><span class="st">'latitude'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2963,7 +2962,6 @@ Name: region, dtype: object</code></pre>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -2972,14 +2970,13 @@ Name: region, dtype: object</code></pre>
 <h3 class="anchored" data-anchor-id="grouping">Grouping</h3>
 <p>The <code>groupby</code> method of the DataFrame allows us to split the dataframe, apply a function, and combine the results. This allows us to group data in interesting ways.</p>
 <p>Suppose we wanted to know how many cities were in the east and west?</p>
-<div id="277a443e" class="cell" data-execution_count="36">
+<div id="ea38555c" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>cities_df.groupby(by<span class="op">=</span><span class="st">'east'</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3022,19 +3019,17 @@ Name: region, dtype: object</code></pre>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
 <p>And for south and north:</p>
-<div id="2c0e456c" class="cell" data-execution_count="37">
+<div id="12567c62" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>cities_df.groupby(by<span class="op">=</span><span class="st">'south'</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3080,16 +3075,14 @@ Name: region, dtype: object</code></pre>
 </div>
 </div>
 </div>
-</div>
 <p>How about by region?</p>
-<div id="325f809f" class="cell" data-execution_count="38">
+<div id="3dc92efe" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>cities_df.groupby(by<span class="op">=</span><span class="st">'region'</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3153,7 +3146,6 @@ Name: region, dtype: object</code></pre>
 </div>
 </div>
 </div>
-</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -3168,14 +3160,13 @@ Note
 </div>
 </div>
 <p>In addition to applying the <code>count</code> method on the groubby object, we could use other functions. For example, we may want to know the median coordinate values in each of the four regions:</p>
-<div id="9e816753" class="cell" data-execution_count="39">
+<div id="1108459d" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>cities_df[[<span class="st">'region'</span>, <span class="st">'longitude'</span>, <span class="st">'latitude'</span>]].groupby(by<span class="op">=</span><span class="st">'region'</span>).median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3215,28 +3206,26 @@ Note
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="filtering" class="level3">
 <h3 class="anchored" data-anchor-id="filtering">Filtering</h3>
 <p>Filtering allows us to subset the DataFrame based on some conditions. For example, what if we wanted to create a new DataFrame that only contained the southern capital cities:</p>
-<div id="9e00d0f9" class="cell" data-execution_count="40">
+<div id="8f28eb70" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>south_df <span class="op">=</span> cities_df[cities_df.south]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c06b0b85" class="cell" data-execution_count="41">
+<div id="d413c857" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>south_df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>(25, 7)</code></pre>
 </div>
 </div>
-<div id="bdc38891" class="cell" data-execution_count="42">
+<div id="2cb4e0c1" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>south_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3306,20 +3295,18 @@ Note
 </div>
 </div>
 </div>
-</div>
 <p>And to get a DataFrame for the northern cities, we could use a complement filter:</p>
-<div id="c6db203d" class="cell" data-execution_count="43">
+<div id="00897bc5" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>north_df <span class="op">=</span> cities_df[<span class="op">~</span>cities_df.south]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>~</code> operator can be thought of flipping the boolean condition.</p>
-<div id="52792a0b" class="cell" data-execution_count="44">
+<div id="653094ae" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>north_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3389,19 +3376,17 @@ Note
 </div>
 </div>
 </div>
-</div>
 <p>We could combine these to get the DataFrame for cities in the North East region:</p>
-<div id="c76881ce" class="cell" data-execution_count="45">
+<div id="446bcb03" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>ne_df <span class="op">=</span> cities_df[<span class="op">~</span>cities_df.south <span class="op">&amp;</span> cities_df.east]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f8f0ab67" class="cell" data-execution_count="46">
+<div id="74630966" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>ne_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="46">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3471,12 +3456,11 @@ Note
 </div>
 </div>
 </div>
-</div>
 <p>Like most things we will want to do, there are typically multiple ways to accomplish this in Python. Here we can get a set of regional DataFrames in one shot:</p>
-<div id="03d26ca3" class="cell" data-execution_count="47">
+<div id="6f2069b0" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> {r:data <span class="cf">for</span> r, data <span class="kw">in</span> cities_df.groupby(<span class="st">'region'</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c25b7d6e" class="cell" data-execution_count="48">
+<div id="b04cad4f" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>dfs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>{'NE':              name   description   latitude  longitude  east  south region
@@ -3536,14 +3520,13 @@ Note
 </div>
 </div>
 <p>They are stored in a dictionary, so we could access each one using the region ‘key’.</p>
-<div id="e7f4a84a" class="cell" data-execution_count="49">
+<div id="aac27b73" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>dfs[<span class="st">'NE'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="49">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3613,23 +3596,21 @@ Note
 </div>
 </div>
 </div>
-</div>
 </section>
 </section>
 <section id="merge" class="level2">
 <h2 class="anchored" data-anchor-id="merge">Merge</h2>
 <p>A common workflow in spatial analysis is combining different data sets. Often we will have information on the locations or geographical coordinates in one data set, but that data set may not include any substantive attribute information. We may have a second data set that has the attribute information we are interested in, but this second data set lacks geographical coordinates. So we will have cause to <code>merge</code> the two data sets</p>
-<div id="df331e59" class="cell" data-execution_count="50">
+<div id="c95a01e4" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>population_df <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>home<span class="sc">}</span><span class="ss">/data/385/studio02/captial_population.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e3c657e7" class="cell" data-execution_count="51">
+<div id="505c0980" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>population_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="51">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3711,18 +3692,16 @@ Note
 </div>
 </div>
 </div>
-</div>
-<div id="fce03934" class="cell" data-execution_count="52">
+<div id="ac42b34d" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(cities_df, population_df, left_on<span class="op">=</span><span class="st">'name'</span>, right_on<span class="op">=</span><span class="st">'State'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6957995b" class="cell" data-execution_count="53">
+<div id="db74f31c" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>merged.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="53">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3846,17 +3825,16 @@ Note
 </div>
 </div>
 </div>
-</div>
-<div id="a9467bef" class="cell" data-execution_count="54">
+<div id="820b2d0f" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>merged.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>(50, 16)</code></pre>
 </div>
 </div>
-<div id="86aa18e6" class="cell" data-execution_count="55">
+<div id="a21378ae" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(cities_df, population_df[[<span class="st">'CityPop'</span>, <span class="st">'rank_in_state'</span>, <span class="st">'area'</span>, <span class="st">'State'</span>]], left_on<span class="op">=</span><span class="st">'name'</span>, right_on<span class="op">=</span><span class="st">'State'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ea6eb460" class="cell" data-execution_count="56">
+<div id="e8b0ac65" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>merged.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>(50, 11)</code></pre>
@@ -3868,18 +3846,17 @@ Note
 <p>In addition to reading data files, as we did at the beginning of this session, pandas can also create files to save to disk. It is very useful to separate your more complicated data analysis workflows into stages. Typically, the earlier stages will involve data reading, creation of new variables, and or merging different data sets. Much like we have done here. Subsequent steps would be analyzing the data that we have just constructed.</p>
 <p>We do not want to have to repeat the data processing steps each time we need to carry out the analysis. To avoid this, we have our data processing notebooks save the newly created data to external files. This way the analysis notebooks only have to read these newly created files - we do not have to recreate them.</p>
 <p>Let’s save our latest DataFrame to a csv so we can use it again later.</p>
-<div id="34cd2773" class="cell" data-execution_count="57">
+<div id="ecf81e04" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>merged.to_csv(<span class="st">"merged.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can show that the merge above will work irrespective of order.</p>
-<div id="54087b2f" class="cell" data-execution_count="58">
+<div id="d05ed30c" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>merged.sort_values(by<span class="op">=</span><span class="st">'description'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="58">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -4603,23 +4580,21 @@ Note
 </div>
 </div>
 </div>
-</div>
 <p>Let’s write this out to a second new file:</p>
-<div id="3368156e" class="cell" data-execution_count="59">
+<div id="0e137d38" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>merged.sort_values(by<span class="op">=</span><span class="st">'description'</span>).to_csv(<span class="st">'merged1.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now read it in and redo a merge to compare to what we did above</p>
-<div id="6e05e073" class="cell" data-execution_count="60">
+<div id="825e8e66" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>pop_df <span class="op">=</span> pd.read_csv(<span class="st">'merged1.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cd6a3b4d" class="cell" data-execution_count="61">
+<div id="7df0b8d6" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>pop_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="61">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -4713,24 +4688,22 @@ Note
 </div>
 </div>
 </div>
-</div>
-<div id="a68a750f" class="cell" data-execution_count="62">
+<div id="144e36c2" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>merged1 <span class="op">=</span> pd.merge(cities_df, pop_df[[<span class="st">'CityPop'</span>, <span class="st">'rank_in_state'</span>, <span class="st">'area'</span>, <span class="st">'State'</span>]], left_on<span class="op">=</span><span class="st">'name'</span>, right_on<span class="op">=</span><span class="st">'State'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3aedc1b7" class="cell" data-execution_count="63">
+<div id="4ed85b2e" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>merged1.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="63">
 <pre><code>(50, 11)</code></pre>
 </div>
 </div>
-<div id="c850a284" class="cell" data-execution_count="64">
+<div id="cbfd3d9b" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>merged1.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="64">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -4824,15 +4797,13 @@ Note
 </div>
 </div>
 </div>
-</div>
-<div id="a482227c" class="cell" data-execution_count="65">
+<div id="46f3753d" class="cell" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>merged.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="65">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -4923,7 +4894,6 @@ Note
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -4974,18 +4944,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -5017,7 +4976,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -5069,6 +5050,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/sjsrey\.github\.io\/385f24\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -5103,7 +5102,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -5850,7 +5853,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb87-601"><a href="#cb87-601" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb87-602"><a href="#cb87-602" aria-hidden="true" tabindex="-1"></a>merged.head()</span>
 <span id="cb87-603"><a href="#cb87-603" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
