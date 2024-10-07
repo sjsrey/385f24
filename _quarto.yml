@@ -19,6 +19,8 @@ website:
             href: lectures/week05/choro.qmd
           - text: "09-30 Spatial Weights"
             href: lectures/week06/spatial_weights.qmd
+          - text: "10-07 Global Spatial Autocorrelation"
+            href: lectures/week07/global.qmd
 	   
       - text: "Studio"
         menu:
@@ -34,6 +36,8 @@ website:
             href: studio/week05/index.qmd
           - text: "10-02 Studio 6: Peer Evaluation 1"
             href: studio/week06/peer1.qmd
+          #- text: "10-09 Studio 7: Global Spatial Autocorrelation"
+          #  href: studio/week07/global.qmd
       - text: "References"
         href: references.qmd
     right:
@@ -62,6 +66,10 @@ website:
           href: studio/week05/index.qmd
         - text: "09-30 Spatial Weights"
           href: lectures/week06/spatial_weights.qmd
+        - text: "10-07 Global Spatial Autocorrelation"
+          href: lectures/week07/global.qmd
+        #- text: "10-09 Studio 7: Global Spatial Autocorrelation"
+        #  href: studio/week07/global.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"

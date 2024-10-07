@@ -36,7 +36,7 @@ echo: true
 	- Disease rates may reflect differences in age structure
 	- Economic growth rates may reflect differences in industrial composition
 
-- Contextual Effects
+- Contextual Influences
 
 	- Disease rates may be due to exposure to pollutants
 	- Economic growth may be due to differences in local labor markets/institutions
@@ -51,7 +51,7 @@ echo: true
 - Contagion
    - infectious disease spread
    - peer influences/networks 
-   - neighborhood provide role models
+   - neighborhoods provide role models
 
 ## Objectives of Areal Data Analysis
 
@@ -245,40 +245,6 @@ Spatial Dependence
 #  Join Counts
 ## Binary Variable
 ```{python}
-from geosnap import DataStore
-import geopandas as gpd
-
-datasets = DataStore()
-
-from geosnap.io import get_acs
-ca = get_acs(datasets, state_fips=['06'], level='tract', years=[2016])
-
-ca.head()
-
-```
-
-## SD County Tracts
-
-```{python}
-sd = ca[ca.geoid.str.startswith('06073')]
-sd.plot(edgecolor='grey')
-```
-
-## Variables
-
-```{python}
-sd.columns.values
-```
-
-## Poverty Rate
-
-```{python}
-
-sd.plot(column='p_poverty_rate', scheme='quantiles', k=10, legend=True)
-```
-
-## Binary Variable
-```{python}
 high_poverty = sd.p_poverty_rate > sd.p_poverty_rate.median()
 sd['high_poverty'] = high_poverty * 1
 sd.plot(column='high_poverty', categorical=True, legend=True,
@@ -288,11 +254,11 @@ sd.plot(column='high_poverty', categorical=True, legend=True,
 
 ## Explore
 
-<!-- ```{python} -->
-<!-- sd.explore(column='p_poverty_rate', legend=True, -->
-<!--            tooltip=['high_poverty', 'p_poverty_rate', 'geoid']) -->
+```{python}
+sd.explore(column='p_poverty_rate', legend=True,
+           tooltip=['high_poverty', 'p_poverty_rate', 'geoid'])
 
-<!-- ``` -->
+```
 
 
 
@@ -309,25 +275,38 @@ w = Queen.from_dataframe(sd)
 w.s0 
 ```
 
+$$w.s0 = \sum_i \sum_j w_{i,j}$$
+
+- Number of non-zero values in $w$
+- 2x the number of joins
+
 ## Neighbors
 
 ```{python}
-# import numpy as np
-# sd['neighbors'] = np.array(list(w.cardinalities.values()))
+import numpy as np
+sd['neighbors'] = np.array(list(w.cardinalities.values()))
 
-# sd.explore(column='p_poverty_rate', legend=True, 
-#            tooltip=['high_poverty', 'p_poverty_rate', 'geoid', 'neighbors']) 
+sd.explore(column='p_poverty_rate', legend=True, 
+           tooltip=['high_poverty', 'p_poverty_rate', 'geoid', 'neighbors']) 
 
 ``` 
+## Spatial Lag
+$L_i = \sum_{j} w_{i,j} B_j$
 
+- the spatial lag is the number of B neighbors
+- if the focal unit is B, then it involved in as many BB joins as it has B
+  neighbors
+- if the focal unit is W(hite), it is involved in 0 BB joins
+ 
 ## Spatial Lag
 ```{python}
-# from libpysal.weights import lag_spatial
-# sd['BNeighbors'] = lag_spatial(w, sd.high_poverty)
-# sd.explore(column='p_poverty_rate', legend=True, 
-#            tooltip=['high_poverty', 'p_poverty_rate', 'geoid',
-#                     'neighbors', 'BNeighbors']) 
+from libpysal.weights import lag_spatial
+sd['BNeighbors'] = lag_spatial(w, sd.high_poverty)
+sd.explore(column='p_poverty_rate', legend=True, 
+           tooltip=['high_poverty', 'p_poverty_rate', 'geoid',
+                    'neighbors', 'BNeighbors']) 
 ```
+ 
 
 ## Join Counts
 ```{python}
@@ -340,6 +319,8 @@ jc = Join_Counts(sd.high_poverty, w)
 jc.bb, jc.bw, jc.ww
 ```
 
+$BB =\frac{1}{2} \sum_i \sum_j w_{i,j} B_i B_j = \frac{1}{2} \sum_i B_i L_i$
+
 ## Join Counts Inference
 
 ```{python}
@@ -349,6 +330,15 @@ jc.p_sim_bb, jc.mean_bb, jc.bb
 
 
 # Moran's I
+## Moran's I
+$$
+I = \dfrac{n}{\sum_i\sum_j w_{ij}} \dfrac{\sum_i\sum_j w_{i,j} \, z_i \, z_j}{\sum_i z_i^2}
+$$
+
+- $z_i = y_i - \bar{y}$
+- $\sum_i \sum_j w_{i,j}z_i z_j = \sum_i z_i \sum_j w_{i,j} z_j = \sum_i z_i l_i$
+  
+
 ## Moran's I
 ```{python}
 from esda.moran import Moran
