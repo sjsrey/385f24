@@ -18,7 +18,7 @@
     "href": "syllabus.html#instructor",
     "title": "Geography 385 Spatial Data Analysis",
     "section": "Instructor",
-    "text": "Instructor\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nSergio Rey\nMon 9:00 - 10:00 (by appointment)\nPSFA 361G"
+    "text": "Instructor\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nSergio Rey\nFri 9:00 - 10:00 (by appointment)\nPSFA 361G"
   },
   {
     "objectID": "syllabus.html#introduction",
@@ -2300,7 +2300,7 @@
     "href": "studio/week07/global.html",
     "title": "Studio 07 Global Spatial Autocorrelation",
     "section": "",
-    "text": "Teams\nDUE: Wednesday, October 16, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell).",
+    "text": "DUE: Wednesday, October 16, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell).",
     "crumbs": [
       "Home",
       "10-09 Studio 7: Global Spatial Autocorrelation"
@@ -2311,7 +2311,7 @@
     "href": "studio/week07/global.html#instructions",
     "title": "Studio 07 Global Spatial Autocorrelation",
     "section": "",
-    "text": "Teams\nDUE: Wednesday, October 16, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell).",
+    "text": "DUE: Wednesday, October 16, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell).",
     "crumbs": [
       "Home",
       "10-09 Studio 7: Global Spatial Autocorrelation"
@@ -2438,7 +2438,7 @@
     "href": "lectures/week06/spatial_weights.html#constructing-queen-weights",
     "title": "Spatial Weights",
     "section": "Constructing Queen Weights",
-    "text": "Constructing Queen Weights\nTo construct queen weights from a shapefile, we will use geopandas to read the file into a GeoDataFrame, and then use libpysal to construct the weights:\n\npath = \"~/data/scag_region.parquet\"\ndf = geopandas.read_parquet(path)\ndf = df.to_crs(26911)  #UTM zone 11N\nqW = Queen.from_dataframe(df)\nqW\n\n&lt;libpysal.weights.contiguity.Queen at 0x720acd845de0&gt;",
+    "text": "Constructing Queen Weights\nTo construct queen weights from a shapefile, we will use geopandas to read the file into a GeoDataFrame, and then use libpysal to construct the weights:\n\npath = \"~/data/scag_region.parquet\"\ndf = geopandas.read_parquet(path)\ndf = df.to_crs(26911)  #UTM zone 11N\nqW = Queen.from_dataframe(df)\nqW\n\n&lt;libpysal.weights.contiguity.Queen at 0x798e3911e380&gt;",
     "crumbs": [
       "Home",
       "09-30 Spatial Weights"
