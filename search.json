@@ -1956,129 +1956,54 @@
     "href": "studio/week06/peer1.html",
     "title": "Studio 06 Peer Evaluation 1",
     "section": "",
-    "text": "Teams\nDUE: Wednesday, October 9, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+    "text": "Teams\nDUE: Wednesday, October 9, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell).",
+    "crumbs": [
+      "Home",
+      "10-02 Studio 6: Peer Evaluation 1"
+    ]
   },
   {
     "objectID": "studio/week06/peer1.html#instructions",
     "href": "studio/week06/peer1.html#instructions",
     "title": "Studio 06 Peer Evaluation 1",
     "section": "",
-    "text": "Teams\nDUE: Wednesday, October 9, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+    "text": "Teams\nDUE: Wednesday, October 9, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell).",
+    "crumbs": [
+      "Home",
+      "10-02 Studio 6: Peer Evaluation 1"
+    ]
   },
   {
     "objectID": "studio/week06/peer1.html#scheduling",
     "href": "studio/week06/peer1.html#scheduling",
     "title": "Studio 06 Peer Evaluation 1",
     "section": "Scheduling",
-    "text": "Scheduling\n\nDetermine which team members have an approved computational essay topic.\nSchedule 10 minutes for each of these topics"
+    "text": "Scheduling\n\nDetermine which team members have an approved computational essay topic.\nSchedule 10 minutes for each of these topics",
+    "crumbs": [
+      "Home",
+      "10-02 Studio 6: Peer Evaluation 1"
+    ]
   },
   {
     "objectID": "studio/week06/peer1.html#minute-section",
     "href": "studio/week06/peer1.html#minute-section",
     "title": "Studio 06 Peer Evaluation 1",
     "section": "10 Minute Section",
-    "text": "10 Minute Section\n\nTeam leader creates a new section of the notebook with the presenters name\nA student presents their topic (2 minutes)\nEach remaining member of the team provides feedback and questions to the student (8 minutes)\nTeam leader captures this feedback in the notebook"
+    "text": "10 Minute Section\n\nTeam leader creates a new section of the notebook with the presenters name\nA student presents their topic (2 minutes)\nEach remaining member of the team provides feedback and questions to the student (8 minutes)\nTeam leader captures this feedback in the notebook",
+    "crumbs": [
+      "Home",
+      "10-02 Studio 6: Peer Evaluation 1"
+    ]
   },
   {
     "objectID": "studio/week06/peer1.html#potential-questions-to-askfeedback-prompts",
     "href": "studio/week06/peer1.html#potential-questions-to-askfeedback-prompts",
     "title": "Studio 06 Peer Evaluation 1",
     "section": "Potential Questions to Ask/Feedback Prompts",
-    "text": "Potential Questions to Ask/Feedback Prompts\n\nIs the research question clearly stated?\nDoes the topic clearly involve spatial analysis?\nAre spatial relationships and geographic context central to the question?\nConsiderations for emphasizing or incorporating spatial aspects more effectively.\nAre the data sources identified?\nAre these data sources appropriate for the research question?\nSuggestions for alternative or additional data sources, if needed.\n\nAll team members, whether they are doing a computational essay or not, must participate in the peer evaluation process."
-  },
-  {
-    "objectID": "studio/week02/studio.html",
-    "href": "studio/week02/studio.html",
-    "title": "Studio 02 Pandas",
-    "section": "",
-    "text": "Teams\nDUE: Wednesday, September 11, 2024 3:30pm\nUsing the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
-  },
-  {
-    "objectID": "studio/week02/studio.html#instructions",
-    "href": "studio/week02/studio.html#instructions",
-    "title": "Studio 02 Pandas",
-    "section": "",
-    "text": "Teams\nDUE: Wednesday, September 11, 2024 3:30pm\nUsing the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
-  },
-  {
-    "objectID": "studio/week02/studio.html#setup",
-    "href": "studio/week02/studio.html#setup",
-    "title": "Studio 02 Pandas",
-    "section": "Setup",
-    "text": "Setup\n\nimport pandas as pd\n\ndf = pd.read_csv(\"merged.csv\")"
-  },
-  {
-    "objectID": "studio/week02/studio.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
-    "href": "studio/week02/studio.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
-    "title": "Studio 02 Pandas",
-    "section": "Which region has the capital city with the largest population of all capital cities?",
-    "text": "Which region has the capital city with the largest population of all capital cities?\n\n# your code here"
-  },
-  {
-    "objectID": "studio/week02/studio.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
-    "href": "studio/week02/studio.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
-    "title": "Studio 02 Pandas",
-    "section": "Which region contains the largest number of people living in its capital cities?",
-    "text": "Which region contains the largest number of people living in its capital cities?\n\n# your code here"
-  },
-  {
-    "objectID": "studio/week02/studio.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
-    "href": "studio/week02/studio.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
-    "title": "Studio 02 Pandas",
-    "section": "Which region has the capital cities with the highest population density (median)?",
-    "text": "Which region has the capital cities with the highest population density (median)?\n\n# your code here"
-  },
-  {
-    "objectID": "studio/week02/key.html",
-    "href": "studio/week02/key.html",
-    "title": "Studio 02 Pandas",
-    "section": "",
-    "text": "Using the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
-  },
-  {
-    "objectID": "studio/week02/key.html#instructions",
-    "href": "studio/week02/key.html#instructions",
-    "title": "Studio 02 Pandas",
-    "section": "",
-    "text": "Using the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
-  },
-  {
-    "objectID": "studio/week02/key.html#setup",
-    "href": "studio/week02/key.html#setup",
-    "title": "Studio 02 Pandas",
-    "section": "Setup",
-    "text": "Setup\n\nimport pandas as pd\n\ndf = pd.read_csv(\"merged.csv\")"
-  },
-  {
-    "objectID": "studio/week02/key.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
-    "href": "studio/week02/key.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
-    "title": "Studio 02 Pandas",
-    "section": "Which region has the capital city with the largest population of all capital cities?",
-    "text": "Which region has the capital city with the largest population of all capital cities?\n\ndf[['region', 'CityPop', 'description']].sort_values(by='CityPop', ascending=False)\n\n\n\n\n\n\n\n\nregion\nCityPop\ndescription\n\n\n\n\n2\nSW\n1608139\nPhoenix\n\n\n42\nSW\n961855\nAustin\n\n\n34\nNE\n905748\nColumbus\n\n\n13\nSE\n887642\nIndianapolis\n\n\n5\nSW\n715522\nDenver\n\n\n41\nSE\n689447\nNashville\n\n\n35\nSW\n681054\nOklahoma City\n\n\n20\nNE\n675647\nBoston\n\n\n4\nSW\n524943\nSacramento\n\n\n10\nSE\n498715\nAtlanta&lt;br&gt;\n\n\n31\nSE\n467665\nRaleigh\n\n\n8\nSW\n350964\nHonolulu\n\n\n22\nNW\n311527\nSt. Paul\n\n\n26\nNW\n291082\nLincoln\n\n\n48\nNE\n269840\nMadison\n\n\n11\nNW\n235684\nBoise\n\n\n17\nSW\n227470\nBaton Rouge\n\n\n45\nSE\n226610\nRichmond\n\n\n14\nNW\n214133\nDes Moines\n\n\n3\nSW\n202591\nLittle Rock\n\n\n0\nSE\n200603\nMontgomery\n\n\n43\nNW\n199723\nSalt Lake City\n\n\n9\nSE\n196169\nTallahassee\n\n\n38\nNE\n190934\nProvidence\n\n\n36\nNW\n175535\nSalem\n\n\n23\nSW\n153701\nJackson\n\n\n39\nSE\n136632\nColumbia\n\n\n15\nSW\n126587\nTopeka\n\n\n6\nNE\n121054\nHartford&lt;br&gt;\n\n\n12\nNE\n114394\nSpringfield\n\n\n21\nNE\n112644\nLansing\n\n\n33\nNE\n99224\nAlbany\n\n\n29\nNE\n90871\nTrenton\n\n\n30\nSW\n87505\nSanta Fe\n\n\n32\nNW\n73622\nBismarck\n\n\n49\nNW\n65132\nCheyenne\n\n\n27\nSW\n58639\nCarson City\n\n\n46\nNW\n55605\nOlympia\n\n\n37\nNE\n50099\nHarrisburg\n\n\n47\nSE\n48864\nCharleston\n\n\n28\nNE\n43976\nConcord\n\n\n24\nSW\n43228\nJefferson City\n\n\n19\nSE\n40812\nAnnapolis\n\n\n7\nSE\n39403\nDover\n\n\n1\nNW\n32255\nJuneau\n\n\n25\nNW\n32091\nHelena\n\n\n16\nSE\n28602\nFrankfort\n\n\n18\nNE\n18899\nAugusta\n\n\n40\nNW\n14091\nPierre\n\n\n44\nNE\n8074\nMontpelier"
-  },
-  {
-    "objectID": "studio/week02/key.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
-    "href": "studio/week02/key.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
-    "title": "Studio 02 Pandas",
-    "section": "Which region contains the largest number of people living in its capital cities?",
-    "text": "Which region contains the largest number of people living in its capital cities?\n\ndf[['region', 'CityPop']].groupby(by='region').sum()\n\n\n\n\n\n\n\n\nCityPop\n\n\nregion\n\n\n\n\n\nNE\n2701404\n\n\nNW\n1700480\n\n\nSE\n3461164\n\n\nSW\n5742198"
-  },
-  {
-    "objectID": "studio/week02/key.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
-    "href": "studio/week02/key.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
-    "title": "Studio 02 Pandas",
-    "section": "Which region has the capital cities with the highest population density (median)?",
-    "text": "Which region has the capital cities with the highest population density (median)?\n\ndf['density'] = df.CityPop / df.area\ndf[['density', 'region']].groupby(by='region').median()\n\n\n\n\n\n\n\n\ndensity\n\n\nregion\n\n\n\n\n\nNE\n4306.932953\n\n\nNW\n2955.899130\n\n\nSE\n1997.773548\n\n\nSW\n2345.978552"
-  },
-  {
-    "objectID": "studio/week02/index.html",
-    "href": "studio/week02/index.html",
-    "title": "Week 2 Studio: Pandas",
-    "section": "",
-    "text": "This week we introduce Pandas:\n\nIntroduction to Pandas\nStudio exercise",
+    "text": "Potential Questions to Ask/Feedback Prompts\n\nIs the research question clearly stated?\nDoes the topic clearly involve spatial analysis?\nAre spatial relationships and geographic context central to the question?\nConsiderations for emphasizing or incorporating spatial aspects more effectively.\nAre the data sources identified?\nAre these data sources appropriate for the research question?\nSuggestions for alternative or additional data sources, if needed.\n\nAll team members, whether they are doing a computational essay or not, must participate in the peer evaluation process.",
     "crumbs": [
       "Home",
-      "09-04 Studio 2: Pandas"
+      "10-02 Studio 6: Peer Evaluation 1"
     ]
   },
   {
@@ -2157,6 +2082,115 @@
     "title": "Introduction to Pandas",
     "section": "Saving Files",
     "text": "Saving Files\nIn addition to reading data files, as we did at the beginning of this session, pandas can also create files to save to disk. It is very useful to separate your more complicated data analysis workflows into stages. Typically, the earlier stages will involve data reading, creation of new variables, and or merging different data sets. Much like we have done here. Subsequent steps would be analyzing the data that we have just constructed.\nWe do not want to have to repeat the data processing steps each time we need to carry out the analysis. To avoid this, we have our data processing notebooks save the newly created data to external files. This way the analysis notebooks only have to read these newly created files - we do not have to recreate them.\nLet’s save our latest DataFrame to a csv so we can use it again later.\n\nmerged.to_csv(\"merged.csv\", index=False)\n\nWe can show that the merge above will work irrespective of order.\n\nmerged.sort_values(by='description')\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nCityPop\nrank_in_state\narea\nState\n\n\n\n\n33\nNew York\nAlbany\n42.652843\n-73.757874\nTrue\nFalse\nNE\n99224\n6\n21.40\nNew York\n\n\n19\nMaryland\nAnnapolis\n38.978764\n-76.490936\nTrue\nTrue\nSE\n40812\n7\n6.73\nMaryland\n\n\n10\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n-84.388229\nTrue\nTrue\nSE\n498715\n1\n133.50\nGeorgia\n\n\n18\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\nNE\n18899\n10\n55.40\nMaine\n\n\n42\nTexas\nAustin\n30.274670\n-97.740349\nFalse\nTrue\nSW\n961855\n4\n305.10\nTexas\n\n\n17\nLouisiana\nBaton Rouge\n30.457069\n-91.187393\nFalse\nTrue\nSW\n227470\n2\n76.80\nLouisiana\n\n\n32\nNorth Dakota\nBismarck\n46.820850\n-100.783318\nFalse\nFalse\nNW\n73622\n2\n26.90\nNorth Dakota\n\n\n11\nIdaho\nBoise\n43.617775\n-116.199722\nFalse\nFalse\nNW\n235684\n1\n63.80\nIdaho\n\n\n20\nMassachusetts\nBoston\n42.358162\n-71.063698\nTrue\nFalse\nNE\n675647\n1\n89.60\nMassachusetts\n\n\n27\nNevada\nCarson City\n39.163914\n-119.766121\nFalse\nTrue\nSW\n58639\n6\n143.40\nNevada\n\n\n47\nWest Virginia\nCharleston\n38.336246\n-81.612328\nTrue\nTrue\nSE\n48864\n1\n31.60\nWest Virginia\n\n\n49\nWyoming\nCheyenne\n41.140259\n-104.820236\nFalse\nFalse\nNW\n65132\n1\n21.10\nWyoming\n\n\n39\nSouth Carolina\nColumbia\n34.000343\n-81.033211\nTrue\nTrue\nSE\n136632\n2\n125.20\nSouth Carolina\n\n\n34\nOhio\nColumbus\n39.961346\n-82.999069\nTrue\nFalse\nNE\n905748\n1\n210.30\nOhio\n\n\n28\nNew Hampshire\nConcord\n43.206898\n-71.537994\nTrue\nFalse\nNE\n43976\n3\n64.30\nNew Hampshire\n\n\n5\nColorado\nDenver\n39.739227\n-104.984856\nFalse\nTrue\nSW\n715522\n1\n153.30\nColorado\n\n\n14\nIowa\nDes Moines\n41.591087\n-93.603729\nFalse\nFalse\nNW\n214133\n1\n75.80\nIowa\n\n\n7\nDelaware\nDover\n39.157307\n-75.519722\nTrue\nTrue\nSE\n39403\n2\n22.40\nDelaware\n\n\n16\nKentucky\nFrankfort\n38.186722\n-84.875374\nTrue\nTrue\nSE\n28602\n15\n14.70\nKentucky\n\n\n37\nPennsylvania\nHarrisburg\n40.264378\n-76.883598\nTrue\nFalse\nNE\n50099\n9\n8.11\nPennsylvania\n\n\n6\nConnecticut\nHartford&lt;br&gt;\n41.764046\n-72.682198\nTrue\nFalse\nNE\n121054\n4\n17.30\nConnecticut\n\n\n25\nMontana\nHelena\n46.585709\n-112.018417\nFalse\nFalse\nNW\n32091\n6\n14.00\nMontana\n\n\n8\nHawaii\nHonolulu\n21.307442\n-157.857376\nFalse\nTrue\nSW\n350964\n1\n68.40\nHawaii\n\n\n13\nIndiana\nIndianapolis\n39.768623\n-86.162643\nTrue\nTrue\nSE\n887642\n1\n361.50\nIndiana\n\n\n23\nMississippi\nJackson\n32.303848\n-90.182106\nFalse\nTrue\nSW\n153701\n1\n104.90\nMississippi\n\n\n24\nMissouri\nJefferson City\n38.579201\n-92.172935\nFalse\nTrue\nSW\n43228\n15\n27.30\nMissouri\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n32255\n3\n2716.70\nAlaska\n\n\n21\nMichigan\nLansing\n42.733635\n-84.555328\nTrue\nFalse\nNE\n112644\n5\n35.00\nMichigan\n\n\n26\nNebraska\nLincoln\n40.808075\n-96.699654\nFalse\nFalse\nNW\n291082\n2\n74.60\nNebraska\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n202591\n1\n116.20\nArkansas\n\n\n48\nWisconsin\nMadison\n43.074684\n-89.384445\nTrue\nFalse\nNE\n269840\n2\n68.70\nWisconsin\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n200603\n3\n159.80\nAlabama\n\n\n44\nVermont\nMontpelier\n44.262436\n-72.580536\nTrue\nFalse\nNE\n8074\n6\n10.20\nVermont\n\n\n41\nTennessee\nNashville\n36.165810\n-86.784241\nTrue\nTrue\nSE\n689447\n1\n525.90\nTennessee\n\n\n35\nOklahoma\nOklahoma City\n35.492207\n-97.503342\nFalse\nTrue\nSW\n681054\n1\n620.30\nOklahoma\n\n\n46\nWashington\nOlympia\n47.035805\n-122.905014\nFalse\nFalse\nNW\n55605\n23\n16.70\nWashington\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n1608139\n1\n517.60\nArizona\n\n\n40\nSouth Dakota\nPierre\n44.367031\n-100.346405\nFalse\nFalse\nNW\n14091\n9\n13.00\nSouth Dakota\n\n\n38\nRhode Island\nProvidence\n41.830914\n-71.414963\nTrue\nFalse\nNE\n190934\n1\n18.50\nRhode Island\n\n\n31\nNorth Carolina\nRaleigh\n35.780430\n-78.639099\nTrue\nTrue\nSE\n467665\n2\n114.60\nNorth Carolina\n\n\n45\nVirginia\nRichmond\n37.538857\n-77.433640\nTrue\nTrue\nSE\n226610\n4\n60.10\nVirginia\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n524943\n6\n97.90\nCalifornia\n\n\n36\nOregon\nSalem\n44.938461\n-123.030403\nFalse\nFalse\nNW\n175535\n3\n45.70\nOregon\n\n\n43\nUtah\nSalt Lake City\n40.777477\n-111.888237\nFalse\nFalse\nNW\n199723\n1\n109.10\nUtah\n\n\n30\nNew Mexico\nSanta Fe\n35.682240\n-105.939728\nFalse\nTrue\nSW\n87505\n4\n37.30\nNew Mexico\n\n\n12\nIllinois\nSpringfield\n39.798363\n-89.654961\nTrue\nFalse\nNE\n114394\n7\n54.00\nIllinois\n\n\n22\nMinnesota\nSt. Paul\n44.955097\n-93.102211\nFalse\nFalse\nNW\n311527\n2\n52.80\nMinnesota\n\n\n9\nFlorida\nTallahassee\n30.438118\n-84.281296\nTrue\nTrue\nSE\n196169\n8\n95.70\nFlorida\n\n\n15\nKansas\nTopeka\n39.048191\n-95.677956\nFalse\nTrue\nSW\n126587\n5\n56.00\nKansas\n\n\n29\nNew Jersey\nTrenton\n40.220596\n-74.769913\nTrue\nFalse\nNE\n90871\n10\n7.66\nNew Jersey\n\n\n\n\n\n\n\nLet’s write this out to a second new file:\n\nmerged.sort_values(by='description').to_csv('merged1.csv', index=False)\n\nNow read it in and redo a merge to compare to what we did above\n\npop_df = pd.read_csv('merged1.csv')\n\n\npop_df.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nCityPop\nrank_in_state\narea\nState\n\n\n\n\n0\nNew York\nAlbany\n42.652843\n-73.757874\nTrue\nFalse\nNE\n99224\n6\n21.40\nNew York\n\n\n1\nMaryland\nAnnapolis\n38.978764\n-76.490936\nTrue\nTrue\nSE\n40812\n7\n6.73\nMaryland\n\n\n2\nGeorgia\nAtlanta&lt;br&gt;\n33.749027\n-84.388229\nTrue\nTrue\nSE\n498715\n1\n133.50\nGeorgia\n\n\n3\nMaine\nAugusta\n44.307167\n-69.781693\nTrue\nFalse\nNE\n18899\n10\n55.40\nMaine\n\n\n4\nTexas\nAustin\n30.274670\n-97.740349\nFalse\nTrue\nSW\n961855\n4\n305.10\nTexas\n\n\n\n\n\n\n\n\nmerged1 = pd.merge(cities_df, pop_df[['CityPop', 'rank_in_state', 'area', 'State']], left_on='name', right_on='State')\n\n\nmerged1.shape\n\n(50, 11)\n\n\n\nmerged1.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nCityPop\nrank_in_state\narea\nState\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n200603\n3\n159.8\nAlabama\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n32255\n3\n2716.7\nAlaska\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n1608139\n1\n517.6\nArizona\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n202591\n1\n116.2\nArkansas\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n524943\n6\n97.9\nCalifornia\n\n\n\n\n\n\n\n\nmerged.head()\n\n\n\n\n\n\n\n\nname\ndescription\nlatitude\nlongitude\neast\nsouth\nregion\nCityPop\nrank_in_state\narea\nState\n\n\n\n\n0\nAlabama\nMontgomery\n32.377716\n-86.300568\nTrue\nTrue\nSE\n200603\n3\n159.8\nAlabama\n\n\n1\nAlaska\nJuneau\n58.301598\n-134.420212\nFalse\nFalse\nNW\n32255\n3\n2716.7\nAlaska\n\n\n2\nArizona\nPhoenix\n33.448143\n-112.096962\nFalse\nTrue\nSW\n1608139\n1\n517.6\nArizona\n\n\n3\nArkansas\nLittle Rock\n34.746613\n-92.288986\nFalse\nTrue\nSW\n202591\n1\n116.2\nArkansas\n\n\n4\nCalifornia\nSacramento\n38.576668\n-121.493629\nFalse\nTrue\nSW\n524943\n6\n97.9\nCalifornia"
+  },
+  {
+    "objectID": "studio/week02/index.html",
+    "href": "studio/week02/index.html",
+    "title": "Week 2 Studio: Pandas",
+    "section": "",
+    "text": "This week we introduce Pandas:\n\nIntroduction to Pandas\nStudio exercise",
+    "crumbs": [
+      "Home",
+      "09-04 Studio 2: Pandas"
+    ]
+  },
+  {
+    "objectID": "studio/week02/key.html",
+    "href": "studio/week02/key.html",
+    "title": "Studio 02 Pandas",
+    "section": "",
+    "text": "Using the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+  },
+  {
+    "objectID": "studio/week02/key.html#instructions",
+    "href": "studio/week02/key.html#instructions",
+    "title": "Studio 02 Pandas",
+    "section": "",
+    "text": "Using the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+  },
+  {
+    "objectID": "studio/week02/key.html#setup",
+    "href": "studio/week02/key.html#setup",
+    "title": "Studio 02 Pandas",
+    "section": "Setup",
+    "text": "Setup\n\nimport pandas as pd\n\ndf = pd.read_csv(\"merged.csv\")"
+  },
+  {
+    "objectID": "studio/week02/key.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
+    "href": "studio/week02/key.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
+    "title": "Studio 02 Pandas",
+    "section": "Which region has the capital city with the largest population of all capital cities?",
+    "text": "Which region has the capital city with the largest population of all capital cities?\n\ndf[['region', 'CityPop', 'description']].sort_values(by='CityPop', ascending=False)\n\n\n\n\n\n\n\n\nregion\nCityPop\ndescription\n\n\n\n\n2\nSW\n1608139\nPhoenix\n\n\n42\nSW\n961855\nAustin\n\n\n34\nNE\n905748\nColumbus\n\n\n13\nSE\n887642\nIndianapolis\n\n\n5\nSW\n715522\nDenver\n\n\n41\nSE\n689447\nNashville\n\n\n35\nSW\n681054\nOklahoma City\n\n\n20\nNE\n675647\nBoston\n\n\n4\nSW\n524943\nSacramento\n\n\n10\nSE\n498715\nAtlanta&lt;br&gt;\n\n\n31\nSE\n467665\nRaleigh\n\n\n8\nSW\n350964\nHonolulu\n\n\n22\nNW\n311527\nSt. Paul\n\n\n26\nNW\n291082\nLincoln\n\n\n48\nNE\n269840\nMadison\n\n\n11\nNW\n235684\nBoise\n\n\n17\nSW\n227470\nBaton Rouge\n\n\n45\nSE\n226610\nRichmond\n\n\n14\nNW\n214133\nDes Moines\n\n\n3\nSW\n202591\nLittle Rock\n\n\n0\nSE\n200603\nMontgomery\n\n\n43\nNW\n199723\nSalt Lake City\n\n\n9\nSE\n196169\nTallahassee\n\n\n38\nNE\n190934\nProvidence\n\n\n36\nNW\n175535\nSalem\n\n\n23\nSW\n153701\nJackson\n\n\n39\nSE\n136632\nColumbia\n\n\n15\nSW\n126587\nTopeka\n\n\n6\nNE\n121054\nHartford&lt;br&gt;\n\n\n12\nNE\n114394\nSpringfield\n\n\n21\nNE\n112644\nLansing\n\n\n33\nNE\n99224\nAlbany\n\n\n29\nNE\n90871\nTrenton\n\n\n30\nSW\n87505\nSanta Fe\n\n\n32\nNW\n73622\nBismarck\n\n\n49\nNW\n65132\nCheyenne\n\n\n27\nSW\n58639\nCarson City\n\n\n46\nNW\n55605\nOlympia\n\n\n37\nNE\n50099\nHarrisburg\n\n\n47\nSE\n48864\nCharleston\n\n\n28\nNE\n43976\nConcord\n\n\n24\nSW\n43228\nJefferson City\n\n\n19\nSE\n40812\nAnnapolis\n\n\n7\nSE\n39403\nDover\n\n\n1\nNW\n32255\nJuneau\n\n\n25\nNW\n32091\nHelena\n\n\n16\nSE\n28602\nFrankfort\n\n\n18\nNE\n18899\nAugusta\n\n\n40\nNW\n14091\nPierre\n\n\n44\nNE\n8074\nMontpelier"
+  },
+  {
+    "objectID": "studio/week02/key.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
+    "href": "studio/week02/key.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
+    "title": "Studio 02 Pandas",
+    "section": "Which region contains the largest number of people living in its capital cities?",
+    "text": "Which region contains the largest number of people living in its capital cities?\n\ndf[['region', 'CityPop']].groupby(by='region').sum()\n\n\n\n\n\n\n\n\nCityPop\n\n\nregion\n\n\n\n\n\nNE\n2701404\n\n\nNW\n1700480\n\n\nSE\n3461164\n\n\nSW\n5742198"
+  },
+  {
+    "objectID": "studio/week02/key.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
+    "href": "studio/week02/key.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
+    "title": "Studio 02 Pandas",
+    "section": "Which region has the capital cities with the highest population density (median)?",
+    "text": "Which region has the capital cities with the highest population density (median)?\n\ndf['density'] = df.CityPop / df.area\ndf[['density', 'region']].groupby(by='region').median()\n\n\n\n\n\n\n\n\ndensity\n\n\nregion\n\n\n\n\n\nNE\n4306.932953\n\n\nNW\n2955.899130\n\n\nSE\n1997.773548\n\n\nSW\n2345.978552"
+  },
+  {
+    "objectID": "studio/week02/studio.html",
+    "href": "studio/week02/studio.html",
+    "title": "Studio 02 Pandas",
+    "section": "",
+    "text": "Teams\nDUE: Wednesday, September 11, 2024 3:30pm\nUsing the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+  },
+  {
+    "objectID": "studio/week02/studio.html#instructions",
+    "href": "studio/week02/studio.html#instructions",
+    "title": "Studio 02 Pandas",
+    "section": "",
+    "text": "Teams\nDUE: Wednesday, September 11, 2024 3:30pm\nUsing the merged.csv file you created in the studio, answer the following questions.\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+  },
+  {
+    "objectID": "studio/week02/studio.html#setup",
+    "href": "studio/week02/studio.html#setup",
+    "title": "Studio 02 Pandas",
+    "section": "Setup",
+    "text": "Setup\n\nimport pandas as pd\n\ndf = pd.read_csv(\"merged.csv\")"
+  },
+  {
+    "objectID": "studio/week02/studio.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
+    "href": "studio/week02/studio.html#which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities",
+    "title": "Studio 02 Pandas",
+    "section": "Which region has the capital city with the largest population of all capital cities?",
+    "text": "Which region has the capital city with the largest population of all capital cities?\n\n# your code here"
+  },
+  {
+    "objectID": "studio/week02/studio.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
+    "href": "studio/week02/studio.html#which-region-contains-the-largest-number-of-people-living-in-its-capital-cities",
+    "title": "Studio 02 Pandas",
+    "section": "Which region contains the largest number of people living in its capital cities?",
+    "text": "Which region contains the largest number of people living in its capital cities?\n\n# your code here"
+  },
+  {
+    "objectID": "studio/week02/studio.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
+    "href": "studio/week02/studio.html#which-region-has-the-capital-cities-with-the-highest-population-density-median",
+    "title": "Studio 02 Pandas",
+    "section": "Which region has the capital cities with the highest population density (median)?",
+    "text": "Which region has the capital cities with the highest population density (median)?\n\n# your code here"
+  },
+  {
+    "objectID": "studio/project_proposal.html",
+    "href": "studio/project_proposal.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "studio/project_proposal.html#submission-due-october-14-330-pm",
+    "href": "studio/project_proposal.html#submission-due-october-14-330-pm",
+    "title": "",
+    "section": "Submission (Due: October 14, 3:30 PM)",
+    "text": "Submission (Due: October 14, 3:30 PM)\nOn Canvas submit a pdf generated from a Markdown file."
   },
   {
     "objectID": "studio/week03/index.html",
@@ -2266,35 +2300,55 @@
     "href": "studio/week07/global.html",
     "title": "Studio 07 Global Spatial Autocorrelation",
     "section": "",
-    "text": "Teams\nDUE: Wednesday, October 16, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+    "text": "Teams\nDUE: Wednesday, October 16, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell).",
+    "crumbs": [
+      "Home",
+      "10-09 Studio 7: Global Spatial Autocorrelation"
+    ]
   },
   {
     "objectID": "studio/week07/global.html#instructions",
     "href": "studio/week07/global.html#instructions",
     "title": "Studio 07 Global Spatial Autocorrelation",
     "section": "",
-    "text": "Teams\nDUE: Wednesday, October 16, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell)."
+    "text": "Teams\nDUE: Wednesday, October 16, 2024 3:30pm\nThe team leader will submit a pdf version of the notebook showing all the work to answer the questions.\nThe first cell of the notebook should have a list of the team members (first and last names) with the team leader in bold. (Hint: Markdown cell).",
+    "crumbs": [
+      "Home",
+      "10-09 Studio 7: Global Spatial Autocorrelation"
+    ]
   },
   {
     "objectID": "studio/week07/global.html#input-files",
     "href": "studio/week07/global.html#input-files",
     "title": "Studio 07 Global Spatial Autocorrelation",
     "section": "Input Files",
-    "text": "Input Files\nIn this studio you will be analyzing the spatial patterns of homicide rates in the southern US Counties, from the South built-in dataset from libpysal."
+    "text": "Input Files\nIn this studio you will be analyzing the spatial patterns of homicide rates in the southern US Counties, from the South built-in dataset from libpysal.",
+    "crumbs": [
+      "Home",
+      "10-09 Studio 7: Global Spatial Autocorrelation"
+    ]
   },
   {
     "objectID": "studio/week07/global.html#join-count-analysis",
     "href": "studio/week07/global.html#join-count-analysis",
     "title": "Studio 07 Global Spatial Autocorrelation",
     "section": "Join Count Analysis",
-    "text": "Join Count Analysis\nFor each decade that the homicide rate is recorded complete the following:\n\nCreate a binary variable reporting high and low county homicide rates using the median rate as the threshold.\nConstruct a queen contiguity matrix for the counties.\nDescribe the patterns you see across the decades.\nCreate a binary map of the spatial distribution for each decade.\nCarry out a join counts analysis on the binary variable using the queen contiguity matrix for each decade.\nCreate a time series plot of the number of BB joins for each decade.\nProvide a narrative interpretation of your findings. Specify the null hypothesis for each decade, and state your decision whether to reject or fail to reject the null hypothesis."
+    "text": "Join Count Analysis\nFor each decade that the homicide rate is recorded complete the following:\n\nCreate a binary variable reporting high and low county homicide rates using the median rate as the threshold.\nCreate a binary map of the spatial distribution for each decade.\nDescribe the patterns you see across the decades.\nConstruct a queen contiguity matrix for the counties.\nCarry out a join counts analysis on the binary variable using the queen contiguity matrix for each decade.\nCreate a time series plot of the number of BB joins for each decade.\nProvide a narrative interpretation of your findings. Specify the null hypothesis for each decade, and state your decision whether to reject or fail to reject the null hypothesis.",
+    "crumbs": [
+      "Home",
+      "10-09 Studio 7: Global Spatial Autocorrelation"
+    ]
   },
   {
     "objectID": "studio/week07/global.html#morans-i-analysis",
     "href": "studio/week07/global.html#morans-i-analysis",
     "title": "Studio 07 Global Spatial Autocorrelation",
     "section": "Moran’s I Analysis",
-    "text": "Moran’s I Analysis\nFor each decade that the homicide rate is recorded complete the following:\n\nCreate a choropleth map of the spatial distribution of the county homicide rates for each decade.\nDescribe the patterns you see across the decades.\nCarry out a Moran’s I analysis on the original homicide variable using the queen contiguity matrix for each decade.\nCreate a time series plot of the value of the Moran’s I statistic.\nProvide a narrative interpretation of your findings. Specify the null hypothesis for each decade, and state your decision whether to reject or fail to reject the null hypothesis in each period."
+    "text": "Moran’s I Analysis\nFor each decade that the homicide rate is recorded complete the following:\n\nCreate a choropleth map of the spatial distribution of the county homicide rates for each decade.\nDescribe the patterns you see across the decades.\nCarry out a Moran’s I analysis on the original homicide variable using the queen contiguity matrix for each decade.\nCreate a time series plot of the value of the Moran’s I statistic.\nProvide a narrative interpretation of your findings. Specify the null hypothesis for each decade, and state your decision whether to reject or fail to reject the null hypothesis in each period.",
+    "crumbs": [
+      "Home",
+      "10-09 Studio 7: Global Spatial Autocorrelation"
+    ]
   },
   {
     "objectID": "studio/week05/index.html",
@@ -2384,7 +2438,7 @@
     "href": "lectures/week06/spatial_weights.html#constructing-queen-weights",
     "title": "Spatial Weights",
     "section": "Constructing Queen Weights",
-    "text": "Constructing Queen Weights\nTo construct queen weights from a shapefile, we will use geopandas to read the file into a GeoDataFrame, and then use libpysal to construct the weights:\n\npath = \"~/data/scag_region.parquet\"\ndf = geopandas.read_parquet(path)\ndf = df.to_crs(26911)  #UTM zone 11N\nqW = Queen.from_dataframe(df)\nqW\n\n&lt;libpysal.weights.contiguity.Queen at 0x74a9ac778250&gt;",
+    "text": "Constructing Queen Weights\nTo construct queen weights from a shapefile, we will use geopandas to read the file into a GeoDataFrame, and then use libpysal to construct the weights:\n\npath = \"~/data/scag_region.parquet\"\ndf = geopandas.read_parquet(path)\ndf = df.to_crs(26911)  #UTM zone 11N\nqW = Queen.from_dataframe(df)\nqW\n\n&lt;libpysal.weights.contiguity.Queen at 0x720acd845de0&gt;",
     "crumbs": [
       "Home",
       "09-30 Spatial Weights"

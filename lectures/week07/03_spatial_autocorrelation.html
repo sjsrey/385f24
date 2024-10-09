@@ -215,6 +215,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../../studio/week06/peer1.html">
  <span class="dropdown-text">10-02 Studio 6: Peer Evaluation 1</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week07/global.html">
+ <span class="dropdown-text">10-09 Studio 7: Global Spatial Autocorrelation</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -312,8 +316,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../studio/week06/peer1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-02 Studio 6: Peer Evaluation 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lectures/week07/global.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">10-07 Global Spatial Autocorrelation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week07/global.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-09 Studio 7: Global Spatial Autocorrelation</span></a>
   </div>
 </li>
     </ul>
@@ -375,7 +391,7 @@ window.Quarto = {
 <p>In this notebook we introduce methods of <em>exploratory spatial data analysis</em> that are intended to complement geovizualization through formal univariate and multivariate statistical tests for spatial clustering.</p>
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports">Imports</h2>
-<div id="a603a845" class="cell" data-execution_count="1">
+<div id="9b40d6f3" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -387,7 +403,7 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> contextily <span class="im">as</span> cx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="7e06d6a5" class="cell" data-execution_count="2">
+<div id="0b502c81" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -406,19 +422,19 @@ window.Quarto = {
 </ol>
 <section id="census-polygons" class="level3">
 <h3 class="anchored" data-anchor-id="census-polygons">Census Polygons</h3>
-<div id="f0dfb077" class="cell" data-execution_count="3">
+<div id="a22cb700" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>scag <span class="op">=</span> gpd.read_parquet(<span class="st">"~/data/scag_region.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="3acc46fd" class="cell" data-execution_count="4">
+<div id="5664509b" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>san_diego <span class="op">=</span> scag[scag.geoid.<span class="bu">str</span>[:<span class="dv">5</span>]<span class="op">==</span><span class="st">'06073'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="11d09fff" class="cell" data-execution_count="5">
+<div id="f778a1a1" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>san_diego.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -431,19 +447,19 @@ dtypes: float64(191), geometry(1), int64(1), object(1)
 memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
-<div id="a082dc15" class="cell" data-execution_count="6">
+<div id="6316c948" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>san_diego <span class="op">=</span> san_diego.dropna(subset<span class="op">=</span>[<span class="st">'median_home_value'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="b2434489" class="cell" data-execution_count="7">
+<div id="a60dda37" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>san_diego <span class="op">=</span> san_diego.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d97fc6de" class="cell" data-execution_count="8">
+<div id="26c1f85d" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
@@ -460,7 +476,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="33d15a71" class="cell" data-execution_count="9">
+<div id="f7156df1" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>san_diego.median_home_value.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -473,7 +489,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="6ed5bcb3" class="cell" data-execution_count="10">
+<div id="7323f8ff" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">12</span>))</span>
@@ -507,7 +523,7 @@ memory usage: 955.2+ KB</code></pre>
 <section id="spatial-similarity" class="level3">
 <h3 class="anchored" data-anchor-id="spatial-similarity">Spatial Similarity</h3>
 <p>We have already encountered spatial weights in a previous notebook. In spatial autocorrelation analysis, the spatial weights are used to formalize the notion of spatial similarity. As we have seen there are many ways to define spatial weights, here we will use queen contiguity:</p>
-<div id="6aa372cb" class="cell" data-execution_count="11">
+<div id="8f1e7d2b" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>wq <span class="op">=</span>  lps.weights.Queen.from_dataframe(san_diego)</span>
@@ -518,14 +534,14 @@ memory usage: 955.2+ KB</code></pre>
 <section id="attribute-similarity" class="level3">
 <h3 class="anchored" data-anchor-id="attribute-similarity">Attribute Similarity</h3>
 <p>So the spatial weight between neighborhoods <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> indicates if the two are neighbors (i.e., geographically similar). What we also need is a measure of attribute similarity to pair up with this concept of spatial similarity. The <strong>spatial lag</strong> is a derived variable that accomplishes this for us. For neighborhood <span class="math inline">\(i\)</span> the spatial lag is defined as: <span class="math display">\[ylag_i = \sum_j w_{i,j} y_j\]</span></p>
-<div id="14482262" class="cell" data-execution_count="12">
+<div id="f4888f4e" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> san_diego[<span class="st">'median_home_value'</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ylag <span class="op">=</span> lps.weights.lag_spatial(wq, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="25c5d34e" class="cell" data-execution_count="13">
+<div id="9464f0b2" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">12</span>))</span>
@@ -550,7 +566,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
 <p>The quintile map for the spatial lag tends to enhance the impression of value similarity in space. It is, in effect, a local smoother.</p>
-<div id="dc4948ba" class="cell" data-execution_count="14">
+<div id="6abdc676" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>san_diego[<span class="st">'lag_median_pri'</span>] <span class="op">=</span> ylag</span>
@@ -595,7 +611,7 @@ memory usage: 955.2+ KB</code></pre>
 <h2 class="anchored" data-anchor-id="join-counts">Join counts</h2>
 <p>One way to formalize a test for spatial autocorrelation in a binary attribute is to consider the so-called <em>joins</em>. A join exists for each neighbor pair of observations, and the joins are reflected in our binary spatial weights object <code>wq</code>.</p>
 <p>Each unit can take on one of two values “Black” or “White”, analogous to the layout of a chessboard</p>
-<div id="57695cd4" class="cell" data-execution_count="15">
+<div id="4516e792" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>nrows, ncols <span class="op">=</span> <span class="dv">9</span>,<span class="dv">9</span></span>
@@ -628,7 +644,7 @@ memory usage: 955.2+ KB</code></pre>
 <section id="polygon-data" class="level3">
 <h3 class="anchored" data-anchor-id="polygon-data">Polygon Data</h3>
 <p>With polygon data, we can conduct an analysis using a contiguity matrix. For our housing price data, we need to first discretize the variable we’re using; to keep things simple, we’ll binarize our price data using the median so that “high” values are tracts whose median home price is above the city’s median and “low” values are those below</p>
-<div id="cbf63c27" class="cell" data-execution_count="16">
+<div id="d3985203" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>y.median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -637,7 +653,7 @@ memory usage: 955.2+ KB</code></pre>
 <pre><code>405416.57303370786</code></pre>
 </div>
 </div>
-<div id="c2b0b97b" class="cell" data-execution_count="17">
+<div id="151ce865" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>san_diego.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -646,7 +662,7 @@ memory usage: 955.2+ KB</code></pre>
 <pre><code>(627, 195)</code></pre>
 </div>
 </div>
-<div id="6d1af36f" class="cell" data-execution_count="18">
+<div id="0fc5e829" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>yb <span class="op">=</span> y <span class="op">&gt;</span> y.median()</span>
@@ -656,7 +672,7 @@ memory usage: 955.2+ KB</code></pre>
 <pre><code>313</code></pre>
 </div>
 </div>
-<div id="b8335c23" class="cell" data-execution_count="19">
+<div id="35c6febf" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>yb <span class="op">=</span> y <span class="op">&gt;</span> y.median()</span>
@@ -665,7 +681,7 @@ memory usage: 955.2+ KB</code></pre>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>san_diego[<span class="st">'yb'</span>] <span class="op">=</span> yb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="f6e12fce" class="cell" data-execution_count="20">
+<div id="a7d62585" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">12</span>))</span>
@@ -681,7 +697,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 <p>The spatial distribution of the binary variable immediately raises questions about the juxtaposition of the “black” and “white” areas.</p>
 <p>Given that we have 308 Black polygons on our map, what is the number of Black Black (BB) joins we could expect if the process were such that the Black polygons were randomly assigned on the map?</p>
-<div id="7cf2b251" class="cell" data-execution_count="21">
+<div id="8ecc8668" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>yb <span class="op">=</span> <span class="dv">1</span> <span class="op">*</span> (y <span class="op">&gt;</span> y.median()) <span class="co"># convert back to binary</span></span>
@@ -692,7 +708,7 @@ memory usage: 955.2+ KB</code></pre>
 </details>
 </div>
 <p>The resulting object stores the observed counts for the different types of joins:</p>
-<div id="e7b20a79" class="cell" data-execution_count="22">
+<div id="bd11e394" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>jc.bb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -701,7 +717,7 @@ memory usage: 955.2+ KB</code></pre>
 <pre><code>754.0</code></pre>
 </div>
 </div>
-<div id="0e4d1640" class="cell" data-execution_count="23">
+<div id="fa0832da" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>jc.ww</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -710,7 +726,7 @@ memory usage: 955.2+ KB</code></pre>
 <pre><code>745.0</code></pre>
 </div>
 </div>
-<div id="8159e21f" class="cell" data-execution_count="24">
+<div id="7ac58a87" class="cell" data-execution_count="24">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>jc.bw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -720,7 +736,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
 <p>Note that the three cases exhaust all possibilities:</p>
-<div id="da377d21" class="cell" data-execution_count="25">
+<div id="75e69888" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>jc.bb <span class="op">+</span> jc.ww <span class="op">+</span> jc.bw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -730,7 +746,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
 <p>and</p>
-<div id="0fdee7cb" class="cell" data-execution_count="26">
+<div id="e19e7990" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>wq.s0 <span class="op">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -741,7 +757,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 <p>which is the unique number of joins in the spatial weights object.</p>
 <p>Our object tells us we have observed 736 BB joins:</p>
-<div id="9f4fe830" class="cell" data-execution_count="27">
+<div id="9c21f7ba" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>jc.bb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -752,7 +768,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 <p>The critical question for us, is whether this is a departure from what we would expect if the process generating the spatial distribution of the Black polygons were a completely random one? To answer this, PySAL uses random spatial permutations of the observed attribute values to generate a realization under the null of <em>complete spatial randomness</em> (CSR). This is repeated a large number of times (999 default) to construct a reference distribution to evaluate the statistical significance of our observed counts.</p>
 <p>The average number of BB joins from the synthetic realizations is:</p>
-<div id="d6aff1e3" class="cell" data-execution_count="28">
+<div id="0513bad1" class="cell" data-execution_count="28">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>jc.mean_bb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -762,7 +778,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
 <p>which is less than our observed count. The question is whether our observed value is so different from the expectation that we would reject the null of CSR?</p>
-<div id="6e93be23" class="cell" data-execution_count="29">
+<div id="fbd32559" class="cell" data-execution_count="29">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sbn</span>
@@ -783,7 +799,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
 <p>The density portrays the distribution of the BB counts, with the black vertical line indicating the mean BB count from the synthetic realizations and the red line the observed BB count for our prices. Clearly our observed value is extremely high. A pseudo p-value summarizes this:</p>
-<div id="30415361" class="cell" data-execution_count="30">
+<div id="975707b1" class="cell" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>jc.p_sim_bb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -798,20 +814,20 @@ memory usage: 955.2+ KB</code></pre>
 <h3 class="anchored" data-anchor-id="continuous-case">Continuous Case</h3>
 <p>The join count analysis is based on a binary attribute, which can cover many interesting empirical applications where one is interested in presence and absence type phenomena. In our case, we artificially created the binary variable, and in the process we throw away a lot of information in our originally continuous attribute. Turning back to the original variable, we can explore other tests for spatial autocorrelation for the continuous case.</p>
 <p>First, we transform our weights to be row-standardized, from the current binary state:</p>
-<div id="69cc5c07" class="cell" data-execution_count="31">
+<div id="237938fc" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>wq.transform <span class="op">=</span> <span class="st">'r'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="e5ca1390" class="cell" data-execution_count="32">
+<div id="ce1d825b" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> san_diego[<span class="st">'median_home_value'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Moran’s I is a test for global autocorrelation for a continuous attribute:</p>
-<div id="11a77c2a" class="cell" data-execution_count="33">
+<div id="aed5a9ae" class="cell" data-execution_count="33">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
@@ -823,7 +839,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 </div>
 <p>Again, our value for the statistic needs to be interpreted against a reference distribution under the null of CSR. PySAL uses a similar approach as we saw in the join count analysis: random spatial permutations.</p>
-<div id="4fd25299" class="cell" data-execution_count="34">
+<div id="8242e87d" class="cell" data-execution_count="34">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> splot.esda <span class="im">import</span> plot_moran</span>
@@ -840,7 +856,7 @@ memory usage: 955.2+ KB</code></pre>
 </div>
 <p>On the left, we have the reference distribution versus the observed statistic; on the right, we have a plot of the focal value against its spatial lag, for which the Moran I statistic serves as the slope</p>
 <p>Here our observed value is again in the upper tail</p>
-<div id="93a1250f" class="cell" data-execution_count="35">
+<div id="e55f290a" class="cell" data-execution_count="35">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>mi.p_sim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

@@ -187,6 +187,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../studio/week06/peer1.html">
  <span class="dropdown-text">10-02 Studio 6: Peer Evaluation 1</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week07/global.html">
+ <span class="dropdown-text">10-09 Studio 7: Global Spatial Autocorrelation</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -284,8 +288,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../studio/week06/peer1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-02 Studio 6: Peer Evaluation 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../lectures/week07/global.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">10-07 Global Spatial Autocorrelation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week07/global.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-09 Studio 7: Global Spatial Autocorrelation</span></a>
   </div>
 </li>
     </ul>
@@ -349,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reading-the-relevant-file-to-create-a-geodataframe" class="level2">
 <h2 class="anchored" data-anchor-id="reading-the-relevant-file-to-create-a-geodataframe">Reading the relevant file to create a GeoDataFrame</h2>
-<div id="bbdfc866" class="cell" data-tags="[]" data-execution_count="1">
+<div id="1ee9ebae" class="cell" data-tags="[]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> libpysal</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>south <span class="op">=</span> libpysal.examples.load_example(<span class="st">'South'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -357,7 +373,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reading-the-shapefile" class="level2">
 <h2 class="anchored" data-anchor-id="reading-the-shapefile">Reading the shapefile</h2>
-<div id="0b58780c" class="cell" data-tags="[]" data-execution_count="2">
+<div id="a7f1ca6f" class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>south_gdf <span class="op">=</span> geopandas.read_file(south.get_path(<span class="st">'south.shp'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
