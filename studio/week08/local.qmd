@@ -1,0 +1,80 @@
+---
+title: Studio 08 Local Spatial Autocorrelation
+author: Sergio Rey
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+## Instructions
+
+**DUE: Wednesday, October 23, 2024 3:30pm** 
+
+The team leader will submit a pdf version of the notebook showing all the work
+to answer the questions.
+
+The first cell of the notebook should have a list of the team members (first and
+last names) with the team leader in bold. (Hint: Markdown cell).
+
+# **Studio: Exploring Local Indicators of Spatial Association (LISA) with Homicide Rates**
+
+**Objective**:  
+In this studio, you will compute Local Indicators of Spatial Association (LISA) for homicide rates in the southern U.S. using the South dataset. You'll explore spatial autocorrelation patterns, visualize LISA results, and interpret the identified spatial clusters.
+
+---
+
+## **Part 1: Setup**
+
+1. **Install and import the necessary libraries**:
+    - You will need to install libraries such as `geopandas`, `pysal`, and `matplotlib` to work with spatial data and visualize results.
+
+2. **Load the South dataset**:
+    - The South dataset includes homicide rates and geographical information. Load the dataset for analysis.
+
+---
+
+## **Part 2: Exploratory Data Analysis (EDA)**
+
+3. **Plot the spatial distribution of homicide rates**:
+    - Create a choropleth map to visualize the spatial distribution of homicide rates across the southern U.S.
+  
+4. **Initial analysis**:
+    - What general patterns do you observe about the spatial distribution of homicide rates?
+    - Are there regions where homicide rates seem to cluster?
+
+---
+
+## **Part 3: Local Spatial Autocorrelation with LISA**
+
+5. **Create a spatial weights matrix**:
+    - Use Queen contiguity to define neighboring areas.
+
+6. **Compute Local Moran’s I**:
+    - Calculate Local Moran’s I to explore spatial autocorrelation in homicide rates.
+  
+7. **Interpret LISA Results**:
+    - Examine whether high or low values cluster spatially and whether these clusters are statistically significant.
+
+---
+
+## **Part 4: Visualizing LISA Results**
+
+8. **Create a LISA Cluster Map**:
+    - Visualize clusters (hotspots and cold spots) of homicide rates using a LISA cluster map.
+
+9. **Answer these questions**:
+    - Which areas show statistically significant clustering of high homicide rates (hotspots)?
+    - Which areas show statistically significant clustering of low homicide rates (cold spots)?
+    - Are there any areas classified as spatial outliers?
+
+---
+
+## **Part 5: Further Analysis and Discussion**
+
+10. **Explore relationships between LISA clusters and socio-economic factors**:
+    - Compare LISA results with other socio-economic variables (e.g., income levels) to identify potential correlations with homicide rates.
+
+11. **Discussion**:
+    - What factors might contribute to the observed spatial patterns in homicide rates?
+    - Can you think of policy interventions that might target identified hotspots or cold spots?

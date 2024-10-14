@@ -6,11 +6,19 @@
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/syllabus.html</loc>
-    <lastmod>2024-10-09T20:06:28.701Z</lastmod>
+    <lastmod>2024-10-14T21:46:57.410Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/index.html</loc>
     <lastmod>2024-08-16T22:03:19.722Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/lectures/week08/local.html</loc>
+    <lastmod>2024-10-14T22:02:23.167Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/lectures/week08/04_local_spatial_autocorrelation.html</loc>
+    <lastmod>2024-10-14T22:02:23.167Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week07/03_spatial_autocorrelation.html</loc>
@@ -18,7 +26,7 @@
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week07/spatial_dependence.html</loc>
-    <lastmod>2024-10-07T21:20:58.816Z</lastmod>
+    <lastmod>2024-10-14T21:46:57.407Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week01/index.html</loc>
@@ -50,11 +58,15 @@
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/studio/week05/studio.html</loc>
-    <lastmod>2024-09-25T22:57:49.041Z</lastmod>
+    <lastmod>2024-10-14T21:46:57.409Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/studio/week05/choro.html</loc>
-    <lastmod>2024-09-30T19:26:42.038Z</lastmod>
+    <lastmod>2024-10-14T21:46:57.409Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/studio/week07/global.html</loc>
+    <lastmod>2024-10-14T21:46:57.409Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/studio/week01/meet.html</loc>
@@ -121,8 +133,12 @@
     <lastmod>2024-08-28T16:46:12.864Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/studio/week07/global.html</loc>
-    <lastmod>2024-10-09T20:06:38.057Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/studio/week07/global~20241009-130607.html</loc>
+    <lastmod>2024-10-09T19:54:57.761Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/studio/week08/local.html</loc>
+    <lastmod>2024-10-14T22:02:23.167Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/studio/week05/index.html</loc>
@@ -134,7 +150,7 @@
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week06/spatial_weights.html</loc>
-    <lastmod>2024-09-30T19:26:42.038Z</lastmod>
+    <lastmod>2024-10-14T21:46:57.405Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week03/lecture.html</loc>
@@ -162,11 +178,19 @@
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week07/global.html</loc>
-    <lastmod>2024-10-07T21:20:58.812Z</lastmod>
+    <lastmod>2024-10-14T21:46:57.406Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/lectures/week08/local~20241014-122642.html</loc>
+    <lastmod>2024-10-14T19:24:19.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/lectures/week08/04_local_spatial_autocorrelation~20241014-122902.html</loc>
+    <lastmod>2024-10-14T18:48:31.391Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week05/choro.html</loc>
-    <lastmod>2024-09-30T19:26:42.038Z</lastmod>
+    <lastmod>2024-10-14T21:46:57.405Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/assignments/python_course.html</loc>
