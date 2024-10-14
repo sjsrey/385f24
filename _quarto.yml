@@ -21,7 +21,8 @@ website:
             href: lectures/week06/spatial_weights.qmd
           - text: "10-07 Global Spatial Autocorrelation"
             href: lectures/week07/global.qmd
-	   
+          - text: "10-14 Local Spatial Autocorrelation"
+            href: lectures/week08/local.qmd
       - text: "Studio"
         menu:
           - text: "08-28 Studio 1: Juptyer Hub Introduction"
@@ -36,8 +37,10 @@ website:
             href: studio/week05/index.qmd
           - text: "10-02 Studio 6: Peer Evaluation 1"
             href: studio/week06/peer1.qmd
-          #- text: "10-09 Studio 7: Global Spatial Autocorrelation"
-          #  href: studio/week07/global.qmd
+          - text: "10-09 Studio 7: Global Spatial Autocorrelation"
+            href: studio/week07/global.qmd
+      - text: "10-16 Studio 8: Local Spatial Autocorrelation"
+        href: studio/week08/local.qmd
       - text: "References"
         href: references.qmd
     right:
@@ -66,10 +69,16 @@ website:
           href: studio/week05/index.qmd
         - text: "09-30 Spatial Weights"
           href: lectures/week06/spatial_weights.qmd
+        - text: "10-02 Studio 6: Peer Evaluation 1"
+          href: studio/week06/peer1.qmd
         - text: "10-07 Global Spatial Autocorrelation"
           href: lectures/week07/global.qmd
-        #- text: "10-09 Studio 7: Global Spatial Autocorrelation"
-        #  href: studio/week07/global.qmd
+        - text: "10-09 Studio 7: Global Spatial Autocorrelation"
+          href: studio/week07/global.qmd
+        - text: "10-14 Local Spatial Autocorrelation"
+          href: lectures/week08/local.qmd
+        - text: "10-16 Studio 8: Local Spatial Autocorrelation"
+          href: studio/week08/local.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"
