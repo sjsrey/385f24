@@ -39,8 +39,8 @@ website:
             href: studio/week06/peer1.qmd
           - text: "10-09 Studio 7: Global Spatial Autocorrelation"
             href: studio/week07/global.qmd
-      - text: "10-16 Studio 8: Local Spatial Autocorrelation"
-        href: studio/week08/local.qmd
+          - text: "10-16 Studio 8: Local Spatial Autocorrelation"
+            href: studio/week08/local.qmd
       - text: "References"
         href: references.qmd
     right:

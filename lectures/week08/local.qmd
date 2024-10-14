@@ -7,6 +7,12 @@ jupyter: python3
 execute:
   cache: true
 ---
+    
+In today's lecture, we will delve into the concept of **local spatial autocorrelation**, an essential tool in geographic data science that allows us to explore spatial patterns at a more granular level. While global measures like Moran’s I provide an overall summary of spatial autocorrelation across an entire region, local spatial autocorrelation helps identify specific areas where values cluster or where unusual spatial patterns emerge. By examining local indicators of spatial association (LISA), we can detect hotspots, cold spots, and outliers, which are critical for understanding localized spatial phenomena. This approach is particularly valuable in fields like public health, urban studies, and environmental monitoring, where localized insights can inform targeted interventions.
+
+We first review the basics of *global spatial autocorrelation* and then take a deeper dive into *local spatial autocorrelation*.
+
+## Imports
 
 ```{python}
 import pandas as pd
