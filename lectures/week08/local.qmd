@@ -5,15 +5,8 @@ format:
     code-fold: false
 jupyter: python3
 execute:
-  cache: true  # Enables caching for the entire document
+  cache: true
 ---
-
-    
-In today's lecture, we will delve into the concept of **local spatial autocorrelation**, an essential tool in geographic data science that allows us to explore spatial patterns at a more granular level. While global measures like Moran’s I provide an overall summary of spatial autocorrelation across an entire region, local spatial autocorrelation helps identify specific areas where values cluster or where unusual spatial patterns emerge. By examining local indicators of spatial association (LISA), we can detect hotspots, cold spots, and outliers, which are critical for understanding localized spatial phenomena. This approach is particularly valuable in fields like public health, urban studies, and environmental monitoring, where localized insights can inform targeted interventions.
-
-We first review the basics of *global spatial autocorrelation& and then take a deeper dive into *local spatial autocorrelation*.
-
-## Imports
 
 ```{python}
 import pandas as pd
@@ -402,17 +395,13 @@ focal unit.
 PySAL has many local autocorrelation statistics. Let's compute a local Moran statistic for the same data
 
 
-
-```{python}
-np.random.seed(12345)
-```
-
 ```{python}
 wq.transform = 'r'
 lag_price = lps.weights.lag_spatial(wq, san_diego['median_home_value'])
 ```
 
 ```{python}
+np.random.seed(12345)
 li = esda.moran.Moran_Local(y, wq)
 ```
 
@@ -452,6 +441,7 @@ the four quadrants of the Moran Scatterplot above:
 
 
 This information is encoded in the `q` attribution of the Local Moran object:
+
 ```{python}
 li.q
 ```
@@ -465,7 +455,6 @@ spot, a focal unit has to satisfy two conditions:
 - It has a statistically significant Local Moran 
 
 ```{python}
-
 hotspot = (li.p_sim < 0.05) * (li.q==1)
 print(f"There are {hotspot.sum()} hot spots")
 ```
@@ -477,13 +466,10 @@ A second type of positive local spatial autocorrelation occurs in the case of
 - It is in the Low-Low quadrant of the Moran Scatter Plot
 - It has a statistically significant Local Moran 
 
-
 ```{python}
-
 coldspot = (li.p_sim < 0.05) * (li.q==3)
 print(f"There are {coldspot.sum()} cold spots")
 ```
-
 
 ### Spatial Outliers
 While hot spots and cold spots reflect positive local spatial autocorrelation,
@@ -500,9 +486,7 @@ quadrant 2 of the scatter plot (LH). The position is a necessary, but not
 sufficient, condition for being classified as a doughnut. The local Moran value
 must also be statistically significant.
 
-
 ```{python}
-
 doughnut = (li.p_sim < 0.05) * (li.q==2)
 print(f"There are {doughnut.sum()} doughnuts")
 ```
@@ -511,17 +495,17 @@ The second type of spatial outlier is the "diamond in the rough". Here the focal
 value is high, but the neighboring values are low, and the local Moran value is
 statistically significant:
 
-
 ```{python}
-
 diamond = (li.p_sim < 0.05) * (li.q==4)
 print(f"There are {diamond.sum()} diamonds")
 ```
+
 In this case, we do not have any diamond observations, despite having
 
 ```{python}
 (li.q==4).sum()
 ```
+
 observations in the HL quadrant of the scatter plot.
 In other words, all 44 of these observations have local statistics that are not
 significantly different from their expectation under the null of spatial randomness.
@@ -538,13 +522,10 @@ from splot.esda import lisa_cluster
 lisa_cluster(li, san_diego, p=0.05, figsize = (9,9))
 plt.show()
 ```
+
 The cluster map displays the locations having a statistically significant LISA
 value together with a label for the quadrant of the scatter plot. All other
 locations are colored grey and labeled as "ns" (not significant). 
-
-
-
-
 
 ```{python}
 from splot.esda import plot_local_autocorrelation
@@ -553,18 +534,23 @@ plot_local_autocorrelation(li, san_diego, 'median_home_value')
 
 Recall that we now have $n$ statistics, one for each location. This is in contrast to the case of global autocorrelation where there was one statistic for all $n$ locations. We can thus examine the statistical significance of any location with the local indicators:
 
-
 ```{python}
 np.random.seed(12345)
-```
 
-```{python}
 li = esda.moran.Moran_Local(y, wq, keep_simulations=True)
 ```
 
+```{python}
+li.p_sim[0:10]
+```
 
 ```{python}
-li.p_sim[626]
+li.p_sim[9]
+```
+
+```{python}
+null = li.sim
+observed = li.Is[9]
 ```
 
 ```{python}
@@ -573,10 +559,8 @@ observed = li.Is[626]
 import seaborn as sbn
 sbn.kdeplot(null, shade=True)
 plt.vlines(observed,0, 0.2, color='r')
-plt.xlabel("Local I for tract 626")
+plt.xlabel("Local I for tract 9")
 ```
-
-
 
 ### A note on spatial clusters
 It is important to note that only the focal units are symbolized on the cluster
@@ -591,11 +575,46 @@ cluster. When it is contiguous to a different focal unit with a significant LISA
 of the same form, the cluster will consist of multiple spatial units. Such a
 connected component is a spatial cluster in the fullest sense.
 
+We can identify these spatial clusters in multiple steps.
+
+First, we will create a categorical variable to identify the cluster type.
+In general our encoding looks like:
+
+- Not significant: 0
+- Hot spot: 1
+- Doughnut: 2
+- Cold spot
+- Diamond: 4
+
 ```{python}
 cluster_type = hotspot * 1 + doughnut * 2 + coldspot * 3 + diamond * 4
 san_diego['cluster_type'] = cluster_type
 san_diego.groupby(by='cluster_type').count()
 ```
+Note that in our example, we did not encounter any diamons, so that cluster type
+is absent.
+
+We will reset the index to facilitate later steps:
+```{python}
+san_diego =san_diego.set_index('geoid')
+```
+
+We can now create a categorical map for our cluster types:
+
+```{python}
+san_diego.explore(column='cluster_type', categorical=True,
+                  legend=True,
+                  tooltip=['geoid', 'cluster_type'])
+```
+
+To determine the spatial clusters, we will consider the intersection of two
+neighbor graphs:
+
+- Queen contiguity
+- Cluster
+
+The second neighbor graph is constructed as follows:
+
 ```{python}
 import libpysal
 print(libpysal.__version__)
@@ -603,73 +622,90 @@ g = libpysal.graph.Graph.build_block_contiguity(san_diego.cluster_type)
 print(san_diego.shape, g.n)
 g.plot(san_diego)
 ```
+This is a very dense graph, as any pair of polygons that fall in the same
+cluster type  are considered to be neighbors.
 
+We can get some useful summary information from this graph:
+
+```{python}
+g.summary()
+```
+The key thing to note here is that the graph has 4 connected components. These
+correspond to the four cluster types in our map from above.
+
+We can build a similar neighbor graph for our Queen contiguity neighbors:
 ```{python}
 gq = libpysal.graph.Graph.build_contiguity(san_diego)
 gq.plot(san_diego)
 ```
+This is less dense than the Cluster graph.
+```{python}
+gq.summary()
+```
+
+Note that the Queen graph has a single connected component.
+
+With these two graphs in hand, a spatial component will be defined as a
+connected component in the graph that is the intersection of these two graphs:
 
 ```{python}
 gint = gq.intersection(g)
 gint.plot(san_diego)
 ```
 
+```{python}
+gint.summary()
+```
+We can determine that there are 27 connected components in the intersection
+graph. This means that we have 27 spatial clusters.
+
+We can assign the component labels from the intersection graph to our
+geodataframe and then explore the spatial distribution of these connected
+components:
 
 ```{python}
 san_diego['spatial_clusters'] = gint.component_labels
-san_diego.plot('spatial_clusters', cmap='tab20', categorical=True, legend=True)
+san_diego.explore(column='spatial_clusters', categorical=True, legend=True,
+                                                 tooltip=['cluster_type', 'spatial_clusters'])
 ```
+Because of the limitation of the number of unique colors available in geopandas'
+current implementation, this makes it difficult to pull out each of the 27
+different spatial clusters.
+
+To get a better view of things, we can focus on the census tract with index 9
+that we saw above:
 
 ```{python}
-san_diego['spatial_clusters'] = gint.component_labels
-san_diego.explore('spatial_clusters', cmap='tab20', categorical=True, legend=True, tooltip=['spatial_clusters', 'cluster_type'])
+san_diego.iloc[9]
 ```
+
+Here we see that is is of cluster type 3, and happens to be in the spatial
+cluster with the label 3.
+
+We can view the intersection of the two graphs focusing on this particular tract
+as follows:
+
 ```{python}
-m = san_diego.loc[[626]].explore(color="#25b497")
-san_diego.loc[[626]].explore(m=m, color="#fa94a5")
-gint.explore(san_diego,m=m, focal='626')
+m = san_diego.loc[gint['06073020206'].index].explore(color="#25b497", tooltip=['cluster_type', 'spatial_clusters'])
+san_diego.loc[['06073020206']].explore(m=m, color="#fa94a5")
+gint.explore(san_diego, m=m, focal='06073020206', tooltip=['cluster_type', 'spatial_clusters'])
+```
+This shows that the census tract has four neighbors.
+
+To see where this actually is with respect to the set of clusters of type 3, we
+isolate on those:
+
+
+```{python}
+san_diego[san_diego.cluster_type==3].explore() # cold-spots
 ```
 
+And, now we can embed tract 9 and its neighbors in this wider context:
 
-<!-- ```{python} -->
-<!-- import networkx -->
-<!-- gnx = g.to_networkx() -->
-<!-- gqnx = g.to_networkx() -->
-<!-- inx = networkx.intersection(gnx, gqnx) -->
-<!-- cc = networkx.connected_components(inx) -->
-<!-- for i, component in enumerate(list(cc)): -->
-<!--     print(i, component) -->
+```{python}
+m = san_diego[san_diego.cluster_type==3].explore(column='spatial_clusters', categorical=True, legend=True,
+                                                 tooltip=['cluster_type', 'spatial_clusters'])
+gint.explore(san_diego, m=m, focal='06073020206', tooltip=['cluster_type', 'spatial_clusters'])
+```
 
-<!-- ``` -->
-
-
-
-<!-- ```{python} -->
-<!-- li.Is.shape -->
-<!-- ``` -->
-
-<!-- ```{python} -->
-<!-- dir(li) -->
-<!-- ``` -->
-
-<!-- ```{python} -->
-<!-- dir(li) -->
-<!-- ``` -->
-
-<!-- ```{python} -->
-<!-- li.rlisas.shape -->
-<!-- ``` -->
-
-<!-- ```{python} -->
-<!-- li.rlisas[sig[0][-1],:] -->
-<!-- ``` -->
-
-<!-- ```{python} -->
-<!-- sig[0][-1] -->
-<!-- ``` -->
-
-<!-- ```{python} -->
-<!-- li.Is[626] -->
-<!-- ``` -->
-
-
+Cluster type 3 (cold spot) accounts for 7 of the 27 spatial clusters.
