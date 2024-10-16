@@ -1,0 +1,192 @@
+---
+title: "Clustering and Regionalization in Geographic Data Science"
+execute:
+  enabled: true
+format: 
+  revealjs:
+    theme: simple
+    transition: slide
+    slide-number: false
+    center: true
+    toc: true
+    toc-title: Outline
+    toc-depth: 1
+    incremental: true
+    css: ../../css/custom-reveal.scss
+echo: true
+---
+# Clustering
+## What is Clustering?
+- **Definition:** Grouping observations based on multivariate similarity.
+- **Purpose:** Simplify complex, multidimensional data into clusters.
+- **Applications:**
+  - Geodemographic clusters in San Diego Census tracts.
+  - Socioeconomic analysis using clustering.
+  
+---
+## How Clustering Works
+1. **Unsupervised Learning:** No labels, groups based on similarity.
+2. **Multivariate Processes:** Clusters represent similarities in many variables.
+3. **Profile Creation:** Simplifies the interpretation of complex data.
+
+
+## Example: Socioeconomic clustering
+```{python}
+import pandas as pd
+import geopandas as gpd
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+# Example dataset (San Diego tracts)
+data = gpd.read_file('~/data/385/sandiego_tracts.gpkg')
+
+# Select clustering variables
+cluster_variables = ["median_house_value", "pct_white", "pct_rented", "pct_hh_female", "pct_bachelor", "median_no_rooms", "income_gini", "median_age", "tt_work"]
+data.plot('median_house_value')
+```
+
+## Data Preparation: Scaling
+
+```{python}
+data[cluster_variables[0:3]].head()
+```
+
+## Data Preparation: Scaling
+```{python}
+# Scale the data
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(data[cluster_variables])
+scaled_data[0:5, 0:3]
+```
+
+## KMeans
+
+```{python}
+# Run KMeans
+kmeans = KMeans(n_clusters=5, random_state=0)
+data['kmeans_cluster'] = kmeans.fit_predict(scaled_data)
+
+# Visualize clusters
+data.plot(column='kmeans_cluster', categorical=True, legend=True)
+```
+
+## Ward's Hierarchical Clustering
+- **Definition:** Agglomerative clustering method.
+- **Steps:**
+  1. Start with each observation as its own cluster.
+  2. Merge clusters based on proximity.
+  3. Create a hierarchy of clustering solutions.
+
+- **Application:** Socioeconomic clusters of San Diego.
+  
+## Example: Ward’s Method
+```{python}
+from sklearn.cluster import AgglomerativeClustering
+
+# Perform Ward's hierarchical clustering
+ward = AgglomerativeClustering(n_clusters=5, linkage="ward")
+data['ward_cluster'] = ward.fit_predict(scaled_data)
+
+# Visualize Ward clusters
+data.plot(column='ward_cluster', categorical=True, legend=True)
+```
+
+## 
+```{python}
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import dendrogram, linkage
+Z = linkage(scaled_data, method='ward')
+plt.figure(figsize=(8, 5))
+plt.title("Dendrogram for Ward's Hierarchical Clustering")
+dendrogram(Z)
+plt.show()
+```
+
+## Spatial Autocorrelation and Clustering
+
+```{python}
+from esda.moran import Moran
+from libpysal.weights import Queen
+
+# Create spatial weights matrix
+w = Queen.from_dataframe(data)
+
+# Moran's I for a variable
+mi = Moran(data['median_house_value'], w)
+print(mi.I, mi.p_sim)
+```
+
+# Regionalization
+
+## What is Regionalization?
+- **Definition:** Clustering with geographic constraints.
+- **Importance:** Ensures clusters are both statistically and spatially coherent.
+  
+## Spatial Weights in Regionalization
+- **Spatial Weights Matrix:** Defines connectivity (e.g., Queen contiguity, K-nearest neighbors).
+  
+## Example: Spatially Constrained Clustering
+```{python}
+from libpysal.weights import Queen
+
+# Use spatial weights to constrain clustering
+wq = Queen.from_dataframe(data)
+ward_spatial = AgglomerativeClustering(n_clusters=5, linkage="ward",
+                                       connectivity=wq.sparse)
+data['ward_spatial_cluster'] = ward_spatial.fit_predict(scaled_data)
+data.plot(column='ward_spatial_cluster', categorical=True, legend=True)
+```
+# Clusters versus Regions
+
+## Clusters versus Regions
+- *Connected Component*: a subgraph in which any two vertices are connected to each other by paths.
+- *Regions*: formed as connected components defined on the spatial adjacency graph
+- *Multivariate Clusters*: may or may not be spatially connected components
+
+##
+```{python}
+import libpysal
+gw = libpysal.graph.Graph.build_block_contiguity(data.ward_cluster)
+gw.summary()
+```
+##
+```{python}
+import libpysal
+gws = libpysal.graph.Graph.from_W(wq)
+gint = gw.intersection(gws)
+gint.summary()
+```
+```{python}
+import libpysal
+gw = libpysal.graph.Graph.build_block_contiguity(data.ward_spatial_cluster)
+gw.summary()
+```
+##
+```{python}
+import libpysal
+gws = libpysal.graph.Graph.from_W(wq)
+gints = gw.intersection(gws)
+gints.summary()
+```
+## Comparison
+
+| Method | Clusters | Regions |
+|-------| ------ | ------ |
+|Ward | 5 | 80 |
+|Spatial Ward | 5 |5 |
+
+# Conclusion
+
+## Recap of Key Points
+
+- Multivariate Clustering
+- Regionalization
+- Clusters versus Regions
+
+
+## Questions ###
+
+<div style="text-align: center;">
+  <img src="../week01/images/question.jpg" style="max-width: 60%; height: auto;">
+
+</div>

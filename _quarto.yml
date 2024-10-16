@@ -23,6 +23,8 @@ website:
             href: lectures/week07/global.qmd
           - text: "10-14 Local Spatial Autocorrelation"
             href: lectures/week08/local.qmd
+          - text: "10-21 Clustering and Regionalization"
+            href: lectures/week09/regionalization.qmd
       - text: "Studio"
         menu:
           - text: "08-28 Studio 1: Juptyer Hub Introduction"
@@ -41,6 +43,8 @@ website:
             href: studio/week07/global.qmd
           - text: "10-16 Studio 8: Local Spatial Autocorrelation"
             href: studio/week08/local.qmd
+          - text: "10-21 Clustering and Regionalization"
+            href: lectures/week09/regionalization.qmd	    
       - text: "References"
         href: references.qmd
     right:
