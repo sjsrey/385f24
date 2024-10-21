@@ -83,6 +83,8 @@ website:
           href: lectures/week08/local.qmd
         - text: "10-16 Studio 8: Local Spatial Autocorrelation"
           href: studio/week08/local.qmd
+        - text: "10-21 Clustering and Regionalization"
+          href: lectures/week09/regionalization.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"
