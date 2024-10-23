@@ -8,9 +8,9 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.550">
+  <meta name="generator" content="quarto-1.5.57">
 
-  <title>Geography 385: Spatial Data Analysis - Clustering and Regionalization in Geographic Data Science</title>
+  <title>Geography 385: Spatial Data Analysis – Clustering and Regionalization in Geographic Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -41,7 +41,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -69,7 +69,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -83,7 +83,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -437,7 +437,7 @@
 </section>
 <section id="example-socioeconomic-clustering" class="slide level2 center">
 <h2>Example: Socioeconomic clustering</h2>
-<div id="73a0fd2d" class="cell" data-execution_count="1">
+<div id="d17ebbb6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb1-3"><a></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
@@ -460,10 +460,9 @@
 </section>
 <section id="data-preparation-scaling" class="slide level2 center">
 <h2>Data Preparation: Scaling</h2>
-<div id="442d3403" class="cell" data-execution_count="2">
+<div id="7f49f9ee" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>data[cluster_variables[<span class="dv">0</span>:<span class="dv">3</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -479,7 +478,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -525,11 +524,10 @@
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="data-preparation-scaling-1" class="slide level2 center">
 <h2>Data Preparation: Scaling</h2>
-<div id="18822e17" class="cell" data-execution_count="3">
+<div id="dff44583" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># Scale the data</span></span>
 <span id="cb3-2"><a></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb3-3"><a></a>scaled_data <span class="op">=</span> scaler.fit_transform(data[cluster_variables])</span>
@@ -545,7 +543,7 @@
 </section>
 <section id="kmeans" class="slide level2 center">
 <h2>KMeans</h2>
-<div id="b180cf2c" class="cell" data-execution_count="4">
+<div id="4930cecb" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Run KMeans</span></span>
 <span id="cb5-2"><a></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb5-3"><a></a>data[<span class="st">'kmeans_cluster'</span>] <span class="op">=</span> kmeans.fit_predict(scaled_data)</span>
@@ -576,7 +574,7 @@
 </section>
 <section id="example-wards-method" class="slide level2 center">
 <h2>Example: Ward’s Method</h2>
-<div id="ef00c637" class="cell" data-execution_count="5">
+<div id="7474c89c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> AgglomerativeClustering</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a><span class="co"># Perform Ward's hierarchical clustering</span></span>
@@ -596,7 +594,7 @@
 </section>
 <section id="section" class="slide level2 center">
 <h2></h2>
-<div id="cd1d2714" class="cell" data-execution_count="6">
+<div id="9eb4523a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb7-2"><a></a><span class="im">from</span> scipy.cluster.hierarchy <span class="im">import</span> dendrogram, linkage</span>
 <span id="cb7-3"><a></a>Z <span class="op">=</span> linkage(scaled_data, method<span class="op">=</span><span class="st">'ward'</span>)</span>
@@ -615,7 +613,7 @@
 </section>
 <section id="cluster-profile-data-setup" class="slide level2 center">
 <h2>Cluster Profile: Data Setup</h2>
-<div id="3e4a4f15" class="cell" data-execution_count="7">
+<div id="bf029ea0" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>tidy_db <span class="op">=</span> data.set_index(<span class="st">'ward_cluster'</span>)</span>
 <span id="cb8-2"><a></a>tidy_db <span class="op">=</span> tidy_db[cluster_variables]</span>
 <span id="cb8-3"><a></a>tidy_db <span class="op">=</span> tidy_db.stack()</span>
@@ -624,7 +622,6 @@
 <span id="cb8-6"><a></a>    columns<span class="op">=</span>{<span class="st">"level_1"</span>: <span class="st">"Attribute"</span>, <span class="dv">0</span>: <span class="st">"Values"</span>})</span>
 <span id="cb8-7"><a></a>tidy_db.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<div>
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -640,7 +637,7 @@
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -686,11 +683,10 @@
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="section-1" class="slide level2 center">
 <h2></h2>
-<div id="1e4d8b84" class="cell" data-fig-height="1.5" data-fig-scale="0.25" data-fig-width="2" data-execution_count="8">
+<div id="0e40117f" class="cell" data-fig-height="1.5" data-fig-scale="0.25" data-fig-width="2" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="im">import</span> seaborn</span>
 <span id="cb9-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb9-3"><a></a></span>
@@ -717,7 +713,7 @@
 <img data-src="facets.png" class="r-stretch"></section>
 <section id="spatial-autocorrelation-and-clustering" class="slide level2 center">
 <h2>Spatial Autocorrelation and Clustering</h2>
-<div id="f562743c" class="cell" data-execution_count="9">
+<div id="1531ccd4" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">from</span> esda.moran <span class="im">import</span> Moran</span>
 <span id="cb10-2"><a></a><span class="im">from</span> libpysal.weights <span class="im">import</span> Queen</span>
 <span id="cb10-3"><a></a></span>
@@ -752,7 +748,7 @@
 </section>
 <section id="example-spatially-constrained-clustering" class="slide level2 center">
 <h2>Example: Spatially Constrained Clustering</h2>
-<div id="3604b6b7" class="cell" data-execution_count="10">
+<div id="854a77c8" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="im">from</span> libpysal.weights <span class="im">import</span> Queen</span>
 <span id="cb12-2"><a></a></span>
 <span id="cb12-3"><a></a><span class="co"># Use spatial weights to constrain clustering</span></span>
@@ -785,7 +781,7 @@
 </section>
 <section id="connected-components" class="slide level2 center">
 <h2>Connected Components</h2>
-<div id="3f2650f7" class="cell" data-execution_count="11">
+<div id="0e1ebd00" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -797,15 +793,14 @@
 </section>
 <section id="ward-cluster-graph" class="slide level2 center">
 <h2>Ward Cluster Graph</h2>
-<div id="d87aeb24" class="cell" data-execution_count="12">
+<div id="3ddb8222" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="im">import</span> libpysal</span>
 <span id="cb13-2"><a></a>gc <span class="op">=</span> libpysal.graph.Graph.build_block_contiguity(data.ward_cluster)</span>
 <span id="cb13-3"><a></a>gc.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<div>
 
             
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Graph Summary Statistics</caption>
 <tbody>
 <tr class="odd">
@@ -838,115 +833,9 @@
 </tr>
 </tbody>
 </table>
-<table data-quarto-postprocess="true">
-<caption>
-Cardinalities
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-182
-</td>
-<td>
-25%:
-</td>
-<td>
-97
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-96
-</td>
-<td>
-50%
-</td>
-<td>
-120
-</td><td>
-</td></tr>
-<tr>
-<td>
-Min:
-</td>
-<td>
-33
-</td>
-<td>
-75%:
-</td>
-<td>
-285
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-285
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
-<caption>
-Weights
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-1
-</td>
-<td>
-25%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-0
-</td>
-<td>
-50%
-</td>
-<td>
-1
-</td></tr><tr>
-<td>
-Min:
-</td>
-<td>
-1
-</td>
-<td>
-75%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-1
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
+
+            
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Sum of weights and Traces</caption>
 <tbody>
 <tr class="odd">
@@ -976,18 +865,16 @@ Max:
             
 </div>
 </div>
-</div>
 </section>
 <section id="spatial-ward-cluster-graph" class="slide level2 center">
 <h2>Spatial Ward Cluster Graph</h2>
-<div id="7e128a53" class="cell" data-execution_count="13">
+<div id="7eed9c26" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>gcs <span class="op">=</span> libpysal.graph.Graph.build_block_contiguity(data.ward_spatial_cluster)</span>
 <span id="cb14-2"><a></a>gcs.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<div>
 
             
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Graph Summary Statistics</caption>
 <tbody>
 <tr class="odd">
@@ -1020,115 +907,9 @@ Max:
 </tr>
 </tbody>
 </table>
-<table data-quarto-postprocess="true">
-<caption>
-Cardinalities
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-227
-</td>
-<td>
-25%:
-</td>
-<td>
-257
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-77
-</td>
-<td>
-50%
-</td>
-<td>
-257
-</td><td>
-</td></tr>
-<tr>
-<td>
-Min:
-</td>
-<td>
-0
-</td>
-<td>
-75%:
-</td>
-<td>
-265
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-265
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
-<caption>
-Weights
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-1
-</td>
-<td>
-25%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-0
-</td>
-<td>
-50%
-</td>
-<td>
-1
-</td></tr><tr>
-<td>
-Min:
-</td>
-<td>
-1
-</td>
-<td>
-75%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-1
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
+
+            
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Sum of weights and Traces</caption>
 <tbody>
 <tr class="odd">
@@ -1158,19 +939,17 @@ Max:
             
 </div>
 </div>
-</div>
 </section>
 <section id="queen-graph" class="slide level2 center">
 <h2>Queen Graph</h2>
-<div id="6cedd926" class="cell" data-execution_count="14">
+<div id="19f64a21" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">import</span> libpysal</span>
 <span id="cb15-2"><a></a>gq  <span class="op">=</span> libpysal.graph.Graph.from_W(wq)</span>
 <span id="cb15-3"><a></a>gq.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<div>
 
             
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Graph Summary Statistics</caption>
 <tbody>
 <tr class="odd">
@@ -1203,115 +982,9 @@ Max:
 </tr>
 </tbody>
 </table>
-<table data-quarto-postprocess="true">
-<caption>
-Cardinalities
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-6
-</td>
-<td>
-25%:
-</td>
-<td>
-5
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-2
-</td>
-<td>
-50%
-</td>
-<td>
-6
-</td><td>
-</td></tr>
-<tr>
-<td>
-Min:
-</td>
-<td>
-1
-</td>
-<td>
-75%:
-</td>
-<td>
-7
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-29
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
-<caption>
-Weights
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-1
-</td>
-<td>
-25%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-0
-</td>
-<td>
-50%
-</td>
-<td>
-1
-</td></tr><tr>
-<td>
-Min:
-</td>
-<td>
-1
-</td>
-<td>
-75%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-1
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
+
+            
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Sum of weights and Traces</caption>
 <tbody>
 <tr class="odd">
@@ -1341,19 +1014,17 @@ Max:
             
 </div>
 </div>
-</div>
 </section>
 <section id="intersection-graph-queen-ward" class="slide level2 center">
 <h2>Intersection Graph (Queen + Ward )</h2>
-<div id="f85824d7" class="cell" data-execution_count="15">
+<div id="6caffb56" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="im">import</span> libpysal</span>
 <span id="cb16-2"><a></a>gcq_int <span class="op">=</span> gq.intersection(gc)</span>
 <span id="cb16-3"><a></a>gcq_int.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<div>
 
             
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Graph Summary Statistics</caption>
 <tbody>
 <tr class="odd">
@@ -1386,115 +1057,9 @@ Max:
 </tr>
 </tbody>
 </table>
-<table data-quarto-postprocess="true">
-<caption>
-Cardinalities
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-4
-</td>
-<td>
-25%:
-</td>
-<td>
-2
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-2
-</td>
-<td>
-50%
-</td>
-<td>
-3
-</td><td>
-</td></tr>
-<tr>
-<td>
-Min:
-</td>
-<td>
-0
-</td>
-<td>
-75%:
-</td>
-<td>
-5
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-14
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
-<caption>
-Weights
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-1
-</td>
-<td>
-25%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-0
-</td>
-<td>
-50%
-</td>
-<td>
-1
-</td></tr><tr>
-<td>
-Min:
-</td>
-<td>
-1
-</td>
-<td>
-75%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-1
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
+
+            
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Sum of weights and Traces</caption>
 <tbody>
 <tr class="odd">
@@ -1524,19 +1089,17 @@ Max:
             
 </div>
 </div>
-</div>
 </section>
 <section id="intersection-graph-queen-ward-spatial" class="slide level2 center">
 <h2>Intersection Graph (Queen + Ward Spatial)</h2>
-<div id="39be9079" class="cell" data-execution_count="16">
+<div id="190b8b76" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="im">import</span> libpysal</span>
 <span id="cb17-2"><a></a>gcsq_int <span class="op">=</span> gq.intersection(gcs)</span>
 <span id="cb17-3"><a></a>gcsq_int.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<div>
 
             
-<table data-quarto-postprocess="true">
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Graph Summary Statistics</caption>
 <tbody>
 <tr class="odd">
@@ -1569,115 +1132,9 @@ Max:
 </tr>
 </tbody>
 </table>
-<table data-quarto-postprocess="true">
-<caption>
-Cardinalities
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-5
-</td>
-<td>
-25%:
-</td>
-<td>
-4
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-2
-</td>
-<td>
-50%
-</td>
-<td>
-5
-</td><td>
-</td></tr>
-<tr>
-<td>
-Min:
-</td>
-<td>
-0
-</td>
-<td>
-75%:
-</td>
-<td>
-6
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-16
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
-<caption>
-Weights
-</caption>
-<tbody><tr>
-<td>
-Mean:
-</td>
-<td>
-1
-</td>
-<td>
-25%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Standard deviation:
-</td>
-<td>
-0
-</td>
-<td>
-50%
-</td>
-<td>
-1
-</td></tr><tr>
-<td>
-Min:
-</td>
-<td>
-1
-</td>
-<td>
-75%:
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td>
-Max:
-</td>
-<td>
-1
-</td>
-</tr>
-</tbody></table>
-<table data-quarto-postprocess="true">
+
+            
+<table class="caption-top" data-quarto-postprocess="true">
 <caption>Sum of weights and Traces</caption>
 <tbody>
 <tr class="odd">
@@ -1707,11 +1164,10 @@ Max:
             
 </div>
 </div>
-</div>
 </section>
 <section id="section-2" class="slide level2 center">
 <h2></h2>
-<div id="d5a8f643" class="cell" data-execution_count="17">
+<div id="d518cab8" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1738,7 +1194,7 @@ Max:
 </section>
 <section id="comparison" class="slide level2 center">
 <h2>Comparison</h2>
-<table>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th>Method</th>
@@ -2027,18 +1483,7 @@ Max:
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -2070,7 +1515,47 @@ Max:
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/sjsrey\.github\.io\/385f24\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -2107,7 +1592,11 @@ Max:
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
