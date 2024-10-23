@@ -1,0 +1,50 @@
+---
+title: Studio 09 Peer Evaluation 2
+author: Serge Rey
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+## Instructions
+
+
+**DUE: Wednesday, October 30, 2024 3:30pm** 
+
+The team leader will submit a pdf version of the notebook showing all the work
+to answer the questions.
+
+The first cell of the notebook should have a list of the team members (first and
+last names) with the team leader in bold. (Hint: Markdown cell).
+
+
+## Scheduling
+
+1. Determine which team members have an approved computational essay topic.
+2. Schedule 10 minutes for each of these topics
+
+## 10 Minute Section
+1. Team leader creates a new section of the notebook with the presenters name
+1. A student presents their topic (2 minutes)
+   - Discuss topic idea
+   - Describe how the project has incorporated feedback from Peer Evaluation 1
+2. Each remaining member of the team provides feedback and questions to the
+   student (8 minutes)
+3. Team leader captures this feedback in the notebook
+   
+   
+   
+## Potential Questions to Ask/Feedback Prompts
+
+- Is the research question clearly stated?
+- Does the topic clearly involve spatial analysis?
+- Are spatial relationships and geographic context central to the question?
+- Considerations for emphasizing or incorporating spatial aspects more effectively.
+- Are the data sources identified?
+- Are these data sources appropriate for the research question?
+- Suggestions for alternative or additional data sources, if needed.
+
+
+*All team members, whether they are doing a computational essay or not, must
+participate in the peer evaluation process.*

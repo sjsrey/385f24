@@ -43,8 +43,8 @@ website:
             href: studio/week07/global.qmd
           - text: "10-16 Studio 8: Local Spatial Autocorrelation"
             href: studio/week08/local.qmd
-          - text: "10-21 Clustering and Regionalization"
-            href: lectures/week09/regionalization.qmd	    
+          - text: "10-23 Studio 9: Peer Evaluation 2"
+            href: studio/week09/peer2.qmd	    	    
       - text: "References"
         href: references.qmd
     right:
@@ -85,6 +85,8 @@ website:
           href: studio/week08/local.qmd
         - text: "10-21 Clustering and Regionalization"
           href: lectures/week09/regionalization.qmd
+        - text: "10-23 Studio 9: Peer Evaluation 2"
+          href: studio/week09/peer2.qmd	    	    	  
     - section: "Resources"
       contents:
         - text: "Syllabus"
