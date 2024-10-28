@@ -98,6 +98,195 @@
     "text": "Policies\n\nAccommodations\nIf you are a student with a disability and are in need of accommodations for this class, please contact Student Ability Success Center at (619) 594-6473 as soon as possible. Please know accommodations are not retroactive, and I cannot provide accommodations based upon disability until I have received an accommodation letter from Student Ability Success Center.\n\n\nPrivacy and Intellectual Property\nStudent Privacy and Intellectual Property: The Family Educational Rights and Privacy Act (FERPA) mandates the protection of student information, including contact information, grades, and graded assignments. I will use Canvas to communicate with you, and I will not post grades or leave graded assignments in public places. Students will be notified at the time of an assignment if copies of student work will be retained beyond the end of the semester or used as examples for future students or the wider public. Students maintain intellectual property rights to work products they create as part of this course unless they are formally notified otherwise.\n\n\nAcademic Integrity\nThe SDSU student academic integrity policy lists violations in detail. These violations fall into eight broad areas that include but are not limited to: cheating, fabrication, plagiarism, facilitating academic misconduct, unauthorized collaboration, interference or sabotage, non-compliance with research regulations and retaliation. For more information about the SDSU student academic integrity policy, please see the following: https://sacd.sdsu.edu/student-rights/academic-dishonesty.\n\n\nCode of Conduct\nAs course instructor, I am dedicated to providing a harassment-free learning experience for all students, regardless of gender, sexual orientation, disability, physical appearance, body size, race, religion, or choice of operating system. All course participants are expected to show respect and courtesy to other students throughout the semester. As a learning community we do not tolerate harassment of participants in any form.\n\nAll communication should be appropriate for a professional audience including people of many different backgrounds. Sexual language and imagery are not appropriate in this course.\nBe kind to others. Do not insult or put down other students. Behave professionally. Remember that harassment and sexist, racist, or exclusionary jokes are not appropriate for this course.\nStudents violating these rules may be asked to leave the course, and their violations will be reported to the SDSU administration.\n\nThis code of conduct is an adaptation of the SciPy 2018 Code of Conduct."
   },
   {
+    "objectID": "lectures/week10/point-processes.html",
+    "href": "lectures/week10/point-processes.html",
+    "title": "Point Processes",
+    "section": "",
+    "text": "Thus far we have been looking at a collection of points as a point pattern.\nNow we want to take a different view of that pattern, one that sees the pattern as the outcome of a process.\nA point process is a statistical model that will generate point patterns with particular characteristics.\nFrom a scientific point of view we are interested in making inferences about the process that may have generated our point pattern."
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#introduction",
+    "href": "lectures/week10/point-processes.html#introduction",
+    "title": "Point Processes",
+    "section": "",
+    "text": "Thus far we have been looking at a collection of points as a point pattern.\nNow we want to take a different view of that pattern, one that sees the pattern as the outcome of a process.\nA point process is a statistical model that will generate point patterns with particular characteristics.\nFrom a scientific point of view we are interested in making inferences about the process that may have generated our point pattern."
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#first-order-properties",
+    "href": "lectures/week10/point-processes.html#first-order-properties",
+    "title": "Point Processes",
+    "section": "First Order Properties",
+    "text": "First Order Properties\n\nFirst Order Properties: Spatial Analysis\nMean value of the process in space\n\nVariation in mean value of the process in space\nGlobal, large scale spatial trend\n\nFirst Order Property of Point Patterns, Intensity: \\(\\lambda\\)\n\nIntensity: \\(\\lambda\\) = number of events expected per unit area\nEstimation of \\(\\lambda\\)\nSpatial variation of \\(\\lambda\\), \\(\\lambda(s)\\), \\(s\\) is a location\n\n\\[\\lambda(s) = \\lim_{ds\\rightarrow 0}\\left\\{ \\frac{E(Y(ds))}{ds} \\right\\}\\]"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#second-order-property",
+    "href": "lectures/week10/point-processes.html#second-order-property",
+    "title": "Point Processes",
+    "section": "Second Order Property",
+    "text": "Second Order Property\n\nSecond Order Properties: Spatial Analysis\nSpatial Correlation Structure\n\nDeviations in values from process mean\nLocal or small scale effects\n\nSecond Order Property of Point Patterns\n\nRelationship between number of events in pairs of areas\nSecond order intensity \\(\\gamma(s_i,s_j)\\)\n\n\\[\\gamma(s_i,s_j) = \\lim_{ds_i\\rightarrow 0,ds_j\\rightarrow 0}\\left\\{\n       \\frac{E(Y(ds_i)Y(ds_j))}{ds_ids_j} \\right\\}\\]"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#spatial-stationarity",
+    "href": "lectures/week10/point-processes.html#spatial-stationarity",
+    "title": "Point Processes",
+    "section": "Spatial Stationarity",
+    "text": "Spatial Stationarity\nFirst Order Stationarity \\[\\lambda(s) = \\lambda \\forall s \\in A\\] \\[E(Y(A)) = \\lambda \\times A\\]\nSecond Order Stationarity \\[\\gamma(s_i,s_j) = \\gamma(s_i - s_j) = \\gamma(h)\\]\n\n\\(h\\) is the vector difference between locations \\(s_i\\) and \\(s_j\\)\n\\(h\\) encompasses direction and distance (relative location)\nSecond order intensity only depends on \\(h\\) for second order stationarity"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#spatial-isotropy-and-stationarity",
+    "href": "lectures/week10/point-processes.html#spatial-isotropy-and-stationarity",
+    "title": "Point Processes",
+    "section": "Spatial Isotropy and Stationarity",
+    "text": "Spatial Isotropy and Stationarity\nIsotropic Process\n\nWhen a stationary process is invariant to rotation about the origin.\nRelationship between two events depend only on the distance separating their locations and not on their orientation to each other.\nDepends only on distance, not direction\n\nUsefulness\n\nTwo pairs of events from a stationary process separated by same distance and relative direction should have same “relatedness”\nTwo pairs of events from a stationary and isotropic process separated by the same distance (irrespective of direction) should have the same “relatedness”\nBoth allow for replication and the ability to carry out estimation of the underlying DGP."
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#invariance",
+    "href": "lectures/week10/point-processes.html#invariance",
+    "title": "Point Processes",
+    "section": "Invariance",
+    "text": "Invariance\n\n\n\n\n\n\n\n\nUnder Translation\n\n\n\n\n\n\n\nUnder Rotation\n\n\n\n\n\n\nFigure 1: Invariance"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#complete-spatial-randomness",
+    "href": "lectures/week10/point-processes.html#complete-spatial-randomness",
+    "title": "Point Processes",
+    "section": "Complete Spatial Randomness",
+    "text": "Complete Spatial Randomness\n\nCSR\n\nStandard of Reference\nUniform: each location has equal probability\nIndependent: location of points independent\nHomogeneous Planar Poisson Point Process\n\n\n\nPoisson Point Process\n\nIntensity\n\nnumber of points in region \\(A: N(A)\\)\nintensity: \\(\\lambda = N/|A|\\)\nimplies: \\(\\lambda |A|\\) points randomly scattered in a region with area \\(|A|\\)\ne.g., \\(10\\times 1\\) (points per \\(km^2\\))\n\n\n\nPoisson Distribution \\(N(A) \\sim Poi(\\lambda |A|)\\)"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#poisson-distribution",
+    "href": "lectures/week10/point-processes.html#poisson-distribution",
+    "title": "Point Processes",
+    "section": "Poisson Distribution",
+    "text": "Poisson Distribution\n\nSingle Parameter Distribution: \\(\\lambda |A|\\)\n\nGenerally, \\(\\lambda\\) is the number of events in some well defined interval\n\nTime: phone calls to operator in one hour\nTime: accidents at an intersection per week\nSpace: trees in a quadrat\n\nLet \\(x\\) be a Poisson random variable\n\n\\(E[x] = V[x]= \\lambda |A|\\)\n\n\n\n\nPoisson Distribution \\[P(x) =  \\frac{e^{-\\lambda |A|} (\\lambda |A|)^x}{x!}\\]"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#spatial-example",
+    "href": "lectures/week10/point-processes.html#spatial-example",
+    "title": "Point Processes",
+    "section": "Spatial Example",
+    "text": "Spatial Example\n\nCSR with \\(\\lambda = 5/km^2\\)\n\nRegion = Circle\n\narea = \\(|A| = \\pi r^2\\)\n\\(r=0.1\\ km\\) then area \\(\\approx 0.03 \\ km^2\\)\n\nProbability of Zero Points in Circle \\[\\begin{aligned}\n         P[N(A) = 0] &= &  e^{-\\lambda |A|} (\\lambda |A|)^x /x!\\\\\n                     &\\approx&e^{-5 \\times 0.03} (5 \\times 0.03)^0 /0!\\\\\n                     &\\approx&e^{-5 \\times 0.03} \\\\\n                     &\\approx&0.86\n       \\end{aligned}\\]"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#complete-spatial-randomness-csr",
+    "href": "lectures/week10/point-processes.html#complete-spatial-randomness-csr",
+    "title": "Point Processes",
+    "section": "Complete Spatial Randomness (CSR)",
+    "text": "Complete Spatial Randomness (CSR)\n\nHomogeneous spatial Poisson point process\n\nThe number of events occurring within a finite region \\(A\\) is a random variable following a Poisson distribution with mean \\(\\lambda|A|\\), with \\(|A|\\) denoting area of \\(A\\).\nGiven the total number of events \\(N\\) occurring within an area \\(A\\), the locations of the \\(N\\) events represent an independent random sample of \\(N\\) locations where each location is equally likely to be chosen as an event.\n\n\n\n\nCriterion 2 is the general concept of CSR (uniform (random)) distribution in \\(A\\).\nCriterion 1 pertains to the intensity \\(\\lambda\\)."
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#homogeneous-poisson-process",
+    "href": "lectures/week10/point-processes.html#homogeneous-poisson-process",
+    "title": "Point Processes",
+    "section": "Homogeneous Poisson Process",
+    "text": "Homogeneous Poisson Process\n\nImplications\n\nThe number of events in nonoverlapping regions in \\(A\\) are statistically independent.\nFor any region \\(R \\subset A\\): \\[\\lim_{|R| \\rightarrow 0} \\frac{Pr[exactly\\ one\\ event\\ in\\ R]}{|R|}\n      = \\lambda &gt; 0\\]\n\\[\\lim_{|R| \\rightarrow 0} \\frac{Pr[more\\ than\\ one\\ event\\ in\\\n       R]}{|R|} = 0\\]\n\n\n:::"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#homogeneous-poisson-process-1",
+    "href": "lectures/week10/point-processes.html#homogeneous-poisson-process-1",
+    "title": "Point Processes",
+    "section": "Homogeneous Poisson process",
+    "text": "Homogeneous Poisson process\n\nImplications\n\n\\(\\lambda\\) is the intensity of the spatial point pattern.\nFor a Poisson random variable, \\(Y\\): \\[E[Y] = \\lambda = V[Y]\\]\nProvides the motivation for some quadrat tests of CSR hypothesis.\n\nIf \\(Y_R\\) is the count in quadrat \\(R\\)\nIf \\(\\widehat{E[Y]}&lt; \\widehat{V[Y]}\\): overdispersion = spatial clustering\nIf \\(\\widehat{E[Y]}&gt; \\widehat{V[Y]}\\): underdispersion = spatial uniformity"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#poisson-distribution-lambda20",
+    "href": "lectures/week10/point-processes.html#poisson-distribution-lambda20",
+    "title": "Point Processes",
+    "section": "Poisson Distribution \\(\\lambda=20\\)",
+    "text": "Poisson Distribution \\(\\lambda=20\\)\n\n\nCode\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\nnp.random.seed(12345)\nxy = np.random.rand(20,2)\ndf = pd.DataFrame(data=xy, columns=['x','y'])\nsns.scatterplot(x='x', y='y', data=df);\ndf.shape\n\n\n\n\n\n\n\n\n\nThe example we just did is known as \\(n-conditioning\\) where we will always get \\(n\\) points for the CSR process.\nA slightly different approach to generating a random point process is to use \\(\\lambda-conditioning\\)\n\n\nCode\nfrom scipy.stats import poisson\nlam=20\nn = poisson.rvs(lam, 1)\nxy = np.random.rand(n,2)\ndf = pd.DataFrame(data=xy, columns=['x','y'])\nsns.scatterplot(x='x', y='y', data=df);\ndf.shape\n\n\n\n\n\n\n\n\n\nThe difference is the number of points in the pattern will always be \\(n\\) with \\(n-conditioning\\) but may not be \\(n\\) with \\(\\lambda-conditioning\\). The latter allows the intensity to be drawn from a Poisson distribution, then that becomes the parameter for the draw of the point pattern."
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#limitations-of-csr",
+    "href": "lectures/week10/point-processes.html#limitations-of-csr",
+    "title": "Point Processes",
+    "section": "Limitations of CSR",
+    "text": "Limitations of CSR\n\nStationary Poisson Process\n\nhomogeneous\ntranslation invaratiant\n\n\n\nRare in practice - very few actual processes are CSR\n\n\nStrawman\n\npurely a benchmark\nnull hypothesis"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#inhomogeneous-poisson-process-ipp",
+    "href": "lectures/week10/point-processes.html#inhomogeneous-poisson-process-ipp",
+    "title": "Point Processes",
+    "section": "Inhomogeneous Poisson Process (IPP)",
+    "text": "Inhomogeneous Poisson Process (IPP)\n\nCriteria\n\nThe number of events occurring within a finite region \\(A\\) is a random variable following a Poisson Distribution with mean \\(\\int_{A}\\lambda(s) ds\\).\nGiven the total number of events \\(N\\) occurring within \\(A\\), the \\(N\\) events represent an independent sample of \\(N\\) locations, with the probability of sampling a particular point \\(s\\) proportional to \\(\\lambda(s)\\).\n\n\n\nSpatially Variable Intensity \\(\\lambda(s)\\)\n\nUseful for constant risk hypothesis\nUnderlying population at risk is spatially clustered\nWant to control for that since with individual constant risk apparent clusters would be generated.\nCompare pattern against constant risk, not CSR."
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#inhomogeneous-poisson-process",
+    "href": "lectures/week10/point-processes.html#inhomogeneous-poisson-process",
+    "title": "Point Processes",
+    "section": "Inhomogeneous Poisson Process",
+    "text": "Inhomogeneous Poisson Process\n\nImplications\n\nApparent clusters can occur solely due to heterogeneities in the intensity function \\(\\lambda(s)\\).\nIndividual event locations still remain independent of one another.\nProcess is not stationary due to intensity heterogeneity\n\n\n\nHPP vs. IPP HPP is a special case of IPP with a constant intensity"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#csr-vs.-constant-risk-hypotheses",
+    "href": "lectures/week10/point-processes.html#csr-vs.-constant-risk-hypotheses",
+    "title": "Point Processes",
+    "section": "CSR vs. Constant Risk Hypotheses",
+    "text": "CSR vs. Constant Risk Hypotheses\n\nCSR\n\nIntensity is spatially constant\nPopulation at risk assumed spatially uniform\nUseful null hypothesis if these conditions are met\n\n\n\nConstant Risk Hypothesis\n\nPopulation density variable\nIndividual risk constant\nExpected number of events should vary with population density\nClusters due to deviation from CSR\nClusters due to deviation from CSR and Constant Risk"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#contagion-process-of-size-20-with-10-parents-and-2-children",
+    "href": "lectures/week10/point-processes.html#contagion-process-of-size-20-with-10-parents-and-2-children",
+    "title": "Point Processes",
+    "section": "Contagion process of size 20 with 10 parents and 2 children",
+    "text": "Contagion process of size 20 with 10 parents and 2 children\n\n\nCode\nimport pointpats as pp\nnp.random.seed(12345)\nw = pp.Window([(0,0), (0,1), (1,1), (1,0), (0,0)])\ndraw = pp.PoissonClusterPointProcess(w, 20, 10, 0.05, 1, asPP=True, conditioning=False)\ndraw.realizations[0].plot(window=True, title='Contagion Point Process (10 parents)')"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#contagion-process-of-size-20-with-2-parents-and-10-children",
+    "href": "lectures/week10/point-processes.html#contagion-process-of-size-20-with-2-parents-and-10-children",
+    "title": "Point Processes",
+    "section": "Contagion process of size 20 with 2 parents and 10 children",
+    "text": "Contagion process of size 20 with 2 parents and 10 children\n\n\nCode\nimport pointpats as pp\nnp.random.seed(12345)\nw = pp.Window([(0,0), (0,1), (1,1), (1,0), (0,0)])\ndraw = pp.PoissonClusterPointProcess(w, 20, 2, 0.05, 1, asPP=True, conditioning=False)\ndraw.realizations[0].plot(window=True, title='Contagion Point Process (2 parents)')"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#inhomogenous-poisson-process",
+    "href": "lectures/week10/point-processes.html#inhomogenous-poisson-process",
+    "title": "Point Processes",
+    "section": "Inhomogenous Poisson Process",
+    "text": "Inhomogenous Poisson Process\n\nIntensity varies with a covariate\n\ntrend surface\n\\(\\lambda(s) = exp(\\alpha + \\beta s)\\)\n\n\n\nIntensity varies with distance to a focus\n\n\\(\\lambda(s) = \\lambda 0(s). f( || s-s_0||, \\theta)\\)"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#simulating-an-inhomogeneous-poisson-point-process",
+    "href": "lectures/week10/point-processes.html#simulating-an-inhomogeneous-poisson-point-process",
+    "title": "Point Processes",
+    "section": "Simulating An Inhomogeneous Poisson Point Process",
+    "text": "Simulating An Inhomogeneous Poisson Point Process\nIntensity function:\n\\(\\lambda(s) = 100 e^{-(x^2 + y^2) / \\sigma}\\)\n\\(\\sigma\\) is a scale parameter here, equal to 0.5\n\n\nCode\nimport numpy as np;  # NumPy package for arrays, random number generation, etc\nimport matplotlib.pyplot as plt  # For plotting\nfrom scipy.optimize import minimize  # For optimizing\nfrom scipy import integrate  # For integrating\n\nplt.close('all');  # close all figures\n\n# Simulation window parameters\nxMin = 0;\nxMax = 1;\nyMin = 0;\nyMax = 1;\nxDelta = xMax - xMin;\nyDelta = yMax - yMin;  # rectangle dimensions\nareaTotal = xDelta * yDelta;\n\nnumbSim = 10 ** 3;  # number of simulations\ns = 0.5;  # scale parameter\n# Point process parameters\ndef fun_lambda(x, y):\n    return 100 * np.exp(-(x ** 2 + y ** 2) / s ** 2);  # intensity function\n#fun_lambda = lambda x,y: 100 * np.exp(-(x ** 2 + y ** 2) / s ** 2);\n\n###START -- find maximum lambda -- START ###\n# For an intensity function lambda, given by function fun_lambda,\n# finds the maximum of lambda in a rectangular region given by\n# [xMin,xMax,yMin,yMax].\ndef fun_Neg(x):\n    return -fun_lambda(x[0], x[1]);  # negative of lambda\n#fun_Neg = lambda x: -fun_lambda(x[0], x[1]);  # negative of lambda\n\nxy0 = [(xMin + xMax) / 2, (yMin + yMax) / 2];  # initial value(ie centre)\n# Find largest lambda value\nresultsOpt = minimize(fun_Neg, xy0, bounds=((xMin, xMax), (yMin, yMax)));\nlambdaNegMin = resultsOpt.fun;  # retrieve minimum value found by minimize\nlambdaMax = -lambdaNegMin;\n\n\n###END -- find maximum lambda -- END ###\n\n# define thinning probability function\ndef fun_p(x, y):\n    return fun_lambda(x, y) / lambdaMax;\n#fun_p = lambda x, y: fun_lambda(x, y) / lambdaMax;\n\n# for collecting statistics -- set numbSim=1 for one simulation\nnumbPointsRetained = np.zeros(numbSim);  # vector to record number of points\nfor ii in range(numbSim):\n    # Simulate a Poisson point process\n    numbPoints = np.random.poisson(areaTotal * lambdaMax);  # Poisson number of points\n    xx = np.random.uniform(0, xDelta, ((numbPoints, 1))) + xMin;  # x coordinates of Poisson points\n    yy = np.random.uniform(0, yDelta, ((numbPoints, 1))) + yMin;  # y coordinates of Poisson points\n\n    # calculate spatially-dependent thinning probabilities\n    p = fun_p(xx, yy);\n\n    # Generate Bernoulli variables (ie coin flips) for thinning\n    booleRetained = np.random.uniform(0, 1, ((numbPoints, 1))) &lt; p;  # points to be retained\n\n    # x/y locations of retained points\n    xxRetained = xx[booleRetained];\n    yyRetained = yy[booleRetained];\n    numbPointsRetained[ii] = xxRetained.size;\n\n# Plotting\nplt.scatter(xxRetained, yyRetained, edgecolor='b', facecolor='none', alpha=0.5);\nplt.xlabel('x');\nplt.ylabel('y');\nplt.xlim([xMin, xMax]);\nplt.ylim([xMin, xMax]);\n\n\n\n\n\n\n\n\n\nsource\nThat pattern comes from a spatially-explicit thinning of a CSR pattern:\n\n\nCode\n# Plotting\nplt.scatter(xx, yy, edgecolor='b', facecolor='none', alpha=0.5);\nplt.xlabel('x');\nplt.ylabel('y');"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#regular-processes",
+    "href": "lectures/week10/point-processes.html#regular-processes",
+    "title": "Point Processes",
+    "section": "Regular Processes",
+    "text": "Regular Processes\n\nLess grouped than CSR\n\nfewer high densities\ndispersed\nrepulsion, competition\n\n\n\nUnderdispersion\n\nvariance &lt; mean\nless variation in densities than CSR"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#inhibition-process",
+    "href": "lectures/week10/point-processes.html#inhibition-process",
+    "title": "Point Processes",
+    "section": "Inhibition Process",
+    "text": "Inhibition Process\n\nMinimum Permissible Distance\n\nno two points closer than \\(\\delta\\)\npacking intensity \\(\\tau = \\lambda \\pi \\delta^2 / 4\\)\n\n\n\nMatern Process\n\nthinned Poisson process using \\(\\delta\\)\nsequential inhibition process, generate points conditional on previous points and distance (denser than the thinned approach)"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#matern-thinning",
+    "href": "lectures/week10/point-processes.html#matern-thinning",
+    "title": "Point Processes",
+    "section": "Matern (Thinning)",
+    "text": "Matern (Thinning)\n\n\nCode\nnp.random.seed(12345)\ndelta = 0.1\nn = 20\nxy = np.random.random((n,2))\nxy\nfrom scipy.spatial import distance_matrix\n\nd = distance_matrix(xy, xy) # 20 x 20 distance matrix\nd[0] # first row\n\n\narray([0.        , 0.75403388, 0.4570564 , 0.33860475, 0.38256491,\n       0.67009276, 0.94484483, 0.716711  , 0.56856568, 0.40881349,\n       0.49326812, 0.46210886, 0.64101492, 0.36620498, 0.20105384,\n       1.02432357, 0.29284635, 0.4855703 , 0.42540863, 0.41333518])\n\n\nDetermine which observations to thin\n\n\nCode\nijs = np.where(d&lt;delta)\ni,j = ijs\npairs = list(zip(i[i!=j], j[i!=j]))\nprint(\"The pairs within delta of one another:\")\nprint(pairs)\ndrop = []\n\nfor left, right in pairs:\n    if left in drop or right in drop:\n        continue\n    else:\n        drop.append(left)\n        \nprint(\"Observations to drop:\")\nprint(drop)\n\n\nThe pairs within delta of one another:\n[(np.int64(3), np.int64(9)), (np.int64(3), np.int64(13)), (np.int64(9), np.int64(3)), (np.int64(9), np.int64(13)), (np.int64(9), np.int64(19)), (np.int64(13), np.int64(3)), (np.int64(13), np.int64(9)), (np.int64(19), np.int64(9))]\nObservations to drop:\n[np.int64(3), np.int64(9)]\n\n\n\n\nCode\nimport pandas as pd\ndf = pd.DataFrame(data=xy, columns=['x', 'y'])\ndf['thin'] = False\ndf.iloc[drop, df.columns.get_loc('thin')] = True\ndf.head()\n\n\n\n\n\n\n\n\n\nx\ny\nthin\n\n\n\n\n0\n0.929616\n0.316376\nFalse\n\n\n1\n0.183919\n0.204560\nFalse\n\n\n2\n0.567725\n0.595545\nFalse\n\n\n3\n0.964515\n0.653177\nTrue\n\n\n4\n0.748907\n0.653570\nFalse\n\n\n\n\n\n\n\n\n\nCode\nimport seaborn as sns\nsns.scatterplot(x='x', y='y', hue='thin', data=df);"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#matern-sequential",
+    "href": "lectures/week10/point-processes.html#matern-sequential",
+    "title": "Point Processes",
+    "section": "Matern (Sequential)",
+    "text": "Matern (Sequential)\n\n\nCode\ndelta = 0.1\nN = 20\nn = 1\nxy = np.zeros((N,2))\nxy[0,:] = np.random.rand(1,2)\nwhile n &lt; N:\n    candidate = np.random.rand(1,2)\n    d = distance_matrix(xy[:n,:], candidate)\n    if d.min() &gt; delta:\n        xy[n,:] = candidate\n        n += 1\n\ndf = pd.DataFrame(data=xy, columns=['x', 'y'])\nsns.scatterplot(x='x', y='y', data=df);"
+  },
+  {
+    "objectID": "lectures/week10/point-processes.html#csr-n20",
+    "href": "lectures/week10/point-processes.html#csr-n20",
+    "title": "Point Processes",
+    "section": "CSR n=20",
+    "text": "CSR n=20\n\n\nCode\ndelta = 0.1\nxy = np.random.rand(20,2)\ndf = pd.DataFrame(data=xy, columns=['x', 'y'])\nsns.scatterplot(x='x', y='y', data=df);"
+  },
+  {
     "objectID": "lectures/week01/lecture_sda.html#definition-of-spatial-data-analysis",
     "href": "lectures/week01/lecture_sda.html#definition-of-spatial-data-analysis",
     "title": "Introduction to Spatial Data Analysis",
@@ -791,7 +980,7 @@
     "href": "lectures/week06/spatial_weights.html#constructing-queen-weights",
     "title": "Spatial Weights",
     "section": "Constructing Queen Weights",
-    "text": "Constructing Queen Weights\nTo construct queen weights from a shapefile, we will use geopandas to read the file into a GeoDataFrame, and then use libpysal to construct the weights:\n\npath = \"~/data/scag_region.parquet\"\ndf = geopandas.read_parquet(path)\ndf = df.to_crs(26911)  #UTM zone 11N\nqW = Queen.from_dataframe(df)\nqW\n\n&lt;libpysal.weights.contiguity.Queen at 0x795c71799450&gt;",
+    "text": "Constructing Queen Weights\nTo construct queen weights from a shapefile, we will use geopandas to read the file into a GeoDataFrame, and then use libpysal to construct the weights:\n\npath = \"~/data/scag_region.parquet\"\ndf = geopandas.read_parquet(path)\ndf = df.to_crs(26911)  #UTM zone 11N\nqW = Queen.from_dataframe(df)\nqW\n\n&lt;libpysal.weights.contiguity.Queen at 0x7dcdbdb66e90&gt;",
     "crumbs": [
       "Home",
       "09-30 Spatial Weights"
@@ -2538,13 +2727,6 @@
     "text": "Open Floor for Questions\n\nEncourage students to ask questions or discuss topics of interest."
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Anselin, L. 1999. “Interactive Techniques and Exploratory Spatial Data Analysis.” In Geographical Information Systems: Principles, Techniques, Management and Applications, edited by P. A. Longley, M. Goodchild, D. J. Maguire, and D. W. Rhind, 251–64.\n\n\nArribas-Bel, Daniel, Thomas de Graaff, and Sergio J. Rey. 2017. “Looking at John Snow’s Cholera Map from the Twenty First Century: A Practical Primer on Reproducibility and Open Science.” In Regional Research Frontiers - Vol. 2: Methodological Advances, Regional Systems Modeling and Open Sciences, edited by Randall Jackson and Peter Schaeffer, 283–306. Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-50590-9_17.\n\n\nGillies, Sean et al. 2007--. “Shapely: Manipulation and Analysis of Geometric Objects.” toblerity.org. https://github.com/Toblerity/Shapely.\n\n\nHarrower, Mark, and Cynthia A. Brewer. 2003. “ColorBrewer.org: An Online Tool for Selecting Colour Schemes for Maps.” The Cartographic Journal 40 (1): 27–37. https://doi.org/10.1179/000870403235002042.\n\n\nHunter, John D. 2007a. “Matplotlib: A 2D Graphics Environment.” Computing in Science & Engineering 9 (3): 90–95. https://doi.org/10.1109/MCSE.2007.55.\n\n\n———. 2007b. “Matplotlib: A 2D Graphics Environment.” Computing in Science & Engineering 9 (3): 90–95. https://doi.org/10.1109/MCSE.2007.55.\n\n\nJordahl, Kelsey, Joris Van den Bossche, Martin Fleischmann, Jacob Wasserman, James McBride, Jeffrey Gerard, Jeff Tratner, et al. 2020. “Geopandas/Geopandas: V0.8.1.” Zenodo. https://doi.org/10.5281/zenodo.3946761.\n\n\nKnaap, Elijah, Wei Kang, Sergio Rey, Levi John Wolf, Renan Xavier Cortes, and Su Han. 2019. “Geosnap: The Geospatial Neighborhood Analysis Package.” Zenodo. https://doi.org/10.5281/ZENODO.3526163.\n\n\nLongley, Paul A, and James A Cheshire. 2017. “Geographical Information Systems.” In The Routledge Handbook of Mapping and Cartography, 251–58. Routledge.\n\n\nMcKinney, Wes. 2010. “Data Structures for Statistical Computing in Python.” In Proceedings of the 9th Python in Science Conference, edited by Stéfan van der Walt and Jarrod Millman, 56–61. https://doi.org/10.25080/Majora-92bf1922-00a .\n\n\nRey, Sergio J., Luc Anselin, Pedro Amaral, Dani Arribas-Bel, Renan Xavier Cortes, James David Gaboardi, Wei Kang, et al. 2022. “The PySAL Ecosystem: Philosophy and Implementation.” Geographical Analysis 54 (3): 467–87. https://doi.org/10.1111/gean.12276.\n\n\nTukey, J. W. 1977. Exploratory Data Analysis. New York: Addison-Wesley."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Course Home",
@@ -2557,6 +2739,48 @@
     "title": "Course Home",
     "section": "",
     "text": "Please refer to the course syllabus for detailed information on course structure, grading, and policies."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Anselin, L. 1999. “Interactive Techniques and Exploratory Spatial Data Analysis.” In Geographical Information Systems: Principles, Techniques, Management and Applications, edited by P. A. Longley, M. Goodchild, D. J. Maguire, and D. W. Rhind, 251–64.\n\n\nArribas-Bel, Daniel, Thomas de Graaff, and Sergio J. Rey. 2017. “Looking at John Snow’s Cholera Map from the Twenty First Century: A Practical Primer on Reproducibility and Open Science.” In Regional Research Frontiers - Vol. 2: Methodological Advances, Regional Systems Modeling and Open Sciences, edited by Randall Jackson and Peter Schaeffer, 283–306. Cham: Springer International Publishing. https://doi.org/10.1007/978-3-319-50590-9_17.\n\n\nGillies, Sean et al. 2007--. “Shapely: Manipulation and Analysis of Geometric Objects.” toblerity.org. https://github.com/Toblerity/Shapely.\n\n\nHarrower, Mark, and Cynthia A. Brewer. 2003. “ColorBrewer.org: An Online Tool for Selecting Colour Schemes for Maps.” The Cartographic Journal 40 (1): 27–37. https://doi.org/10.1179/000870403235002042.\n\n\nHunter, John D. 2007a. “Matplotlib: A 2D Graphics Environment.” Computing in Science & Engineering 9 (3): 90–95. https://doi.org/10.1109/MCSE.2007.55.\n\n\n———. 2007b. “Matplotlib: A 2D Graphics Environment.” Computing in Science & Engineering 9 (3): 90–95. https://doi.org/10.1109/MCSE.2007.55.\n\n\nJordahl, Kelsey, Joris Van den Bossche, Martin Fleischmann, Jacob Wasserman, James McBride, Jeffrey Gerard, Jeff Tratner, et al. 2020. “Geopandas/Geopandas: V0.8.1.” Zenodo. https://doi.org/10.5281/zenodo.3946761.\n\n\nKnaap, Elijah, Wei Kang, Sergio Rey, Levi John Wolf, Renan Xavier Cortes, and Su Han. 2019. “Geosnap: The Geospatial Neighborhood Analysis Package.” Zenodo. https://doi.org/10.5281/ZENODO.3526163.\n\n\nLongley, Paul A, and James A Cheshire. 2017. “Geographical Information Systems.” In The Routledge Handbook of Mapping and Cartography, 251–58. Routledge.\n\n\nMcKinney, Wes. 2010. “Data Structures for Statistical Computing in Python.” In Proceedings of the 9th Python in Science Conference, edited by Stéfan van der Walt and Jarrod Millman, 56–61. https://doi.org/10.25080/Majora-92bf1922-00a .\n\n\nRey, Sergio J., Luc Anselin, Pedro Amaral, Dani Arribas-Bel, Renan Xavier Cortes, James David Gaboardi, Wei Kang, et al. 2022. “The PySAL Ecosystem: Philosophy and Implementation.” Geographical Analysis 54 (3): 467–87. https://doi.org/10.1111/gean.12276.\n\n\nTukey, J. W. 1977. Exploratory Data Analysis. New York: Addison-Wesley."
+  },
+  {
+    "objectID": "assignments/vizmilestone.html",
+    "href": "assignments/vizmilestone.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "assignments/vizmilestone.html#objective",
+    "href": "assignments/vizmilestone.html#objective",
+    "title": "",
+    "section": "Objective",
+    "text": "Objective\nStudents will create initial visualizations of their chosen dataset for their spatial data analysis project using Jupyter Notebooks. They will submit their work as an exported, properly formatted PDF. This milestone allows students to receive feedback on their visualizations and ensures proper citation of their data sources."
+  },
+  {
+    "objectID": "assignments/vizmilestone.html#deliverables",
+    "href": "assignments/vizmilestone.html#deliverables",
+    "title": "",
+    "section": "Deliverables",
+    "text": "Deliverables\n\nDraft Visualizations in Jupyter Notebook:\n\nCreate at least three visualizations of your dataset using appropriate spatial analysis tools (e.g., GeoPandas, PySAL, Matplotlib, Seaborn, etc.) within a Jupyter Notebook.\nVisualizations should provide insights into key spatial patterns, trends, or clusters in the data.\nVisualizations may include maps (e.g., choropleths, point maps), graphs (e.g., histograms, scatterplots), or other appropriate formats based on the data type.\nEach visualization should include clear titles, legends, and labels to ensure they are easy to interpret.\nInclude code cells in the notebook showing how the visualizations were generated.\n\nData Source Citation (APA format):\n\nCite all sources of your data properly within the Jupyter Notebook using APA citation style.\nFor online datasets, include the name of the dataset, the name of the data repository or organization, the URL where the data was obtained, and the date of access if applicable.\nFor published datasets, include the author(s), year of publication, title of the dataset, and the DOI or other identifying information.\nExample citations in APA format:\n\nAuthor(s). (Year). Title of dataset [Data set]. Publisher. URL\nNational Oceanic and Atmospheric Administration. (2020). NOAA global surface temperature dataset [Data set]. NOAA. https://www.ncdc.noaa.gov\n\n\nExported PDF Submission:\n\nExport the Jupyter Notebook to a PDF format.\nEnsure the PDF is properly formatted with:\n\nClear section headings (e.g., Introduction, Visualizations, Data Source Citations, etc.).\nWell-organized code and output.\nAppropriate spacing between text, code, and figures for readability.\n\nVerify that all visualizations and citations appear correctly in the exported PDF."
+  },
+  {
+    "objectID": "assignments/vizmilestone.html#submission-instructions",
+    "href": "assignments/vizmilestone.html#submission-instructions",
+    "title": "",
+    "section": "Submission Instructions",
+    "text": "Submission Instructions\n\nSubmit the exported PDF file of your Jupyter Notebook.\nEnsure the PDF is formatted correctly, with all visualizations, code, and citations visible and properly formatted.\nEnsure that each visualization has an accompanying caption or brief explanation that interprets the visual for the audience."
+  },
+  {
+    "objectID": "assignments/vizmilestone.html#evaluation-criteria",
+    "href": "assignments/vizmilestone.html#evaluation-criteria",
+    "title": "",
+    "section": "Evaluation Criteria",
+    "text": "Evaluation Criteria\n\nClarity of Visualizations (30%): Are the visualizations clear and easy to interpret? Are axes, labels, legends, and titles correctly used?\nRelevance of Visualizations (30%): Do the visualizations help to reveal patterns, trends, or relevant aspects of the spatial data?\nProper Data Citation (20%): Are all data sources cited correctly within the Jupyter Notebook using APA format?\nFormatting and Presentation (20%): Is the exported PDF well-organized, with properly formatted code, visualizations, and citations? Are the captions and explanations clear and informative?\nNote, you must demonstrate competency on all of these criteria to earn credit for this milestone."
   },
   {
     "objectID": "studio/week09/peer2.html",
@@ -5240,5 +5464,236 @@
     "title": "Week 1 Studio: Jupyter",
     "section": "",
     "text": "[Studio module instructions go here…]"
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#point-pattern-analysis-objectives",
+    "href": "lectures/week10/point-patterns.html#point-pattern-analysis-objectives",
+    "title": "Point Pattern Basics",
+    "section": "Point Pattern Analysis Objectives",
+    "text": "Point Pattern Analysis Objectives\nGoals\n\nPattern detection\nAssessing the presence of clustering\nIdentification of individual clusters\n\nGeneral Approaches\n\nEstimate intensity of the process\nFormulating an idealized model and investigating deviations from expectations\nFormulating a stochastic model and fitting it to the data",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#point-pattern-analysis-definitions",
+    "href": "lectures/week10/point-patterns.html#point-pattern-analysis-definitions",
+    "title": "Point Pattern Basics",
+    "section": "Point Pattern Analysis Definitions",
+    "text": "Point Pattern Analysis Definitions\nSpatial Point Pattern: A set of events, irregularly distributed within a region \\(A\\) and presumed to have been generated by some form of stochastic mechanism.",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#spatial-point-process-leftyaa-subset-mathbbr-right",
+    "href": "lectures/week10/point-patterns.html#spatial-point-process-leftyaa-subset-mathbbr-right",
+    "title": "Point Pattern Basics",
+    "section": "Spatial Point Process \\(\\left\\{Y(A),A \\subset \\mathbb{R} \\right\\}\\)",
+    "text": "Spatial Point Process \\(\\left\\{Y(A),A \\subset \\mathbb{R} \\right\\}\\)\n\n\n\\(Y(A)\\): For each subset \\(A\\) of the spatial region \\(\\mathbb{R}\\), (\\(\\mathbb{R}^2\\), representing a two-dimensional space), the random variable \\(Y(A)\\) represents the number of events occurring within area \\(A\\).\nEvents in Area: An “event” refers to any occurrence of interest (e.g., sightings of a specific species, crimes, accidents) within the spatial region. Thus, \\(Y(A)\\) counts the occurrences in the specified region \\(A\\).\nCollection of Random Variables: For each possible area \\(A\\), there is a corresponding count \\(Y(A)\\). Together, these counts form a random field or point process over the space \\(\\mathbb{R}\\).",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#events-points-locations",
+    "href": "lectures/week10/point-patterns.html#events-points-locations",
+    "title": "Point Pattern Basics",
+    "section": "Events, points, locations",
+    "text": "Events, points, locations\n\n\nEvent: an occurrence of interest\nPoint: any location in study area\nEvent location: a particular point where an event occurs",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#point-pattern-analysis-definitions-1",
+    "href": "lectures/week10/point-patterns.html#point-pattern-analysis-definitions-1",
+    "title": "Point Pattern Basics",
+    "section": "Point Pattern Analysis Definitions",
+    "text": "Point Pattern Analysis Definitions\nRegion: \\(A\\)\n\nMost often planar (two-dimensional Euclidean space)\nOne dimensional applications also possible\nThree-dimensional increasingly popular (space + time)\nPoint processes on networks (non-planar)",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#space-time-point-patterns",
+    "href": "lectures/week10/point-patterns.html#space-time-point-patterns",
+    "title": "Point Pattern Basics",
+    "section": "Space-Time Point Patterns",
+    "text": "Space-Time Point Patterns",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#space-time-point-patterns-1",
+    "href": "lectures/week10/point-patterns.html#space-time-point-patterns-1",
+    "title": "Point Pattern Basics",
+    "section": "Space-Time Point Patterns",
+    "text": "Space-Time Point Patterns",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#point-patterns-on-networks",
+    "href": "lectures/week10/point-patterns.html#point-patterns-on-networks",
+    "title": "Point Pattern Basics",
+    "section": "Point Patterns on Networks",
+    "text": "Point Patterns on Networks",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#point-patterns",
+    "href": "lectures/week10/point-patterns.html#point-patterns",
+    "title": "Point Pattern Basics",
+    "section": "Point Patterns",
+    "text": "Point Patterns\nUnmarked Point Patterns\n\nOnly location is recorded\nAttribute is binary (presence, absence)\n\nMarked Point Patterns\n\nLocation is recorded\nNon-binary stochastic attribute\ne.g., sales at a retail store, dbh of tree",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#realizations",
+    "href": "lectures/week10/point-patterns.html#realizations",
+    "title": "Point Pattern Basics",
+    "section": "Realizations",
+    "text": "Realizations\nMapped Point Patterns\n\nAll events are recorded and mapped\nComplete enumeration of events\nFull information on the realization from the process\n\nSampled Point Patterns\n\nSample of events are recorded and mapped\nComplete enumeration of events impossible or intractable\nPartial information on the realization from the process\nPresence/“absence” data (ecology, forestry)",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#research-questions-1",
+    "href": "lectures/week10/point-patterns.html#research-questions-1",
+    "title": "Point Pattern Basics",
+    "section": "Research Questions",
+    "text": "Research Questions\n\nLocation Only are points randomly located or patterned\nLocation and Value\n\nmarked point pattern\nis combination of location and value random or patterned\n\n\nBoth Cases: What is the Underlying Process?",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#points-on-a-plane-planar-point-pattern-anaysis",
+    "href": "lectures/week10/point-patterns.html#points-on-a-plane-planar-point-pattern-anaysis",
+    "title": "Point Pattern Basics",
+    "section": "Points on a Plane (Planar Point Pattern Anaysis)",
+    "text": "Points on a Plane (Planar Point Pattern Anaysis)\nClassic Point Pattern Analysis\n\npoints on an isotropic plane\nno effect of translation and rotation\nclassic examples: tree seedlings, rocks, etc\n\nDistance\n\nno directional effects\nno translational effects\nstraight line distance only",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#events-point-map",
+    "href": "lectures/week10/point-patterns.html#events-point-map",
+    "title": "Point Pattern Basics",
+    "section": "Events: Point Map",
+    "text": "Events: Point Map",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#points-in-context",
+    "href": "lectures/week10/point-patterns.html#points-in-context",
+    "title": "Point Pattern Basics",
+    "section": "Points in Context",
+    "text": "Points in Context",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#intensity",
+    "href": "lectures/week10/point-patterns.html#intensity",
+    "title": "Point Pattern Basics",
+    "section": "Intensity",
+    "text": "Intensity\nFirst Moment\n\nnumber of points \\(N\\), area of study \\(|A|\\)\nintensity: \\(\\lambda = N/|A|\\)\narea depends on bounds, often arbitrary\n\nArtificial Boundaries\n\nbounding box (rectangle, square)\nother (city boundary)",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#bounding-box",
+    "href": "lectures/week10/point-patterns.html#bounding-box",
+    "title": "Point Pattern Basics",
+    "section": "Bounding Box",
+    "text": "Bounding Box",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#district-boundary",
+    "href": "lectures/week10/point-patterns.html#district-boundary",
+    "title": "Point Pattern Basics",
+    "section": "District Boundary",
+    "text": "District Boundary",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#convex-hull",
+    "href": "lectures/week10/point-patterns.html#convex-hull",
+    "title": "Point Pattern Basics",
+    "section": "Convex Hull",
+    "text": "Convex Hull\n\nTightest fit various algorithms\nRescaled Convex Hull (Ripley-Rasson)\n\nadjust to properly reflect spatial domain of point process\nuse centroid of convex hull\nrescale by \\(1/[\\sqrt{(1-m/N)}]\\)\n\\(m\\): number of vertices of convex hull",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#convex-hull-1",
+    "href": "lectures/week10/point-patterns.html#convex-hull-1",
+    "title": "Point Pattern Basics",
+    "section": "Convex Hull",
+    "text": "Convex Hull",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#multiple-boundaries",
+    "href": "lectures/week10/point-patterns.html#multiple-boundaries",
+    "title": "Point Pattern Basics",
+    "section": "Multiple Boundaries",
+    "text": "Multiple Boundaries",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
+  },
+  {
+    "objectID": "lectures/week10/point-patterns.html#intensity-estimates",
+    "href": "lectures/week10/point-patterns.html#intensity-estimates",
+    "title": "Point Pattern Basics",
+    "section": "Intensity Estimates",
+    "text": "Intensity Estimates\n\n\n\n\nArea\nIntensity\n\n\n\n\\(km^2\\)\n\\(cases/km^2\\)\n\n\nDistrict Boundary\n315.155\n3.29\n\n\nBounding Box\n310.951\n3.33\n\n\nConvex Hull\n229.421\n4.52\n\n\n\n\nN=1036",
+    "crumbs": [
+      "Home",
+      "10-28 Point Pattern Data"
+    ]
   }
 ]

@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Serge Rey">
+
+<title>Point Processes – Geography 385: Spatial Data Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles/custom.scss">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Geography 385: Spatial Data Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+        <li>
+    <a class="dropdown-item" href="../../lectures/week01/index.html">
+ <span class="dropdown-text">08-26 Course Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week01/lecture_sda.html">
+ <span class="dropdown-text">09-09 Spatial Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week04/lecture_area.html">
+ <span class="dropdown-text">09-16 Area Unit Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week05/choro.html">
+ <span class="dropdown-text">09-23 Choropleth Maps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week06/spatial_weights.html">
+ <span class="dropdown-text">09-30 Spatial Weights</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week07/global.html">
+ <span class="dropdown-text">10-07 Global Spatial Autocorrelation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week08/local.html">
+ <span class="dropdown-text">10-14 Local Spatial Autocorrelation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week09/regionalization.html">
+ <span class="dropdown-text">10-21 Clustering and Regionalization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week10/point-patterns.html">
+ <span class="dropdown-text">10-28 Point Pattern Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-studio" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Studio</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-studio">    
+        <li>
+    <a class="dropdown-item" href="../../studio/week01/index.html">
+ <span class="dropdown-text">08-28 Studio 1: Juptyer Hub Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week02/index.html">
+ <span class="dropdown-text">09-04 Studio 2: Pandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week03/index.html">
+ <span class="dropdown-text">09-11 Studio 3: GeoPandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week04/index.html">
+ <span class="dropdown-text">09-18 Studio 4: GeoProcessing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week05/index.html">
+ <span class="dropdown-text">09-25 Studio 5: Choropleth Mapping</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week06/peer1.html">
+ <span class="dropdown-text">10-02 Studio 6: Peer Evaluation 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week07/global.html">
+ <span class="dropdown-text">10-09 Studio 7: Global Spatial Autocorrelation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week08/local.html">
+ <span class="dropdown-text">10-16 Studio 8: Local Spatial Autocorrelation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week09/peer2.html">
+ <span class="dropdown-text">10-23 Studio 9: Peer Evaluation 2</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Point Processes</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08-26 Course Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08-28 Studio 1: Jupyter Hub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-04 Studio 2: Pandas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-09 Spatial Data Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-11 Studio 3: GeoPandas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week04/lecture_area.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-16 Area Unit Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-18 Studio 4: Geosnap and Geoprocessing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week05/choro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-23 Choropleth Mapping</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-25 Studio 5: Choropleth Mapping</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week06/spatial_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-30 Spatial Weights</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week06/peer1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-02 Studio 6: Peer Evaluation 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week07/global.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-07 Global Spatial Autocorrelation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week07/global.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-09 Studio 7: Global Spatial Autocorrelation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week08/local.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-14 Local Spatial Autocorrelation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week08/local.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-16 Studio 8: Local Spatial Autocorrelation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week09/regionalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-21 Clustering and Regionalization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week09/peer2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-23 Studio 9: Peer Evaluation 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week10/point-patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-28 Point Pattern Data</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#properties-of-point-processes" id="toc-properties-of-point-processes" class="nav-link" data-scroll-target="#properties-of-point-processes">Properties of Point Processes</a>
+  <ul class="collapse">
+  <li><a href="#first-order-properties" id="toc-first-order-properties" class="nav-link" data-scroll-target="#first-order-properties">First Order Properties</a>
+  <ul class="collapse">
+  <li><a href="#first-order-properties-spatial-analysis" id="toc-first-order-properties-spatial-analysis" class="nav-link" data-scroll-target="#first-order-properties-spatial-analysis">First Order Properties: Spatial Analysis</a></li>
+  </ul></li>
+  <li><a href="#second-order-property" id="toc-second-order-property" class="nav-link" data-scroll-target="#second-order-property">Second Order Property</a>
+  <ul class="collapse">
+  <li><a href="#second-order-properties-spatial-analysis" id="toc-second-order-properties-spatial-analysis" class="nav-link" data-scroll-target="#second-order-properties-spatial-analysis">Second Order Properties: Spatial Analysis</a></li>
+  </ul></li>
+  <li><a href="#spatial-stationarity" id="toc-spatial-stationarity" class="nav-link" data-scroll-target="#spatial-stationarity">Spatial Stationarity</a></li>
+  <li><a href="#spatial-isotropy-and-stationarity" id="toc-spatial-isotropy-and-stationarity" class="nav-link" data-scroll-target="#spatial-isotropy-and-stationarity">Spatial Isotropy and Stationarity</a></li>
+  <li><a href="#invariance" id="toc-invariance" class="nav-link" data-scroll-target="#invariance">Invariance</a></li>
+  </ul></li>
+  <li><a href="#point-processes" id="toc-point-processes" class="nav-link" data-scroll-target="#point-processes">Point Processes</a>
+  <ul class="collapse">
+  <li><a href="#complete-spatial-randomness" id="toc-complete-spatial-randomness" class="nav-link" data-scroll-target="#complete-spatial-randomness">Complete Spatial Randomness</a>
+  <ul class="collapse">
+  <li><a href="#poisson-point-process" id="toc-poisson-point-process" class="nav-link" data-scroll-target="#poisson-point-process">Poisson Point Process</a></li>
+  </ul></li>
+  <li><a href="#poisson-distribution" id="toc-poisson-distribution" class="nav-link" data-scroll-target="#poisson-distribution">Poisson Distribution</a></li>
+  <li><a href="#spatial-example" id="toc-spatial-example" class="nav-link" data-scroll-target="#spatial-example">Spatial Example</a></li>
+  <li><a href="#complete-spatial-randomness-csr" id="toc-complete-spatial-randomness-csr" class="nav-link" data-scroll-target="#complete-spatial-randomness-csr">Complete Spatial Randomness (CSR)</a></li>
+  <li><a href="#homogeneous-poisson-process" id="toc-homogeneous-poisson-process" class="nav-link" data-scroll-target="#homogeneous-poisson-process">Homogeneous Poisson Process</a></li>
+  <li><a href="#homogeneous-poisson-process-1" id="toc-homogeneous-poisson-process-1" class="nav-link" data-scroll-target="#homogeneous-poisson-process-1">Homogeneous Poisson process</a></li>
+  <li><a href="#poisson-distribution-lambda20" id="toc-poisson-distribution-lambda20" class="nav-link" data-scroll-target="#poisson-distribution-lambda20">Poisson Distribution <span class="math inline">\(\lambda=20\)</span></a></li>
+  <li><a href="#limitations-of-csr" id="toc-limitations-of-csr" class="nav-link" data-scroll-target="#limitations-of-csr">Limitations of CSR</a></li>
+  <li><a href="#inhomogeneous-poisson-process-ipp" id="toc-inhomogeneous-poisson-process-ipp" class="nav-link" data-scroll-target="#inhomogeneous-poisson-process-ipp">Inhomogeneous Poisson Process (IPP)</a></li>
+  <li><a href="#inhomogeneous-poisson-process" id="toc-inhomogeneous-poisson-process" class="nav-link" data-scroll-target="#inhomogeneous-poisson-process">Inhomogeneous Poisson Process</a></li>
+  <li><a href="#csr-vs.-constant-risk-hypotheses" id="toc-csr-vs.-constant-risk-hypotheses" class="nav-link" data-scroll-target="#csr-vs.-constant-risk-hypotheses">CSR vs.&nbsp;Constant Risk Hypotheses</a></li>
+  </ul></li>
+  <li><a href="#clustered-point-processes" id="toc-clustered-point-processes" class="nav-link" data-scroll-target="#clustered-point-processes">Clustered Point Processes</a>
+  <ul class="collapse">
+  <li><a href="#contagion-process-of-size-20-with-10-parents-and-2-children" id="toc-contagion-process-of-size-20-with-10-parents-and-2-children" class="nav-link" data-scroll-target="#contagion-process-of-size-20-with-10-parents-and-2-children">Contagion process of size 20 with 10 parents and 2 children</a></li>
+  <li><a href="#contagion-process-of-size-20-with-2-parents-and-10-children" id="toc-contagion-process-of-size-20-with-2-parents-and-10-children" class="nav-link" data-scroll-target="#contagion-process-of-size-20-with-2-parents-and-10-children">Contagion process of size 20 with 2 parents and 10 children</a></li>
+  <li><a href="#inhomogenous-poisson-process" id="toc-inhomogenous-poisson-process" class="nav-link" data-scroll-target="#inhomogenous-poisson-process">Inhomogenous Poisson Process</a></li>
+  <li><a href="#simulating-an-inhomogeneous-poisson-point-process" id="toc-simulating-an-inhomogeneous-poisson-point-process" class="nav-link" data-scroll-target="#simulating-an-inhomogeneous-poisson-point-process">Simulating An Inhomogeneous Poisson Point Process</a></li>
+  </ul></li>
+  <li><a href="#regular-patterns" id="toc-regular-patterns" class="nav-link" data-scroll-target="#regular-patterns">Regular Patterns</a>
+  <ul class="collapse">
+  <li><a href="#regular-processes" id="toc-regular-processes" class="nav-link" data-scroll-target="#regular-processes">Regular Processes</a></li>
+  <li><a href="#inhibition-process" id="toc-inhibition-process" class="nav-link" data-scroll-target="#inhibition-process">Inhibition Process</a></li>
+  <li><a href="#matern-thinning" id="toc-matern-thinning" class="nav-link" data-scroll-target="#matern-thinning">Matern (Thinning)</a></li>
+  <li><a href="#matern-sequential" id="toc-matern-sequential" class="nav-link" data-scroll-target="#matern-sequential">Matern (Sequential)</a></li>
+  <li><a href="#csr-n20" id="toc-csr-n20" class="nav-link" data-scroll-target="#csr-n20">CSR n=20</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Point Processes</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Serge Rey </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Thus far we have been looking at a collection of points as a point pattern.</p>
+<p>Now we want to take a different view of that pattern, one that sees the pattern as the outcome of a <em>process</em>.</p>
+<p>A <em>point process</em> is a statistical model that will generate point patterns with particular characteristics.</p>
+<p>From a scientific point of view we are interested in making inferences about the process that may have generated our point pattern.</p>
+</section>
+<section id="properties-of-point-processes" class="level1">
+<h1>Properties of Point Processes</h1>
+<section id="first-order-properties" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-properties">First Order Properties</h2>
+<section id="first-order-properties-spatial-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="first-order-properties-spatial-analysis">First Order Properties: Spatial Analysis</h3>
+<p>Mean value of the process in space</p>
+<ul>
+<li><p>Variation in mean value of the process in space</p></li>
+<li><p>Global, large scale spatial trend</p></li>
+</ul>
+<p>First Order Property of Point Patterns, Intensity: <span class="math inline">\(\lambda\)</span></p>
+<ul>
+<li><p>Intensity: <span class="math inline">\(\lambda\)</span> = number of events expected per unit area</p></li>
+<li><p>Estimation of <span class="math inline">\(\lambda\)</span></p></li>
+<li><p>Spatial variation of <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\lambda(s)\)</span>, <span class="math inline">\(s\)</span> is a location</p></li>
+</ul>
+<p><span class="math display">\[\lambda(s) = \lim_{ds\rightarrow 0}\left\{ \frac{E(Y(ds))}{ds} \right\}\]</span></p>
+</section>
+</section>
+<section id="second-order-property" class="level2">
+<h2 class="anchored" data-anchor-id="second-order-property">Second Order Property</h2>
+<section id="second-order-properties-spatial-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="second-order-properties-spatial-analysis">Second Order Properties: Spatial Analysis</h3>
+<p>Spatial Correlation Structure</p>
+<ul>
+<li>Deviations in values from process mean</li>
+<li>Local or small scale effects</li>
+</ul>
+<p>Second Order Property of Point Patterns</p>
+<ul>
+<li><p>Relationship between number of events in pairs of areas</p></li>
+<li><p>Second order intensity <span class="math inline">\(\gamma(s_i,s_j)\)</span></p></li>
+</ul>
+<p><span class="math display">\[\gamma(s_i,s_j) = \lim_{ds_i\rightarrow 0,ds_j\rightarrow 0}\left\{
+       \frac{E(Y(ds_i)Y(ds_j))}{ds_ids_j} \right\}\]</span></p>
+</section>
+</section>
+<section id="spatial-stationarity" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-stationarity">Spatial Stationarity</h2>
+<p>First Order Stationarity <span class="math display">\[\lambda(s) = \lambda \forall s \in A\]</span> <span class="math display">\[E(Y(A)) = \lambda \times A\]</span></p>
+<p>Second Order Stationarity <span class="math display">\[\gamma(s_i,s_j) = \gamma(s_i - s_j) = \gamma(h)\]</span></p>
+<ul>
+<li><p><span class="math inline">\(h\)</span> is the vector difference between locations <span class="math inline">\(s_i\)</span> and <span class="math inline">\(s_j\)</span></p></li>
+<li><p><span class="math inline">\(h\)</span> encompasses direction and distance (relative location)</p></li>
+<li><p>Second order intensity only depends on <span class="math inline">\(h\)</span> for second order stationarity</p></li>
+</ul>
+</section>
+<section id="spatial-isotropy-and-stationarity" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-isotropy-and-stationarity">Spatial Isotropy and Stationarity</h2>
+<p>Isotropic Process</p>
+<ul>
+<li><p>When a stationary process is invariant to rotation about the origin.</p></li>
+<li><p>Relationship between two events depend only on the distance separating their locations and not on their orientation to each other.</p></li>
+<li><p>Depends only on distance, not direction</p></li>
+</ul>
+<p>Usefulness</p>
+<ul>
+<li><p>Two pairs of events from a stationary process separated by same distance and relative direction should have same “relatedness”</p></li>
+<li><p>Two pairs of events from a stationary <em>and</em> isotropic process separated by the same distance (irrespective of direction) should have the same “relatedness”</p></li>
+<li><p>Both allow for replication and the ability to carry out estimation of the underlying DGP.</p></li>
+</ul>
+</section>
+<section id="invariance" class="level2">
+<h2 class="anchored" data-anchor-id="invariance">Invariance</h2>
+<div id="fig-rotation" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/translation.png" class="img-fluid figure-img"></p>
+<figcaption>Under Translation</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/rotation.png" class="img-fluid figure-img"></p>
+<figcaption>Under Rotation</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Invariance
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="point-processes" class="level1">
+<h1>Point Processes</h1>
+<section id="complete-spatial-randomness" class="level2">
+<h2 class="anchored" data-anchor-id="complete-spatial-randomness">Complete Spatial Randomness</h2>
+<div class="block">
+<p>CSR</p>
+<ul>
+<li><p>Standard of Reference</p></li>
+<li><p>Uniform: each location has equal probability</p></li>
+<li><p>Independent: location of points independent</p></li>
+<li><p>Homogeneous Planar Poisson Point Process</p></li>
+</ul>
+</div>
+<section id="poisson-point-process" class="level3">
+<h3 class="anchored" data-anchor-id="poisson-point-process">Poisson Point Process</h3>
+<div class="block">
+<p>Intensity</p>
+<ul>
+<li><p>number of points in region <span class="math inline">\(A: N(A)\)</span></p></li>
+<li><p>intensity: <span class="math inline">\(\lambda = N/|A|\)</span></p></li>
+<li><p>implies: <span class="math inline">\(\lambda |A|\)</span> points randomly scattered in a region with area <span class="math inline">\(|A|\)</span></p></li>
+<li><p>e.g., <span class="math inline">\(10\times 1\)</span> (points per <span class="math inline">\(km^2\)</span>)</p></li>
+</ul>
+</div>
+<div class="block">
+<p>Poisson Distribution <span class="math inline">\(N(A) \sim Poi(\lambda |A|)\)</span></p>
+</div>
+</section>
+</section>
+<section id="poisson-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="poisson-distribution">Poisson Distribution</h2>
+<div class="block">
+<p>Single Parameter Distribution: <span class="math inline">\(\lambda |A|\)</span></p>
+<ul>
+<li><p>Generally, <span class="math inline">\(\lambda\)</span> is the number of events in some well defined <em>interval</em></p>
+<ul>
+<li><p>Time: phone calls to operator in one hour</p></li>
+<li><p>Time: accidents at an intersection per week</p></li>
+<li><p>Space: trees in a quadrat</p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(x\)</span> be a Poisson random variable</p>
+<ul>
+<li><span class="math inline">\(E[x] = V[x]= \lambda |A|\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div class="block">
+<p>Poisson Distribution <span class="math display">\[P(x) =  \frac{e^{-\lambda |A|} (\lambda |A|)^x}{x!}\]</span></p>
+</div>
+</section>
+<section id="spatial-example" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-example">Spatial Example</h2>
+<div class="block">
+<p>CSR with <span class="math inline">\(\lambda = 5/km^2\)</span></p>
+<ul>
+<li><p>Region = Circle</p>
+<ul>
+<li><p>area = <span class="math inline">\(|A| = \pi r^2\)</span></p></li>
+<li><p><span class="math inline">\(r=0.1\ km\)</span> then area <span class="math inline">\(\approx 0.03 \ km^2\)</span></p></li>
+</ul></li>
+<li><p>Probability of Zero Points in Circle <span class="math display">\[\begin{aligned}
+         P[N(A) = 0] &amp;= &amp;  e^{-\lambda |A|} (\lambda |A|)^x /x!\\
+                     &amp;\approx&amp;e^{-5 \times 0.03} (5 \times 0.03)^0 /0!\\
+                     &amp;\approx&amp;e^{-5 \times 0.03} \\
+                     &amp;\approx&amp;0.86
+       \end{aligned}\]</span></p></li>
+</ul>
+</div>
+</section>
+<section id="complete-spatial-randomness-csr" class="level2">
+<h2 class="anchored" data-anchor-id="complete-spatial-randomness-csr">Complete Spatial Randomness (CSR)</h2>
+<div class="block">
+<p>Homogeneous spatial Poisson point process</p>
+<ol type="1">
+<li><p>The number of events occurring within a finite region <span class="math inline">\(A\)</span> is a random variable following a Poisson distribution with mean <span class="math inline">\(\lambda|A|\)</span>, with <span class="math inline">\(|A|\)</span> denoting area of <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Given the total number of events <span class="math inline">\(N\)</span> occurring within an area <span class="math inline">\(A\)</span>, the locations of the <span class="math inline">\(N\)</span> events represent an independent random sample of <span class="math inline">\(N\)</span> locations where each location is equally likely to be chosen as an event.</p></li>
+</ol>
+</div>
+<div class="block">
+<ul>
+<li><p>Criterion 2 is the general concept of CSR (uniform (random)) distribution in <span class="math inline">\(A\)</span>.</p></li>
+<li><p>Criterion 1 pertains to the intensity <span class="math inline">\(\lambda\)</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="homogeneous-poisson-process" class="level2">
+<h2 class="anchored" data-anchor-id="homogeneous-poisson-process">Homogeneous Poisson Process</h2>
+<div class="block">
+<p>Implications</p>
+<ol type="1">
+<li><p>The number of events in nonoverlapping regions in <span class="math inline">\(A\)</span> are statistically independent.</p></li>
+<li><p>For any region <span class="math inline">\(R \subset A\)</span>: <span class="math display">\[\lim_{|R| \rightarrow 0} \frac{Pr[exactly\ one\ event\ in\ R]}{|R|}
+      = \lambda &gt; 0\]</span></p></li>
+<li><p><span class="math display">\[\lim_{|R| \rightarrow 0} \frac{Pr[more\ than\ one\ event\ in\
+       R]}{|R|} = 0\]</span></p></li>
+</ol>
+</div>
+<p>:::</p>
+</section>
+<section id="homogeneous-poisson-process-1" class="level2">
+<h2 class="anchored" data-anchor-id="homogeneous-poisson-process-1">Homogeneous Poisson process</h2>
+<div class="block">
+<p>Implications</p>
+<ul>
+<li><p><span class="math inline">\(\lambda\)</span> is the intensity of the spatial point pattern.</p></li>
+<li><p>For a Poisson random variable, <span class="math inline">\(Y\)</span>: <span class="math display">\[E[Y] = \lambda = V[Y]\]</span></p></li>
+<li><p>Provides the motivation for some quadrat tests of CSR hypothesis.</p>
+<ul>
+<li><p>If <span class="math inline">\(Y_R\)</span> is the count in quadrat <span class="math inline">\(R\)</span></p></li>
+<li><p>If <span class="math inline">\(\widehat{E[Y]}&lt; \widehat{V[Y]}\)</span>: overdispersion = spatial clustering</p></li>
+<li><p>If <span class="math inline">\(\widehat{E[Y]}&gt; \widehat{V[Y]}\)</span>: underdispersion = spatial uniformity</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="poisson-distribution-lambda20" class="level2">
+<h2 class="anchored" data-anchor-id="poisson-distribution-lambda20">Poisson Distribution <span class="math inline">\(\lambda=20\)</span></h2>
+<div id="4a5b124d" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.random.rand(<span class="dv">20</span>,<span class="dv">2</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>,<span class="st">'y'</span>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, data<span class="op">=</span>df)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-2-output-1.png" width="589" height="432" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The example we just did is known as <span class="math inline">\(n-conditioning\)</span> where we will always get <span class="math inline">\(n\)</span> points for the CSR process.</p>
+<p>A slightly different approach to generating a random point process is to use <span class="math inline">\(\lambda-conditioning\)</span></p>
+<div id="23ef53b5" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lam<span class="op">=</span><span class="dv">20</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> poisson.rvs(lam, <span class="dv">1</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.random.rand(n,<span class="dv">2</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>,<span class="st">'y'</span>])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, data<span class="op">=</span>df)<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-3-output-1.png" width="591" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The difference is the number of points in the pattern will always be <span class="math inline">\(n\)</span> with <span class="math inline">\(n-conditioning\)</span> but may not be <span class="math inline">\(n\)</span> with <span class="math inline">\(\lambda-conditioning\)</span>. The latter allows the intensity to be drawn from a Poisson distribution, then that becomes the parameter for the draw of the point pattern.</p>
+</section>
+<section id="limitations-of-csr" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-csr">Limitations of CSR</h2>
+<div class="block">
+<p>Stationary Poisson Process</p>
+<ul>
+<li>homogeneous</li>
+<li>translation invaratiant</li>
+</ul>
+</div>
+<div class="block">
+<p>Rare in practice - very few actual processes are CSR</p>
+</div>
+<div class="block">
+<p>Strawman</p>
+<ul>
+<li><p>purely a benchmark</p></li>
+<li><p>null hypothesis</p></li>
+</ul>
+</div>
+</section>
+<section id="inhomogeneous-poisson-process-ipp" class="level2">
+<h2 class="anchored" data-anchor-id="inhomogeneous-poisson-process-ipp">Inhomogeneous Poisson Process (IPP)</h2>
+<div class="block">
+<p>Criteria</p>
+<ol type="1">
+<li><p>The number of events occurring within a finite region <span class="math inline">\(A\)</span> is a random variable following a Poisson Distribution with mean <span class="math inline">\(\int_{A}\lambda(s) ds\)</span>.</p></li>
+<li><p>Given the total number of events <span class="math inline">\(N\)</span> occurring within <span class="math inline">\(A\)</span>, the <span class="math inline">\(N\)</span> events represent an independent sample of <span class="math inline">\(N\)</span> locations, with the probability of sampling a particular point <span class="math inline">\(s\)</span> proportional to <span class="math inline">\(\lambda(s)\)</span>.</p></li>
+</ol>
+</div>
+<div class="block">
+<p>Spatially Variable Intensity <span class="math inline">\(\lambda(s)\)</span></p>
+<ul>
+<li><p>Useful for <em>constant risk hypothesis</em></p></li>
+<li><p>Underlying population at risk is spatially clustered</p></li>
+<li><p>Want to control for that since with individual constant risk apparent clusters would be generated.</p></li>
+<li><p>Compare pattern against constant risk, not CSR.</p></li>
+</ul>
+</div>
+</section>
+<section id="inhomogeneous-poisson-process" class="level2">
+<h2 class="anchored" data-anchor-id="inhomogeneous-poisson-process">Inhomogeneous Poisson Process</h2>
+<div class="block">
+<p>Implications</p>
+<ul>
+<li><p>Apparent clusters can occur solely due to heterogeneities in the intensity function <span class="math inline">\(\lambda(s)\)</span>.</p></li>
+<li><p>Individual event locations still remain independent of one another.</p></li>
+<li><p>Process is not stationary due to intensity heterogeneity</p></li>
+</ul>
+</div>
+<div class="block">
+<p>HPP vs.&nbsp;IPP HPP is a special case of IPP with a constant intensity</p>
+</div>
+</section>
+<section id="csr-vs.-constant-risk-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="csr-vs.-constant-risk-hypotheses">CSR vs.&nbsp;Constant Risk Hypotheses</h2>
+<div class="block">
+<p>CSR</p>
+<ul>
+<li><p>Intensity is spatially constant</p></li>
+<li><p>Population at risk assumed spatially uniform</p></li>
+<li><p>Useful null hypothesis if these conditions are met</p></li>
+</ul>
+</div>
+<div class="block">
+<p>Constant Risk Hypothesis</p>
+<ul>
+<li><p>Population density variable</p></li>
+<li><p>Individual risk constant</p></li>
+<li><p>Expected number of events should vary with population density</p></li>
+<li><p>Clusters due to deviation from CSR</p></li>
+<li><p>Clusters due to deviation from CSR and Constant Risk</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="clustered-point-processes" class="level1">
+<h1>Clustered Point Processes</h1>
+<p>Clustered Patterns are more grouped than random patterns. Visually, we can observe more points at short distances. There are two sources of clustering:</p>
+<ul>
+<li>Contagion: presence of events at one location affects probability of events at another location (correlated point process)</li>
+<li>Heterogeneity: intensity λ varies with location (heterogeneous Poisson point process)</li>
+</ul>
+<p>We are going to focus on simulating correlated point process in this notebook. One example of correlated point process is Poisson cluster process. Two stages are involved in simulating a Poisson cluster process. First, parent events are simulted from a λ-conditioned or n-conditioned CSR.</p>
+<p>Second, n offspring events for each parent event are simulated within a circle of radius r centered on the parent. Offspring events are independently and identically distributed.</p>
+<section id="contagion-process-of-size-20-with-10-parents-and-2-children" class="level2">
+<h2 class="anchored" data-anchor-id="contagion-process-of-size-20-with-10-parents-and-2-children">Contagion process of size 20 with 10 parents and 2 children</h2>
+<div id="bb410479" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pointpats <span class="im">as</span> pp</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> pp.Window([(<span class="dv">0</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">0</span>)])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>draw <span class="op">=</span> pp.PoissonClusterPointProcess(w, <span class="dv">20</span>, <span class="dv">10</span>, <span class="fl">0.05</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>, conditioning<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>draw.realizations[<span class="dv">0</span>].plot(window<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Contagion Point Process (10 parents)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-4-output-1.png" width="373" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="contagion-process-of-size-20-with-2-parents-and-10-children" class="level2">
+<h2 class="anchored" data-anchor-id="contagion-process-of-size-20-with-2-parents-and-10-children">Contagion process of size 20 with 2 parents and 10 children</h2>
+<div id="4f96974f" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pointpats <span class="im">as</span> pp</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> pp.Window([(<span class="dv">0</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">0</span>)])</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>draw <span class="op">=</span> pp.PoissonClusterPointProcess(w, <span class="dv">20</span>, <span class="dv">2</span>, <span class="fl">0.05</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>, conditioning<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>draw.realizations[<span class="dv">0</span>].plot(window<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Contagion Point Process (2 parents)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-5-output-1.png" width="579" height="133" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="inhomogenous-poisson-process" class="level2">
+<h2 class="anchored" data-anchor-id="inhomogenous-poisson-process">Inhomogenous Poisson Process</h2>
+<div class="block">
+<p>Intensity varies with a covariate</p>
+<ul>
+<li>trend surface</li>
+<li><span class="math inline">\(\lambda(s) = exp(\alpha + \beta s)\)</span></li>
+</ul>
+</div>
+<div class="block">
+<p>Intensity varies with distance to a focus</p>
+<ul>
+<li><span class="math inline">\(\lambda(s) = \lambda 0(s). f( || s-s_0||, \theta)\)</span></li>
+</ul>
+</div>
+</section>
+<section id="simulating-an-inhomogeneous-poisson-point-process" class="level2">
+<h2 class="anchored" data-anchor-id="simulating-an-inhomogeneous-poisson-point-process">Simulating An Inhomogeneous Poisson Point Process</h2>
+<p>Intensity function:</p>
+<p><span class="math inline">\(\lambda(s) = 100 e^{-(x^2 + y^2) / \sigma}\)</span></p>
+<p><span class="math inline">\(\sigma\)</span> is a scale parameter here, equal to 0.5</p>
+<div id="d0048bab" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np<span class="op">;</span>  <span class="co"># NumPy package for arrays, random number generation, etc</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt  <span class="co"># For plotting</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize  <span class="co"># For optimizing</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> integrate  <span class="co"># For integrating</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.close(<span class="st">'all'</span>)<span class="op">;</span>  <span class="co"># close all figures</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation window parameters</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>xMin <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>xMax <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>yMin <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>yMax <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>xDelta <span class="op">=</span> xMax <span class="op">-</span> xMin<span class="op">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>yDelta <span class="op">=</span> yMax <span class="op">-</span> yMin<span class="op">;</span>  <span class="co"># rectangle dimensions</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>areaTotal <span class="op">=</span> xDelta <span class="op">*</span> yDelta<span class="op">;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>numbSim <span class="op">=</span> <span class="dv">10</span> <span class="op">**</span> <span class="dv">3</span><span class="op">;</span>  <span class="co"># number of simulations</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span>  <span class="co"># scale parameter</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Point process parameters</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun_lambda(x, y):</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">100</span> <span class="op">*</span> np.exp(<span class="op">-</span>(x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> y <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> s <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span>  <span class="co"># intensity function</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#fun_lambda = lambda x,y: 100 * np.exp(-(x ** 2 + y ** 2) / s ** 2);</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">###START -- find maximum lambda -- START </span><span class="al">###</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># For an intensity function lambda, given by function fun_lambda,</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># finds the maximum of lambda in a rectangular region given by</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co"># [xMin,xMax,yMin,yMax].</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun_Neg(x):</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>fun_lambda(x[<span class="dv">0</span>], x[<span class="dv">1</span>])<span class="op">;</span>  <span class="co"># negative of lambda</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#fun_Neg = lambda x: -fun_lambda(x[0], x[1]);  # negative of lambda</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>xy0 <span class="op">=</span> [(xMin <span class="op">+</span> xMax) <span class="op">/</span> <span class="dv">2</span>, (yMin <span class="op">+</span> yMax) <span class="op">/</span> <span class="dv">2</span>]<span class="op">;</span>  <span class="co"># initial value(ie centre)</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Find largest lambda value</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>resultsOpt <span class="op">=</span> minimize(fun_Neg, xy0, bounds<span class="op">=</span>((xMin, xMax), (yMin, yMax)))<span class="op">;</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>lambdaNegMin <span class="op">=</span> resultsOpt.fun<span class="op">;</span>  <span class="co"># retrieve minimum value found by minimize</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>lambdaMax <span class="op">=</span> <span class="op">-</span>lambdaNegMin<span class="op">;</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co">###</span><span class="re">END</span><span class="co"> -- find maximum lambda -- </span><span class="re">END</span><span class="co"> </span><span class="al">###</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co"># define thinning probability function</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun_p(x, y):</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fun_lambda(x, y) <span class="op">/</span> lambdaMax<span class="op">;</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="co">#fun_p = lambda x, y: fun_lambda(x, y) / lambdaMax;</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co"># for collecting statistics -- set numbSim=1 for one simulation</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>numbPointsRetained <span class="op">=</span> np.zeros(numbSim)<span class="op">;</span>  <span class="co"># vector to record number of points</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ii <span class="kw">in</span> <span class="bu">range</span>(numbSim):</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Simulate a Poisson point process</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    numbPoints <span class="op">=</span> np.random.poisson(areaTotal <span class="op">*</span> lambdaMax)<span class="op">;</span>  <span class="co"># Poisson number of points</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    xx <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, xDelta, ((numbPoints, <span class="dv">1</span>))) <span class="op">+</span> xMin<span class="op">;</span>  <span class="co"># x coordinates of Poisson points</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    yy <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, yDelta, ((numbPoints, <span class="dv">1</span>))) <span class="op">+</span> yMin<span class="op">;</span>  <span class="co"># y coordinates of Poisson points</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate spatially-dependent thinning probabilities</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> fun_p(xx, yy)<span class="op">;</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate Bernoulli variables (ie coin flips) for thinning</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    booleRetained <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">1</span>, ((numbPoints, <span class="dv">1</span>))) <span class="op">&lt;</span> p<span class="op">;</span>  <span class="co"># points to be retained</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x/y locations of retained points</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    xxRetained <span class="op">=</span> xx[booleRetained]<span class="op">;</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    yyRetained <span class="op">=</span> yy[booleRetained]<span class="op">;</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    numbPointsRetained[ii] <span class="op">=</span> xxRetained.size<span class="op">;</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>plt.scatter(xxRetained, yyRetained, edgecolor<span class="op">=</span><span class="st">'b'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)<span class="op">;</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)<span class="op">;</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>plt.xlim([xMin, xMax])<span class="op">;</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>plt.ylim([xMin, xMax])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-6-output-1.png" width="600" height="434" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="https://hpaulkeeler.com/simulating-an-inhomogeneous-poisson-point-process/">source</a></p>
+<p>That pattern comes from a spatially-explicit thinning of a CSR pattern:</p>
+<div id="f54f35ce" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(xx, yy, edgecolor<span class="op">=</span><span class="st">'b'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-7-output-1.png" width="589" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="regular-patterns" class="level1">
+<h1>Regular Patterns</h1>
+<section id="regular-processes" class="level2">
+<h2 class="anchored" data-anchor-id="regular-processes">Regular Processes</h2>
+<div class="block">
+<p>Less grouped than CSR</p>
+<ul>
+<li>fewer high densities</li>
+<li>dispersed</li>
+<li>repulsion, competition</li>
+</ul>
+</div>
+<div class="block">
+<p>Underdispersion</p>
+<ul>
+<li>variance &lt; mean</li>
+<li>less variation in densities than CSR</li>
+</ul>
+</div>
+</section>
+<section id="inhibition-process" class="level2">
+<h2 class="anchored" data-anchor-id="inhibition-process">Inhibition Process</h2>
+<div class="block">
+<p>Minimum Permissible Distance</p>
+<ul>
+<li>no two points closer than <span class="math inline">\(\delta\)</span></li>
+<li>packing intensity <span class="math inline">\(\tau = \lambda \pi \delta^2 / 4\)</span></li>
+</ul>
+</div>
+<div class="block">
+<p>Matern Process</p>
+<ul>
+<li>thinned Poisson process using <span class="math inline">\(\delta\)</span></li>
+<li>sequential inhibition process, generate points conditional on previous points and distance (denser than the thinned approach)</li>
+</ul>
+</div>
+</section>
+<section id="matern-thinning" class="level2">
+<h2 class="anchored" data-anchor-id="matern-thinning">Matern (Thinning)</h2>
+<div id="1df3f8b1" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.random.random((n,<span class="dv">2</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>xy</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial <span class="im">import</span> distance_matrix</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> distance_matrix(xy, xy) <span class="co"># 20 x 20 distance matrix</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>d[<span class="dv">0</span>] <span class="co"># first row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>array([0.        , 0.75403388, 0.4570564 , 0.33860475, 0.38256491,
+       0.67009276, 0.94484483, 0.716711  , 0.56856568, 0.40881349,
+       0.49326812, 0.46210886, 0.64101492, 0.36620498, 0.20105384,
+       1.02432357, 0.29284635, 0.4855703 , 0.42540863, 0.41333518])</code></pre>
+</div>
+</div>
+<p>Determine which observations to thin</p>
+<div id="6e6ea079" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ijs <span class="op">=</span> np.where(d<span class="op">&lt;</span>delta)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>i,j <span class="op">=</span> ijs</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(i[i<span class="op">!=</span>j], j[i<span class="op">!=</span>j]))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The pairs within delta of one another:"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pairs)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>drop <span class="op">=</span> []</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> left, right <span class="kw">in</span> pairs:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> left <span class="kw">in</span> drop <span class="kw">or</span> right <span class="kw">in</span> drop:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        drop.append(left)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Observations to drop:"</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(drop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The pairs within delta of one another:
+[(np.int64(3), np.int64(9)), (np.int64(3), np.int64(13)), (np.int64(9), np.int64(3)), (np.int64(9), np.int64(13)), (np.int64(9), np.int64(19)), (np.int64(13), np.int64(3)), (np.int64(13), np.int64(9)), (np.int64(19), np.int64(9))]
+Observations to drop:
+[np.int64(3), np.int64(9)]</code></pre>
+</div>
+</div>
+<div id="7369ea73" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>, <span class="st">'y'</span>])</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'thin'</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df.iloc[drop, df.columns.get_loc(<span class="st">'thin'</span>)] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">x</th>
+<th data-quarto-table-cell-role="th">y</th>
+<th data-quarto-table-cell-role="th">thin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.929616</td>
+<td>0.316376</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.183919</td>
+<td>0.204560</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.567725</td>
+<td>0.595545</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.964515</td>
+<td>0.653177</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.748907</td>
+<td>0.653570</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="265070c4" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, hue<span class="op">=</span><span class="st">'thin'</span>, data<span class="op">=</span>df)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-11-output-1.png" width="589" height="432" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="matern-sequential" class="level2">
+<h2 class="anchored" data-anchor-id="matern-sequential">Matern (Sequential)</h2>
+<div id="526e96b9" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.zeros((N,<span class="dv">2</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>xy[<span class="dv">0</span>,:] <span class="op">=</span> np.random.rand(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n <span class="op">&lt;</span> N:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    candidate <span class="op">=</span> np.random.rand(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> distance_matrix(xy[:n,:], candidate)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> d.<span class="bu">min</span>() <span class="op">&gt;</span> delta:</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        xy[n,:] <span class="op">=</span> candidate</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>, <span class="st">'y'</span>])</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, data<span class="op">=</span>df)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-12-output-1.png" width="591" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="csr-n20" class="level2">
+<h2 class="anchored" data-anchor-id="csr-n20">CSR n=20</h2>
+<div id="e7f8b282" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.random.rand(<span class="dv">20</span>,<span class="dv">2</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>, <span class="st">'y'</span>])</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, data<span class="op">=</span>df)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="point-processes_files/figure-html/cell-13-output-1.png" width="589" height="432" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/sjsrey\.github\.io\/385f24\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb15" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Point Processes</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Serge Rey"</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">    theme:</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">      light: flatly</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">      dark: darkly</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>Thus far we have been looking at a collection of points as a point pattern.</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>Now we want to take a different view of that pattern, one that sees the pattern as the outcome of a *process*.</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>A *point process* is a statistical model that will generate point patterns with particular characteristics.</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>From a scientific point of view we are interested in making inferences about the process that may have generated our point pattern.</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Properties of Point Processes</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## First Order Properties</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### First Order Properties: Spatial Analysis</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>Mean value of the process in space</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Variation in mean value of the process in space</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Global, large scale spatial trend</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>First Order Property of Point Patterns, Intensity: $\lambda$</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Intensity: $\lambda$ = number of events expected per unit area</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Estimation of $\lambda$</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Spatial variation of $\lambda$, $\lambda(s)$, $s$ is a location</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>$$\lambda(s) = \lim_{ds\rightarrow 0}\left<span class="sc">\{</span> \frac{E(Y(ds))}{ds} \right<span class="sc">\}</span>$$</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Second Order Property</span></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Second Order Properties: Spatial Analysis</span></span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a>Spatial Correlation Structure</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Deviations in values from process mean</span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Local or small scale effects</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a>Second Order Property of Point Patterns</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Relationship between number of events in pairs of areas</span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Second order intensity $\gamma(s_i,s_j)$</span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a>$$\gamma(s_i,s_j) = \lim_{ds_i\rightarrow 0,ds_j\rightarrow 0}\left<span class="sc">\{</span></span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a>       \frac{E(Y(ds_i)Y(ds_j))}{ds_ids_j} \right<span class="sc">\}</span>$$</span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Spatial Stationarity</span></span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a>First Order Stationarity $$\lambda(s) = \lambda \forall s \in A$$</span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a>$$E(Y(A)) = \lambda \times A$$</span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a>Second Order Stationarity</span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a>$$\gamma(s_i,s_j) = \gamma(s_i - s_j) = \gamma(h)$$</span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$h$ is the vector difference between locations $s_i$ and $s_j$</span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$h$ encompasses direction and distance (relative location)</span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Second order intensity only depends on $h$ for second order</span>
+<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a>    stationarity</span>
+<span id="cb15-80"><a href="#cb15-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Spatial Isotropy and Stationarity</span></span>
+<span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a>Isotropic Process</span>
+<span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-85"><a href="#cb15-85" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>When a stationary process is invariant to rotation about the origin.</span>
+<span id="cb15-86"><a href="#cb15-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-87"><a href="#cb15-87" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Relationship between two events depend only on the distance</span>
+<span id="cb15-88"><a href="#cb15-88" aria-hidden="true" tabindex="-1"></a>    separating their locations and not on their orientation to each</span>
+<span id="cb15-89"><a href="#cb15-89" aria-hidden="true" tabindex="-1"></a>    other.</span>
+<span id="cb15-90"><a href="#cb15-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-91"><a href="#cb15-91" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Depends only on distance, not direction</span>
+<span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a>Usefulness</span>
+<span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-95"><a href="#cb15-95" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Two pairs of events from a stationary process separated by same</span>
+<span id="cb15-96"><a href="#cb15-96" aria-hidden="true" tabindex="-1"></a>    distance and relative direction should have same "relatedness"</span>
+<span id="cb15-97"><a href="#cb15-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-98"><a href="#cb15-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Two pairs of events from a stationary *and* isotropic process</span>
+<span id="cb15-99"><a href="#cb15-99" aria-hidden="true" tabindex="-1"></a>    separated by the same distance (irrespective of direction) should</span>
+<span id="cb15-100"><a href="#cb15-100" aria-hidden="true" tabindex="-1"></a>    have the same "relatedness"</span>
+<span id="cb15-101"><a href="#cb15-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-102"><a href="#cb15-102" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Both allow for replication and the ability to carry out estimation</span>
+<span id="cb15-103"><a href="#cb15-103" aria-hidden="true" tabindex="-1"></a>    of the underlying DGP.</span>
+<span id="cb15-104"><a href="#cb15-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-105"><a href="#cb15-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-106"><a href="#cb15-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-107"><a href="#cb15-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Invariance</span></span>
+<span id="cb15-108"><a href="#cb15-108" aria-hidden="true" tabindex="-1"></a>::: {#fig-rotation layout-ncol=2}</span>
+<span id="cb15-109"><a href="#cb15-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-110"><a href="#cb15-110" aria-hidden="true" tabindex="-1"></a><span class="al">![Under Translation](../images/translation.png)</span></span>
+<span id="cb15-111"><a href="#cb15-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-112"><a href="#cb15-112" aria-hidden="true" tabindex="-1"></a><span class="al">![Under Rotation](../images/rotation.png)</span></span>
+<span id="cb15-113"><a href="#cb15-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-114"><a href="#cb15-114" aria-hidden="true" tabindex="-1"></a>Invariance</span>
+<span id="cb15-115"><a href="#cb15-115" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-116"><a href="#cb15-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-117"><a href="#cb15-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-118"><a href="#cb15-118" aria-hidden="true" tabindex="-1"></a><span class="fu"># Point Processes</span></span>
+<span id="cb15-119"><a href="#cb15-119" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete Spatial Randomness</span></span>
+<span id="cb15-120"><a href="#cb15-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-121"><a href="#cb15-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a>CSR</span>
+<span id="cb15-124"><a href="#cb15-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-125"><a href="#cb15-125" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Standard of Reference</span>
+<span id="cb15-126"><a href="#cb15-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-127"><a href="#cb15-127" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Uniform: each location has equal probability</span>
+<span id="cb15-128"><a href="#cb15-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-129"><a href="#cb15-129" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Independent: location of points independent</span>
+<span id="cb15-130"><a href="#cb15-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-131"><a href="#cb15-131" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Homogeneous Planar Poisson Point Process</span>
+<span id="cb15-132"><a href="#cb15-132" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-133"><a href="#cb15-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-134"><a href="#cb15-134" aria-hidden="true" tabindex="-1"></a><span class="fu">### Poisson Point Process</span></span>
+<span id="cb15-135"><a href="#cb15-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-136"><a href="#cb15-136" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-137"><a href="#cb15-137" aria-hidden="true" tabindex="-1"></a>Intensity</span>
+<span id="cb15-138"><a href="#cb15-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-139"><a href="#cb15-139" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>number of points in region $A: N(A)$</span>
+<span id="cb15-140"><a href="#cb15-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-141"><a href="#cb15-141" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>intensity: $\lambda = N/|A|$</span>
+<span id="cb15-142"><a href="#cb15-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-143"><a href="#cb15-143" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>implies: $\lambda |A|$ points randomly scattered in a region with</span>
+<span id="cb15-144"><a href="#cb15-144" aria-hidden="true" tabindex="-1"></a>    area $|A|$</span>
+<span id="cb15-145"><a href="#cb15-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-146"><a href="#cb15-146" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>e.g., $10\times 1$ (points per $km^2$)</span>
+<span id="cb15-147"><a href="#cb15-147" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-148"><a href="#cb15-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-149"><a href="#cb15-149" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-150"><a href="#cb15-150" aria-hidden="true" tabindex="-1"></a>Poisson Distribution $N(A) \sim Poi(\lambda |A|)$</span>
+<span id="cb15-151"><a href="#cb15-151" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-152"><a href="#cb15-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-153"><a href="#cb15-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Poisson Distribution</span></span>
+<span id="cb15-154"><a href="#cb15-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-155"><a href="#cb15-155" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a>Single Parameter Distribution: $\lambda |A|$</span>
+<span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-158"><a href="#cb15-158" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Generally, $\lambda$ is the number of events in some well defined</span>
+<span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a>    *interval*</span>
+<span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Time: phone calls to operator in one hour</span>
+<span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Time: accidents at an intersection per week</span>
+<span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-165"><a href="#cb15-165" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Space: trees in a quadrat</span>
+<span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Let $x$ be a Poisson random variable</span>
+<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>$E<span class="co">[</span><span class="ot">x</span><span class="co">]</span> = V<span class="co">[</span><span class="ot">x</span><span class="co">]</span>= \lambda |A|$</span>
+<span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a>Poisson Distribution</span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a>$$P(x) =  \frac{e^{-\lambda |A|} (\lambda |A|)^x}{x!}$$</span>
+<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-176"><a href="#cb15-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="fu">## Spatial Example</span></span>
+<span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a>CSR with $\lambda = 5/km^2$</span>
+<span id="cb15-181"><a href="#cb15-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-182"><a href="#cb15-182" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Region = Circle</span>
+<span id="cb15-183"><a href="#cb15-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-184"><a href="#cb15-184" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>area = $|A| = \pi r^2$</span>
+<span id="cb15-185"><a href="#cb15-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-186"><a href="#cb15-186" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>$r=0.1\ km$ then area $\approx 0.03 \ km^2$</span>
+<span id="cb15-187"><a href="#cb15-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-188"><a href="#cb15-188" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Probability of Zero Points in Circle $$\begin{aligned}</span>
+<span id="cb15-189"><a href="#cb15-189" aria-hidden="true" tabindex="-1"></a>             P<span class="co">[</span><span class="ot">N(A) = 0</span><span class="co">]</span> &amp;= &amp;  e^{-\lambda |A|} (\lambda |A|)^x /x!<span class="sc">\\</span></span>
+<span id="cb15-190"><a href="#cb15-190" aria-hidden="true" tabindex="-1"></a>                         &amp;\approx&amp;e^{-5 \times 0.03} (5 \times 0.03)^0 /0!<span class="sc">\\</span></span>
+<span id="cb15-191"><a href="#cb15-191" aria-hidden="true" tabindex="-1"></a>                         &amp;\approx&amp;e^{-5 \times 0.03} <span class="sc">\\</span></span>
+<span id="cb15-192"><a href="#cb15-192" aria-hidden="true" tabindex="-1"></a>                         &amp;\approx&amp;0.86</span>
+<span id="cb15-193"><a href="#cb15-193" aria-hidden="true" tabindex="-1"></a>           \end{aligned}$$</span>
+<span id="cb15-194"><a href="#cb15-194" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-195"><a href="#cb15-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-196"><a href="#cb15-196" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete Spatial Randomness (CSR)</span></span>
+<span id="cb15-197"><a href="#cb15-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-198"><a href="#cb15-198" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-199"><a href="#cb15-199" aria-hidden="true" tabindex="-1"></a>Homogeneous spatial Poisson point process</span>
+<span id="cb15-200"><a href="#cb15-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-201"><a href="#cb15-201" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>The number of events occurring within a finite region $A$ is a</span>
+<span id="cb15-202"><a href="#cb15-202" aria-hidden="true" tabindex="-1"></a>    random variable following a Poisson distribution with mean</span>
+<span id="cb15-203"><a href="#cb15-203" aria-hidden="true" tabindex="-1"></a>    $\lambda|A|$, with $|A|$ denoting area of $A$.</span>
+<span id="cb15-204"><a href="#cb15-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-205"><a href="#cb15-205" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Given the total number of events $N$ occurring within an area $A$,</span>
+<span id="cb15-206"><a href="#cb15-206" aria-hidden="true" tabindex="-1"></a>    the locations of the $N$ events represent an independent random</span>
+<span id="cb15-207"><a href="#cb15-207" aria-hidden="true" tabindex="-1"></a>    sample of $N$ locations where each location is equally likely to be</span>
+<span id="cb15-208"><a href="#cb15-208" aria-hidden="true" tabindex="-1"></a>    chosen as an event.</span>
+<span id="cb15-209"><a href="#cb15-209" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-210"><a href="#cb15-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-211"><a href="#cb15-211" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-212"><a href="#cb15-212" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Criterion 2 is the general concept of CSR (uniform (random))</span>
+<span id="cb15-213"><a href="#cb15-213" aria-hidden="true" tabindex="-1"></a>    distribution in $A$.</span>
+<span id="cb15-214"><a href="#cb15-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-215"><a href="#cb15-215" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Criterion 1 pertains to the intensity $\lambda$.</span>
+<span id="cb15-216"><a href="#cb15-216" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-217"><a href="#cb15-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-218"><a href="#cb15-218" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homogeneous Poisson Process</span></span>
+<span id="cb15-219"><a href="#cb15-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-220"><a href="#cb15-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-221"><a href="#cb15-221" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-222"><a href="#cb15-222" aria-hidden="true" tabindex="-1"></a>Implications</span>
+<span id="cb15-223"><a href="#cb15-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-224"><a href="#cb15-224" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>The number of events in nonoverlapping regions in $A$ are</span>
+<span id="cb15-225"><a href="#cb15-225" aria-hidden="true" tabindex="-1"></a>    statistically independent.</span>
+<span id="cb15-226"><a href="#cb15-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-227"><a href="#cb15-227" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>For any region $R \subset A$:</span>
+<span id="cb15-228"><a href="#cb15-228" aria-hidden="true" tabindex="-1"></a>    $$\lim_{|R| \rightarrow 0} \frac{Pr<span class="co">[</span><span class="ot">exactly\ one\ event\ in\ R</span><span class="co">]</span>}{|R|}</span>
+<span id="cb15-229"><a href="#cb15-229" aria-hidden="true" tabindex="-1"></a>          = \lambda &gt; 0$$</span>
+<span id="cb15-230"><a href="#cb15-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-231"><a href="#cb15-231" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>$$\lim_{|R| \rightarrow 0} \frac{Pr[more\ than\ one\ event\ in\</span>
+<span id="cb15-232"><a href="#cb15-232" aria-hidden="true" tabindex="-1"></a>           R]}{|R|} = 0$$</span>
+<span id="cb15-233"><a href="#cb15-233" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-234"><a href="#cb15-234" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-235"><a href="#cb15-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-236"><a href="#cb15-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homogeneous Poisson process</span></span>
+<span id="cb15-237"><a href="#cb15-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-238"><a href="#cb15-238" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-239"><a href="#cb15-239" aria-hidden="true" tabindex="-1"></a>Implications</span>
+<span id="cb15-240"><a href="#cb15-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-241"><a href="#cb15-241" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$\lambda$ is the intensity of the spatial point pattern.</span>
+<span id="cb15-242"><a href="#cb15-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>For a Poisson random variable, $Y$: $$E<span class="co">[</span><span class="ot">Y</span><span class="co">]</span> = \lambda = V<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>$$</span>
+<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Provides the motivation for some quadrat tests of CSR hypothesis.</span>
+<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>If $Y_R$ is the count in quadrat $R$</span>
+<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>If $\widehat{E<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>}&lt; \widehat{V<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>}$: overdispersion = spatial</span>
+<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a>        clustering</span>
+<span id="cb15-251"><a href="#cb15-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-252"><a href="#cb15-252" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>If $\widehat{E<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>}&gt; \widehat{V<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>}$: underdispersion = spatial</span>
+<span id="cb15-253"><a href="#cb15-253" aria-hidden="true" tabindex="-1"></a>        uniformity</span>
+<span id="cb15-254"><a href="#cb15-254" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-255"><a href="#cb15-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-256"><a href="#cb15-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-257"><a href="#cb15-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-258"><a href="#cb15-258" aria-hidden="true" tabindex="-1"></a><span class="fu">## Poisson Distribution $\lambda=20$</span></span>
+<span id="cb15-259"><a href="#cb15-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-262"><a href="#cb15-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-263"><a href="#cb15-263" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-264"><a href="#cb15-264" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb15-265"><a href="#cb15-265" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-266"><a href="#cb15-266" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb15-267"><a href="#cb15-267" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
+<span id="cb15-268"><a href="#cb15-268" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.random.rand(<span class="dv">20</span>,<span class="dv">2</span>)</span>
+<span id="cb15-269"><a href="#cb15-269" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>,<span class="st">'y'</span>])</span>
+<span id="cb15-270"><a href="#cb15-270" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, data<span class="op">=</span>df)<span class="op">;</span></span>
+<span id="cb15-271"><a href="#cb15-271" aria-hidden="true" tabindex="-1"></a>df.shape</span>
+<span id="cb15-272"><a href="#cb15-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-273"><a href="#cb15-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-274"><a href="#cb15-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-275"><a href="#cb15-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-276"><a href="#cb15-276" aria-hidden="true" tabindex="-1"></a>The example we just did is known as $n-conditioning$ where we will always get $n$ points for the CSR process.</span>
+<span id="cb15-277"><a href="#cb15-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-278"><a href="#cb15-278" aria-hidden="true" tabindex="-1"></a>A slightly different approach to generating a random point process is to use $\lambda-conditioning$</span>
+<span id="cb15-279"><a href="#cb15-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-282"><a href="#cb15-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-283"><a href="#cb15-283" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-284"><a href="#cb15-284" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span>
+<span id="cb15-285"><a href="#cb15-285" aria-hidden="true" tabindex="-1"></a>lam<span class="op">=</span><span class="dv">20</span></span>
+<span id="cb15-286"><a href="#cb15-286" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> poisson.rvs(lam, <span class="dv">1</span>)</span>
+<span id="cb15-287"><a href="#cb15-287" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.random.rand(n,<span class="dv">2</span>)</span>
+<span id="cb15-288"><a href="#cb15-288" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>,<span class="st">'y'</span>])</span>
+<span id="cb15-289"><a href="#cb15-289" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, data<span class="op">=</span>df)<span class="op">;</span></span>
+<span id="cb15-290"><a href="#cb15-290" aria-hidden="true" tabindex="-1"></a>df.shape</span>
+<span id="cb15-291"><a href="#cb15-291" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-292"><a href="#cb15-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-293"><a href="#cb15-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-294"><a href="#cb15-294" aria-hidden="true" tabindex="-1"></a>The difference is the number of points in the pattern will always be $n$ with $n-conditioning$ but may not be $n$ with $\lambda-conditioning$. The latter allows the intensity to be drawn from a Poisson distribution, then that becomes the parameter for the draw of the point pattern.</span>
+<span id="cb15-295"><a href="#cb15-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-296"><a href="#cb15-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-297"><a href="#cb15-297" aria-hidden="true" tabindex="-1"></a><span class="fu">## Limitations of CSR</span></span>
+<span id="cb15-298"><a href="#cb15-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-299"><a href="#cb15-299" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-300"><a href="#cb15-300" aria-hidden="true" tabindex="-1"></a>Stationary Poisson Process</span>
+<span id="cb15-301"><a href="#cb15-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-302"><a href="#cb15-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>homogeneous</span>
+<span id="cb15-303"><a href="#cb15-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>translation invaratiant</span>
+<span id="cb15-304"><a href="#cb15-304" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-305"><a href="#cb15-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-306"><a href="#cb15-306" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-307"><a href="#cb15-307" aria-hidden="true" tabindex="-1"></a>Rare in practice - very few actual processes are CSR</span>
+<span id="cb15-308"><a href="#cb15-308" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-309"><a href="#cb15-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-310"><a href="#cb15-310" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-311"><a href="#cb15-311" aria-hidden="true" tabindex="-1"></a>Strawman</span>
+<span id="cb15-312"><a href="#cb15-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-313"><a href="#cb15-313" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>purely a benchmark</span>
+<span id="cb15-314"><a href="#cb15-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-315"><a href="#cb15-315" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>null hypothesis</span>
+<span id="cb15-316"><a href="#cb15-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-317"><a href="#cb15-317" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-318"><a href="#cb15-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-319"><a href="#cb15-319" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inhomogeneous Poisson Process (IPP)</span></span>
+<span id="cb15-320"><a href="#cb15-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-321"><a href="#cb15-321" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-322"><a href="#cb15-322" aria-hidden="true" tabindex="-1"></a>Criteria</span>
+<span id="cb15-323"><a href="#cb15-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-324"><a href="#cb15-324" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>The number of events occurring within a finite region $A$ is a</span>
+<span id="cb15-325"><a href="#cb15-325" aria-hidden="true" tabindex="-1"></a>    random variable following a Poisson Distribution with mean</span>
+<span id="cb15-326"><a href="#cb15-326" aria-hidden="true" tabindex="-1"></a>    $\int_{A}\lambda(s) ds$.</span>
+<span id="cb15-327"><a href="#cb15-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-328"><a href="#cb15-328" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Given the total number of events $N$ occurring within $A$, the $N$</span>
+<span id="cb15-329"><a href="#cb15-329" aria-hidden="true" tabindex="-1"></a>    events represent an independent sample of $N$ locations, with the</span>
+<span id="cb15-330"><a href="#cb15-330" aria-hidden="true" tabindex="-1"></a>    probability of sampling a particular point $s$ proportional to</span>
+<span id="cb15-331"><a href="#cb15-331" aria-hidden="true" tabindex="-1"></a>    $\lambda(s)$.</span>
+<span id="cb15-332"><a href="#cb15-332" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-333"><a href="#cb15-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-334"><a href="#cb15-334" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-335"><a href="#cb15-335" aria-hidden="true" tabindex="-1"></a>Spatially Variable Intensity $\lambda(s)$</span>
+<span id="cb15-336"><a href="#cb15-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-337"><a href="#cb15-337" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Useful for *constant risk hypothesis*</span>
+<span id="cb15-338"><a href="#cb15-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-339"><a href="#cb15-339" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Underlying population at risk is spatially clustered</span>
+<span id="cb15-340"><a href="#cb15-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-341"><a href="#cb15-341" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Want to control for that since with individual constant risk</span>
+<span id="cb15-342"><a href="#cb15-342" aria-hidden="true" tabindex="-1"></a>    apparent clusters would be generated.</span>
+<span id="cb15-343"><a href="#cb15-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-344"><a href="#cb15-344" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Compare pattern against constant risk, not CSR.</span>
+<span id="cb15-345"><a href="#cb15-345" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-346"><a href="#cb15-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-347"><a href="#cb15-347" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inhomogeneous Poisson Process</span></span>
+<span id="cb15-348"><a href="#cb15-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-349"><a href="#cb15-349" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-350"><a href="#cb15-350" aria-hidden="true" tabindex="-1"></a>Implications</span>
+<span id="cb15-351"><a href="#cb15-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-352"><a href="#cb15-352" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Apparent clusters can occur solely due to heterogeneities in the</span>
+<span id="cb15-353"><a href="#cb15-353" aria-hidden="true" tabindex="-1"></a>    intensity function $\lambda(s)$.</span>
+<span id="cb15-354"><a href="#cb15-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-355"><a href="#cb15-355" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Individual event locations still remain independent of one another.</span>
+<span id="cb15-356"><a href="#cb15-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-357"><a href="#cb15-357" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Process is not stationary due to intensity heterogeneity</span>
+<span id="cb15-358"><a href="#cb15-358" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-359"><a href="#cb15-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-360"><a href="#cb15-360" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-361"><a href="#cb15-361" aria-hidden="true" tabindex="-1"></a>HPP vs. IPP HPP is a special case of IPP with a constant intensity</span>
+<span id="cb15-362"><a href="#cb15-362" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-363"><a href="#cb15-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-364"><a href="#cb15-364" aria-hidden="true" tabindex="-1"></a><span class="fu">## CSR vs. Constant Risk Hypotheses</span></span>
+<span id="cb15-365"><a href="#cb15-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-366"><a href="#cb15-366" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-367"><a href="#cb15-367" aria-hidden="true" tabindex="-1"></a>CSR</span>
+<span id="cb15-368"><a href="#cb15-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-369"><a href="#cb15-369" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Intensity is spatially constant</span>
+<span id="cb15-370"><a href="#cb15-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-371"><a href="#cb15-371" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Population at risk assumed spatially uniform</span>
+<span id="cb15-372"><a href="#cb15-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-373"><a href="#cb15-373" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Useful null hypothesis if these conditions are met</span>
+<span id="cb15-374"><a href="#cb15-374" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-375"><a href="#cb15-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-376"><a href="#cb15-376" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-377"><a href="#cb15-377" aria-hidden="true" tabindex="-1"></a>Constant Risk Hypothesis</span>
+<span id="cb15-378"><a href="#cb15-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-379"><a href="#cb15-379" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Population density variable</span>
+<span id="cb15-380"><a href="#cb15-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-381"><a href="#cb15-381" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Individual risk constant</span>
+<span id="cb15-382"><a href="#cb15-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-383"><a href="#cb15-383" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Expected number of events should vary with population density</span>
+<span id="cb15-384"><a href="#cb15-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-385"><a href="#cb15-385" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Clusters due to deviation from CSR</span>
+<span id="cb15-386"><a href="#cb15-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-387"><a href="#cb15-387" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Clusters due to deviation from CSR and Constant Risk</span>
+<span id="cb15-388"><a href="#cb15-388" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-389"><a href="#cb15-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-390"><a href="#cb15-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-391"><a href="#cb15-391" aria-hidden="true" tabindex="-1"></a><span class="fu"># Clustered Point Processes</span></span>
+<span id="cb15-392"><a href="#cb15-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-393"><a href="#cb15-393" aria-hidden="true" tabindex="-1"></a>Clustered Patterns are more grouped than random patterns. Visually, we can observe more points at short distances. There are two sources of clustering:</span>
+<span id="cb15-394"><a href="#cb15-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-395"><a href="#cb15-395" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Contagion: presence of events at one location affects probability of events at another location (correlated point process)</span>
+<span id="cb15-396"><a href="#cb15-396" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Heterogeneity: intensity λ varies with location (heterogeneous Poisson point process)</span>
+<span id="cb15-397"><a href="#cb15-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-398"><a href="#cb15-398" aria-hidden="true" tabindex="-1"></a>We are going to focus on simulating correlated point process in this notebook. One example of correlated point process is Poisson cluster process. Two stages are involved in simulating a Poisson cluster process. First, parent events are simulted from a λ-conditioned or n-conditioned CSR. </span>
+<span id="cb15-399"><a href="#cb15-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-400"><a href="#cb15-400" aria-hidden="true" tabindex="-1"></a>Second, </span>
+<span id="cb15-401"><a href="#cb15-401" aria-hidden="true" tabindex="-1"></a>n offspring events for each parent event are simulated within a circle of radius </span>
+<span id="cb15-402"><a href="#cb15-402" aria-hidden="true" tabindex="-1"></a>r centered on the parent. Offspring events are independently and identically distributed.</span>
+<span id="cb15-403"><a href="#cb15-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-404"><a href="#cb15-404" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contagion process of size 20 with 10 parents and 2 children</span></span>
+<span id="cb15-405"><a href="#cb15-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-408"><a href="#cb15-408" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-409"><a href="#cb15-409" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-410"><a href="#cb15-410" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pointpats <span class="im">as</span> pp</span>
+<span id="cb15-411"><a href="#cb15-411" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
+<span id="cb15-412"><a href="#cb15-412" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> pp.Window([(<span class="dv">0</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">0</span>)])</span>
+<span id="cb15-413"><a href="#cb15-413" aria-hidden="true" tabindex="-1"></a>draw <span class="op">=</span> pp.PoissonClusterPointProcess(w, <span class="dv">20</span>, <span class="dv">10</span>, <span class="fl">0.05</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>, conditioning<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-414"><a href="#cb15-414" aria-hidden="true" tabindex="-1"></a>draw.realizations[<span class="dv">0</span>].plot(window<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Contagion Point Process (10 parents)'</span>)</span>
+<span id="cb15-415"><a href="#cb15-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-416"><a href="#cb15-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-417"><a href="#cb15-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-418"><a href="#cb15-418" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contagion process of size 20 with 2 parents and 10 children</span></span>
+<span id="cb15-419"><a href="#cb15-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-422"><a href="#cb15-422" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-423"><a href="#cb15-423" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-424"><a href="#cb15-424" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pointpats <span class="im">as</span> pp</span>
+<span id="cb15-425"><a href="#cb15-425" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
+<span id="cb15-426"><a href="#cb15-426" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> pp.Window([(<span class="dv">0</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">0</span>)])</span>
+<span id="cb15-427"><a href="#cb15-427" aria-hidden="true" tabindex="-1"></a>draw <span class="op">=</span> pp.PoissonClusterPointProcess(w, <span class="dv">20</span>, <span class="dv">2</span>, <span class="fl">0.05</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>, conditioning<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-428"><a href="#cb15-428" aria-hidden="true" tabindex="-1"></a>draw.realizations[<span class="dv">0</span>].plot(window<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Contagion Point Process (2 parents)'</span>)</span>
+<span id="cb15-429"><a href="#cb15-429" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-430"><a href="#cb15-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-431"><a href="#cb15-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-432"><a href="#cb15-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-433"><a href="#cb15-433" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inhomogenous Poisson Process</span></span>
+<span id="cb15-434"><a href="#cb15-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-435"><a href="#cb15-435" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-436"><a href="#cb15-436" aria-hidden="true" tabindex="-1"></a>Intensity varies with a covariate</span>
+<span id="cb15-437"><a href="#cb15-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-438"><a href="#cb15-438" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>trend surface</span>
+<span id="cb15-439"><a href="#cb15-439" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$\lambda(s) = exp(\alpha + \beta s)$</span>
+<span id="cb15-440"><a href="#cb15-440" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-441"><a href="#cb15-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-442"><a href="#cb15-442" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-443"><a href="#cb15-443" aria-hidden="true" tabindex="-1"></a>Intensity varies with distance to a focus</span>
+<span id="cb15-444"><a href="#cb15-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-445"><a href="#cb15-445" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$\lambda(s) = \lambda 0(s). f( || s-s_0||, \theta)$</span>
+<span id="cb15-446"><a href="#cb15-446" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-447"><a href="#cb15-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-448"><a href="#cb15-448" aria-hidden="true" tabindex="-1"></a><span class="fu">## Simulating An Inhomogeneous Poisson Point Process</span></span>
+<span id="cb15-449"><a href="#cb15-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-450"><a href="#cb15-450" aria-hidden="true" tabindex="-1"></a>Intensity function:</span>
+<span id="cb15-451"><a href="#cb15-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-452"><a href="#cb15-452" aria-hidden="true" tabindex="-1"></a>$\lambda(s) = 100 e^{-(x^2 + y^2) / \sigma}$</span>
+<span id="cb15-453"><a href="#cb15-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-454"><a href="#cb15-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-455"><a href="#cb15-455" aria-hidden="true" tabindex="-1"></a>$\sigma$ is a scale parameter here, equal to 0.5</span>
+<span id="cb15-458"><a href="#cb15-458" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-459"><a href="#cb15-459" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb15-460"><a href="#cb15-460" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-461"><a href="#cb15-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-462"><a href="#cb15-462" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np<span class="op">;</span>  <span class="co"># NumPy package for arrays, random number generation, etc</span></span>
+<span id="cb15-463"><a href="#cb15-463" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt  <span class="co"># For plotting</span></span>
+<span id="cb15-464"><a href="#cb15-464" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize  <span class="co"># For optimizing</span></span>
+<span id="cb15-465"><a href="#cb15-465" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> integrate  <span class="co"># For integrating</span></span>
+<span id="cb15-466"><a href="#cb15-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-467"><a href="#cb15-467" aria-hidden="true" tabindex="-1"></a>plt.close(<span class="st">'all'</span>)<span class="op">;</span>  <span class="co"># close all figures</span></span>
+<span id="cb15-468"><a href="#cb15-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-469"><a href="#cb15-469" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation window parameters</span></span>
+<span id="cb15-470"><a href="#cb15-470" aria-hidden="true" tabindex="-1"></a>xMin <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb15-471"><a href="#cb15-471" aria-hidden="true" tabindex="-1"></a>xMax <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb15-472"><a href="#cb15-472" aria-hidden="true" tabindex="-1"></a>yMin <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb15-473"><a href="#cb15-473" aria-hidden="true" tabindex="-1"></a>yMax <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb15-474"><a href="#cb15-474" aria-hidden="true" tabindex="-1"></a>xDelta <span class="op">=</span> xMax <span class="op">-</span> xMin<span class="op">;</span></span>
+<span id="cb15-475"><a href="#cb15-475" aria-hidden="true" tabindex="-1"></a>yDelta <span class="op">=</span> yMax <span class="op">-</span> yMin<span class="op">;</span>  <span class="co"># rectangle dimensions</span></span>
+<span id="cb15-476"><a href="#cb15-476" aria-hidden="true" tabindex="-1"></a>areaTotal <span class="op">=</span> xDelta <span class="op">*</span> yDelta<span class="op">;</span></span>
+<span id="cb15-477"><a href="#cb15-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-478"><a href="#cb15-478" aria-hidden="true" tabindex="-1"></a>numbSim <span class="op">=</span> <span class="dv">10</span> <span class="op">**</span> <span class="dv">3</span><span class="op">;</span>  <span class="co"># number of simulations</span></span>
+<span id="cb15-479"><a href="#cb15-479" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span>  <span class="co"># scale parameter</span></span>
+<span id="cb15-480"><a href="#cb15-480" aria-hidden="true" tabindex="-1"></a><span class="co"># Point process parameters</span></span>
+<span id="cb15-481"><a href="#cb15-481" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun_lambda(x, y):</span>
+<span id="cb15-482"><a href="#cb15-482" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">100</span> <span class="op">*</span> np.exp(<span class="op">-</span>(x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> y <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> s <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span>  <span class="co"># intensity function</span></span>
+<span id="cb15-483"><a href="#cb15-483" aria-hidden="true" tabindex="-1"></a><span class="co">#fun_lambda = lambda x,y: 100 * np.exp(-(x ** 2 + y ** 2) / s ** 2);</span></span>
+<span id="cb15-484"><a href="#cb15-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-485"><a href="#cb15-485" aria-hidden="true" tabindex="-1"></a><span class="co">###START -- find maximum lambda -- START </span><span class="al">###</span></span>
+<span id="cb15-486"><a href="#cb15-486" aria-hidden="true" tabindex="-1"></a><span class="co"># For an intensity function lambda, given by function fun_lambda,</span></span>
+<span id="cb15-487"><a href="#cb15-487" aria-hidden="true" tabindex="-1"></a><span class="co"># finds the maximum of lambda in a rectangular region given by</span></span>
+<span id="cb15-488"><a href="#cb15-488" aria-hidden="true" tabindex="-1"></a><span class="co"># [xMin,xMax,yMin,yMax].</span></span>
+<span id="cb15-489"><a href="#cb15-489" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun_Neg(x):</span>
+<span id="cb15-490"><a href="#cb15-490" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>fun_lambda(x[<span class="dv">0</span>], x[<span class="dv">1</span>])<span class="op">;</span>  <span class="co"># negative of lambda</span></span>
+<span id="cb15-491"><a href="#cb15-491" aria-hidden="true" tabindex="-1"></a><span class="co">#fun_Neg = lambda x: -fun_lambda(x[0], x[1]);  # negative of lambda</span></span>
+<span id="cb15-492"><a href="#cb15-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-493"><a href="#cb15-493" aria-hidden="true" tabindex="-1"></a>xy0 <span class="op">=</span> [(xMin <span class="op">+</span> xMax) <span class="op">/</span> <span class="dv">2</span>, (yMin <span class="op">+</span> yMax) <span class="op">/</span> <span class="dv">2</span>]<span class="op">;</span>  <span class="co"># initial value(ie centre)</span></span>
+<span id="cb15-494"><a href="#cb15-494" aria-hidden="true" tabindex="-1"></a><span class="co"># Find largest lambda value</span></span>
+<span id="cb15-495"><a href="#cb15-495" aria-hidden="true" tabindex="-1"></a>resultsOpt <span class="op">=</span> minimize(fun_Neg, xy0, bounds<span class="op">=</span>((xMin, xMax), (yMin, yMax)))<span class="op">;</span></span>
+<span id="cb15-496"><a href="#cb15-496" aria-hidden="true" tabindex="-1"></a>lambdaNegMin <span class="op">=</span> resultsOpt.fun<span class="op">;</span>  <span class="co"># retrieve minimum value found by minimize</span></span>
+<span id="cb15-497"><a href="#cb15-497" aria-hidden="true" tabindex="-1"></a>lambdaMax <span class="op">=</span> <span class="op">-</span>lambdaNegMin<span class="op">;</span></span>
+<span id="cb15-498"><a href="#cb15-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-499"><a href="#cb15-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-500"><a href="#cb15-500" aria-hidden="true" tabindex="-1"></a><span class="co">###</span><span class="re">END</span><span class="co"> -- find maximum lambda -- </span><span class="re">END</span><span class="co"> </span><span class="al">###</span></span>
+<span id="cb15-501"><a href="#cb15-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-502"><a href="#cb15-502" aria-hidden="true" tabindex="-1"></a><span class="co"># define thinning probability function</span></span>
+<span id="cb15-503"><a href="#cb15-503" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun_p(x, y):</span>
+<span id="cb15-504"><a href="#cb15-504" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fun_lambda(x, y) <span class="op">/</span> lambdaMax<span class="op">;</span></span>
+<span id="cb15-505"><a href="#cb15-505" aria-hidden="true" tabindex="-1"></a><span class="co">#fun_p = lambda x, y: fun_lambda(x, y) / lambdaMax;</span></span>
+<span id="cb15-506"><a href="#cb15-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-507"><a href="#cb15-507" aria-hidden="true" tabindex="-1"></a><span class="co"># for collecting statistics -- set numbSim=1 for one simulation</span></span>
+<span id="cb15-508"><a href="#cb15-508" aria-hidden="true" tabindex="-1"></a>numbPointsRetained <span class="op">=</span> np.zeros(numbSim)<span class="op">;</span>  <span class="co"># vector to record number of points</span></span>
+<span id="cb15-509"><a href="#cb15-509" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ii <span class="kw">in</span> <span class="bu">range</span>(numbSim):</span>
+<span id="cb15-510"><a href="#cb15-510" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Simulate a Poisson point process</span></span>
+<span id="cb15-511"><a href="#cb15-511" aria-hidden="true" tabindex="-1"></a>    numbPoints <span class="op">=</span> np.random.poisson(areaTotal <span class="op">*</span> lambdaMax)<span class="op">;</span>  <span class="co"># Poisson number of points</span></span>
+<span id="cb15-512"><a href="#cb15-512" aria-hidden="true" tabindex="-1"></a>    xx <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, xDelta, ((numbPoints, <span class="dv">1</span>))) <span class="op">+</span> xMin<span class="op">;</span>  <span class="co"># x coordinates of Poisson points</span></span>
+<span id="cb15-513"><a href="#cb15-513" aria-hidden="true" tabindex="-1"></a>    yy <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, yDelta, ((numbPoints, <span class="dv">1</span>))) <span class="op">+</span> yMin<span class="op">;</span>  <span class="co"># y coordinates of Poisson points</span></span>
+<span id="cb15-514"><a href="#cb15-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-515"><a href="#cb15-515" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate spatially-dependent thinning probabilities</span></span>
+<span id="cb15-516"><a href="#cb15-516" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> fun_p(xx, yy)<span class="op">;</span></span>
+<span id="cb15-517"><a href="#cb15-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-518"><a href="#cb15-518" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate Bernoulli variables (ie coin flips) for thinning</span></span>
+<span id="cb15-519"><a href="#cb15-519" aria-hidden="true" tabindex="-1"></a>    booleRetained <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">1</span>, ((numbPoints, <span class="dv">1</span>))) <span class="op">&lt;</span> p<span class="op">;</span>  <span class="co"># points to be retained</span></span>
+<span id="cb15-520"><a href="#cb15-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-521"><a href="#cb15-521" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x/y locations of retained points</span></span>
+<span id="cb15-522"><a href="#cb15-522" aria-hidden="true" tabindex="-1"></a>    xxRetained <span class="op">=</span> xx[booleRetained]<span class="op">;</span></span>
+<span id="cb15-523"><a href="#cb15-523" aria-hidden="true" tabindex="-1"></a>    yyRetained <span class="op">=</span> yy[booleRetained]<span class="op">;</span></span>
+<span id="cb15-524"><a href="#cb15-524" aria-hidden="true" tabindex="-1"></a>    numbPointsRetained[ii] <span class="op">=</span> xxRetained.size<span class="op">;</span></span>
+<span id="cb15-525"><a href="#cb15-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-526"><a href="#cb15-526" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb15-527"><a href="#cb15-527" aria-hidden="true" tabindex="-1"></a>plt.scatter(xxRetained, yyRetained, edgecolor<span class="op">=</span><span class="st">'b'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span>
+<span id="cb15-528"><a href="#cb15-528" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)<span class="op">;</span></span>
+<span id="cb15-529"><a href="#cb15-529" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)<span class="op">;</span></span>
+<span id="cb15-530"><a href="#cb15-530" aria-hidden="true" tabindex="-1"></a>plt.xlim([xMin, xMax])<span class="op">;</span></span>
+<span id="cb15-531"><a href="#cb15-531" aria-hidden="true" tabindex="-1"></a>plt.ylim([xMin, xMax])<span class="op">;</span></span>
+<span id="cb15-532"><a href="#cb15-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-533"><a href="#cb15-533" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-534"><a href="#cb15-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-535"><a href="#cb15-535" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">source</span><span class="co">](https://hpaulkeeler.com/simulating-an-inhomogeneous-poisson-point-process/)</span></span>
+<span id="cb15-536"><a href="#cb15-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-537"><a href="#cb15-537" aria-hidden="true" tabindex="-1"></a>That pattern comes from a spatially-explicit thinning of a CSR pattern:</span>
+<span id="cb15-540"><a href="#cb15-540" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-541"><a href="#cb15-541" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb15-542"><a href="#cb15-542" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-543"><a href="#cb15-543" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb15-544"><a href="#cb15-544" aria-hidden="true" tabindex="-1"></a>plt.scatter(xx, yy, edgecolor<span class="op">=</span><span class="st">'b'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span>
+<span id="cb15-545"><a href="#cb15-545" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)<span class="op">;</span></span>
+<span id="cb15-546"><a href="#cb15-546" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)<span class="op">;</span></span>
+<span id="cb15-547"><a href="#cb15-547" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-548"><a href="#cb15-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-549"><a href="#cb15-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-550"><a href="#cb15-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-551"><a href="#cb15-551" aria-hidden="true" tabindex="-1"></a><span class="fu"># Regular Patterns</span></span>
+<span id="cb15-552"><a href="#cb15-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-553"><a href="#cb15-553" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regular Processes</span></span>
+<span id="cb15-554"><a href="#cb15-554" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-555"><a href="#cb15-555" aria-hidden="true" tabindex="-1"></a>Less grouped than CSR</span>
+<span id="cb15-556"><a href="#cb15-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-557"><a href="#cb15-557" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>fewer high densities</span>
+<span id="cb15-558"><a href="#cb15-558" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>dispersed</span>
+<span id="cb15-559"><a href="#cb15-559" aria-hidden="true" tabindex="-1"></a><span class="ss">-  </span>repulsion, competition</span>
+<span id="cb15-560"><a href="#cb15-560" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-561"><a href="#cb15-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-562"><a href="#cb15-562" aria-hidden="true" tabindex="-1"></a>::: block</span>
+<span id="cb15-563"><a href="#cb15-563" aria-hidden="true" tabindex="-1"></a>Underdispersion</span>
+<span id="cb15-564"><a href="#cb15-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-565"><a href="#cb15-565" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>variance &lt; mean</span>
+<span id="cb15-566"><a href="#cb15-566" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>less variation in densities than CSR</span>
+<span id="cb15-567"><a href="#cb15-567" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-568"><a href="#cb15-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-569"><a href="#cb15-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-570"><a href="#cb15-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-571"><a href="#cb15-571" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inhibition Process</span></span>
+<span id="cb15-572"><a href="#cb15-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-573"><a href="#cb15-573" aria-hidden="true" tabindex="-1"></a>:::block</span>
+<span id="cb15-574"><a href="#cb15-574" aria-hidden="true" tabindex="-1"></a>Minimum Permissible Distance</span>
+<span id="cb15-575"><a href="#cb15-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-576"><a href="#cb15-576" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>no two points closer than $\delta$</span>
+<span id="cb15-577"><a href="#cb15-577" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>packing intensity $\tau = \lambda \pi \delta^2 / 4$</span>
+<span id="cb15-578"><a href="#cb15-578" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-579"><a href="#cb15-579" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-580"><a href="#cb15-580" aria-hidden="true" tabindex="-1"></a>:::block</span>
+<span id="cb15-581"><a href="#cb15-581" aria-hidden="true" tabindex="-1"></a>Matern Process</span>
+<span id="cb15-582"><a href="#cb15-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-583"><a href="#cb15-583" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>thinned Poisson process using $\delta$</span>
+<span id="cb15-584"><a href="#cb15-584" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>sequential inhibition process, generate points conditional on previous points and distance (denser than the thinned approach)</span>
+<span id="cb15-585"><a href="#cb15-585" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-586"><a href="#cb15-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-587"><a href="#cb15-587" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matern (Thinning)</span></span>
+<span id="cb15-590"><a href="#cb15-590" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-591"><a href="#cb15-591" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
+<span id="cb15-592"><a href="#cb15-592" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb15-593"><a href="#cb15-593" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb15-594"><a href="#cb15-594" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.random.random((n,<span class="dv">2</span>))</span>
+<span id="cb15-595"><a href="#cb15-595" aria-hidden="true" tabindex="-1"></a>xy</span>
+<span id="cb15-596"><a href="#cb15-596" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial <span class="im">import</span> distance_matrix</span>
+<span id="cb15-597"><a href="#cb15-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-598"><a href="#cb15-598" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> distance_matrix(xy, xy) <span class="co"># 20 x 20 distance matrix</span></span>
+<span id="cb15-599"><a href="#cb15-599" aria-hidden="true" tabindex="-1"></a>d[<span class="dv">0</span>] <span class="co"># first row</span></span>
+<span id="cb15-600"><a href="#cb15-600" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-601"><a href="#cb15-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-602"><a href="#cb15-602" aria-hidden="true" tabindex="-1"></a>Determine which observations to thin</span>
+<span id="cb15-605"><a href="#cb15-605" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-606"><a href="#cb15-606" aria-hidden="true" tabindex="-1"></a>ijs <span class="op">=</span> np.where(d<span class="op">&lt;</span>delta)</span>
+<span id="cb15-607"><a href="#cb15-607" aria-hidden="true" tabindex="-1"></a>i,j <span class="op">=</span> ijs</span>
+<span id="cb15-608"><a href="#cb15-608" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(i[i<span class="op">!=</span>j], j[i<span class="op">!=</span>j]))</span>
+<span id="cb15-609"><a href="#cb15-609" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The pairs within delta of one another:"</span>)</span>
+<span id="cb15-610"><a href="#cb15-610" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pairs)</span>
+<span id="cb15-611"><a href="#cb15-611" aria-hidden="true" tabindex="-1"></a>drop <span class="op">=</span> []</span>
+<span id="cb15-612"><a href="#cb15-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-613"><a href="#cb15-613" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> left, right <span class="kw">in</span> pairs:</span>
+<span id="cb15-614"><a href="#cb15-614" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> left <span class="kw">in</span> drop <span class="kw">or</span> right <span class="kw">in</span> drop:</span>
+<span id="cb15-615"><a href="#cb15-615" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb15-616"><a href="#cb15-616" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-617"><a href="#cb15-617" aria-hidden="true" tabindex="-1"></a>        drop.append(left)</span>
+<span id="cb15-618"><a href="#cb15-618" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-619"><a href="#cb15-619" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Observations to drop:"</span>)</span>
+<span id="cb15-620"><a href="#cb15-620" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(drop)</span>
+<span id="cb15-621"><a href="#cb15-621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-622"><a href="#cb15-622" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-623"><a href="#cb15-623" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-626"><a href="#cb15-626" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-627"><a href="#cb15-627" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-628"><a href="#cb15-628" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>, <span class="st">'y'</span>])</span>
+<span id="cb15-629"><a href="#cb15-629" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'thin'</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb15-630"><a href="#cb15-630" aria-hidden="true" tabindex="-1"></a>df.iloc[drop, df.columns.get_loc(<span class="st">'thin'</span>)] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb15-631"><a href="#cb15-631" aria-hidden="true" tabindex="-1"></a>df.head()</span>
+<span id="cb15-632"><a href="#cb15-632" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-633"><a href="#cb15-633" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-634"><a href="#cb15-634" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-637"><a href="#cb15-637" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-638"><a href="#cb15-638" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-639"><a href="#cb15-639" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb15-640"><a href="#cb15-640" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, hue<span class="op">=</span><span class="st">'thin'</span>, data<span class="op">=</span>df)<span class="op">;</span></span>
+<span id="cb15-641"><a href="#cb15-641" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-642"><a href="#cb15-642" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-643"><a href="#cb15-643" aria-hidden="true" tabindex="-1"></a><span class="fu">##  Matern (Sequential)</span></span>
+<span id="cb15-646"><a href="#cb15-646" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-647"><a href="#cb15-647" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-648"><a href="#cb15-648" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb15-649"><a href="#cb15-649" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb15-650"><a href="#cb15-650" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb15-651"><a href="#cb15-651" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.zeros((N,<span class="dv">2</span>))</span>
+<span id="cb15-652"><a href="#cb15-652" aria-hidden="true" tabindex="-1"></a>xy[<span class="dv">0</span>,:] <span class="op">=</span> np.random.rand(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb15-653"><a href="#cb15-653" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n <span class="op">&lt;</span> N:</span>
+<span id="cb15-654"><a href="#cb15-654" aria-hidden="true" tabindex="-1"></a>    candidate <span class="op">=</span> np.random.rand(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb15-655"><a href="#cb15-655" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> distance_matrix(xy[:n,:], candidate)</span>
+<span id="cb15-656"><a href="#cb15-656" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> d.<span class="bu">min</span>() <span class="op">&gt;</span> delta:</span>
+<span id="cb15-657"><a href="#cb15-657" aria-hidden="true" tabindex="-1"></a>        xy[n,:] <span class="op">=</span> candidate</span>
+<span id="cb15-658"><a href="#cb15-658" aria-hidden="true" tabindex="-1"></a>        n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-659"><a href="#cb15-659" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-660"><a href="#cb15-660" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>, <span class="st">'y'</span>])</span>
+<span id="cb15-661"><a href="#cb15-661" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, data<span class="op">=</span>df)<span class="op">;</span></span>
+<span id="cb15-662"><a href="#cb15-662" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-663"><a href="#cb15-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-664"><a href="#cb15-664" aria-hidden="true" tabindex="-1"></a><span class="fu">## CSR n=20</span></span>
+<span id="cb15-665"><a href="#cb15-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-668"><a href="#cb15-668" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-669"><a href="#cb15-669" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-670"><a href="#cb15-670" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb15-671"><a href="#cb15-671" aria-hidden="true" tabindex="-1"></a>xy <span class="op">=</span> np.random.rand(<span class="dv">20</span>,<span class="dv">2</span>)</span>
+<span id="cb15-672"><a href="#cb15-672" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>xy, columns<span class="op">=</span>[<span class="st">'x'</span>, <span class="st">'y'</span>])</span>
+<span id="cb15-673"><a href="#cb15-673" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'y'</span>, data<span class="op">=</span>df)<span class="op">;</span></span>
+<span id="cb15-674"><a href="#cb15-674" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
