@@ -6,3 +6,13 @@ $headings-font-weight:  500 !default;
 h1, h2, h3, h4, h5, h6 {
   text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
 }
+
+
+/*-- sidebars--*/
+.quarto-sidebar {
+  width: 350px; /* Adjust to your preferred width */
+}
+
+.quarto-content {
+  margin-left: 370px; /* Adjust this to leave space for the sidebar */
+}

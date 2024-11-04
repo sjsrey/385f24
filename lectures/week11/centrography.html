@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Serge Rey">
+
+<title>Centrography for Point Patterns – Geography 385: Spatial Data Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles/custom.scss">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Geography 385: Spatial Data Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+        <li>
+    <a class="dropdown-item" href="../../lectures/week01/index.html">
+ <span class="dropdown-text">08-26 Course Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week01/lecture_sda.html">
+ <span class="dropdown-text">09-09 Spatial Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week04/lecture_area.html">
+ <span class="dropdown-text">09-16 Area Unit Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week05/choro.html">
+ <span class="dropdown-text">09-23 Choropleth Maps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week06/spatial_weights.html">
+ <span class="dropdown-text">09-30 Spatial Weights</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week07/global.html">
+ <span class="dropdown-text">10-07 Global Spatial Autocorrelation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week08/local.html">
+ <span class="dropdown-text">10-14 Local Spatial Autocorrelation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week09/regionalization.html">
+ <span class="dropdown-text">10-21 Clustering and Regionalization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week10/point-patterns.html">
+ <span class="dropdown-text">10-28 Point Pattern Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week11/centrography.html">
+ <span class="dropdown-text">11-04 Centrography</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-studio" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Studio</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-studio">    
+        <li>
+    <a class="dropdown-item" href="../../studio/week01/index.html">
+ <span class="dropdown-text">08-28 Studio 1: Juptyer Hub Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week02/index.html">
+ <span class="dropdown-text">09-04 Studio 2: Pandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week03/index.html">
+ <span class="dropdown-text">09-11 Studio 3: GeoPandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week04/index.html">
+ <span class="dropdown-text">09-18 Studio 4: GeoProcessing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week05/index.html">
+ <span class="dropdown-text">09-25 Studio 5: Choropleth Mapping</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week06/peer1.html">
+ <span class="dropdown-text">10-02 Studio 6: Peer Evaluation 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week07/global.html">
+ <span class="dropdown-text">10-09 Studio 7: Global Spatial Autocorrelation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week08/local.html">
+ <span class="dropdown-text">10-16 Studio 8: Local Spatial Autocorrelation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week09/peer2.html">
+ <span class="dropdown-text">10-23 Studio 9: Peer Evaluation 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week10/index.html">
+ <span class="dropdown-text">10-30 Studio 10: Geoprocessing for Points</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Weeks</li><li class="breadcrumb-item"><a href="../../lectures/week11/centrography.html">Week 11: 11-04, 11-06</a></li><li class="breadcrumb-item"><a href="../../lectures/week11/centrography.html">Centrography for Point Patterns</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 1: 8-26, 8-28</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio 1: Jupyter Hub</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 2: 9-04</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">Labor Day Holiday</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: Pandas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 3: 9-09, 9-11</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Data Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: GeoPandas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 4: 9-16, 9-23</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week04/lecture_area.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods for Area Unit Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: <code>geosnap</code></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 5: 9-23, 9-25</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week05/choro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualization for Area Unit Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio: Choropleth Mapping</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 6: 9-30, 10-02</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week06/spatial_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Weights</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week06/peer1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio 06 Peer Evaluation 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 7: 10-07, 10-09</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week07/global.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Global Spatial Autocorrelation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week07/global.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio 07 Global Spatial Autocorrelation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 8: 10-14, 10-16</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week08/local.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Local Spatial Autocorrelation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week08/local.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio 08 Local Spatial Autocorrelation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 9: 10-21, 10-23</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week09/regionalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clustering and Regionalization in Geographic Data Science</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week09/peer2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio 09 Peer Evaluation 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 10: 10-27, 20-30</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week10/point-patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Point Pattern Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week10/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio 10 Geoprocessing Points</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 11: 11-04, 11-06</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week11/centrography.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Centrography for Point Patterns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#central-tendency" id="toc-central-tendency" class="nav-link" data-scroll-target="#central-tendency">Central Tendency</a>
+  <ul class="collapse">
+  <li><a href="#mean-center-x_mcy_mc" id="toc-mean-center-x_mcy_mc" class="nav-link" data-scroll-target="#mean-center-x_mcy_mc">Mean Center <span class="math inline">\((x_{mc},y_{mc})\)</span></a></li>
+  <li><a href="#weighted-mean-center-x_wmcy_wmc" id="toc-weighted-mean-center-x_wmcy_wmc" class="nav-link" data-scroll-target="#weighted-mean-center-x_wmcy_wmc">Weighted Mean Center <span class="math inline">\((x_{wmc},y_{wmc})\)</span></a></li>
+  <li><a href="#manhattan-median-x_mmy_mm" id="toc-manhattan-median-x_mmy_mm" class="nav-link" data-scroll-target="#manhattan-median-x_mmy_mm">Manhattan Median <span class="math inline">\((x_{mm},y_{mm})\)</span></a></li>
+  <li><a href="#euclidean-median-x_emy_em" id="toc-euclidean-median-x_emy_em" class="nav-link" data-scroll-target="#euclidean-median-x_emy_em">Euclidean Median <span class="math inline">\((x_{em},y_{em})\)</span></a></li>
+  </ul></li>
+  <li><a href="#dispersion-and-orientation" id="toc-dispersion-and-orientation" class="nav-link" data-scroll-target="#dispersion-and-orientation">Dispersion and Orientation</a>
+  <ul class="collapse">
+  <li><a href="#standard-distance-standard-distance-circle" id="toc-standard-distance-standard-distance-circle" class="nav-link" data-scroll-target="#standard-distance-standard-distance-circle">Standard Distance &amp; Standard Distance Circle</a></li>
+  <li><a href="#standard-deviational-ellipse" id="toc-standard-deviational-ellipse" class="nav-link" data-scroll-target="#standard-deviational-ellipse">Standard Deviational Ellipse</a></li>
+  </ul></li>
+  <li><a href="#shape-analysis" id="toc-shape-analysis" class="nav-link" data-scroll-target="#shape-analysis">Shape Analysis</a>
+  <ul class="collapse">
+  <li><a href="#convex-hull" id="toc-convex-hull" class="nav-link" data-scroll-target="#convex-hull">Convex Hull</a></li>
+  <li><a href="#minimum-bounding-rectangle" id="toc-minimum-bounding-rectangle" class="nav-link" data-scroll-target="#minimum-bounding-rectangle">Minimum Bounding Rectangle</a></li>
+  </ul></li>
+  <li><a href="#another-example" id="toc-another-example" class="nav-link" data-scroll-target="#another-example">Another Example</a>
+  <ul class="collapse">
+  <li><a href="#simulate-a-100-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process." id="toc-simulate-a-100-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process." class="nav-link" data-scroll-target="#simulate-a-100-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process.">Simulate a 100-point dataset within VA state border from a CSR (complete spatial randomness) process.</a></li>
+  <li><a href="#simulate-a-500-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process." id="toc-simulate-a-500-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process." class="nav-link" data-scroll-target="#simulate-a-500-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process.">Simulate a 500-point dataset within VA state border from a CSR (complete spatial randomness) process.</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Weeks</li><li class="breadcrumb-item"><a href="../../lectures/week11/centrography.html">Week 11: 11-04, 11-06</a></li><li class="breadcrumb-item"><a href="../../lectures/week11/centrography.html">Centrography for Point Patterns</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Centrography for Point Patterns</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Serge Rey </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><em>Centrography</em> refers to a set of descriptive statistics that provide summary descriptions of point patterns.</p>
+<p>This notebook introduces three types of centrography analysis for point patterns in pysal.</p>
+<ul>
+<li>Central Tendency</li>
+<li>Dispersion and Orientation</li>
+<li>Shape Analysis</li>
+</ul>
+<p>We also illustrate centrography analysis using two simulated datasets. See <a href="#Another-Example">Another Example</a></p>
+<ul>
+<li><p>Central Tendency</p>
+<ol type="1">
+<li>mean_center: calculate the mean center of the unmarked point pattern.</li>
+<li>weighted_mean_center: calculate the weighted mean center of the marked point pattern.</li>
+<li>manhattan_median: calculate the manhattan median</li>
+<li>euclidean_median: calculate the Euclidean median</li>
+</ol></li>
+<li><p>Dispersion and Orientation</p>
+<ol type="1">
+<li>std_distance: calculate the standard distance</li>
+<li>standard deviational ellipse</li>
+</ol></li>
+<li><p>Shape Analysis</p>
+<ol type="1">
+<li>hull: calculate the convex hull of the point pattern</li>
+<li>mbr: calculate the minimum bounding box (rectangle)</li>
+</ol></li>
+</ul>
+<p>All of the above functions operate on a series of coordinate pairs. That is, the data type of the first argument should be <span class="math inline">\((n,2)\)</span> array_like. In case that you have a point pattern (PointPattern instance), you need to pass its attribute “points” instead of itself to these functions.</p>
+<div id="bda7e161" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> PointPattern</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> [[<span class="fl">66.22</span>, <span class="fl">32.54</span>], [<span class="fl">22.52</span>, <span class="fl">22.39</span>], [<span class="fl">31.01</span>, <span class="fl">81.21</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">9.47</span>, <span class="fl">31.02</span>],  [<span class="fl">30.78</span>, <span class="fl">60.10</span>], [<span class="fl">75.21</span>, <span class="fl">58.93</span>],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">79.26</span>,  <span class="fl">7.68</span>], [<span class="fl">8.23</span>, <span class="fl">39.93</span>],  [<span class="fl">98.73</span>, <span class="fl">77.17</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">89.78</span>, <span class="fl">42.53</span>], [<span class="fl">65.19</span>, <span class="fl">92.08</span>], [<span class="fl">54.46</span>, <span class="fl">8.48</span>]]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> PointPattern(points) <span class="co">#create a point pattern "pp" from list</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>pp.points </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">x</th>
+<th data-quarto-table-cell-role="th">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>66.22</td>
+<td>32.54</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>22.52</td>
+<td>22.39</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>31.01</td>
+<td>81.21</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>9.47</td>
+<td>31.02</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>30.78</td>
+<td>60.10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>75.21</td>
+<td>58.93</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>79.26</td>
+<td>7.68</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8.23</td>
+<td>39.93</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>98.73</td>
+<td>77.17</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>89.78</td>
+<td>42.53</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>65.19</td>
+<td>92.08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>54.46</td>
+<td>8.48</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="412813e5" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(pp.points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>pandas.core.frame.DataFrame</code></pre>
+</div>
+</div>
+<p>We can use PointPattern class method <strong>plot</strong> to visualize <strong>pp</strong>.</p>
+<div id="f2f948ef" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pp.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-4-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cb6c7016" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats.centrography <span class="im">import</span> (hull, mbr, mean_center,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                    weighted_mean_center, manhattan_median,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                    std_distance,euclidean_median,ellipse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="central-tendency" class="level1">
+<h1>Central Tendency</h1>
+<p>Central Tendency concerns about the center point of the two-dimensional distribution. It is similar to the first moment of a one-dimensional distribution. There are several ways to measure central tendency, each having pros and cons. We need to carefully select the appropriate measure according to our objective and data status.</p>
+<section id="mean-center-x_mcy_mc" class="level2">
+<h2 class="anchored" data-anchor-id="mean-center-x_mcy_mc">Mean Center <span class="math inline">\((x_{mc},y_{mc})\)</span></h2>
+<p><span class="math display">\[x_{mc}=\frac{1}{n} \sum^n_{i=1}x_i\]</span> <span class="math display">\[y_{mc}=\frac{1}{n} \sum^n_{i=1}y_i\]</span></p>
+<div id="80c888dc" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>array([52.57166667, 46.17166667])</code></pre>
+</div>
+</div>
+<div id="7725802a" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-7-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="weighted-mean-center-x_wmcy_wmc" class="level2">
+<h2 class="anchored" data-anchor-id="weighted-mean-center-x_wmcy_wmc">Weighted Mean Center <span class="math inline">\((x_{wmc},y_{wmc})\)</span></h2>
+<p><span class="math display">\[x_{wmc}=\sum^n_{i=1} \frac{w_i x_i}{\sum^n_{i=1}w_i}\]</span> <span class="math display">\[y_{wmc}=\sum^n_{i=1} \frac{w_i y_i}{\sum^n_{i=1}w_i}\]</span></p>
+<p>The Weighted mean center is meant for marked point patterns. Aside from the first argument which is a series of <span class="math inline">\((x,y)\)</span> coordinates in <strong>weighted_mean_center</strong> function, we need to specify its second argument which is the weight for each event point.</p>
+<div id="46a8fc29" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> np.arange(<span class="dv">12</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>weights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</code></pre>
+</div>
+</div>
+<div id="83a2a0e1" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>wmc <span class="op">=</span> weighted_mean_center(pp.points, weights)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>wmc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>array([60.51681818, 47.76848485])</code></pre>
+</div>
+</div>
+<div id="637f3062" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pp.plot() <span class="co">#use class method "plot" to visualize point pattern</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>) </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-10-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="manhattan-median-x_mmy_mm" class="level2">
+<h2 class="anchored" data-anchor-id="manhattan-median-x_mmy_mm">Manhattan Median <span class="math inline">\((x_{mm},y_{mm})\)</span></h2>
+<p><span class="math display">\[min  f(x_{mm},y_{mm})= \sum^n_{i=1}(|x_i-x_{mm}|+|y_i-y_{mm}|)\]</span></p>
+<p>The Manhattan median is the location which minimizes the absolute distance to all the event points. It is an extension of the median measure in one-dimensional space to two-dimensional space. Since in one-dimensional space, a median is the number separating the higher half of a dataset from the lower half, we define the Manhattan median as a tuple whose first element is the median of <span class="math inline">\(x\)</span> coordinates and second element is the median of <span class="math inline">\(y\)</span> coordinates.</p>
+<p>Though Manhattan median can be found very quickly, it is not unique if you have even number of points. In this case, pysal handles the Manhattan median the same way as numpy.median: return the average of the two middle values.</p>
+<div id="69b798d5" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get the number of points in point pattern "pp"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pp.n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>12</code></pre>
+</div>
+</div>
+<div id="004beb89" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Manhattan Median is not unique for "pp"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>mm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/serge/miniforge3/envs/workshop-pysal/lib/python3.10/site-packages/pointpats/centrography.py:216: UserWarning: Manhattan Median is not unique for even point patterns.
+  warnings.warn(s)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>array([59.825, 41.23 ])</code></pre>
+</div>
+</div>
+<div id="d56648e1" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-13-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="euclidean-median-x_emy_em" class="level2">
+<h2 class="anchored" data-anchor-id="euclidean-median-x_emy_em">Euclidean Median <span class="math inline">\((x_{em},y_{em})\)</span></h2>
+<p><span class="math display">\[min  f(x_{em},y_{em})= \sum^n_{i=1} \sqrt{(x_i-x_{em})^2+(y_i-y_{em})^2}\]</span></p>
+<p>The Euclidean Median is the location from which the sum of the Euclidean distances to all points in a distribution is a minimum. It is an optimization problem and very important for more general location allocation problems. There is no closed form solution. We can use first iterative algorithm (Kuhn and Kuenne, 1962) to approximate Euclidean Median.</p>
+<p>Below, we define a function named median_center with the first argument <strong>points</strong> a series of <span class="math inline">\((x,y)\)</span> coordinates and the second argument <strong>crit</strong> the convergence criterion.</p>
+<div id="204d089a" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> median_center(points, crit<span class="op">=</span><span class="fl">0.0001</span>):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> np.asarray(points)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    x0, y0 <span class="op">=</span> points.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    dx <span class="op">=</span> np.inf</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    dy <span class="op">=</span> np.inf</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    iteration <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> np.<span class="bu">abs</span>(dx) <span class="op">&gt;</span> crit <span class="kw">or</span> np.<span class="bu">abs</span>(dy) <span class="op">&gt;</span> crit:</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        xd <span class="op">=</span> points[:, <span class="dv">0</span>] <span class="op">-</span> x0</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        yd <span class="op">=</span> points[:, <span class="dv">1</span>] <span class="op">-</span> y0</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> np.sqrt(xd<span class="op">*</span>xd <span class="op">+</span> yd<span class="op">*</span>yd)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        w <span class="op">=</span> <span class="fl">1.</span><span class="op">/</span>d</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        w <span class="op">=</span> w <span class="op">/</span> w.<span class="bu">sum</span>()</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        x1 <span class="op">=</span> w <span class="op">*</span> points[:, <span class="dv">0</span>]</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        x1 <span class="op">=</span> x1.<span class="bu">sum</span>()</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        y1 <span class="op">=</span> w <span class="op">*</span> points[:, <span class="dv">1</span>]</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        y1 <span class="op">=</span> y1.<span class="bu">sum</span>()</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        dx <span class="op">=</span> x1 <span class="op">-</span> x0</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        dy <span class="op">=</span> y1 <span class="op">-</span> y0</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        iteration <span class="op">+=</span><span class="dv">1</span> </span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(x0, x1, dx, dy, d.<span class="bu">sum</span>(), iteration)</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>        x0 <span class="op">=</span> x1</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>        y0 <span class="op">=</span> y1</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x1, y1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cdf106ee" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>median_center(pp.points, crit<span class="op">=</span><span class="fl">.0001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>52.57166666666668 53.178128280602785 0.606461613936105 -0.9290354286335258 466.24479074356606 1
+53.178128280602785 53.56643624463614 0.388307964033352 -0.4199402653980684 465.9311160558993 2
+53.56643624463614 53.80720376806838 0.24076752343224683 -0.1974862190386233 465.84555867343346 3
+53.80720376806838 53.95348076207835 0.1462769940099662 -0.09642613786996179 465.8197750145871 4
+53.95348076207835 54.04117257066307 0.08769180858472225 -0.04872250646902643 465.8115372002813 5
+54.04117257066307 54.09327726928146 0.05210469861838618 -0.025370793047137852 465.80882301324334 6
+54.09327726928146 54.12405125525861 0.030773985977148755 -0.013552246205456697 465.8079149010591 7
+54.12405125525861 54.14215248769505 0.018101232436443127 -0.00739190209046825 465.8076087750224 8
+54.14215248769505 54.15276956049696 0.010617072801906602 -0.0040992658298719675 465.8075052025632 9
+54.15276956049696 54.15898467957115 0.0062151190741914775 -0.0023026998071102867 465.80747009858044 10
+54.15898467957115 54.16261796248172 0.0036332829105703013 -0.0013061853179365812 465.80745819050844 11
+54.16261796248172 54.16473989468326 0.002121932201539778 -0.0007463404183738476 465.80745414933307 12
+54.16473989468326 54.165978319450346 0.00123842476708802 -0.00042875101595285514 465.80745277762423 13
+54.165978319450346 54.166700756153695 0.0007224367033487056 -0.00024727631074483725 465.80745231197506 14
+54.166700756153695 54.16712204754273 0.0004212913890384584 -0.00014302182778891392 465.8074521538953 15
+54.16712204754273 54.16736766581608 0.00024561827334679265 -8.289363293556562e-05 465.8074521002288 16
+54.16736766581608 54.167510839857464 0.0001431740413835314 -4.8115880247223686e-05 465.80745208200943 17
+54.167510839857464 54.167594287646125 8.344778866131719e-05 -2.7959041396741213e-05 465.807452075824 18</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>(np.float64(54.167594287646125), np.float64(44.42430865883205))</code></pre>
+</div>
+</div>
+<p>After 18 iterations, the convergence criterion is reached. The Euclidean Median is <span class="math inline">\((54.167594287646125,44.424308658832047)\)</span>.</p>
+<p>We can also call the function <strong>euclidean_median</strong> in pysal to calculate the Euclidean Median.</p>
+<div id="83c0d22e" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>em</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>array([54.16773427, 44.42425854])</code></pre>
+</div>
+</div>
+<p>The two results we get from <strong>euclidean_median</strong> function in pysal and the <strong>median_center</strong> function we define here are very much the same.</p>
+<div id="aa3564a8" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-17-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dispersion-and-orientation" class="level1">
+<h1>Dispersion and Orientation</h1>
+<section id="standard-distance-standard-distance-circle" class="level2">
+<h2 class="anchored" data-anchor-id="standard-distance-standard-distance-circle">Standard Distance &amp; Standard Distance Circle</h2>
+<p><span class="math display">\[SD = \displaystyle \sqrt{\frac{\sum^n_{i=1}(x_i-x_{m})^2}{n} + \frac{\sum^n_{i=1}(y_i-y_{m})^2}{n}}\]</span></p>
+<p>The Standard distance is closely related to the usual definition of the standard deviation of a data set, and it provides a measure of how dispersed the events are around their mean center <span class="math inline">\((x_m,y_m)\)</span>. Taken together, these measurements can be used to plot a summary circle (standard distance circle) for the point pattern, centered at <span class="math inline">\((x_m,y_m)\)</span> with radius <span class="math inline">\(SD\)</span>, as shown below.</p>
+<div id="97de2d60" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>stdd <span class="op">=</span> std_distance(pp.points)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>stdd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>np.float64(40.14980648908671)</code></pre>
+</div>
+</div>
+<p>Plot mean center as well as the standard distance circle.</p>
+<div id="7b686293" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>circle1<span class="op">=</span>plt.Circle((mc[<span class="dv">0</span>], mc[<span class="dv">1</span>]),stdd,color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Distance Circle'</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ax.add_artist(circle1)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-19-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From the above figure, we can observe that there are five points outside the standard distance circle which are potential outliers.</p>
+</section>
+<section id="standard-deviational-ellipse" class="level2">
+<h2 class="anchored" data-anchor-id="standard-deviational-ellipse">Standard Deviational Ellipse</h2>
+<p>Compared with standard distance circle which measures dispersion using a single parameter <span class="math inline">\(SD\)</span>, standard deviational ellipse measures dispersion and trend in two dimensions through angle of rotation <span class="math inline">\(\theta\)</span>, dispersion along major axis <span class="math inline">\(s_x\)</span> and dispersion along minor axis <span class="math inline">\(s_y\)</span>:</p>
+<ul>
+<li>Major axis defines the direction of maximum spread in the distribution. <span class="math inline">\(s_x\)</span> is the semi-major axis (half the length of the major axis):</li>
+</ul>
+<p><span class="math display">\[ s_x = \displaystyle \sqrt{\frac{2(\sum_{i=1}^n (x_i-\bar{x})\cos(\theta) - \sum_{i=1}^n (y_i-\bar{y})\sin(\theta))^2}{n-2}}\]</span></p>
+<ul>
+<li>Minor axis defines the direction of minimum spread and is orthogonal to major axis. <span class="math inline">\(s_y\)</span> is the semi-minor axis (half the length of the minor axis):</li>
+</ul>
+<p><span class="math display">\[ s_y = \displaystyle \sqrt{\frac{2(\sum_{i=1}^n (x_i-\bar{x})\sin(\theta) - \sum_{i=1}^n (y_i-\bar{y})\cos(\theta))^2}{n-2}}\]</span></p>
+<ul>
+<li>The ellipse is rotated clockwise through an angle <span class="math inline">\(\theta\)</span>:</li>
+</ul>
+<p><span class="math display">\[\theta = \displaystyle \arctan{\{ (\sum_i(x_i-\bar{x})^2-\sum_i(y_i-\bar{y})^2) + \frac{[(\sum_i(x_i-\bar{x})^2-\sum_i(y_i-\bar{y})^2)^2 + 4(\sum_i(x-\bar{x})(y_i-\bar{y}))^2]^\frac{1}{2}}{2\sum_i(x-\bar{x})(y_i-\bar{y})}\}}\]</span></p>
+<div id="3833023f" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>(np.float64(39.62386788646298),
+ np.float64(42.753818949026815),
+ np.float64(1.1039268428650906))</code></pre>
+</div>
+</div>
+<div id="fcdb3b89" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>theta_degree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>np.float64(63.250348987371304)</code></pre>
+</div>
+</div>
+<p>The Standard Deviational Ellipse for the point pattern is rotated clockwise by <span class="math inline">\(63.25^{\circ}\)</span>.</p>
+<div id="07457915" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Ellipse</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pylab <span class="im">import</span> figure, show,rand</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> figure()</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#ax = fig.add_subplot(111, aspect='equal')</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> Ellipse(xy<span class="op">=</span>mean_center(pp.points), width<span class="op">=</span>sx<span class="op">*</span><span class="dv">2</span>, height<span class="op">=</span>sy<span class="op">*</span><span class="dv">2</span>, angle<span class="op">=-</span>theta_degree) <span class="co">#angle is rotation in degrees (anti-clockwise)</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Deviational Ellipse'</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>ax.add_artist(e)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>e.set_clip_box(ax.bbox)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>e.set_facecolor([<span class="fl">0.8</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>e.set_edgecolor([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>,<span class="dv">100</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>,<span class="dv">100</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-22-output-2.png" width="436" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="shape-analysis" class="level1">
+<h1>Shape Analysis</h1>
+<section id="convex-hull" class="level2">
+<h2 class="anchored" data-anchor-id="convex-hull"><a href="https://en.wikipedia.org/wiki/Convex_hull">Convex Hull</a></h2>
+<p>The convex hull of a point pattern <em>pp</em> is the smallest convex set that contains <em>pp</em>. We can call function <strong>hull</strong> to caculate the convex hull.</p>
+<div id="8cd7abd9" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>hull(pp.points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>array([[31.01, 81.21],
+       [ 8.23, 39.93],
+       [ 9.47, 31.02],
+       [22.52, 22.39],
+       [54.46,  8.48],
+       [79.26,  7.68],
+       [89.78, 42.53],
+       [98.73, 77.17],
+       [65.19, 92.08]])</code></pre>
+</div>
+</div>
+<p>By specifying “hull” argument <strong>True</strong> in PointPattern class method <strong>plot</strong>, we can easily plot convex hull of the point pattern.</p>
+<div id="3415b983" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>, hull<span class="op">=</span><span class="va">True</span> ) <span class="co">#plot point pattern "pp" as well as its convex hull</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-24-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="minimum-bounding-rectangle" class="level2">
+<h2 class="anchored" data-anchor-id="minimum-bounding-rectangle"><a href="https://en.wikipedia.org/wiki/Minimum_bounding_rectangle">Minimum Bounding Rectangle</a></h2>
+<p>Minimum Bounding Rectangle (Box) is the same as the minimum bounding Rectangle of its convex hull. Thus, it is almost always bigger than convex hull.</p>
+<p>We can call <strong>mbr</strong> function to calculate the leftmost, downmost, rightmost, and upmost value of the vertices of minimum bounding rectangle.</p>
+<div id="85972568" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mbr(pp.points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/tmp/ipykernel_282337/2243439823.py:1: FutureWarning: This function will be deprecated in the next release of pointpats.
+  mbr(pp.points)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>(np.float64(8.23), np.float64(7.68), np.float64(98.73), np.float64(92.08))</code></pre>
+</div>
+</div>
+<p>Thus, four vertices of the minimum bounding rectangle is <span class="math inline">\((8.23,7.68),(98.73,7.68),(98.73,92.08),(8.23,92.08)\)</span>.</p>
+<div id="3bbb19fa" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>, window<span class="op">=</span><span class="va">True</span> ) <span class="co">#plot point pattern "pp" as well as its Minimum Bounding Rectangle</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-26-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="3678a6ce" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>,  hull<span class="op">=</span><span class="va">True</span> , window<span class="op">=</span><span class="va">True</span> )<span class="co">#plot point pattern "pp", convex hull, and Minimum Bounding Rectangle</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-27-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Plot Standard Distance Circle and Convex Hull.</p>
+<div id="611c73c4" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>circle1<span class="op">=</span>plt.Circle((mc[<span class="dv">0</span>], mc[<span class="dv">1</span>]),stdd,color<span class="op">=</span><span class="st">'r'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Distance Circle'</span>, hull<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>ax.add_artist(circle1)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-28-output-1.png" width="442" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="another-example" class="level1">
+<h1>Another Example</h1>
+<p>We apply the centrography statistics and visualization to 2 simulated random datasets.</p>
+<div id="7dc8388a" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#from pysal.contrib import shapely_ext</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libpysal.cg <span class="im">import</span> shapely_ext</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> PoissonPointProcess <span class="im">as</span> csr</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> libpysal <span class="im">as</span> ps</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> as_window</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co">#import pysal_examples</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># open "vautm17n" polygon shapefile</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>va <span class="op">=</span> ps.io.<span class="bu">open</span>(ps.examples.get_path(<span class="st">"vautm17n.shp"</span>))</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the exterior polygons for VA from the union of the county shapes</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>polys <span class="op">=</span> [shp <span class="cf">for</span> shp <span class="kw">in</span> va]</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> shapely_ext.cascaded_union(polys)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="simulate-a-100-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process." class="level2">
+<h2 class="anchored" data-anchor-id="simulate-a-100-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process.">Simulate a 100-point dataset within VA state border from a CSR (complete spatial randomness) process.</h2>
+<div id="e1566c6c" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> csr(as_window(state), <span class="dv">100</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>).realizations[<span class="dv">0</span>]</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-30-output-1.png" width="579" height="303" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="643e6c2c" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>, hull<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-31-output-1.png" width="579" height="303" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="39e74021" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>,  hull<span class="op">=</span><span class="va">True</span> , window<span class="op">=</span><span class="va">True</span> )<span class="co">#plot point pattern "pp", convex hull, and Minimum Bounding Rectangle</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'c^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-32-output-1.png" width="579" height="306" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Plot Standard Distance Circle of the simulated point pattern.</p>
+<div id="bfb7e1b4" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Ellipse</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pylab <span class="im">import</span> figure, show,rand</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> figure()</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="co">#ax = fig.add_subplot(111, aspect='equal')</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> Ellipse(xy<span class="op">=</span>mean_center(pp.points), width<span class="op">=</span>sx<span class="op">*</span><span class="dv">2</span>, height<span class="op">=</span>sy<span class="op">*</span><span class="dv">2</span>, angle<span class="op">=-</span>theta_degree)</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Deviational Ellipse'</span>)</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>ax.add_artist(e)</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>e.set_clip_box(ax.bbox)</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>e.set_facecolor([<span class="fl">0.8</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>e.set_edgecolor([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">300000</span>,<span class="dv">1000000</span>)</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">4050000</span>,<span class="dv">4350000</span>)</span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_aspect('equal')</span></span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'c^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-33-output-2.png" width="590" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="simulate-a-500-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process." class="level2">
+<h2 class="anchored" data-anchor-id="simulate-a-500-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process.">Simulate a 500-point dataset within VA state border from a CSR (complete spatial randomness) process.</h2>
+<div id="da3e1f74" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> csr(as_window(state), <span class="dv">500</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>).realizations[<span class="dv">0</span>]</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-34-output-1.png" width="582" height="310" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="feb0abfd" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>, hull<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-35-output-1.png" width="582" height="310" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="c8dce0b3" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>,  hull<span class="op">=</span><span class="va">True</span> , window<span class="op">=</span><span class="va">True</span> )<span class="co">#plot point pattern "pp", convex hull, and Minimum Bounding Rectangle</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'c^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-36-output-1.png" width="579" height="306" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="3b6e4069" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Ellipse</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pylab <span class="im">import</span> figure, show,rand</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> figure()</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co">#ax = fig.add_subplot(111, aspect='equal')</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> Ellipse(xy<span class="op">=</span>mean_center(pp.points), width<span class="op">=</span>sx<span class="op">*</span><span class="dv">2</span>, height<span class="op">=</span>sy<span class="op">*</span><span class="dv">2</span>, angle<span class="op">=-</span>theta_degree)</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Deviational Ellipse'</span>)</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>ax.add_artist(e)</span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>e.set_clip_box(ax.bbox)</span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>e.set_facecolor([<span class="fl">0.8</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>e.set_edgecolor([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">300000</span>,<span class="dv">1000000</span>)</span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">4050000</span>,<span class="dv">4350000</span>)</span>
+<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_aspect('equal')</span></span>
+<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'c^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb54-19"><a href="#cb54-19" aria-hidden="true" tabindex="-1"></a>show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="centrography_files/figure-html/cell-37-output-2.png" width="590" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If we calculate the Euclidean distances between every event point and Mean Center (Euclidean Median), and sum them up, we can see that Euclidean Median is the optimal point in iterms of minimizing the Euclidean distances to all the event points.</p>
+<div id="32ef6429" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> dtot</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(mc, pp.points))</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(em, pp.points))</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(mc, pp.points) <span class="op">&gt;</span> dtot(em, pp.points))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>72840015.28456956
+72695431.71157935
+True</code></pre>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/sjsrey\.github\.io\/385f24\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb58" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Centrography for Point Patterns</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Serge Rey"</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="co">    theme:</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="co">      light: flatly</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="co">      dark: darkly</span></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-16"><a href="#cb58-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-18"><a href="#cb58-18" aria-hidden="true" tabindex="-1"></a>*Centrography* refers to a set of descriptive statistics that provide summary descriptions of point patterns.</span>
+<span id="cb58-19"><a href="#cb58-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>This notebook introduces three types of centrography analysis for point patterns in pysal.</span>
+<span id="cb58-21"><a href="#cb58-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-22"><a href="#cb58-22" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Central Tendency</span>
+<span id="cb58-23"><a href="#cb58-23" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dispersion and Orientation</span>
+<span id="cb58-24"><a href="#cb58-24" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Shape Analysis</span>
+<span id="cb58-25"><a href="#cb58-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-26"><a href="#cb58-26" aria-hidden="true" tabindex="-1"></a>We also illustrate centrography analysis using two simulated datasets. See <span class="co">[</span><span class="ot">Another Example</span><span class="co">](#Another-Example)</span></span>
+<span id="cb58-27"><a href="#cb58-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-28"><a href="#cb58-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-29"><a href="#cb58-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-30"><a href="#cb58-30" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Central Tendency</span>
+<span id="cb58-31"><a href="#cb58-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-32"><a href="#cb58-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>mean_center: calculate the mean center of the unmarked point pattern.</span>
+<span id="cb58-33"><a href="#cb58-33" aria-hidden="true" tabindex="-1"></a><span class="ss">    2. </span>weighted_mean_center: calculate the weighted mean center of the marked point pattern.</span>
+<span id="cb58-34"><a href="#cb58-34" aria-hidden="true" tabindex="-1"></a><span class="ss">    3. </span>manhattan_median: calculate the manhattan median</span>
+<span id="cb58-35"><a href="#cb58-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    4. </span>euclidean_median: calculate the Euclidean median</span>
+<span id="cb58-36"><a href="#cb58-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-37"><a href="#cb58-37" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dispersion and Orientation</span>
+<span id="cb58-38"><a href="#cb58-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-39"><a href="#cb58-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>std_distance: calculate the standard distance</span>
+<span id="cb58-40"><a href="#cb58-40" aria-hidden="true" tabindex="-1"></a><span class="ss">    2. </span>standard deviational ellipse</span>
+<span id="cb58-41"><a href="#cb58-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb58-42"><a href="#cb58-42" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Shape Analysis</span>
+<span id="cb58-43"><a href="#cb58-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-44"><a href="#cb58-44" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>hull: calculate the convex hull of the point pattern</span>
+<span id="cb58-45"><a href="#cb58-45" aria-hidden="true" tabindex="-1"></a><span class="ss">    2. </span>mbr: calculate the minimum bounding box (rectangle)</span>
+<span id="cb58-46"><a href="#cb58-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb58-47"><a href="#cb58-47" aria-hidden="true" tabindex="-1"></a>All of the above functions operate on a series of coordinate pairs. That is, the data type of the first argument should be $(n,2)$ array_like. In case that you have a point pattern (PointPattern instance), you need to pass its attribute "points" instead of itself to these functions.</span>
+<span id="cb58-48"><a href="#cb58-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-51"><a href="#cb58-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-52"><a href="#cb58-52" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-53"><a href="#cb58-53" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb58-54"><a href="#cb58-54" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> PointPattern</span>
+<span id="cb58-55"><a href="#cb58-55" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb58-56"><a href="#cb58-56" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb58-57"><a href="#cb58-57" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> [[<span class="fl">66.22</span>, <span class="fl">32.54</span>], [<span class="fl">22.52</span>, <span class="fl">22.39</span>], [<span class="fl">31.01</span>, <span class="fl">81.21</span>],</span>
+<span id="cb58-58"><a href="#cb58-58" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">9.47</span>, <span class="fl">31.02</span>],  [<span class="fl">30.78</span>, <span class="fl">60.10</span>], [<span class="fl">75.21</span>, <span class="fl">58.93</span>],</span>
+<span id="cb58-59"><a href="#cb58-59" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">79.26</span>,  <span class="fl">7.68</span>], [<span class="fl">8.23</span>, <span class="fl">39.93</span>],  [<span class="fl">98.73</span>, <span class="fl">77.17</span>],</span>
+<span id="cb58-60"><a href="#cb58-60" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">89.78</span>, <span class="fl">42.53</span>], [<span class="fl">65.19</span>, <span class="fl">92.08</span>], [<span class="fl">54.46</span>, <span class="fl">8.48</span>]]</span>
+<span id="cb58-61"><a href="#cb58-61" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> PointPattern(points) <span class="co">#create a point pattern "pp" from list</span></span>
+<span id="cb58-62"><a href="#cb58-62" aria-hidden="true" tabindex="-1"></a>pp.points </span>
+<span id="cb58-63"><a href="#cb58-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-64"><a href="#cb58-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-67"><a href="#cb58-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-68"><a href="#cb58-68" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-69"><a href="#cb58-69" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(pp.points)</span>
+<span id="cb58-70"><a href="#cb58-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-71"><a href="#cb58-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-72"><a href="#cb58-72" aria-hidden="true" tabindex="-1"></a>We can use PointPattern class method **plot** to visualize **pp**.</span>
+<span id="cb58-73"><a href="#cb58-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-76"><a href="#cb58-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-77"><a href="#cb58-77" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
+<span id="cb58-78"><a href="#cb58-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-79"><a href="#cb58-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-82"><a href="#cb58-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-83"><a href="#cb58-83" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats.centrography <span class="im">import</span> (hull, mbr, mean_center,</span>
+<span id="cb58-84"><a href="#cb58-84" aria-hidden="true" tabindex="-1"></a>                                    weighted_mean_center, manhattan_median,</span>
+<span id="cb58-85"><a href="#cb58-85" aria-hidden="true" tabindex="-1"></a>                                    std_distance,euclidean_median,ellipse)</span>
+<span id="cb58-86"><a href="#cb58-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-87"><a href="#cb58-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-88"><a href="#cb58-88" aria-hidden="true" tabindex="-1"></a><span class="fu"># Central Tendency</span></span>
+<span id="cb58-89"><a href="#cb58-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-90"><a href="#cb58-90" aria-hidden="true" tabindex="-1"></a>Central Tendency concerns about the center point of the two-dimensional distribution. It is similar to the first moment of a one-dimensional distribution. There are several ways to measure central tendency, each having pros and cons. We need to carefully select the appropriate measure according to our objective and data status.</span>
+<span id="cb58-91"><a href="#cb58-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-92"><a href="#cb58-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mean Center $(x_{mc},y_{mc})$</span></span>
+<span id="cb58-93"><a href="#cb58-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-94"><a href="#cb58-94" aria-hidden="true" tabindex="-1"></a>$$x_{mc}=\frac{1}{n} \sum^n_{i=1}x_i$$</span>
+<span id="cb58-95"><a href="#cb58-95" aria-hidden="true" tabindex="-1"></a>$$y_{mc}=\frac{1}{n} \sum^n_{i=1}y_i$$</span>
+<span id="cb58-96"><a href="#cb58-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-99"><a href="#cb58-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-100"><a href="#cb58-100" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
+<span id="cb58-101"><a href="#cb58-101" aria-hidden="true" tabindex="-1"></a>mc</span>
+<span id="cb58-102"><a href="#cb58-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-103"><a href="#cb58-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-106"><a href="#cb58-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-107"><a href="#cb58-107" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
+<span id="cb58-108"><a href="#cb58-108" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-109"><a href="#cb58-109" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-110"><a href="#cb58-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-111"><a href="#cb58-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-112"><a href="#cb58-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## Weighted Mean Center $(x_{wmc},y_{wmc})$</span></span>
+<span id="cb58-113"><a href="#cb58-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-114"><a href="#cb58-114" aria-hidden="true" tabindex="-1"></a>$$x_{wmc}=\sum^n_{i=1} \frac{w_i x_i}{\sum^n_{i=1}w_i}$$</span>
+<span id="cb58-115"><a href="#cb58-115" aria-hidden="true" tabindex="-1"></a>$$y_{wmc}=\sum^n_{i=1} \frac{w_i y_i}{\sum^n_{i=1}w_i}$$</span>
+<span id="cb58-116"><a href="#cb58-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-117"><a href="#cb58-117" aria-hidden="true" tabindex="-1"></a>The Weighted mean center is meant for marked point patterns. Aside from the first argument which is a series of $(x,y)$ coordinates in **weighted_mean_center** function, we need to specify its second argument which is the weight for each event point.</span>
+<span id="cb58-118"><a href="#cb58-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-121"><a href="#cb58-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-122"><a href="#cb58-122" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> np.arange(<span class="dv">12</span>)</span>
+<span id="cb58-123"><a href="#cb58-123" aria-hidden="true" tabindex="-1"></a>weights</span>
+<span id="cb58-124"><a href="#cb58-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-125"><a href="#cb58-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-128"><a href="#cb58-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-129"><a href="#cb58-129" aria-hidden="true" tabindex="-1"></a>wmc <span class="op">=</span> weighted_mean_center(pp.points, weights)</span>
+<span id="cb58-130"><a href="#cb58-130" aria-hidden="true" tabindex="-1"></a>wmc</span>
+<span id="cb58-131"><a href="#cb58-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-132"><a href="#cb58-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-135"><a href="#cb58-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-136"><a href="#cb58-136" aria-hidden="true" tabindex="-1"></a>pp.plot() <span class="co">#use class method "plot" to visualize point pattern</span></span>
+<span id="cb58-137"><a href="#cb58-137" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>) </span>
+<span id="cb58-138"><a href="#cb58-138" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb58-139"><a href="#cb58-139" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-140"><a href="#cb58-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-141"><a href="#cb58-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-142"><a href="#cb58-142" aria-hidden="true" tabindex="-1"></a><span class="fu">## Manhattan Median $(x_{mm},y_{mm})$</span></span>
+<span id="cb58-143"><a href="#cb58-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-144"><a href="#cb58-144" aria-hidden="true" tabindex="-1"></a>$$min  f(x_{mm},y_{mm})= \sum^n_{i=1}(|x_i-x_{mm}|+|y_i-y_{mm}|)$$</span>
+<span id="cb58-145"><a href="#cb58-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-146"><a href="#cb58-146" aria-hidden="true" tabindex="-1"></a>The Manhattan median is the location which minimizes the absolute distance to all the event points. It is an extension of the median measure in one-dimensional space to two-dimensional space. Since in one-dimensional space, a median is the number separating the higher half of a dataset from the lower half, we define the Manhattan median as a tuple whose first element is the median of $x$ coordinates and second element is the median of $y$ coordinates.</span>
+<span id="cb58-147"><a href="#cb58-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-148"><a href="#cb58-148" aria-hidden="true" tabindex="-1"></a>Though Manhattan median can be found very quickly, it is not unique if you have even number of points. In this case, pysal handles the Manhattan median the same way as numpy.median: return the average of the two middle values.</span>
+<span id="cb58-149"><a href="#cb58-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-152"><a href="#cb58-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-153"><a href="#cb58-153" aria-hidden="true" tabindex="-1"></a><span class="co">#get the number of points in point pattern "pp"</span></span>
+<span id="cb58-154"><a href="#cb58-154" aria-hidden="true" tabindex="-1"></a>pp.n</span>
+<span id="cb58-155"><a href="#cb58-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-156"><a href="#cb58-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-159"><a href="#cb58-159" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-160"><a href="#cb58-160" aria-hidden="true" tabindex="-1"></a><span class="co">#Manhattan Median is not unique for "pp"</span></span>
+<span id="cb58-161"><a href="#cb58-161" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
+<span id="cb58-162"><a href="#cb58-162" aria-hidden="true" tabindex="-1"></a>mm</span>
+<span id="cb58-163"><a href="#cb58-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-164"><a href="#cb58-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-167"><a href="#cb58-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-168"><a href="#cb58-168" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
+<span id="cb58-169"><a href="#cb58-169" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-170"><a href="#cb58-170" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb58-171"><a href="#cb58-171" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb58-172"><a href="#cb58-172" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-173"><a href="#cb58-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-174"><a href="#cb58-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-175"><a href="#cb58-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Euclidean Median $(x_{em},y_{em})$</span></span>
+<span id="cb58-176"><a href="#cb58-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-177"><a href="#cb58-177" aria-hidden="true" tabindex="-1"></a>$$min  f(x_{em},y_{em})= \sum^n_{i=1} \sqrt{(x_i-x_{em})^2+(y_i-y_{em})^2}$$</span>
+<span id="cb58-178"><a href="#cb58-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-179"><a href="#cb58-179" aria-hidden="true" tabindex="-1"></a>The Euclidean Median is the location from which the sum of the Euclidean distances to all points in a distribution is a minimum. It is an optimization problem and very important for more general location allocation problems. There is no closed form solution. We can use first iterative algorithm (Kuhn and Kuenne, 1962) to approximate Euclidean Median. </span>
+<span id="cb58-180"><a href="#cb58-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-181"><a href="#cb58-181" aria-hidden="true" tabindex="-1"></a>Below, we define a function named median_center with the first argument **points** a series of $(x,y)$ coordinates and the second argument **crit** the convergence criterion.</span>
+<span id="cb58-182"><a href="#cb58-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-185"><a href="#cb58-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-186"><a href="#cb58-186" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> median_center(points, crit<span class="op">=</span><span class="fl">0.0001</span>):</span>
+<span id="cb58-187"><a href="#cb58-187" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> np.asarray(points)</span>
+<span id="cb58-188"><a href="#cb58-188" aria-hidden="true" tabindex="-1"></a>    x0, y0 <span class="op">=</span> points.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb58-189"><a href="#cb58-189" aria-hidden="true" tabindex="-1"></a>    dx <span class="op">=</span> np.inf</span>
+<span id="cb58-190"><a href="#cb58-190" aria-hidden="true" tabindex="-1"></a>    dy <span class="op">=</span> np.inf</span>
+<span id="cb58-191"><a href="#cb58-191" aria-hidden="true" tabindex="-1"></a>    iteration <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb58-192"><a href="#cb58-192" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> np.<span class="bu">abs</span>(dx) <span class="op">&gt;</span> crit <span class="kw">or</span> np.<span class="bu">abs</span>(dy) <span class="op">&gt;</span> crit:</span>
+<span id="cb58-193"><a href="#cb58-193" aria-hidden="true" tabindex="-1"></a>        xd <span class="op">=</span> points[:, <span class="dv">0</span>] <span class="op">-</span> x0</span>
+<span id="cb58-194"><a href="#cb58-194" aria-hidden="true" tabindex="-1"></a>        yd <span class="op">=</span> points[:, <span class="dv">1</span>] <span class="op">-</span> y0</span>
+<span id="cb58-195"><a href="#cb58-195" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> np.sqrt(xd<span class="op">*</span>xd <span class="op">+</span> yd<span class="op">*</span>yd)</span>
+<span id="cb58-196"><a href="#cb58-196" aria-hidden="true" tabindex="-1"></a>        w <span class="op">=</span> <span class="fl">1.</span><span class="op">/</span>d</span>
+<span id="cb58-197"><a href="#cb58-197" aria-hidden="true" tabindex="-1"></a>        w <span class="op">=</span> w <span class="op">/</span> w.<span class="bu">sum</span>()</span>
+<span id="cb58-198"><a href="#cb58-198" aria-hidden="true" tabindex="-1"></a>        x1 <span class="op">=</span> w <span class="op">*</span> points[:, <span class="dv">0</span>]</span>
+<span id="cb58-199"><a href="#cb58-199" aria-hidden="true" tabindex="-1"></a>        x1 <span class="op">=</span> x1.<span class="bu">sum</span>()</span>
+<span id="cb58-200"><a href="#cb58-200" aria-hidden="true" tabindex="-1"></a>        y1 <span class="op">=</span> w <span class="op">*</span> points[:, <span class="dv">1</span>]</span>
+<span id="cb58-201"><a href="#cb58-201" aria-hidden="true" tabindex="-1"></a>        y1 <span class="op">=</span> y1.<span class="bu">sum</span>()</span>
+<span id="cb58-202"><a href="#cb58-202" aria-hidden="true" tabindex="-1"></a>        dx <span class="op">=</span> x1 <span class="op">-</span> x0</span>
+<span id="cb58-203"><a href="#cb58-203" aria-hidden="true" tabindex="-1"></a>        dy <span class="op">=</span> y1 <span class="op">-</span> y0</span>
+<span id="cb58-204"><a href="#cb58-204" aria-hidden="true" tabindex="-1"></a>        iteration <span class="op">+=</span><span class="dv">1</span> </span>
+<span id="cb58-205"><a href="#cb58-205" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(x0, x1, dx, dy, d.<span class="bu">sum</span>(), iteration)</span>
+<span id="cb58-206"><a href="#cb58-206" aria-hidden="true" tabindex="-1"></a>        x0 <span class="op">=</span> x1</span>
+<span id="cb58-207"><a href="#cb58-207" aria-hidden="true" tabindex="-1"></a>        y0 <span class="op">=</span> y1</span>
+<span id="cb58-208"><a href="#cb58-208" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb58-209"><a href="#cb58-209" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x1, y1</span>
+<span id="cb58-210"><a href="#cb58-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-211"><a href="#cb58-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-214"><a href="#cb58-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-215"><a href="#cb58-215" aria-hidden="true" tabindex="-1"></a>median_center(pp.points, crit<span class="op">=</span><span class="fl">.0001</span>)</span>
+<span id="cb58-216"><a href="#cb58-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-217"><a href="#cb58-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-218"><a href="#cb58-218" aria-hidden="true" tabindex="-1"></a>After 18 iterations, the convergence criterion is reached. The Euclidean Median is $(54.167594287646125,44.424308658832047)$.</span>
+<span id="cb58-219"><a href="#cb58-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-220"><a href="#cb58-220" aria-hidden="true" tabindex="-1"></a>We can also call the function **euclidean_median** in pysal to calculate the Euclidean Median.</span>
+<span id="cb58-221"><a href="#cb58-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-224"><a href="#cb58-224" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-225"><a href="#cb58-225" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
+<span id="cb58-226"><a href="#cb58-226" aria-hidden="true" tabindex="-1"></a>em</span>
+<span id="cb58-227"><a href="#cb58-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-228"><a href="#cb58-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-229"><a href="#cb58-229" aria-hidden="true" tabindex="-1"></a>The two results we get from **euclidean_median** function in pysal and the **median_center** function we define here are very much the same.</span>
+<span id="cb58-230"><a href="#cb58-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-233"><a href="#cb58-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-234"><a href="#cb58-234" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
+<span id="cb58-235"><a href="#cb58-235" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-236"><a href="#cb58-236" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb58-237"><a href="#cb58-237" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb58-238"><a href="#cb58-238" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb58-239"><a href="#cb58-239" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-240"><a href="#cb58-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-241"><a href="#cb58-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-242"><a href="#cb58-242" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dispersion and Orientation</span></span>
+<span id="cb58-243"><a href="#cb58-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-244"><a href="#cb58-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## Standard Distance &amp; Standard Distance Circle</span></span>
+<span id="cb58-245"><a href="#cb58-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-246"><a href="#cb58-246" aria-hidden="true" tabindex="-1"></a>$$SD = \displaystyle \sqrt{\frac{\sum^n_{i=1}(x_i-x_{m})^2}{n} + \frac{\sum^n_{i=1}(y_i-y_{m})^2}{n}}$$</span>
+<span id="cb58-247"><a href="#cb58-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-248"><a href="#cb58-248" aria-hidden="true" tabindex="-1"></a>The Standard distance is  closely related to the usual definition of the standard deviation of a data set, and it provides a measure of how dispersed the events are around their mean center $(x_m,y_m)$.  Taken together, these measurements can be used to plot a summary circle (standard distance circle) for the point pattern, centered at $(x_m,y_m)$ with radius $SD$, as shown below.</span>
+<span id="cb58-249"><a href="#cb58-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-252"><a href="#cb58-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-253"><a href="#cb58-253" aria-hidden="true" tabindex="-1"></a>stdd <span class="op">=</span> std_distance(pp.points)</span>
+<span id="cb58-254"><a href="#cb58-254" aria-hidden="true" tabindex="-1"></a>stdd</span>
+<span id="cb58-255"><a href="#cb58-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-256"><a href="#cb58-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-257"><a href="#cb58-257" aria-hidden="true" tabindex="-1"></a>Plot mean center as well as the standard distance circle.</span>
+<span id="cb58-258"><a href="#cb58-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-261"><a href="#cb58-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-262"><a href="#cb58-262" aria-hidden="true" tabindex="-1"></a>circle1<span class="op">=</span>plt.Circle((mc[<span class="dv">0</span>], mc[<span class="dv">1</span>]),stdd,color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb58-263"><a href="#cb58-263" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Distance Circle'</span>)</span>
+<span id="cb58-264"><a href="#cb58-264" aria-hidden="true" tabindex="-1"></a>ax.add_artist(circle1)</span>
+<span id="cb58-265"><a href="#cb58-265" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-266"><a href="#cb58-266" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb58-267"><a href="#cb58-267" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-268"><a href="#cb58-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-269"><a href="#cb58-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-270"><a href="#cb58-270" aria-hidden="true" tabindex="-1"></a>From the above figure, we can observe that there are five points outside the standard distance circle which are potential outliers.</span>
+<span id="cb58-271"><a href="#cb58-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-272"><a href="#cb58-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## Standard Deviational Ellipse</span></span>
+<span id="cb58-273"><a href="#cb58-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-274"><a href="#cb58-274" aria-hidden="true" tabindex="-1"></a>Compared with standard distance circle which measures dispersion using a single parameter $SD$, standard deviational ellipse measures dispersion and trend in two dimensions through angle of rotation $\theta$, dispersion along major axis $s_x$ and dispersion along minor axis $s_y$:</span>
+<span id="cb58-275"><a href="#cb58-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-276"><a href="#cb58-276" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Major axis defines the direction of maximum spread in the distribution. $s_x$ is the semi-major axis (half the length of the major axis):</span>
+<span id="cb58-277"><a href="#cb58-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-278"><a href="#cb58-278" aria-hidden="true" tabindex="-1"></a>$$ s_x = \displaystyle \sqrt{\frac{2(\sum_{i=1}^n (x_i-\bar{x})\cos(\theta) - \sum_{i=1}^n (y_i-\bar{y})\sin(\theta))^2}{n-2}}$$</span>
+<span id="cb58-279"><a href="#cb58-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-280"><a href="#cb58-280" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Minor axis defines the direction of minimum spread and is orthogonal to major axis. $s_y$ is the semi-minor axis (half the length of the minor axis):</span>
+<span id="cb58-281"><a href="#cb58-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-282"><a href="#cb58-282" aria-hidden="true" tabindex="-1"></a>$$ s_y = \displaystyle \sqrt{\frac{2(\sum_{i=1}^n (x_i-\bar{x})\sin(\theta) - \sum_{i=1}^n (y_i-\bar{y})\cos(\theta))^2}{n-2}}$$</span>
+<span id="cb58-283"><a href="#cb58-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-284"><a href="#cb58-284" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>The ellipse is rotated clockwise through an angle $\theta$:</span>
+<span id="cb58-285"><a href="#cb58-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-286"><a href="#cb58-286" aria-hidden="true" tabindex="-1"></a>$$\theta = \displaystyle \arctan{<span class="sc">\{</span> (\sum_i(x_i-\bar{x})^2-\sum_i(y_i-\bar{y})^2) + \frac{<span class="co">[</span><span class="ot">(\sum_i(x_i-\bar{x})^2-\sum_i(y_i-\bar{y})^2)^2 + 4(\sum_i(x-\bar{x})(y_i-\bar{y}))^2</span><span class="co">]</span>^\frac{1}{2}}{2\sum_i(x-\bar{x})(y_i-\bar{y})}<span class="sc">\}</span>}$$</span>
+<span id="cb58-287"><a href="#cb58-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-290"><a href="#cb58-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-291"><a href="#cb58-291" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
+<span id="cb58-292"><a href="#cb58-292" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span>
+<span id="cb58-293"><a href="#cb58-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-294"><a href="#cb58-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-297"><a href="#cb58-297" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-298"><a href="#cb58-298" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
+<span id="cb58-299"><a href="#cb58-299" aria-hidden="true" tabindex="-1"></a>theta_degree</span>
+<span id="cb58-300"><a href="#cb58-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-301"><a href="#cb58-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-302"><a href="#cb58-302" aria-hidden="true" tabindex="-1"></a>The Standard Deviational Ellipse for the point pattern is rotated clockwise by $63.25^{\circ}$.</span>
+<span id="cb58-303"><a href="#cb58-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-306"><a href="#cb58-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-307"><a href="#cb58-307" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Ellipse</span>
+<span id="cb58-308"><a href="#cb58-308" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pylab <span class="im">import</span> figure, show,rand</span>
+<span id="cb58-309"><a href="#cb58-309" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> figure()</span>
+<span id="cb58-310"><a href="#cb58-310" aria-hidden="true" tabindex="-1"></a><span class="co">#ax = fig.add_subplot(111, aspect='equal')</span></span>
+<span id="cb58-311"><a href="#cb58-311" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> Ellipse(xy<span class="op">=</span>mean_center(pp.points), width<span class="op">=</span>sx<span class="op">*</span><span class="dv">2</span>, height<span class="op">=</span>sy<span class="op">*</span><span class="dv">2</span>, angle<span class="op">=-</span>theta_degree) <span class="co">#angle is rotation in degrees (anti-clockwise)</span></span>
+<span id="cb58-312"><a href="#cb58-312" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Deviational Ellipse'</span>)</span>
+<span id="cb58-313"><a href="#cb58-313" aria-hidden="true" tabindex="-1"></a>ax.add_artist(e)</span>
+<span id="cb58-314"><a href="#cb58-314" aria-hidden="true" tabindex="-1"></a>e.set_clip_box(ax.bbox)</span>
+<span id="cb58-315"><a href="#cb58-315" aria-hidden="true" tabindex="-1"></a>e.set_facecolor([<span class="fl">0.8</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb58-316"><a href="#cb58-316" aria-hidden="true" tabindex="-1"></a>e.set_edgecolor([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb58-317"><a href="#cb58-317" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>,<span class="dv">100</span>)</span>
+<span id="cb58-318"><a href="#cb58-318" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>,<span class="dv">100</span>)</span>
+<span id="cb58-319"><a href="#cb58-319" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb58-320"><a href="#cb58-320" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-321"><a href="#cb58-321" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-322"><a href="#cb58-322" aria-hidden="true" tabindex="-1"></a>show()</span>
+<span id="cb58-323"><a href="#cb58-323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-324"><a href="#cb58-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-325"><a href="#cb58-325" aria-hidden="true" tabindex="-1"></a><span class="fu"># Shape Analysis</span></span>
+<span id="cb58-326"><a href="#cb58-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-327"><a href="#cb58-327" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Convex Hull](https://en.wikipedia.org/wiki/Convex_hull)</span></span>
+<span id="cb58-328"><a href="#cb58-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-329"><a href="#cb58-329" aria-hidden="true" tabindex="-1"></a>The convex hull of a point pattern *pp* is the smallest convex set that contains *pp*. We can call function **hull** to caculate the convex hull.</span>
+<span id="cb58-330"><a href="#cb58-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-333"><a href="#cb58-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-334"><a href="#cb58-334" aria-hidden="true" tabindex="-1"></a>hull(pp.points)</span>
+<span id="cb58-335"><a href="#cb58-335" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-336"><a href="#cb58-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-337"><a href="#cb58-337" aria-hidden="true" tabindex="-1"></a>By specifying "hull" argument **True** in PointPattern class method **plot**, we can easily plot convex hull of the point pattern.</span>
+<span id="cb58-338"><a href="#cb58-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-341"><a href="#cb58-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-342"><a href="#cb58-342" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>, hull<span class="op">=</span><span class="va">True</span> ) <span class="co">#plot point pattern "pp" as well as its convex hull</span></span>
+<span id="cb58-343"><a href="#cb58-343" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-344"><a href="#cb58-344" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb58-345"><a href="#cb58-345" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb58-346"><a href="#cb58-346" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb58-347"><a href="#cb58-347" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-348"><a href="#cb58-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-349"><a href="#cb58-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-350"><a href="#cb58-350" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Minimum Bounding Rectangle](https://en.wikipedia.org/wiki/Minimum_bounding_rectangle)</span></span>
+<span id="cb58-351"><a href="#cb58-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-352"><a href="#cb58-352" aria-hidden="true" tabindex="-1"></a>Minimum Bounding Rectangle (Box) is the same as the minimum bounding Rectangle of its convex hull. Thus, it is almost always bigger than convex hull.</span>
+<span id="cb58-353"><a href="#cb58-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-354"><a href="#cb58-354" aria-hidden="true" tabindex="-1"></a>We can call **mbr** function to calculate the leftmost, downmost, rightmost, and upmost value of the vertices of minimum bounding rectangle.</span>
+<span id="cb58-355"><a href="#cb58-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-358"><a href="#cb58-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-359"><a href="#cb58-359" aria-hidden="true" tabindex="-1"></a>mbr(pp.points)</span>
+<span id="cb58-360"><a href="#cb58-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-361"><a href="#cb58-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-362"><a href="#cb58-362" aria-hidden="true" tabindex="-1"></a>Thus, four vertices of the  minimum bounding rectangle is $(8.23,7.68),(98.73,7.68),(98.73,92.08),(8.23,92.08)$.</span>
+<span id="cb58-363"><a href="#cb58-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-366"><a href="#cb58-366" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-367"><a href="#cb58-367" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>, window<span class="op">=</span><span class="va">True</span> ) <span class="co">#plot point pattern "pp" as well as its Minimum Bounding Rectangle</span></span>
+<span id="cb58-368"><a href="#cb58-368" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-369"><a href="#cb58-369" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb58-370"><a href="#cb58-370" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb58-371"><a href="#cb58-371" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb58-372"><a href="#cb58-372" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-373"><a href="#cb58-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-374"><a href="#cb58-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-377"><a href="#cb58-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-378"><a href="#cb58-378" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>,  hull<span class="op">=</span><span class="va">True</span> , window<span class="op">=</span><span class="va">True</span> )<span class="co">#plot point pattern "pp", convex hull, and Minimum Bounding Rectangle</span></span>
+<span id="cb58-379"><a href="#cb58-379" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-380"><a href="#cb58-380" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
+<span id="cb58-381"><a href="#cb58-381" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb58-382"><a href="#cb58-382" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb58-383"><a href="#cb58-383" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-384"><a href="#cb58-384" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-385"><a href="#cb58-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-386"><a href="#cb58-386" aria-hidden="true" tabindex="-1"></a>Plot Standard Distance Circle and Convex Hull.</span>
+<span id="cb58-387"><a href="#cb58-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-390"><a href="#cb58-390" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-391"><a href="#cb58-391" aria-hidden="true" tabindex="-1"></a>circle1<span class="op">=</span>plt.Circle((mc[<span class="dv">0</span>], mc[<span class="dv">1</span>]),stdd,color<span class="op">=</span><span class="st">'r'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb58-392"><a href="#cb58-392" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Distance Circle'</span>, hull<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb58-393"><a href="#cb58-393" aria-hidden="true" tabindex="-1"></a>ax.add_artist(circle1)</span>
+<span id="cb58-394"><a href="#cb58-394" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-395"><a href="#cb58-395" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb58-396"><a href="#cb58-396" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-397"><a href="#cb58-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-398"><a href="#cb58-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-399"><a href="#cb58-399" aria-hidden="true" tabindex="-1"></a><span class="fu"># Another Example</span></span>
+<span id="cb58-400"><a href="#cb58-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-401"><a href="#cb58-401" aria-hidden="true" tabindex="-1"></a>We apply the  centrography statistics and visualization to 2 simulated random datasets.</span>
+<span id="cb58-402"><a href="#cb58-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-405"><a href="#cb58-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-406"><a href="#cb58-406" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-407"><a href="#cb58-407" aria-hidden="true" tabindex="-1"></a><span class="co">#from pysal.contrib import shapely_ext</span></span>
+<span id="cb58-408"><a href="#cb58-408" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libpysal.cg <span class="im">import</span> shapely_ext</span>
+<span id="cb58-409"><a href="#cb58-409" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> PoissonPointProcess <span class="im">as</span> csr</span>
+<span id="cb58-410"><a href="#cb58-410" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> libpysal <span class="im">as</span> ps</span>
+<span id="cb58-411"><a href="#cb58-411" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> as_window</span>
+<span id="cb58-412"><a href="#cb58-412" aria-hidden="true" tabindex="-1"></a><span class="co">#import pysal_examples</span></span>
+<span id="cb58-413"><a href="#cb58-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-414"><a href="#cb58-414" aria-hidden="true" tabindex="-1"></a><span class="co"># open "vautm17n" polygon shapefile</span></span>
+<span id="cb58-415"><a href="#cb58-415" aria-hidden="true" tabindex="-1"></a>va <span class="op">=</span> ps.io.<span class="bu">open</span>(ps.examples.get_path(<span class="st">"vautm17n.shp"</span>))</span>
+<span id="cb58-416"><a href="#cb58-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-417"><a href="#cb58-417" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the exterior polygons for VA from the union of the county shapes</span></span>
+<span id="cb58-418"><a href="#cb58-418" aria-hidden="true" tabindex="-1"></a>polys <span class="op">=</span> [shp <span class="cf">for</span> shp <span class="kw">in</span> va]</span>
+<span id="cb58-419"><a href="#cb58-419" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> shapely_ext.cascaded_union(polys)</span>
+<span id="cb58-420"><a href="#cb58-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-421"><a href="#cb58-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-422"><a href="#cb58-422" aria-hidden="true" tabindex="-1"></a><span class="fu">## Simulate a 100-point dataset within VA state border from a CSR (complete spatial randomness) process.</span></span>
+<span id="cb58-423"><a href="#cb58-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-426"><a href="#cb58-426" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-427"><a href="#cb58-427" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-428"><a href="#cb58-428" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> csr(as_window(state), <span class="dv">100</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>).realizations[<span class="dv">0</span>]</span>
+<span id="cb58-429"><a href="#cb58-429" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb58-430"><a href="#cb58-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-431"><a href="#cb58-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-434"><a href="#cb58-434" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-435"><a href="#cb58-435" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-436"><a href="#cb58-436" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>, hull<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb58-437"><a href="#cb58-437" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-438"><a href="#cb58-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-441"><a href="#cb58-441" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-442"><a href="#cb58-442" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-443"><a href="#cb58-443" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
+<span id="cb58-444"><a href="#cb58-444" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
+<span id="cb58-445"><a href="#cb58-445" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
+<span id="cb58-446"><a href="#cb58-446" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>,  hull<span class="op">=</span><span class="va">True</span> , window<span class="op">=</span><span class="va">True</span> )<span class="co">#plot point pattern "pp", convex hull, and Minimum Bounding Rectangle</span></span>
+<span id="cb58-447"><a href="#cb58-447" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'c^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-448"><a href="#cb58-448" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb58-449"><a href="#cb58-449" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb58-450"><a href="#cb58-450" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-451"><a href="#cb58-451" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-452"><a href="#cb58-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-453"><a href="#cb58-453" aria-hidden="true" tabindex="-1"></a>Plot Standard Distance Circle of the simulated point pattern.</span>
+<span id="cb58-454"><a href="#cb58-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-457"><a href="#cb58-457" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-458"><a href="#cb58-458" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-459"><a href="#cb58-459" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
+<span id="cb58-460"><a href="#cb58-460" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span>
+<span id="cb58-461"><a href="#cb58-461" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
+<span id="cb58-462"><a href="#cb58-462" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Ellipse</span>
+<span id="cb58-463"><a href="#cb58-463" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pylab <span class="im">import</span> figure, show,rand</span>
+<span id="cb58-464"><a href="#cb58-464" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> figure()</span>
+<span id="cb58-465"><a href="#cb58-465" aria-hidden="true" tabindex="-1"></a><span class="co">#ax = fig.add_subplot(111, aspect='equal')</span></span>
+<span id="cb58-466"><a href="#cb58-466" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> Ellipse(xy<span class="op">=</span>mean_center(pp.points), width<span class="op">=</span>sx<span class="op">*</span><span class="dv">2</span>, height<span class="op">=</span>sy<span class="op">*</span><span class="dv">2</span>, angle<span class="op">=-</span>theta_degree)</span>
+<span id="cb58-467"><a href="#cb58-467" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Deviational Ellipse'</span>)</span>
+<span id="cb58-468"><a href="#cb58-468" aria-hidden="true" tabindex="-1"></a>ax.add_artist(e)</span>
+<span id="cb58-469"><a href="#cb58-469" aria-hidden="true" tabindex="-1"></a>e.set_clip_box(ax.bbox)</span>
+<span id="cb58-470"><a href="#cb58-470" aria-hidden="true" tabindex="-1"></a>e.set_facecolor([<span class="fl">0.8</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb58-471"><a href="#cb58-471" aria-hidden="true" tabindex="-1"></a>e.set_edgecolor([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb58-472"><a href="#cb58-472" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">300000</span>,<span class="dv">1000000</span>)</span>
+<span id="cb58-473"><a href="#cb58-473" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">4050000</span>,<span class="dv">4350000</span>)</span>
+<span id="cb58-474"><a href="#cb58-474" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_aspect('equal')</span></span>
+<span id="cb58-475"><a href="#cb58-475" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'c^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-476"><a href="#cb58-476" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-477"><a href="#cb58-477" aria-hidden="true" tabindex="-1"></a>show()</span>
+<span id="cb58-478"><a href="#cb58-478" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-479"><a href="#cb58-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-480"><a href="#cb58-480" aria-hidden="true" tabindex="-1"></a><span class="fu">## Simulate a 500-point dataset within VA state border from a CSR (complete spatial randomness) process.</span></span>
+<span id="cb58-481"><a href="#cb58-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-484"><a href="#cb58-484" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-485"><a href="#cb58-485" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-486"><a href="#cb58-486" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> csr(as_window(state), <span class="dv">500</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>).realizations[<span class="dv">0</span>]</span>
+<span id="cb58-487"><a href="#cb58-487" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb58-488"><a href="#cb58-488" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-489"><a href="#cb58-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-492"><a href="#cb58-492" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-493"><a href="#cb58-493" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-494"><a href="#cb58-494" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>, hull<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb58-495"><a href="#cb58-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-496"><a href="#cb58-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-499"><a href="#cb58-499" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-500"><a href="#cb58-500" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-501"><a href="#cb58-501" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
+<span id="cb58-502"><a href="#cb58-502" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
+<span id="cb58-503"><a href="#cb58-503" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
+<span id="cb58-504"><a href="#cb58-504" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>,  hull<span class="op">=</span><span class="va">True</span> , window<span class="op">=</span><span class="va">True</span> )<span class="co">#plot point pattern "pp", convex hull, and Minimum Bounding Rectangle</span></span>
+<span id="cb58-505"><a href="#cb58-505" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'c^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-506"><a href="#cb58-506" aria-hidden="true" tabindex="-1"></a>plt.plot(mm[<span class="dv">0</span>], mm[<span class="dv">1</span>], <span class="st">'rv'</span>, label<span class="op">=</span><span class="st">'Manhattan Median'</span>)</span>
+<span id="cb58-507"><a href="#cb58-507" aria-hidden="true" tabindex="-1"></a>plt.plot(em[<span class="dv">0</span>], em[<span class="dv">1</span>], <span class="st">'m+'</span>, label<span class="op">=</span><span class="st">'Euclidean Median'</span>)</span>
+<span id="cb58-508"><a href="#cb58-508" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-509"><a href="#cb58-509" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-510"><a href="#cb58-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-513"><a href="#cb58-513" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-514"><a href="#cb58-514" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-515"><a href="#cb58-515" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
+<span id="cb58-516"><a href="#cb58-516" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span>
+<span id="cb58-517"><a href="#cb58-517" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
+<span id="cb58-518"><a href="#cb58-518" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Ellipse</span>
+<span id="cb58-519"><a href="#cb58-519" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pylab <span class="im">import</span> figure, show,rand</span>
+<span id="cb58-520"><a href="#cb58-520" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> figure()</span>
+<span id="cb58-521"><a href="#cb58-521" aria-hidden="true" tabindex="-1"></a><span class="co">#ax = fig.add_subplot(111, aspect='equal')</span></span>
+<span id="cb58-522"><a href="#cb58-522" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> Ellipse(xy<span class="op">=</span>mean_center(pp.points), width<span class="op">=</span>sx<span class="op">*</span><span class="dv">2</span>, height<span class="op">=</span>sy<span class="op">*</span><span class="dv">2</span>, angle<span class="op">=-</span>theta_degree)</span>
+<span id="cb58-523"><a href="#cb58-523" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Deviational Ellipse'</span>)</span>
+<span id="cb58-524"><a href="#cb58-524" aria-hidden="true" tabindex="-1"></a>ax.add_artist(e)</span>
+<span id="cb58-525"><a href="#cb58-525" aria-hidden="true" tabindex="-1"></a>e.set_clip_box(ax.bbox)</span>
+<span id="cb58-526"><a href="#cb58-526" aria-hidden="true" tabindex="-1"></a>e.set_facecolor([<span class="fl">0.8</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb58-527"><a href="#cb58-527" aria-hidden="true" tabindex="-1"></a>e.set_edgecolor([<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb58-528"><a href="#cb58-528" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">300000</span>,<span class="dv">1000000</span>)</span>
+<span id="cb58-529"><a href="#cb58-529" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">4050000</span>,<span class="dv">4350000</span>)</span>
+<span id="cb58-530"><a href="#cb58-530" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_aspect('equal')</span></span>
+<span id="cb58-531"><a href="#cb58-531" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'c^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
+<span id="cb58-532"><a href="#cb58-532" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-533"><a href="#cb58-533" aria-hidden="true" tabindex="-1"></a>show()</span>
+<span id="cb58-534"><a href="#cb58-534" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-535"><a href="#cb58-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-536"><a href="#cb58-536" aria-hidden="true" tabindex="-1"></a>If we calculate the Euclidean distances between every event point and Mean Center (Euclidean Median), and sum them up, we can see that Euclidean Median is the optimal point in iterms of minimizing the Euclidean distances to all the event points.</span>
+<span id="cb58-537"><a href="#cb58-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-540"><a href="#cb58-540" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb58-541"><a href="#cb58-541" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb58-542"><a href="#cb58-542" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> dtot</span>
+<span id="cb58-543"><a href="#cb58-543" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(mc, pp.points))</span>
+<span id="cb58-544"><a href="#cb58-544" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(em, pp.points))</span>
+<span id="cb58-545"><a href="#cb58-545" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(mc, pp.points) <span class="op">&gt;</span> dtot(em, pp.points))</span>
+<span id="cb58-546"><a href="#cb58-546" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb58-547"><a href="#cb58-547" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

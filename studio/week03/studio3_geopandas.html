@@ -54,27 +54,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -190,6 +170,10 @@ div.csl-indent {
     <a class="dropdown-item" href="../../lectures/week10/point-patterns.html">
  <span class="dropdown-text">10-28 Point Pattern Data</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week11/centrography.html">
+ <span class="dropdown-text">11-04 Centrography</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -233,6 +217,10 @@ div.csl-indent {
     <a class="dropdown-item" href="../../studio/week09/peer2.html">
  <span class="dropdown-text">10-23 Studio 9: Peer Evaluation 2</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../studio/week10/index.html">
+ <span class="dropdown-text">10-30 Studio 10: Geoprocessing for Points</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -268,114 +256,278 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 1: 8-26, 8-28</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">08-26 Course Overview</span></a>
+ <span class="menu-text">Course Overview</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">08-28 Studio 1: Jupyter Hub</span></a>
+ <span class="menu-text">Studio 1: Jupyter Hub</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 2: 9-04</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">Labor Day Holiday</span>
+  </li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-04 Studio 2: Pandas</span></a>
+ <span class="menu-text">Studio: Pandas</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 3: 9-09, 9-11</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-09 Spatial Data Analysis</span></a>
+ <span class="menu-text">Spatial Data Analysis</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-11 Studio 3: GeoPandas</span></a>
+ <span class="menu-text">Studio: GeoPandas</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 4: 9-16, 9-23</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week04/lecture_area.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-16 Area Unit Data</span></a>
+ <span class="menu-text">Methods for Area Unit Data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-18 Studio 4: Geosnap and Geoprocessing</span></a>
+ <span class="menu-text">Studio: <code>geosnap</code></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 5: 9-23, 9-25</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week05/choro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-23 Choropleth Mapping</span></a>
+ <span class="menu-text">Visualization for Area Unit Data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-25 Studio 5: Choropleth Mapping</span></a>
+ <span class="menu-text">Studio: Choropleth Mapping</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 6: 9-30, 10-02</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week06/spatial_weights.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-30 Spatial Weights</span></a>
+ <span class="menu-text">Spatial Weights</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week06/peer1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-02 Studio 6: Peer Evaluation 1</span></a>
+ <span class="menu-text">Studio 06 Peer Evaluation 1</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 7: 10-07, 10-09</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week07/global.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-07 Global Spatial Autocorrelation</span></a>
+ <span class="menu-text">Global Spatial Autocorrelation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week07/global.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-09 Studio 7: Global Spatial Autocorrelation</span></a>
+ <span class="menu-text">Studio 07 Global Spatial Autocorrelation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 8: 10-14, 10-16</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week08/local.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-14 Local Spatial Autocorrelation</span></a>
+ <span class="menu-text">Local Spatial Autocorrelation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week08/local.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-16 Studio 8: Local Spatial Autocorrelation</span></a>
+ <span class="menu-text">Studio 08 Local Spatial Autocorrelation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 9: 10-21, 10-23</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week09/regionalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-21 Clustering and Regionalization</span></a>
+ <span class="menu-text">Clustering and Regionalization in Geographic Data Science</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../studio/week09/peer2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-23 Studio 9: Peer Evaluation 2</span></a>
+ <span class="menu-text">Studio 09 Peer Evaluation 2</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 10: 10-27, 20-30</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/week10/point-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-28 Point Pattern Data</span></a>
+ <span class="menu-text">Point Pattern Basics</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../studio/week10/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio 10 Geoprocessing Points</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Week 11: 11-04, 11-06</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week11/centrography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Centrography for Point Patterns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -509,7 +661,7 @@ div.csl-indent {
 </section>
 <section id="shapely" class="level2">
 <h2 class="anchored" data-anchor-id="shapely">shapely</h2>
-<p><a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a> <span class="citation" data-cites="shapely2007">(<a href="#ref-shapely2007" role="doc-biblioref">Gillies et al. 2007--</a>)</span> is a Python package for the manipulation and analysis of <a href="https://www.merriam-webster.com/dictionary/planar">planar</a> geometric objects.</p>
+<p><a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a> <span class="citation" data-cites="shapely2007">(<a href="#ref-shapely2007" role="doc-biblioref"><strong>shapely2007?</strong></a>)</span> is a Python package for the manipulation and analysis of <a href="https://www.merriam-webster.com/dictionary/planar">planar</a> geometric objects.</p>
 <p>We can use shapely to build up our example, starting with its <code>Point</code> class:</p>
 <div id="7587ecec" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely <span class="im">import</span> Point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -815,7 +967,7 @@ Note
 </section>
 <section id="geopandas" class="level2">
 <h2 class="anchored" data-anchor-id="geopandas">GeoPandas</h2>
-<p><a href="https://geopandas.org/en/stable/">GeoPandas</a> <span class="citation" data-cites="kelsey_jordahl_2020_3946761">(<a href="#ref-kelsey_jordahl_2020_3946761" role="doc-biblioref">Jordahl et al. 2020</a>)</span> is a python package that makes working with geospatial data easier. It relies on shapely and other libraries to extend the datatypes used by Pandas to allow spatial operations on geometric types.</p>
+<p><a href="https://geopandas.org/en/stable/">GeoPandas</a> <span class="citation" data-cites="kelsey_jordahl_2020_3946761">(<a href="#ref-kelsey_jordahl_2020_3946761" role="doc-biblioref"><strong>kelsey_jordahl_2020_3946761?</strong></a>)</span> is a python package that makes working with geospatial data easier. It relies on shapely and other libraries to extend the datatypes used by Pandas to allow spatial operations on geometric types.</p>
 <p>The two important classes in GeoPandas are:</p>
 <ul>
 <li><code>GeoSeries</code></li>
@@ -1288,18 +1440,10 @@ dtype: geometry</code></pre>
 
 <!-- -->
 
-
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-shapely2007" class="csl-entry" role="listitem">
-Gillies, Sean et al. 2007--. <span>“Shapely: Manipulation and Analysis of Geometric Objects.”</span> toblerity.org. <a href="https://github.com/Toblerity/Shapely">https://github.com/Toblerity/Shapely</a>.
-</div>
-<div id="ref-kelsey_jordahl_2020_3946761" class="csl-entry" role="listitem">
-Jordahl, Kelsey, Joris Van den Bossche, Martin Fleischmann, Jacob Wasserman, James McBride, Jeffrey Gerard, Jeff Tratner, et al. 2020. <span>“Geopandas/Geopandas: V0.8.1.”</span> Zenodo. <a href="https://doi.org/10.5281/zenodo.3946761">https://doi.org/10.5281/zenodo.3946761</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

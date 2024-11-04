@@ -425,11 +425,11 @@ Serge Rey
 </section>
 <section id="imports" class="slide level2 center">
 <h2>Imports</h2>
-<div id="98148bca" class="cell" data-execution_count="1">
+<div id="abd353d8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> warnings</span>
 <span id="cb1-2"><a></a>warnings.simplefilter(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="64d47bcb" class="cell" data-execution_count="2">
+<div id="4c7b2d5b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> libpysal </span>
 <span id="cb2-2"><a></a><span class="im">from</span> libpysal.weights <span class="im">import</span> Queen, Rook, KNN, Kernel, DistanceBand</span>
 <span id="cb2-3"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -438,7 +438,7 @@ Serge Rey
 <span id="cb2-6"><a></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb2-7"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="872e47af" class="cell" data-execution_count="3">
+<div id="2346e007" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">from</span> splot.libpysal <span class="im">import</span> plot_spatial_weights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are functions to construct weights directly from a file path.</p>
@@ -471,14 +471,14 @@ Serge Rey
 <section id="constructing-queen-weights" class="slide level2 center">
 <h2>Constructing Queen Weights</h2>
 <p>To construct queen weights from a shapefile, we will use geopandas to read the file into a GeoDataFrame, and then use libpysal to construct the weights:</p>
-<div id="25d63233" class="cell" data-execution_count="4">
+<div id="70877e47" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>path <span class="op">=</span> <span class="st">"~/data/scag_region.parquet"</span></span>
 <span id="cb4-2"><a></a>df <span class="op">=</span> geopandas.read_parquet(path)</span>
 <span id="cb4-3"><a></a>df <span class="op">=</span> df.to_crs(<span class="dv">26911</span>)  <span class="co">#UTM zone 11N</span></span>
 <span id="cb4-4"><a></a>qW <span class="op">=</span> Queen.from_dataframe(df)</span>
 <span id="cb4-5"><a></a>qW</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>&lt;libpysal.weights.contiguity.Queen at 0x7dcdbdb66e90&gt;</code></pre>
+<pre><code>&lt;libpysal.weights.contiguity.Queen at 0x706185c834f0&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -486,7 +486,7 @@ Serge Rey
 <h2>Weight Attributes</h2>
 <p>All weights objects have a few traits that you can use to work with the weights object, as well as to get information about the weights object.</p>
 <p>To get the neighbors &amp; weights around an observation, use the observation’s index on the weights object, like a dictionary:</p>
-<div id="2fa5d3c0" class="cell" data-execution_count="5">
+<div id="2c1d858c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>qW[<span class="dv">155</span>] <span class="co">#neighbors &amp; weights of the 156th observation (0-index remember)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>{4528: 1.0, 547: 1.0, 2133: 1.0, 2744: 1.0}</code></pre>
@@ -496,11 +496,11 @@ Serge Rey
 <section id="weights-matrix" class="slide level2 center">
 <h2>Weights Matrix</h2>
 <p>A full, dense matrix describing all of the pairwise relationships is constructed using the <code>.full</code> method, or when <code>libpysal.weights.full</code> is called on a weights object:</p>
-<div id="ed561022" class="cell" data-execution_count="6">
+<div id="150eacdf" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>Wmatrix, ids <span class="op">=</span> qW.full()</span>
 <span id="cb8-2"><a></a><span class="co">#Wmatrix, ids = libpysal.weights.full(qW)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="065d08c6" class="cell" data-execution_count="7">
+<div id="77e2954d" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>Wmatrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>array([[0., 0., 0., ..., 0., 0., 0.],
@@ -515,16 +515,16 @@ Serge Rey
 </section>
 <section id="number-of-neighbors" class="slide level2 center">
 <h2>Number of Neighbors</h2>
-<div id="fc593d6e" class="cell" data-execution_count="8">
+<div id="5c525980" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>n_neighbors <span class="op">=</span> Wmatrix.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># how many neighbors each region has</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="05abf92f" class="cell" data-execution_count="9">
+<div id="bd221790" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>n_neighbors[<span class="dv">155</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>np.float64(4.0)</code></pre>
 </div>
 </div>
-<div id="671e9bd1" class="cell" data-execution_count="10">
+<div id="c899f167" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>qW.cardinalities[<span class="dv">155</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>4</code></pre>
@@ -535,17 +535,17 @@ Serge Rey
 <section id="standardization" class="slide level2 center">
 <h2>Standardization</h2>
 <p>However, many common use cases of spatial weights require that the matrix is row-standardized. This is done simply in PySAL using the <code>.transform</code> attribute</p>
-<div id="6c8f87d7" class="cell" data-execution_count="11">
+<div id="ee37a35e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>qW.transform <span class="op">=</span> <span class="st">'r'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>('WARNING: ', 4285, ' is an island (no neighbors)')</code></pre>
 </div>
 </div>
 <p>Now, if we build a new full matrix, its rows should sum to one:</p>
-<div id="aa76a80d" class="cell" data-execution_count="12">
+<div id="5dbb4f22" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>Wmatrix, ids <span class="op">=</span> qW.full()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="086320b2" class="cell" data-execution_count="13">
+<div id="b1b944dc" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>Wmatrix.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) <span class="co">#numpy axes are 0:column, 1:row, 2:facet, into higher dimensions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>array([1., 1., 1., ..., 1., 1., 1.])</code></pre>
@@ -555,14 +555,14 @@ Serge Rey
 <section id="sparse-weights" class="slide level2 center">
 <h2>Sparse Weights</h2>
 <p>Since weight matrices are typically very sparse, there is also a sparse weights matrix constructor:</p>
-<div id="dc6e8a70" class="cell" data-execution_count="14">
+<div id="1b1caa1e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>qW.sparse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>&lt;Compressed Sparse Row sparse matrix of dtype 'float64'
     with 29374 stored elements and shape (4580, 4580)&gt;</code></pre>
 </div>
 </div>
-<div id="271c5feb" class="cell" data-execution_count="15">
+<div id="29d83a7e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>qW.pct_nonzero <span class="co">#Percentage of nonzero neighbor counts</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>0.14003356152628668</code></pre>
@@ -572,13 +572,13 @@ Serge Rey
 <section id="neighbors" class="slide level2 center">
 <h2>Neighbors</h2>
 <p>Let’s look at the neighborhoods of the 101th observation</p>
-<div id="3b4accef" class="cell" data-execution_count="16">
+<div id="3a821d1b" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>qW.neighbors[<span class="dv">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>[789, 790, 1991, 3676, 791]</code></pre>
 </div>
 </div>
-<div id="77c925d1" class="cell" data-execution_count="17">
+<div id="5ec2456c" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="bu">len</span>(qW.neighbors[<span class="dv">100</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>5</code></pre>
@@ -587,7 +587,7 @@ Serge Rey
 </section>
 <section id="plotting" class="slide level2 center">
 <h2>Plotting</h2>
-<div id="018e7de1" class="cell" data-execution_count="18">
+<div id="54a71232" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>plot_spatial_weights(qW, df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -600,7 +600,7 @@ Serge Rey
 </section>
 <section id="connectivity-histogram" class="slide level2 center">
 <h2>Connectivity Histogram</h2>
-<div id="84ff9a33" class="cell" data-execution_count="19">
+<div id="54ca2e9f" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>pandas.Series(qW.cardinalities).plot.hist(bins<span class="op">=</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -613,7 +613,7 @@ Serge Rey
 </section>
 <section id="cardinalities" class="slide level2 center">
 <h2>Cardinalities</h2>
-<div id="6c070851" class="cell" data-execution_count="20">
+<div id="b7228fb5" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>qW.cardinalities.values()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>dict_values([9, 9, 4, 7, 7, 5, 5, 6, 5, 8, 9, 8, 4, 3, 5, 5, 6, 6, 4, 5, 5, 6, 7, 9, 6, 4, 7, 8, 7, 5, 7, 2, 6, 6, 8, 3, 7, 7, 5, 8, 6, 5, 5, 4, 6, 6, 7, 7, 4, 6, 7, 4, 5, 6, 13, 6, 7, 6, 8, 6, 6, 6, 2, 6, 6, 8, 6, 7, 7, 6, 3, 5, 6, 6, 3, 7, 6, 5, 5, 5, 8, 8, 6, 8, 9, 7, 7, 6, 7, 5, 5, 7, 7, 6, 5, 7, 8, 8, 4, 7, 5, 4, 4, 6, 9, 6, 6, 7, 4, 8, 6, 6, 5, 6, 6, 6, 6, 7, 6, 8, 6, 6, 6, 8, 6, 6, 5, 8, 4, 5, 7, 5, 5, 5, 5, 5, 2, 4, 4, 7, 6, 8, 6, 9, 4, 6, 7, 5, 5, 6, 6, 4, 8, 9, 7, 4, 8, 4, 6, 5, 5, 4, 5, 6, 7, 8, 4, 6, 5, 6, 6, 6, 4, 6, 7, 6, 5, 6, 7, 6, 7, 7, 7, 7, 3, 10, 6, 6, 7, 7, 5, 6, 7, 8, 6, 5, 9, 7, 9, 6, 6, 4, 6, 6, 5, 7, 7, 7, 6, 4, 7, 8, 7, 5, 6, 6, 4, 6, 6, 5, 9, 7, 5, 7, 4, 7, 7, 3, 6, 7, 5, 5, 6, 6, 5, 4, 6, 5, 5, 6, 5, 10, 4, 3, 6, 1, 8, 6, 4, 5, 5, 7, 6, 4, 7, 4, 5, 6, 6, 5, 10, 3, 5, 5, 9, 5, 7, 5, 5, 7, 5, 8, 4, 6, 5, 7, 7, 7, 5, 6, 7, 5, 3, 7, 5, 4, 6, 3, 5, 6, 5, 5, 5, 4, 4, 7, 7, 5, 5, 5, 7, 9, 6, 4, 4, 5, 7, 4, 4, 7, 4, 6, 6, 4, 8, 6, 7, 5, 8, 6, 7, 6, 8, 8, 4, 5, 7, 6, 3, 5, 5, 4, 6, 6, 7, 5, 5, 5, 3, 5, 7, 6, 8, 5, 5, 5, 7, 6, 6, 7, 3, 4, 8, 4, 7, 4, 6, 6, 4, 4, 4, 5, 3, 5, 6, 4, 6, 7, 8, 5, 6, 6, 6, 7, 5, 8, 5, 3, 5, 5, 6, 4, 7, 7, 7, 4, 6, 5, 6, 9, 4, 7, 5, 5, 5, 7, 4, 7, 8, 7, 7, 6, 5, 5, 7, 5, 9, 5, 5, 6, 4, 8, 6, 4, 5, 5, 5, 7, 6, 6, 3, 6, 7, 5, 4, 5, 5, 7, 7, 5, 4, 6, 6, 6, 5, 5, 5, 17, 7, 6, 6, 14, 5, 5, 6, 6, 4, 11, 7, 6, 4, 6, 5, 7, 6, 6, 4, 7, 4, 6, 4, 7, 7, 6, 8, 5, 6, 8, 6, 5, 8, 8, 6, 4, 5, 5, 3, 6, 4, 6, 6, 6, 5, 6, 4, 4, 6, 7, 7, 8, 4, 5, 17, 7, 5, 6, 5, 7, 8, 6, 4, 7, 5, 7, 6, 4, 4, 5, 5, 4, 4, 4, 5, 3, 5, 4, 5, 3, 4, 5, 7, 7, 4, 7, 5, 4, 5, 12, 9, 9, 5, 4, 6, 7, 6, 6, 3, 8, 4, 8, 4, 6, 8, 4, 6, 5, 9, 6, 7, 4, 4, 8, 7, 4, 8, 5, 5, 7, 6, 5, 7, 4, 8, 6, 5, 8, 6, 6, 6, 6, 4, 5, 6, 8, 5, 8, 5, 8, 5, 8, 8, 6, 8, 7, 6, 7, 6, 5, 5, 7, 9, 3, 6, 8, 8, 7, 8, 5, 4, 6, 5, 6, 9, 7, 6, 7, 8, 3, 6, 6, 4, 7, 6, 5, 3, 5, 5, 8, 6, 8, 3, 8, 6, 8, 6, 6, 5, 8, 4, 8, 8, 7, 4, 5, 6, 6, 7, 7, 7, 5, 7, 4, 8, 6, 8, 8, 6, 4, 5, 7, 6, 6, 7, 5, 7, 8, 4, 6, 7, 6, 6, 8, 7, 7, 4, 4, 8, 7, 7, 8, 11, 6, 7, 6, 10, 5, 6, 6, 6, 4, 5, 5, 8, 7, 4, 7, 6, 8, 6, 7, 6, 7, 7, 6, 6, 5, 6, 6, 6, 5, 7, 9, 4, 5, 6, 6, 5, 6, 7, 5, 10, 5, 7, 4, 5, 4, 5, 5, 5, 6, 10, 6, 6, 6, 5, 6, 7, 4, 4, 6, 6, 8, 6, 7, 8, 8, 6, 3, 5, 6, 5, 7, 5, 5, 7, 8, 6, 7, 5, 5, 6, 6, 6, 5, 6, 6, 8, 5, 8, 4, 6, 8, 4, 5, 3, 5, 5, 8, 5, 8, 7, 8, 7, 6, 10, 5, 7, 4, 4, 3, 9, 4, 6, 5, 4, 7, 7, 6, 9, 4, 6, 5, 5, 7, 5, 5, 9, 5, 6, 6, 5, 6, 5, 7, 5, 8, 8, 6, 7, 5, 7, 5, 5, 7, 7, 4, 7, 8, 6, 8, 7, 5, 7, 10, 5, 4, 7, 5, 6, 7, 7, 5, 5, 4, 6, 5, 6, 6, 7, 5, 7, 7, 6, 6, 5, 6, 4, 4, 6, 5, 6, 5, 6, 6, 5, 4, 5, 9, 9, 4, 5, 8, 6, 8, 5, 7, 7, 6, 6, 4, 9, 8, 6, 10, 5, 7, 6, 3, 6, 6, 8, 7, 5, 7, 5, 6, 8, 5, 6, 5, 5, 7, 4, 5, 4, 4, 5, 4, 5, 7, 5, 7, 6, 5, 7, 7, 6, 7, 6, 7, 7, 6, 7, 4, 4, 6, 7, 4, 6, 7, 8, 6, 8, 8, 2, 7, 4, 9, 5, 7, 7, 4, 6, 6, 4, 5, 5, 5, 9, 6, 8, 6, 9, 9, 7, 7, 5, 7, 5, 5, 5, 5, 4, 7, 6, 5, 6, 9, 6, 4, 6, 5, 6, 7, 6, 6, 4, 5, 3, 7, 4, 5, 6, 10, 4, 7, 6, 4, 6, 6, 8, 5, 6, 6, 7, 6, 6, 4, 7, 6, 7, 8, 6, 6, 7, 9, 6, 6, 9, 6, 8, 3, 5, 7, 8, 9, 7, 5, 5, 7, 7, 7, 6, 5, 6, 7, 7, 3, 6, 6, 5, 9, 5, 8, 7, 5, 6, 5, 7, 7, 7, 6, 6, 8, 6, 5, 6, 7, 3, 6, 6, 8, 7, 6, 8, 5, 7, 6, 5, 6, 7, 4, 4, 7, 5, 20, 6, 5, 6, 6, 6, 7, 5, 6, 7, 5, 4, 5, 4, 9, 4, 7, 6, 8, 7, 5, 5, 5, 5, 7, 5, 6, 6, 5, 3, 5, 4, 6, 8, 6, 2, 7, 5, 5, 5, 6, 8, 7, 7, 7, 8, 7, 6, 5, 5, 6, 5, 6, 5, 7, 6, 7, 4, 6, 4, 5, 7, 5, 9, 6, 7, 7, 5, 10, 8, 5, 5, 5, 7, 6, 6, 7, 6, 7, 6, 5, 4, 5, 5, 6, 7, 10, 4, 4, 6, 6, 8, 7, 5, 6, 6, 9, 5, 5, 6, 6, 8, 5, 7, 6, 4, 9, 7, 5, 5, 6, 5, 16, 5, 4, 6, 4, 8, 8, 6, 6, 7, 7, 5, 10, 7, 6, 7, 6, 7, 5, 7, 5, 7, 6, 7, 6, 4, 8, 6, 7, 6, 6, 5, 4, 4, 5, 9, 4, 8, 8, 7, 6, 6, 11, 6, 4, 6, 6, 4, 7, 5, 6, 7, 5, 5, 3, 7, 5, 5, 3, 6, 6, 9, 5, 8, 8, 3, 6, 5, 5, 8, 5, 5, 7, 5, 9, 8, 9, 6, 6, 6, 7, 8, 8, 7, 6, 7, 9, 4, 8, 9, 9, 7, 7, 8, 6, 5, 6, 5, 5, 6, 5, 5, 8, 6, 7, 5, 7, 4, 7, 5, 10, 7, 8, 5, 6, 9, 9, 9, 10, 4, 5, 6, 9, 4, 5, 6, 6, 5, 6, 8, 9, 9, 9, 10, 7, 9, 5, 3, 6, 7, 7, 9, 7, 8, 9, 8, 7, 8, 6, 7, 6, 9, 9, 5, 8, 3, 3, 7, 5, 7, 9, 9, 8, 7, 7, 10, 6, 8, 7, 6, 8, 6, 8, 5, 5, 5, 4, 5, 7, 8, 9, 7, 3, 6, 4, 7, 7, 7, 6, 10, 6, 7, 8, 7, 10, 9, 7, 6, 8, 5, 7, 7, 6, 5, 5, 5, 7, 5, 6, 4, 5, 6, 4, 9, 7, 4, 6, 4, 9, 9, 6, 8, 5, 9, 6, 9, 6, 7, 7, 6, 5, 10, 10, 7, 7, 7, 7, 8, 6, 3, 7, 4, 5, 6, 4, 10, 9, 5, 8, 6, 9, 5, 7, 5, 7, 5, 8, 8, 9, 9, 13, 7, 7, 8, 6, 1, 7, 6, 5, 6, 7, 9, 5, 7, 6, 4, 4, 3, 7, 8, 6, 7, 8, 6, 4, 6, 9, 8, 6, 6, 6, 8, 7, 7, 5, 5, 2, 3, 7, 6, 6, 6, 8, 5, 5, 6, 4, 5, 7, 8, 6, 9, 4, 5, 5, 3, 5, 10, 5, 15, 4, 6, 9, 8, 8, 7, 5, 8, 7, 8, 9, 8, 7, 5, 6, 8, 4, 9, 6, 9, 6, 6, 6, 5, 7, 10, 11, 11, 6, 5, 6, 7, 4, 5, 11, 16, 5, 7, 9, 7, 6, 7, 7, 6, 5, 9, 6, 10, 7, 5, 7, 6, 5, 3, 8, 3, 11, 5, 5, 9, 9, 7, 6, 6, 8, 10, 6, 10, 4, 8, 7, 4, 7, 4, 5, 9, 4, 5, 9, 9, 6, 6, 8, 9, 9, 4, 7, 10, 16, 7, 11, 7, 11, 5, 8, 9, 5, 11, 7, 5, 7, 5, 5, 7, 8, 9, 5, 11, 11, 7, 8, 6, 5, 6, 5, 7, 9, 4, 7, 8, 7, 8, 4, 6, 7, 9, 9, 8, 6, 4, 7, 4, 6, 7, 6, 8, 6, 7, 4, 8, 5, 7, 7, 10, 7, 7, 6, 4, 6, 6, 13, 3, 8, 9, 6, 4, 6, 5, 6, 12, 5, 2, 6, 5, 7, 6, 7, 8, 5, 7, 4, 6, 7, 10, 3, 17, 10, 8, 6, 5, 7, 14, 1, 12, 8, 4, 4, 8, 8, 4, 8, 6, 8, 6, 5, 3, 8, 6, 7, 8, 6, 9, 8, 5, 11, 5, 3, 7, 5, 4, 5, 3, 7, 7, 6, 5, 8, 2, 5, 6, 11, 8, 6, 6, 7, 6, 7, 6, 6, 4, 4, 6, 9, 6, 9, 6, 5, 4, 3, 5, 8, 7, 10, 4, 6, 7, 4, 6, 6, 4, 6, 4, 8, 6, 10, 8, 5, 8, 6, 4, 6, 6, 5, 11, 4, 7, 8, 7, 6, 5, 5, 10, 16, 8, 5, 7, 9, 3, 7, 5, 3, 4, 8, 6, 6, 7, 6, 9, 7, 7, 6, 6, 11, 7, 7, 8, 6, 6, 7, 4, 7, 6, 3, 7, 7, 6, 8, 15, 7, 6, 4, 6, 9, 6, 6, 6, 10, 7, 8, 4, 9, 11, 6, 6, 6, 4, 11, 6, 5, 5, 5, 5, 7, 5, 5, 5, 4, 4, 8, 4, 6, 5, 7, 8, 6, 7, 5, 6, 7, 7, 6, 4, 10, 5, 6, 7, 5, 4, 7, 5, 6, 5, 7, 5, 5, 10, 6, 5, 5, 3, 7, 5, 6, 6, 6, 7, 5, 4, 7, 6, 11, 6, 8, 6, 9, 5, 14, 4, 5, 13, 8, 6, 7, 4, 7, 5, 9, 5, 8, 4, 7, 7, 8, 7, 4, 7, 5, 10, 8, 9, 5, 7, 6, 4, 7, 8, 8, 12, 7, 6, 8, 10, 5, 7, 6, 6, 6, 5, 5, 5, 6, 9, 5, 7, 4, 7, 8, 5, 7, 6, 5, 7, 7, 4, 4, 6, 7, 7, 6, 8, 6, 5, 4, 6, 5, 5, 4, 6, 6, 6, 7, 5, 4, 6, 3, 6, 7, 1, 7, 11, 4, 4, 12, 7, 6, 8, 5, 7, 8, 3, 6, 5, 5, 5, 9, 6, 9, 6, 5, 3, 7, 6, 8, 8, 9, 7, 5, 7, 6, 6, 5, 5, 10, 4, 8, 5, 8, 4, 5, 6, 5, 14, 8, 1, 5, 6, 7, 8, 10, 4, 7, 5, 9, 5, 5, 7, 4, 4, 7, 5, 8, 6, 9, 6, 8, 7, 4, 6, 4, 7, 5, 4, 6, 3, 7, 6, 6, 7, 11, 8, 6, 7, 8, 5, 7, 7, 9, 6, 5, 6, 6, 8, 6, 9, 7, 7, 7, 8, 5, 5, 5, 9, 6, 5, 4, 7, 7, 5, 7, 5, 5, 6, 8, 6, 5, 6, 4, 6, 6, 7, 7, 5, 6, 9, 6, 5, 6, 5, 8, 9, 7, 11, 7, 11, 15, 6, 7, 8, 3, 10, 8, 10, 8, 8, 4, 6, 5, 7, 6, 5, 6, 6, 7, 5, 9, 9, 9, 7, 11, 6, 6, 6, 5, 6, 6, 8, 6, 7, 5, 7, 8, 10, 10, 9, 7, 3, 9, 10, 7, 7, 6, 10, 6, 6, 7, 4, 7, 4, 5, 6, 6, 5, 5, 7, 8, 7, 4, 7, 7, 7, 7, 7, 7, 7, 6, 7, 6, 7, 7, 8, 7, 7, 5, 8, 10, 8, 7, 7, 6, 6, 8, 7, 6, 5, 6, 6, 9, 6, 2, 7, 7, 7, 7, 6, 7, 7, 4, 9, 12, 5, 5, 5, 5, 4, 9, 5, 7, 6, 7, 6, 4, 8, 7, 7, 7, 3, 5, 6, 5, 5, 7, 8, 6, 9, 4, 5, 6, 7, 5, 4, 6, 9, 5, 6, 10, 10, 6, 8, 5, 6, 4, 7, 8, 8, 5, 4, 9, 6, 4, 6, 5, 7, 5, 7, 6, 4, 10, 5, 6, 5, 5, 4, 6, 4, 6, 16, 8, 3, 7, 6, 5, 5, 5, 7, 7, 6, 9, 7, 6, 6, 6, 8, 3, 8, 4, 5, 5, 6, 6, 8, 9, 4, 7, 8, 7, 5, 6, 6, 6, 12, 4, 5, 6, 7, 7, 4, 8, 5, 7, 6, 7, 7, 9, 8, 7, 6, 7, 7, 6, 7, 5, 6, 3, 6, 5, 3, 6, 10, 7, 6, 6, 6, 6, 13, 10, 6, 8, 4, 6, 5, 7, 8, 6, 7, 5, 8, 7, 7, 8, 13, 5, 10, 7, 6, 7, 7, 6, 7, 7, 7, 8, 4, 9, 7, 4, 5, 4, 6, 8, 8, 6, 10, 3, 5, 10, 8, 6, 6, 11, 7, 6, 6, 5, 5, 8, 4, 6, 4, 13, 4, 11, 7, 5, 7, 6, 6, 7, 5, 5, 6, 5, 10, 5, 5, 8, 10, 10, 6, 6, 7, 6, 8, 5, 5, 2, 5, 5, 11, 6, 6, 8, 13, 2, 3, 5, 4, 6, 5, 4, 5, 5, 5, 11, 5, 8, 7, 8, 7, 5, 6, 5, 6, 10, 3, 9, 5, 4, 6, 6, 9, 8, 6, 9, 6, 7, 5, 6, 3, 6, 9, 8, 7, 7, 4, 5, 8, 5, 8, 8, 7, 6, 8, 14, 6, 4, 7, 3, 9, 5, 6, 5, 5, 6, 7, 3, 9, 9, 5, 6, 6, 4, 4, 9, 7, 5, 4, 5, 15, 8, 7, 9, 6, 6, 5, 7, 6, 8, 4, 4, 5, 5, 3, 5, 3, 4, 4, 4, 7, 12, 8, 9, 9, 6, 3, 6, 4, 7, 7, 9, 4, 6, 9, 5, 7, 5, 10, 5, 10, 6, 9, 4, 6, 8, 5, 8, 12, 10, 5, 7, 6, 7, 10, 7, 9, 6, 7, 5, 6, 6, 8, 6, 6, 8, 4, 6, 6, 9, 6, 6, 7, 4, 4, 3, 8, 10, 6, 6, 25, 8, 8, 5, 5, 4, 7, 7, 5, 7, 6, 7, 7, 6, 6, 5, 8, 6, 6, 7, 6, 8, 5, 4, 5, 8, 6, 12, 6, 7, 8, 4, 4, 7, 7, 9, 9, 14, 3, 10, 6, 6, 5, 7, 14, 5, 8, 4, 8, 8, 6, 6, 4, 6, 10, 14, 8, 5, 7, 6, 9, 5, 6, 7, 7, 5, 7, 5, 6, 9, 6, 6, 8, 7, 3, 6, 5, 9, 4, 4, 6, 13, 4, 6, 4, 5, 5, 7, 6, 7, 14, 3, 5, 11, 6, 7, 7, 7, 5, 5, 6, 14, 7, 7, 7, 5, 3, 4, 8, 4, 6, 8, 2, 6, 10, 5, 12, 8, 9, 6, 5, 13, 6, 8, 5, 2, 5, 1, 5, 6, 5, 5, 4, 9, 6, 7, 3, 8, 5, 6, 7, 6, 7, 8, 7, 3, 8, 6, 7, 5, 7, 7, 6, 5, 7, 11, 9, 6, 6, 3, 4, 9, 8, 8, 8, 6, 5, 6, 5, 7, 15, 8, 10, 9, 10, 6, 5, 7, 6, 10, 6, 5, 12, 5, 5, 8, 8, 9, 4, 7, 4, 4, 8, 15, 6, 4, 12, 6, 6, 4, 6, 6, 8, 4, 7, 8, 6, 6, 8, 4, 5, 9, 7, 6, 6, 7, 7, 6, 6, 7, 9, 6, 7, 6, 8, 5, 5, 5, 10, 8, 6, 6, 7, 5, 6, 6, 6, 8, 8, 7, 6, 8, 5, 6, 7, 7, 7, 4, 7, 6, 6, 4, 11, 4, 7, 6, 5, 9, 10, 8, 6, 7, 6, 7, 6, 6, 7, 4, 7, 7, 5, 7, 7, 6, 9, 6, 6, 6, 7, 8, 4, 5, 3, 7, 5, 6, 8, 6, 6, 6, 16, 6, 5, 15, 10, 6, 7, 9, 7, 7, 8, 5, 9, 6, 5, 5, 4, 9, 11, 6, 6, 6, 8, 5, 5, 6, 4, 5, 7, 8, 8, 5, 4, 3, 8, 5, 4, 4, 5, 5, 6, 5, 3, 10, 8, 5, 9, 9, 6, 5, 3, 5, 6, 7, 7, 8, 5, 8, 6, 6, 4, 5, 4, 5, 9, 9, 4, 7, 5, 6, 9, 7, 4, 8, 8, 7, 6, 10, 7, 8, 11, 5, 7, 5, 6, 7, 9, 8, 7, 7, 8, 10, 3, 4, 6, 7, 7, 5, 7, 6, 5, 6, 9, 10, 3, 7, 5, 7, 8, 9, 5, 6, 2, 9, 7, 7, 4, 6, 6, 9, 7, 9, 6, 6, 7, 6, 7, 6, 5, 7, 8, 8, 5, 6, 6, 8, 6, 6, 6, 8, 7, 8, 6, 6, 8, 5, 7, 8, 4, 6, 5, 7, 8, 7, 7, 9, 5, 1, 8, 7, 5, 5, 7, 8, 5, 8, 6, 6, 4, 6, 6, 6, 7, 5, 5, 4, 7, 7, 7, 7, 6, 7, 5, 6, 6, 7, 6, 5, 6, 7, 9, 6, 7, 7, 4, 7, 7, 5, 6, 8, 5, 7, 7, 7, 7, 6, 7, 6, 14, 6, 9, 9, 10, 5, 6, 7, 7, 9, 4, 8, 10, 4, 8, 6, 5, 5, 6, 6, 6, 7, 7, 6, 3, 5, 10, 8, 9, 6, 8, 1, 4, 6, 7, 5, 7, 8, 7, 7, 7, 6, 5, 7, 5, 4, 10, 7, 9, 5, 8, 10, 7, 5, 9, 6, 6, 7, 8, 7, 7, 6, 7, 5, 6, 5, 8, 9, 6, 6, 6, 10, 5, 6, 7, 6, 8, 6, 7, 7, 6, 9, 5, 8, 4, 5, 7, 6, 5, 4, 4, 7, 8, 5, 5, 7, 5, 8, 7, 9, 6, 10, 6, 8, 8, 6, 7, 6, 6, 7, 9, 6, 5, 5, 8, 6, 7, 10, 6, 4, 14, 3, 6, 6, 8, 8, 7, 9, 6, 6, 10, 6, 8, 7, 6, 8, 6, 4, 5, 5, 5, 8, 4, 4, 6, 4, 6, 11, 4, 5, 6, 4, 6, 7, 5, 5, 3, 5, 6, 6, 9, 8, 9, 6, 6, 6, 6, 6, 8, 7, 7, 6, 4, 6, 5, 8, 6, 6, 5, 7, 8, 5, 7, 7, 6, 7, 3, 7, 4, 6, 5, 6, 5, 6, 6, 7, 10, 6, 6, 9, 7, 14, 6, 5, 7, 9, 8, 8, 9, 5, 4, 9, 4, 6, 5, 6, 8, 7, 6, 5, 5, 6, 5, 6, 7, 6, 6, 7, 7, 7, 6, 7, 6, 7, 6, 11, 6, 7, 7, 5, 4, 7, 6, 9, 7, 3, 6, 8, 5, 6, 3, 6, 7, 6, 3, 7, 11, 5, 7, 6, 6, 5, 6, 5, 7, 6, 8, 8, 9, 6, 6, 6, 7, 7, 10, 7, 9, 7, 6, 9, 8, 7, 6, 6, 5, 7, 8, 5, 7, 6, 6, 6, 9, 7, 4, 8, 7, 8, 7, 6, 6, 10, 5, 8, 4, 8, 5, 6, 7, 7, 7, 8, 7, 6, 9, 6, 7, 5, 4, 5, 7, 7, 5, 7, 7, 6, 6, 5, 7, 6, 5, 7, 5, 6, 8, 8, 5, 5, 5, 10, 6, 5, 6, 4, 9, 5, 6, 9, 8, 8, 7, 6, 8, 10, 6, 11, 6, 5, 10, 6, 8, 8, 7, 6, 10, 5, 7, 9, 6, 4, 8, 9, 7, 6, 6, 6, 5, 10, 6, 9, 5, 7, 7, 8, 6, 7, 5, 7, 6, 4, 7, 6, 8, 8, 5, 7, 6, 4, 7, 4, 5, 8, 5, 5, 9, 8, 5, 8, 6, 4, 7, 5, 3, 6, 6, 4, 7, 3, 5, 4, 4, 7, 8, 8, 7, 10, 8, 6, 6, 7, 5, 6, 5, 7, 8, 4, 7, 9, 5, 7, 5, 5, 7, 7, 7, 5, 5, 5, 6, 9, 6, 6, 8, 7, 5, 5, 7, 6, 8, 6, 8, 10, 9, 7, 8, 5, 6, 6, 7, 6, 8, 7, 6, 8, 5, 7, 5, 6, 7, 6, 5, 8, 5, 7, 3, 7, 6, 7, 8, 8, 4, 6, 2, 8, 6, 6, 5, 7, 5, 8, 8, 9, 7, 7, 7, 8, 7, 8, 6, 5, 8, 11, 10, 7, 7, 4, 6, 8, 5, 4, 8, 3, 5, 6, 8, 9, 7, 4, 5, 8, 8, 5, 5, 6, 6, 6, 7, 9, 6, 6, 11, 4, 7, 5, 9, 9, 6, 8, 6, 6, 5, 5, 8, 7, 7, 5, 7, 6, 12, 7, 6, 7, 5, 1, 10, 5, 3, 7, 5, 5, 6, 6, 7, 8, 8, 7, 5, 3, 5, 7, 7, 8, 9, 4, 5, 8, 8, 6, 5, 7, 7, 6, 7, 5, 8, 11, 5, 5, 4, 5, 5, 1, 9, 6, 9, 9, 5, 6, 7, 7, 9, 6, 7, 7, 7, 5, 4, 5, 6, 6, 5, 6, 4, 6, 6, 5, 5, 3, 5, 7, 4, 6, 4, 8, 6, 6, 6, 6, 6, 7, 4, 3, 4, 12, 6, 6, 6, 6, 8, 6, 6, 7, 12, 8, 5, 11, 4, 6, 6, 5, 6, 7, 6, 5, 7, 7, 10, 6, 5, 7, 6, 5, 6, 6, 6, 6, 5, 10, 19, 7, 7, 8, 5, 6, 9, 6, 6, 12, 5, 4, 5, 3, 12, 4, 6, 4, 7, 4, 9, 4, 5, 3, 4, 7, 9, 6, 5, 7, 8, 5, 6, 5, 4, 8, 7, 5, 7, 5, 4, 7, 6, 4, 7, 5, 5, 7, 6, 7, 8, 11, 5, 5, 8, 3, 5, 4, 6, 6, 3, 7, 7, 5, 6, 9, 12, 7, 5, 5, 6, 9, 5, 7, 10, 6, 9, 5, 6, 6, 6, 7, 8, 6, 5, 7, 5, 7, 5, 5, 5, 8, 6, 5, 5, 5, 7, 5, 5, 5, 7, 5, 5, 6, 10, 8, 7, 7, 5, 6, 6, 5, 12, 7, 8, 6, 6, 5, 8, 5, 5, 5, 5, 6, 5, 9, 10, 6, 6, 5, 4, 5, 4, 6, 6, 5, 7, 5, 7, 7, 4, 7, 5, 9, 6, 6, 4, 6, 6, 6, 5, 6, 6, 6, 6, 4, 8, 3, 5, 9, 7, 9, 6, 4, 12, 6, 7, 6, 7, 6, 8, 16, 7, 7, 5, 10, 7, 8, 6, 6, 7, 7, 11, 6, 11, 5, 6, 9, 5, 8, 6, 7, 5, 6, 7, 6, 8, 9, 7, 2, 10, 5, 7, 6, 7, 6, 6, 6, 6, 10, 4, 4, 6, 8, 6, 6, 9, 7, 6, 2, 6, 7, 5, 7, 5, 15, 8, 6, 8, 4, 6, 7, 7, 7, 8, 8, 7, 5, 5, 6, 5, 7, 7, 7, 5, 6, 9, 8, 9, 5, 6, 4, 6, 5, 5, 7, 5, 8, 5, 4, 5, 5, 7, 7, 7, 5, 6, 8, 9, 4, 6, 6, 11, 6, 8, 9, 6, 5, 6, 6, 8, 6, 5, 7, 6, 5, 7, 4, 9, 5, 4, 6, 6, 6, 3, 7, 6, 6, 5, 13, 7, 6, 8, 5, 7, 5, 5, 8, 7, 7, 7, 7, 6, 9, 10, 8, 9, 6, 6, 7, 10, 6, 7, 7, 6, 6, 6, 6, 5, 7, 7, 5, 6, 4, 6, 7, 9, 8, 4, 9, 5, 5, 6, 4, 7, 8, 9, 7, 2, 4, 7, 7, 7, 7, 7, 11, 8, 9, 6, 4, 6, 6, 5, 8, 7, 7, 6, 7, 8, 8, 8, 6, 6, 8, 9, 8, 9, 7, 7, 5, 7, 5, 9, 6, 4, 6, 7, 4, 9, 7, 4, 4, 5, 9, 10, 8, 10, 9, 5, 6, 6, 5, 7, 7, 6, 5, 6, 9, 8, 7, 4, 6, 6, 7, 4, 5, 7, 7, 5, 9, 6, 7, 6, 9, 9, 8, 7, 8, 5, 3, 4, 11, 14, 5, 5, 4, 3, 6, 6, 5, 6, 7, 6, 8, 8, 9, 7, 6, 2, 6, 6, 5, 5, 5, 3, 8, 8, 11, 7, 6, 7, 6, 6, 7, 8, 6, 7, 7, 6, 6, 8, 8, 5, 5, 16, 8, 6, 7, 9, 5, 8, 6, 5, 4, 7, 5, 6, 8, 7, 5, 6, 7, 6, 6, 7, 10, 7, 10, 9, 8, 7, 5, 8, 5, 8, 7, 7, 9, 9, 5, 7, 6, 6, 5, 7, 5, 6, 8, 7, 6, 6, 10, 6, 5, 5, 8, 5, 7, 5, 5, 7, 6, 6, 5, 6, 0, 6, 11, 5, 5, 9, 6, 5, 9, 5, 6, 6, 6, 6, 6, 7, 7, 11, 10, 4, 7, 5, 8, 8, 8, 5, 6, 6, 7, 8, 7, 8, 5, 5, 5, 6, 7, 7, 5, 8, 5, 5, 5, 10, 8, 5, 10, 5, 4, 5, 5, 6, 5, 9, 5, 4, 5, 7, 4, 4, 6, 15, 7, 6, 8, 7, 10, 7, 7, 5, 6, 7, 6, 6, 6, 8, 5, 6, 4, 2, 6, 5, 8, 8, 5, 6, 5, 7, 10, 7, 8, 7, 6, 8, 7, 11, 7, 6, 6, 8, 7, 10, 16, 6, 7, 6, 4, 5, 4, 4, 7, 8, 8, 5, 6, 4, 6, 3, 5, 9, 8, 4, 6, 4, 6, 3, 6, 9, 7, 8, 3, 14, 6, 8, 4, 7, 6, 5, 6, 4, 8, 5, 7, 7, 7, 7, 5, 5, 7, 5, 6, 6, 7, 7, 7, 7, 4, 11, 6, 7, 4, 3, 13, 5, 8, 9, 8, 6, 8, 7, 7, 6, 7, 8, 6, 6, 9, 5, 8, 6, 7, 11, 6, 5, 8, 7, 9, 5, 7, 5, 7, 8, 4, 4, 8, 5, 7, 5, 5, 6, 7, 9, 7, 6, 11, 8, 3, 5, 7, 11, 4, 6, 7, 7, 7, 6, 5, 5, 7, 5, 6, 6, 7, 6, 5, 7, 8, 6, 5, 7, 14, 10, 6, 7, 7, 5, 6, 11, 5, 6, 5, 10, 4, 3, 6, 5, 8, 6, 6, 6, 7, 7, 8, 5, 7, 6, 5, 8, 7, 9, 6, 5, 6, 8, 5, 7, 7, 7, 6, 7, 6, 8, 5, 7, 9, 8, 5, 7, 5, 8, 8, 9, 12, 7, 4, 7, 10, 8, 7, 7, 6, 6, 7, 6, 7])</code></pre>
@@ -624,16 +624,16 @@ Serge Rey
 <h2>Rook Weights</h2>
 <p>Rook weights are another type of contiguity weight, but consider observations as neighboring only when they share an edge. The rook neighbors of an observation may be different than its queen neighbors, depending on how the observation and its nearby polygons are configured.</p>
 <p>We can construct this in the same way as the queen weights:</p>
-<div id="960879fb" class="cell" data-execution_count="21">
+<div id="a005d7d3" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>rW <span class="op">=</span> Rook.from_dataframe(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ff844cd6" class="cell" data-execution_count="22">
+<div id="1ba43982" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>rW.neighbors[<span class="dv">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>[789, 790, 1991, 791, 3676]</code></pre>
 </div>
 </div>
-<div id="9a96aecf" class="cell" data-execution_count="23">
+<div id="6cff4985" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="bu">len</span>(rW.neighbors[<span class="dv">100</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>5</code></pre>
@@ -642,7 +642,7 @@ Serge Rey
 </section>
 <section id="rook-graph" class="slide level2 center">
 <h2>Rook Graph</h2>
-<div id="b0db34e5" class="cell" data-execution_count="24">
+<div id="cafd6b4d" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>plot_spatial_weights(rW, df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -655,7 +655,7 @@ Serge Rey
 </section>
 <section id="connectivity-histogram-1" class="slide level2 center">
 <h2>Connectivity Histogram</h2>
-<div id="f783e592" class="cell" data-execution_count="25">
+<div id="98fe8a71" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>pandas.Series(rW.cardinalities).plot.hist(bins<span class="op">=</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -680,13 +680,13 @@ Serge Rey
 <section id="bishop-weights-2" class="slide level2 center">
 <h2>Bishop Weights</h2>
 <p>PySAL does not have a dedicated bishop weights constructor, but you can construct very easily using the <code>w_difference</code> function. This function is one of a family of tools to work with weights, all defined in <code>libpysal.weights</code>, that conduct these types of set operations between weight objects.</p>
-<div id="c0784ded" class="cell" data-execution_count="26">
+<div id="30c18f88" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>bW <span class="op">=</span> libpysal.weights.w_difference(qW, rW, constrained<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="bishop-graph" class="slide level2 center">
 <h2>Bishop Graph</h2>
-<div id="c2b7e595" class="cell" data-execution_count="27">
+<div id="8bf18128" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>plot_spatial_weights(bW, df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -699,7 +699,7 @@ Serge Rey
 </section>
 <section id="connectivity" class="slide level2 center">
 <h2>Connectivity</h2>
-<div id="4921af16" class="cell" data-execution_count="28">
+<div id="7bb2cc33" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>bW.histogram</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>[(np.int64(0), np.int64(1624)),
@@ -713,7 +713,7 @@ Serge Rey
 </section>
 <section id="bishop-connectivity-graph" class="slide level2 center">
 <h2>Bishop Connectivity Graph</h2>
-<div id="f365b204" class="cell" data-execution_count="29">
+<div id="a5061c6e" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>plot_spatial_weights(bW, df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -732,7 +732,7 @@ Serge Rey
 <section id="distance" class="slide level2 center">
 <h2>Distance</h2>
 <p>There are many other kinds of weighting functions in PySAL. Another separate type use a continuous measure of distance to define neighborhoods.</p>
-<div id="be48e602" class="cell" data-execution_count="30">
+<div id="e0c42b57" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>df.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>&lt;Projected CRS: EPSG:26911&gt;
@@ -755,13 +755,13 @@ Datum: North American Datum 1983
 <section id="threshold-based-neighbors" class="slide level2 center">
 <h2>Threshold Based Neighbors</h2>
 <p>Our coordinate system (UTM 11N) measures distance in meters, so that’s how we’ll define our neighbors</p>
-<div id="89eb8658" class="cell" data-execution_count="31">
+<div id="596d253f" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>dist_band <span class="op">=</span> DistanceBand.from_dataframe(df, threshold<span class="op">=</span><span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="plotting-threshold-neighbor-graph" class="slide level2 center">
 <h2>Plotting Threshold Neighbor Graph</h2>
-<div id="3e59f086" class="cell" data-execution_count="32">
+<div id="2748e2f9" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>plot_spatial_weights(dist_band,df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -774,26 +774,26 @@ Datum: North American Datum 1983
 </section>
 <section id="knn-defined-weights" class="slide level2 center">
 <h2>knn defined weights</h2>
-<div id="72c038c1" class="cell" data-execution_count="33">
+<div id="9f84065b" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>radius_mile <span class="op">=</span> libpysal.cg.sphere.RADIUS_EARTH_MILES</span>
 <span id="cb49-2"><a></a>radius_mile</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>3958.755865744055</code></pre>
 </div>
 </div>
-<div id="05c57fa3" class="cell" data-execution_count="34">
+<div id="eecde404" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a>df_latlong <span class="op">=</span> df.to_crs(<span class="dv">4326</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="wrong-way-to-define-knn" class="slide level2 center">
 <h2>Wrong Way to define KNN</h2>
-<div id="cef093e5" class="cell" data-execution_count="35">
+<div id="ffe93658" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>knn8_bad <span class="op">=</span> KNN.from_dataframe(df_latlong, k<span class="op">=</span><span class="dv">8</span>) <span class="co"># ignore curvature of the earth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="bad-knn" class="slide level2 center">
 <h2>Bad KNN</h2>
-<div id="47018178" class="cell" data-execution_count="36">
+<div id="dbe515f6" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a>knn8_bad.histogram</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>[(np.int64(8), np.int64(4580))]</code></pre>
@@ -802,13 +802,13 @@ Datum: North American Datum 1983
 </section>
 <section id="correct-way-to-define-knn" class="slide level2 center">
 <h2>Correct Way to define KNN</h2>
-<div id="a974b0ce" class="cell" data-execution_count="37">
+<div id="e3de6d2a" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>knn8 <span class="op">=</span> KNN.from_dataframe(df_latlong, k<span class="op">=</span><span class="dv">8</span>, radius<span class="op">=</span>radius_mile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="correct-knn" class="slide level2 center">
 <h2>Correct KNN</h2>
-<div id="1361f98f" class="cell" data-execution_count="38">
+<div id="5ae47019" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>knn8.histogram</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>[(np.int64(8), np.int64(4580))]</code></pre>
@@ -817,7 +817,7 @@ Datum: North American Datum 1983
 </section>
 <section id="comparison" class="slide level2 center">
 <h2>Comparison</h2>
-<div id="a4506388" class="cell" data-execution_count="39">
+<div id="9656607c" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>knn8_bad.neighbors[<span class="dv">1487</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>[np.int64(501),
@@ -830,7 +830,7 @@ Datum: North American Datum 1983
  np.int64(4422)]</code></pre>
 </div>
 </div>
-<div id="a5866b10" class="cell" data-execution_count="40">
+<div id="f76b9c75" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>knn8.neighbors[<span class="dv">1487</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>[np.int64(501),
@@ -843,7 +843,7 @@ Datum: North American Datum 1983
  np.int64(2297)]</code></pre>
 </div>
 </div>
-<div id="e55424a9" class="cell" data-execution_count="41">
+<div id="04e1acf0" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a><span class="bu">set</span>(knn8_bad.neighbors[<span class="dv">1487</span>]) <span class="op">==</span> <span class="bu">set</span>(knn8.neighbors[<span class="dv">1487</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>False</code></pre>
@@ -860,13 +860,13 @@ Datum: North American Datum 1983
 <h2>Adaptive gaussian kernel weights</h2>
 <p>bandwidth = the distance to the kth nearest neighbor for each observation</p>
 <p>bandwith is changing across observations</p>
-<div id="8af739cb" class="cell" data-execution_count="42">
+<div id="d2c4202c" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a>kernelWa <span class="op">=</span> Kernel.from_dataframe(df, k<span class="op">=</span><span class="dv">10</span>, fixed<span class="op">=</span><span class="va">False</span>, function<span class="op">=</span><span class="st">'gaussian'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="kernel-weights" class="slide level2 center">
 <h2>Kernel Weights</h2>
-<div id="adbcfac5" class="cell" data-execution_count="43">
+<div id="47a81955" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a></a>plot_spatial_weights(kernelWa, df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -879,7 +879,7 @@ Datum: North American Datum 1983
 </section>
 <section id="kernel-weights-continuous" class="slide level2 center">
 <h2>Kernel Weights (Continuous)</h2>
-<div id="f82b4608" class="cell" data-execution_count="44">
+<div id="02a9bdbd" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a>kernelWa.weights[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>[0.3989422804014327,
@@ -898,7 +898,7 @@ Datum: North American Datum 1983
 </section>
 <section id="adaptive-bandwidths" class="slide level2 center">
 <h2>Adaptive bandwidths</h2>
-<div id="201ea9e7" class="cell" data-execution_count="45">
+<div id="4866aa7c" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a>kernelWa.bandwidth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>array([[1687.98315102],
@@ -913,7 +913,7 @@ Datum: North American Datum 1983
 </section>
 <section id="adaptive-bandwidths-1" class="slide level2 center">
 <h2>Adaptive bandwidths</h2>
-<div id="a5608059" class="cell" data-execution_count="46">
+<div id="434d3dde" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a>df.assign(bw<span class="op">=</span>kernelWa.bandwidth.flatten()).plot(<span class="st">'bw'</span>, cmap<span class="op">=</span><span class="st">'Reds'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -926,14 +926,14 @@ Datum: North American Datum 1983
 </section>
 <section id="block-weights" class="slide level2 center">
 <h2>Block Weights</h2>
-<div id="a3e1ad28" class="cell" data-execution_count="47">
+<div id="9eebcf76" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a></a>w,s,e,n <span class="op">=</span> df.total_bounds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="59c9b57e" class="cell" data-execution_count="48">
+<div id="61bdebd4" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a>mx <span class="op">=</span> (w<span class="op">+</span>e)<span class="op">/</span><span class="dv">2</span></span>
 <span id="cb72-2"><a></a>my <span class="op">=</span> (n<span class="op">+</span>s)<span class="op">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9d76dac7" class="cell" data-execution_count="49">
+<div id="39f2fa5d" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a></a><span class="im">import</span> shapely</span>
 <span id="cb73-2"><a></a>centroids <span class="op">=</span> df.geometry.centroid</span>
 <span id="cb73-3"><a></a>lon <span class="op">=</span> centroids.<span class="bu">apply</span>(<span class="kw">lambda</span> p: p.x).values</span>
@@ -942,20 +942,20 @@ Datum: North American Datum 1983
 </section>
 <section id="regions" class="slide level2 center">
 <h2>Regions</h2>
-<div id="bf3c9fa3" class="cell" data-execution_count="50">
+<div id="117a2671" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a>north <span class="op">=</span> lat <span class="op">&gt;</span> my</span>
 <span id="cb74-2"><a></a>south <span class="op">=</span> lat <span class="op">&lt;=</span> my</span>
 <span id="cb74-3"><a></a>east <span class="op">=</span> lon <span class="op">&gt;</span> mx</span>
 <span id="cb74-4"><a></a>west <span class="op">=</span> lon <span class="op">&lt;=</span> mx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="30eb13f4" class="cell" data-execution_count="51">
+<div id="f1075c27" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a></a>nw <span class="op">=</span> west <span class="op">*</span> north <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb75-2"><a></a>ne <span class="op">=</span> east <span class="op">*</span> north <span class="op">*</span> <span class="dv">1</span></span>
 <span id="cb75-3"><a></a>sw <span class="op">=</span> west <span class="op">*</span> south <span class="op">*</span> <span class="dv">3</span></span>
 <span id="cb75-4"><a></a>se <span class="op">=</span> east <span class="op">*</span> south <span class="op">*</span><span class="dv">4</span></span>
 <span id="cb75-5"><a></a>quad <span class="op">=</span> nw <span class="op">+</span> ne <span class="op">+</span> sw <span class="op">+</span> se</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8590bcb8" class="cell" data-execution_count="52">
+<div id="c3f05c9d" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a>quad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>array([3, 2, 2, ..., 2, 4, 2])</code></pre>
@@ -964,7 +964,7 @@ Datum: North American Datum 1983
 </section>
 <section id="regions-1" class="slide level2 center">
 <h2>Regions</h2>
-<div id="9708e2d4" class="cell" data-execution_count="53">
+<div id="04591137" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a></a>df[<span class="st">'quad'</span>] <span class="op">=</span> quad</span>
 <span id="cb78-2"><a></a>df.plot(column<span class="op">=</span><span class="st">"quad"</span>, categorical<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -978,16 +978,16 @@ Datum: North American Datum 1983
 </section>
 <section id="block-weights-1" class="slide level2 center">
 <h2>Block Weights</h2>
-<div id="863bcfff" class="cell" data-execution_count="54">
+<div id="8c195736" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a></a>blockW <span class="op">=</span> libpysal.weights.block_weights(df[<span class="st">"quad"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="641bfa3e" class="cell" data-execution_count="55">
+<div id="8a7910b5" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a></a>blockW.n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>4580</code></pre>
 </div>
 </div>
-<div id="30e1dffb" class="cell" data-execution_count="56">
+<div id="f2203bc2" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a></a>blockW.pct_nonzero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>65.53761369920483</code></pre>
@@ -996,7 +996,7 @@ Datum: North American Datum 1983
 </section>
 <section id="connectivity-1" class="slide level2 center">
 <h2>Connectivity</h2>
-<div id="752b828c" class="cell" data-execution_count="57">
+<div id="f3a1052d" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a></a>pandas.Series(blockW.cardinalities).plot.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1009,7 +1009,7 @@ Datum: North American Datum 1983
 </section>
 <section id="region-membership" class="slide level2 center">
 <h2>Region Membership</h2>
-<div id="4b8f2519" class="cell" data-execution_count="58">
+<div id="0af4a78d" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a></a>df.groupby(by<span class="op">=</span><span class="st">'quad'</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="58">
 <div>
