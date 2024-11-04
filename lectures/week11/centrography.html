@@ -652,7 +652,7 @@ window.Quarto = {
 </ol></li>
 </ul>
 <p>All of the above functions operate on a series of coordinate pairs. That is, the data type of the first argument should be <span class="math inline">\((n,2)\)</span> array_like. In case that you have a point pattern (PointPattern instance), you need to pass its attribute “points” instead of itself to these functions.</p>
-<div id="bda7e161" class="cell" data-execution_count="1">
+<div id="63d2179a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> PointPattern</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
@@ -742,14 +742,14 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="412813e5" class="cell" data-execution_count="2">
+<div id="688880f3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(pp.points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>pandas.core.frame.DataFrame</code></pre>
 </div>
 </div>
 <p>We can use PointPattern class method <strong>plot</strong> to visualize <strong>pp</strong>.</p>
-<div id="f2f948ef" class="cell" data-execution_count="3">
+<div id="64d111f6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pp.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -759,7 +759,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="cb6c7016" class="cell" data-execution_count="4">
+<div id="15396bd8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats.centrography <span class="im">import</span> (hull, mbr, mean_center,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                    weighted_mean_center, manhattan_median,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                    std_distance,euclidean_median,ellipse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -771,14 +771,14 @@ window.Quarto = {
 <section id="mean-center-x_mcy_mc" class="level2">
 <h2 class="anchored" data-anchor-id="mean-center-x_mcy_mc">Mean Center <span class="math inline">\((x_{mc},y_{mc})\)</span></h2>
 <p><span class="math display">\[x_{mc}=\frac{1}{n} \sum^n_{i=1}x_i\]</span> <span class="math display">\[y_{mc}=\frac{1}{n} \sum^n_{i=1}y_i\]</span></p>
-<div id="80c888dc" class="cell" data-execution_count="5">
+<div id="3f74250a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>array([52.57166667, 46.17166667])</code></pre>
 </div>
 </div>
-<div id="7725802a" class="cell" data-execution_count="6">
+<div id="4251bcfb" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.legend(numpoints<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -795,21 +795,21 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="weighted-mean-center-x_wmcy_wmc">Weighted Mean Center <span class="math inline">\((x_{wmc},y_{wmc})\)</span></h2>
 <p><span class="math display">\[x_{wmc}=\sum^n_{i=1} \frac{w_i x_i}{\sum^n_{i=1}w_i}\]</span> <span class="math display">\[y_{wmc}=\sum^n_{i=1} \frac{w_i y_i}{\sum^n_{i=1}w_i}\]</span></p>
 <p>The Weighted mean center is meant for marked point patterns. Aside from the first argument which is a series of <span class="math inline">\((x,y)\)</span> coordinates in <strong>weighted_mean_center</strong> function, we need to specify its second argument which is the weight for each event point.</p>
-<div id="46a8fc29" class="cell" data-execution_count="7">
+<div id="76e384c0" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> np.arange(<span class="dv">12</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>weights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</code></pre>
 </div>
 </div>
-<div id="83a2a0e1" class="cell" data-execution_count="8">
+<div id="08fcbfaa" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>wmc <span class="op">=</span> weighted_mean_center(pp.points, weights)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>wmc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>array([60.51681818, 47.76848485])</code></pre>
 </div>
 </div>
-<div id="637f3062" class="cell" data-execution_count="9">
+<div id="233a4982" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pp.plot() <span class="co">#use class method "plot" to visualize point pattern</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>) </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
@@ -828,14 +828,14 @@ window.Quarto = {
 <p><span class="math display">\[min  f(x_{mm},y_{mm})= \sum^n_{i=1}(|x_i-x_{mm}|+|y_i-y_{mm}|)\]</span></p>
 <p>The Manhattan median is the location which minimizes the absolute distance to all the event points. It is an extension of the median measure in one-dimensional space to two-dimensional space. Since in one-dimensional space, a median is the number separating the higher half of a dataset from the lower half, we define the Manhattan median as a tuple whose first element is the median of <span class="math inline">\(x\)</span> coordinates and second element is the median of <span class="math inline">\(y\)</span> coordinates.</p>
 <p>Though Manhattan median can be found very quickly, it is not unique if you have even number of points. In this case, pysal handles the Manhattan median the same way as numpy.median: return the average of the two middle values.</p>
-<div id="69b798d5" class="cell" data-execution_count="10">
+<div id="f1fcdacf" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get the number of points in point pattern "pp"</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pp.n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>12</code></pre>
 </div>
 </div>
-<div id="004beb89" class="cell" data-execution_count="11">
+<div id="e65ed0eb" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Manhattan Median is not unique for "pp"</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>mm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -847,7 +847,7 @@ window.Quarto = {
 <pre><code>array([59.825, 41.23 ])</code></pre>
 </div>
 </div>
-<div id="d56648e1" class="cell" data-execution_count="12">
+<div id="53ae7c80" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
@@ -867,7 +867,7 @@ window.Quarto = {
 <p><span class="math display">\[min  f(x_{em},y_{em})= \sum^n_{i=1} \sqrt{(x_i-x_{em})^2+(y_i-y_{em})^2}\]</span></p>
 <p>The Euclidean Median is the location from which the sum of the Euclidean distances to all points in a distribution is a minimum. It is an optimization problem and very important for more general location allocation problems. There is no closed form solution. We can use first iterative algorithm (Kuhn and Kuenne, 1962) to approximate Euclidean Median.</p>
 <p>Below, we define a function named median_center with the first argument <strong>points</strong> a series of <span class="math inline">\((x,y)\)</span> coordinates and the second argument <strong>crit</strong> the convergence criterion.</p>
-<div id="204d089a" class="cell" data-execution_count="13">
+<div id="9e67b0c7" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> median_center(points, crit<span class="op">=</span><span class="fl">0.0001</span>):</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> np.asarray(points)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    x0, y0 <span class="op">=</span> points.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
@@ -893,7 +893,7 @@ window.Quarto = {
 <span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>               </span>
 <span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x1, y1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cdf106ee" class="cell" data-execution_count="14">
+<div id="de839fce" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>median_center(pp.points, crit<span class="op">=</span><span class="fl">.0001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>52.57166666666668 53.178128280602785 0.606461613936105 -0.9290354286335258 466.24479074356606 1
@@ -921,7 +921,7 @@ window.Quarto = {
 </div>
 <p>After 18 iterations, the convergence criterion is reached. The Euclidean Median is <span class="math inline">\((54.167594287646125,44.424308658832047)\)</span>.</p>
 <p>We can also call the function <strong>euclidean_median</strong> in pysal to calculate the Euclidean Median.</p>
-<div id="83c0d22e" class="cell" data-execution_count="15">
+<div id="8b39ad20" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>em</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
@@ -929,7 +929,7 @@ window.Quarto = {
 </div>
 </div>
 <p>The two results we get from <strong>euclidean_median</strong> function in pysal and the <strong>median_center</strong> function we define here are very much the same.</p>
-<div id="aa3564a8" class="cell" data-execution_count="16">
+<div id="3e8430a2" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pp.plot()</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
@@ -952,7 +952,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="standard-distance-standard-distance-circle">Standard Distance &amp; Standard Distance Circle</h2>
 <p><span class="math display">\[SD = \displaystyle \sqrt{\frac{\sum^n_{i=1}(x_i-x_{m})^2}{n} + \frac{\sum^n_{i=1}(y_i-y_{m})^2}{n}}\]</span></p>
 <p>The Standard distance is closely related to the usual definition of the standard deviation of a data set, and it provides a measure of how dispersed the events are around their mean center <span class="math inline">\((x_m,y_m)\)</span>. Taken together, these measurements can be used to plot a summary circle (standard distance circle) for the point pattern, centered at <span class="math inline">\((x_m,y_m)\)</span> with radius <span class="math inline">\(SD\)</span>, as shown below.</p>
-<div id="97de2d60" class="cell" data-execution_count="17">
+<div id="d680ddcd" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>stdd <span class="op">=</span> std_distance(pp.points)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>stdd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
@@ -960,7 +960,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Plot mean center as well as the standard distance circle.</p>
-<div id="7b686293" class="cell" data-execution_count="18">
+<div id="a489472f" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>circle1<span class="op">=</span>plt.Circle((mc[<span class="dv">0</span>], mc[<span class="dv">1</span>]),stdd,color<span class="op">=</span><span class="st">'r'</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Distance Circle'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ax.add_artist(circle1)</span>
@@ -992,7 +992,7 @@ window.Quarto = {
 <li>The ellipse is rotated clockwise through an angle <span class="math inline">\(\theta\)</span>:</li>
 </ul>
 <p><span class="math display">\[\theta = \displaystyle \arctan{\{ (\sum_i(x_i-\bar{x})^2-\sum_i(y_i-\bar{y})^2) + \frac{[(\sum_i(x_i-\bar{x})^2-\sum_i(y_i-\bar{y})^2)^2 + 4(\sum_i(x-\bar{x})(y_i-\bar{y}))^2]^\frac{1}{2}}{2\sum_i(x-\bar{x})(y_i-\bar{y})}\}}\]</span></p>
-<div id="3833023f" class="cell" data-execution_count="19">
+<div id="00517ed9" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
@@ -1001,7 +1001,7 @@ window.Quarto = {
  np.float64(1.1039268428650906))</code></pre>
 </div>
 </div>
-<div id="fcdb3b89" class="cell" data-execution_count="20">
+<div id="134e17bd" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>theta_degree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
@@ -1009,7 +1009,7 @@ window.Quarto = {
 </div>
 </div>
 <p>The Standard Deviational Ellipse for the point pattern is rotated clockwise by <span class="math inline">\(63.25^{\circ}\)</span>.</p>
-<div id="07457915" class="cell" data-execution_count="21">
+<div id="4d09cd1a" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Ellipse</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pylab <span class="im">import</span> figure, show,rand</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> figure()</span>
@@ -1044,7 +1044,7 @@ window.Quarto = {
 <section id="convex-hull" class="level2">
 <h2 class="anchored" data-anchor-id="convex-hull"><a href="https://en.wikipedia.org/wiki/Convex_hull">Convex Hull</a></h2>
 <p>The convex hull of a point pattern <em>pp</em> is the smallest convex set that contains <em>pp</em>. We can call function <strong>hull</strong> to caculate the convex hull.</p>
-<div id="8cd7abd9" class="cell" data-execution_count="22">
+<div id="a87c2100" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>hull(pp.points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>array([[31.01, 81.21],
@@ -1059,7 +1059,7 @@ window.Quarto = {
 </div>
 </div>
 <p>By specifying “hull” argument <strong>True</strong> in PointPattern class method <strong>plot</strong>, we can easily plot convex hull of the point pattern.</p>
-<div id="3415b983" class="cell" data-execution_count="23">
+<div id="87a43e4a" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>, hull<span class="op">=</span><span class="va">True</span> ) <span class="co">#plot point pattern "pp" as well as its convex hull</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
@@ -1079,10 +1079,10 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="minimum-bounding-rectangle"><a href="https://en.wikipedia.org/wiki/Minimum_bounding_rectangle">Minimum Bounding Rectangle</a></h2>
 <p>Minimum Bounding Rectangle (Box) is the same as the minimum bounding Rectangle of its convex hull. Thus, it is almost always bigger than convex hull.</p>
 <p>We can call <strong>mbr</strong> function to calculate the leftmost, downmost, rightmost, and upmost value of the vertices of minimum bounding rectangle.</p>
-<div id="85972568" class="cell" data-execution_count="24">
+<div id="cf4ab9c1" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mbr(pp.points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_282337/2243439823.py:1: FutureWarning: This function will be deprecated in the next release of pointpats.
+<pre><code>/tmp/ipykernel_287816/2243439823.py:1: FutureWarning: This function will be deprecated in the next release of pointpats.
   mbr(pp.points)</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="24">
@@ -1090,7 +1090,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Thus, four vertices of the minimum bounding rectangle is <span class="math inline">\((8.23,7.68),(98.73,7.68),(98.73,92.08),(8.23,92.08)\)</span>.</p>
-<div id="3bbb19fa" class="cell" data-execution_count="25">
+<div id="3d6571cf" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>, window<span class="op">=</span><span class="va">True</span> ) <span class="co">#plot point pattern "pp" as well as its Minimum Bounding Rectangle</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
@@ -1105,7 +1105,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="3678a6ce" class="cell" data-execution_count="26">
+<div id="3e4d3487" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>pp.plot(title<span class="op">=</span><span class="st">'Centers'</span>,  hull<span class="op">=</span><span class="va">True</span> , window<span class="op">=</span><span class="va">True</span> )<span class="co">#plot point pattern "pp", convex hull, and Minimum Bounding Rectangle</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>plt.plot(mc[<span class="dv">0</span>], mc[<span class="dv">1</span>], <span class="st">'b^'</span>, label<span class="op">=</span><span class="st">'Mean Center'</span>)</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>plt.plot(wmc[<span class="dv">0</span>], wmc[<span class="dv">1</span>], <span class="st">'gd'</span>, label<span class="op">=</span><span class="st">'Weighted Mean Center'</span>)</span>
@@ -1121,7 +1121,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Plot Standard Distance Circle and Convex Hull.</p>
-<div id="611c73c4" class="cell" data-execution_count="27">
+<div id="ff77a2dd" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>circle1<span class="op">=</span>plt.Circle((mc[<span class="dv">0</span>], mc[<span class="dv">1</span>]),stdd,color<span class="op">=</span><span class="st">'r'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pp.plot(get_ax<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">'Standard Distance Circle'</span>, hull<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>ax.add_artist(circle1)</span>
@@ -1141,7 +1141,7 @@ window.Quarto = {
 <section id="another-example" class="level1">
 <h1>Another Example</h1>
 <p>We apply the centrography statistics and visualization to 2 simulated random datasets.</p>
-<div id="7dc8388a" class="cell" data-execution_count="28">
+<div id="0d3eab23" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#from pysal.contrib import shapely_ext</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libpysal.cg <span class="im">import</span> shapely_ext</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> PoissonPointProcess <span class="im">as</span> csr</span>
@@ -1158,28 +1158,28 @@ window.Quarto = {
 </div>
 <section id="simulate-a-100-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process." class="level2">
 <h2 class="anchored" data-anchor-id="simulate-a-100-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process.">Simulate a 100-point dataset within VA state border from a CSR (complete spatial randomness) process.</h2>
-<div id="e1566c6c" class="cell" data-execution_count="29">
+<div id="111309c0" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> csr(as_window(state), <span class="dv">100</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>).realizations[<span class="dv">0</span>]</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="centrography_files/figure-html/cell-30-output-1.png" width="579" height="303" class="figure-img"></p>
+<p><img src="centrography_files/figure-html/cell-30-output-1.png" width="579" height="281" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="643e6c2c" class="cell" data-execution_count="30">
+<div id="314cd0b2" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>, hull<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="centrography_files/figure-html/cell-31-output-1.png" width="579" height="303" class="figure-img"></p>
+<p><img src="centrography_files/figure-html/cell-31-output-1.png" width="579" height="281" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="39e74021" class="cell" data-execution_count="31">
+<div id="9ff9ad16" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
@@ -1197,7 +1197,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Plot Standard Distance Circle of the simulated point pattern.</p>
-<div id="bfb7e1b4" class="cell" data-execution_count="32">
+<div id="a0c15343" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
@@ -1231,28 +1231,28 @@ window.Quarto = {
 </section>
 <section id="simulate-a-500-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process." class="level2">
 <h2 class="anchored" data-anchor-id="simulate-a-500-point-dataset-within-va-state-border-from-a-csr-complete-spatial-randomness-process.">Simulate a 500-point dataset within VA state border from a CSR (complete spatial randomness) process.</h2>
-<div id="da3e1f74" class="cell" data-execution_count="33">
+<div id="dd568f21" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>pp <span class="op">=</span> csr(as_window(state), <span class="dv">500</span>, <span class="dv">1</span>, asPP<span class="op">=</span><span class="va">True</span>).realizations[<span class="dv">0</span>]</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="centrography_files/figure-html/cell-34-output-1.png" width="582" height="310" class="figure-img"></p>
+<p><img src="centrography_files/figure-html/cell-34-output-1.png" width="579" height="303" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="feb0abfd" class="cell" data-execution_count="34">
+<div id="b7e9f59a" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>pp.plot(window<span class="op">=</span><span class="va">True</span>, hull<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="centrography_files/figure-html/cell-35-output-1.png" width="582" height="310" class="figure-img"></p>
+<p><img src="centrography_files/figure-html/cell-35-output-1.png" width="579" height="303" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="c8dce0b3" class="cell" data-execution_count="35">
+<div id="09cef95c" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>mc <span class="op">=</span> mean_center(pp.points)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> manhattan_median(pp.points)</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>em <span class="op">=</span> euclidean_median(pp.points)</span>
@@ -1269,7 +1269,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="3b6e4069" class="cell" data-execution_count="36">
+<div id="39c35663" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>sx, sy, theta <span class="op">=</span> ellipse(pp.points)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>sx, sy, theta</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>theta_degree <span class="op">=</span> np.degrees(theta) <span class="co">#need degree of rotation to plot the ellipse</span></span>
@@ -1301,14 +1301,14 @@ window.Quarto = {
 </div>
 </div>
 <p>If we calculate the Euclidean distances between every event point and Mean Center (Euclidean Median), and sum them up, we can see that Euclidean Median is the optimal point in iterms of minimizing the Euclidean distances to all the event points.</p>
-<div id="32ef6429" class="cell" data-execution_count="37">
+<div id="9b48554f" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pointpats <span class="im">import</span> dtot</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(mc, pp.points))</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(em, pp.points))</span>
 <span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dtot(mc, pp.points) <span class="op">&gt;</span> dtot(em, pp.points))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>72840015.28456956
-72695431.71157935
+<pre><code>73513099.69889979
+73282411.14088549
 True</code></pre>
 </div>
 </div>
