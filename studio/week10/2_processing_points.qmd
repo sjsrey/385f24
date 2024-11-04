@@ -1,0 +1,141 @@
+---
+title: Zip codes
+execute: 
+  eval: false
+  echo: true
+format:
+  html:
+    code-fold: false
+---
+
+```{python}
+import osmnx as ox
+import pandas as pd
+import geopandas as gpd
+```
+
+```{python}
+gdf = gpd.read_file('sd_banks.json')
+```
+
+```{python}
+gdf.head()
+```
+
+```{python}
+gdf.address.str.split(",").str[-2].str.strip()
+```
+
+```{python}
+gdf['zipcode'] = gdf.address.str.split(",").str[-2].str.strip()
+```
+
+```{python}
+gdf.groupby(by='zipcode').count()
+```
+
+- we only have the "hits"
+- don't have the zip codes without banks
+- zip codes are problematic in spatial analysis [(see Grubesic and Matisziw (2006))](https://pubmed.ncbi.nlm.nih.gov/17166283/)
+
+
+Let's use census tracts instead. 
+We want to create a variable that records the number of banks in each census tract
+
+
+```{python}
+from geosnap import DataStore
+```
+
+
+```{python}
+datasets = DataStore("/srv/data/geosnap")
+```
+
+```{python}
+dir(datasets)
+```
+
+```{python}
+from geosnap import io as gio
+```
+
+```{python}
+from geosnap.io import get_acs
+
+ca = get_acs(datasets, state_fips=['06'], level='tract', years=[2016])
+
+```
+
+```{python}
+sd = ca[ca.geoid.str.startswith('06073')]
+```
+
+```{python}
+sd.plot()
+```
+
+```{python}
+sd.crs
+```
+
+```{python}
+gdf.crs
+```
+
+```{python}
+sd = sd.to_crs(gdf.crs)
+```
+
+```{python}
+sd.crs == gdf.crs
+```
+
+```{python}
+tracts = sd
+points = gdf[['geometry', 'address', 'name']]
+```
+
+```{python}
+points.columns
+```
+
+```{python}
+points_with_tracts = gpd.sjoin(points, tracts, how="inner", predicate="within", lsuffix="left", rsuffix="right")
+```
+
+```{python}
+points_with_tracts.head()
+```
+
+```{python}
+points_with_tracts.shape
+```
+
+```{python}
+tracts.head()
+```
+
+```{python}
+# Replace 'GEOID' with the appropriate identifier column in your tracts GeoDataFrame
+tract_counts = points_with_tracts.groupby('geoid').size().reset_index(name='point_count')
+```
+
+```{python}
+tracts = tracts.merge(tract_counts, on='geoid', how='left')
+tracts['point_count'] = tracts['point_count'].fillna(0).astype(int)
+```
+
+```{python}
+tracts.plot('point_count', legend=True)
+```
+
+```{python}
+tracts[['geoid', 'point_count']].sort_values(by='point_count', ascending=False).head(10)
+```
+
+```{python}
+tracts[['geoid', 'point_count']].groupby(by='point_count').count()
+```
+
+

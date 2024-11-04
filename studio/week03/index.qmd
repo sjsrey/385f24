@@ -1,5 +1,5 @@
 ---
-title: "Week 3 Studio: GeoPandas"
+title: "Studio: GeoPandas"
 ---
 This week we introduce GeoPandas:
 

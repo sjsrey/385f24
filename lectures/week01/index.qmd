@@ -1,5 +1,5 @@
 ---
-title: "Week 1 Lecture: Course Overview"
+title: "Course Overview"
 format: html
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Week 2 Studio: Pandas"
+title: "Studio: Pandas"
 ---
 This week we introduce Pandas:
 

@@ -1,5 +1,5 @@
 ---
-title: "Week 5 Studio: Choropleth Mapping"
+title: "Studio: Choropleth Mapping"
 ---
 
 - [Choropleths](choro.qmd)

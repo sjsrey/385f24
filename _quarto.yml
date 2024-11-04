@@ -25,6 +25,10 @@ website:
             href: lectures/week08/local.qmd
           - text: "10-21 Clustering and Regionalization"
             href: lectures/week09/regionalization.qmd
+          - text: "10-28 Point Pattern Data"
+            href: lectures/week10/point-patterns.qmd
+          - text: "11-04 Centrography"
+            href: lectures/week11/centrography.qmd
       - text: "Studio"
         menu:
           - text: "08-28 Studio 1: Juptyer Hub Introduction"
@@ -44,49 +48,63 @@ website:
           - text: "10-16 Studio 8: Local Spatial Autocorrelation"
             href: studio/week08/local.qmd
           - text: "10-23 Studio 9: Peer Evaluation 2"
-            href: studio/week09/peer2.qmd	    	    
+            href: studio/week09/peer2.qmd
+          - text: "10-30 Studio 10: Geoprocessing for Points"
+            href: studio/week10/index.qmd
       - text: "References"
         href: references.qmd
     right:
       - text: "About"
         href: about.qmd
   sidebar:
+    style: floating
+    collapse-level: 1
+    contents:
     - section: "Weeks"
       contents:
-        - text: "08-26 Course Overview"
-          href: lectures/week01/index.qmd
-        - text: "08-28 Studio 1: Jupyter Hub"
-          href: studio/week01/index.qmd
-        - text: "09-04 Studio 2: Pandas"
-          href: studio/week02/index.qmd
-        - text: "09-09 Spatial Data Analysis"
-          href: lectures/week03/index.qmd
-        - text: "09-11 Studio 3: GeoPandas"
-          href: studio/week03/index.qmd
-        - text: "09-16 Area Unit Data"
-          href: lectures/week04/lecture_area.qmd
-        - text: "09-18 Studio 4: Geosnap and Geoprocessing"
-          href: studio/week04/index.qmd
-        - text: "09-23 Choropleth Mapping"
-          href: lectures/week05/choro.qmd
-        - text: "09-25 Studio 5: Choropleth Mapping "
-          href: studio/week05/index.qmd
-        - text: "09-30 Spatial Weights"
-          href: lectures/week06/spatial_weights.qmd
-        - text: "10-02 Studio 6: Peer Evaluation 1"
-          href: studio/week06/peer1.qmd
-        - text: "10-07 Global Spatial Autocorrelation"
-          href: lectures/week07/global.qmd
-        - text: "10-09 Studio 7: Global Spatial Autocorrelation"
-          href: studio/week07/global.qmd
-        - text: "10-14 Local Spatial Autocorrelation"
-          href: lectures/week08/local.qmd
-        - text: "10-16 Studio 8: Local Spatial Autocorrelation"
-          href: studio/week08/local.qmd
-        - text: "10-21 Clustering and Regionalization"
-          href: lectures/week09/regionalization.qmd
-        - text: "10-23 Studio 9: Peer Evaluation 2"
-          href: studio/week09/peer2.qmd	    	    	  
+        - section: "Week 1: 8-26, 8-28"
+          contents:
+            - lectures/week01/index.qmd
+            - studio/week01/index.qmd
+        - section: "Week 2: 9-04"
+          contents:
+            - Labor Day Holiday
+            - studio/week02/index.qmd
+        - section: "Week 3: 9-09, 9-11"
+          contents:
+            - lectures/week03/index.qmd
+            - studio/week03/index.qmd
+        - section: "Week 4: 9-16, 9-23"
+          contents:
+            - lectures/week04/lecture_area.qmd
+            - studio/week04/index.qmd
+        - section: "Week 5: 9-23, 9-25"
+          contents:
+            - lectures/week05/choro.qmd
+            - studio//week05/index.qmd
+        - section: "Week 6: 9-30, 10-02"
+          contents:
+            - lectures//week06/spatial_weights.qmd
+            - studio/week06/peer1.qmd
+        - section: "Week 7: 10-07, 10-09"
+          contents:
+            - lectures/week07/global.qmd
+            - studio/week07/global.qmd
+        - section: "Week 8: 10-14, 10-16"
+          contents:
+            - lectures/week08/local.qmd
+            - studio/week08/local.qmd
+        - section: "Week 9: 10-21, 10-23"
+          contents:
+            - lectures/week09/regionalization.qmd
+            - studio/week09/peer2.qmd
+        - section: "Week 10: 10-27, 20-30"
+          contents:
+            - lectures/week10/point-patterns.qmd
+            - studio/week10/index.qmd
+        - section: "Week 11: 11-04, 11-06"
+          contents:
+            - lectures/week11/centrography.qmd			
     - section: "Resources"
       contents:
         - text: "Syllabus"
