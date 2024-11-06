@@ -104,7 +104,8 @@ website:
             - studio/week10/index.qmd
         - section: "Week 11: 11-04, 11-06"
           contents:
-            - lectures/week11/centrography.qmd			
+            - lectures/week11/centrography.qmd
+            #- lectures/week11/quadrat.qmd
     - section: "Resources"
       contents:
         - text: "Syllabus"

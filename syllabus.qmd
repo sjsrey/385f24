@@ -97,41 +97,42 @@ completed the readings.
 
 ## Schedule (Planned)
 
-| Week |  Date | Topic                           | Reading | Due                    |
-|------+-------+---------------------------------+---------+------------------------|
-|    1 |  8-26 | Introduction                    |         | [Prerequisite Quiz][quiz]   |
-|      |  8-28 | Jupyter                         |         |                        |
-|    2 |  9-02 | Labor Day (Holiday)             |         |                        |
-|      |  9-04 | Pandas                          |[GDA 3][gda3]         |                        |
-|    3 |  9-09 | Spatial Data Analysis           |[GDS 1][gds1]         |                        |
-|      |  9-11 | Geopandas                       |[GDA 6][gda6]         |                        |
-|    4 |  9-16 | Area Unit Data                  |[GDS 3][gds3]         |          |
-|      |  9-18 | Geoprocessing: Area Units       | [GDA 6][gda6]        |                        |
-|    5 |  9-23 | Visualizing Area Unit Data      | [GDS 5][gds5]        | [Python Primer][pp]    |
-|      |  9-25 | Choropleth Mapping              |         |                        |
-|    6 |  9-30 | Spatial Weights                 | [GDS 4][gds4]        | Topic Approval       |
-|      | 10-02 | Neighbor Relations              |         | Peer Evaluation 1      |
-|    7 | 10-07 | Global Spatial Autocorrelation  | [GDS 6][gds5]        |                        |
-|      | 10-09 | Testing for Clustering          |         |                        |
-|    8 | 10-14 | Local Spatial Autocorrelation   |  [GDS 7][gds6]       | Project Proposal       |
-|      | 10-16 | Cluster Detection               |         |       |
-|    9 | 10-21 | Clustering Area Unit Data       |  [GDS 10][gdsreg]       |                        |
-|      | 10-23 | Region Building                 |         |  Peer Evaluation 2                      |
-|   10 | 10-28 | Point Pattern Data              |  [GDS 8.1][gds8.1]       |                        |
-|      | 10-30 | Geoprocessing: Points           |         |                        |
-|   11 | 11-04 | Centrography                    |  [GDS8.2][gds8.2]       | Data Visualization     |
-|      | 11-06 | Describing Point Patterns       |         | Peer Evaluation 3      |
-|   12 | 11-11 | Veteran's Day (Holiday)         |         |                        |
-|      | 11-13 | Point Process Simulation        | [GDS 8.3][gds8.3]        |                        |
-|   13 | 11-18 | Nearest Neighbor Statistics     |         | Data Analysis          |
-|      | 11-20 | Testing for Randomness          |         | Peer Evaluation 4      |
-|   14 | 11-25 | Distance Based Statistics       |         |                        |
-|      | 11-27 | Thanksgiving (Holiday)          |         |                        |
-|   15 | 12-02 | Clustering Point Pattern Data   |         | Narrative              |
-|      | 12-04 | DBScan                          |         |                        |
-|   16 | 12-09 | Integrating Point and Area Data |         |                        |
-|      | 12-11 | Geoprocessing: Synthesis        |         | Computational Notebook |
-|   17 | 12-18 | Final Presentations (1-3pm)     |         |                        |
+| Week | Date  | Topic                               | Reading           | Due                       |
+|------|-------|-------------------------------------|-------------------|---------------------------|
+| 1    | 8-26  | Introduction                        |                   | [Prerequisite Quiz][quiz] |
+|      | 8-28  | Jupyter                             |                   |                           |
+| 2    | 9-02  | Labor Day (Holiday)                 |                   |                           |
+|      | 9-04  | Pandas                              | [GDA 3][gda3]     |                           |
+| 3    | 9-09  | Spatial Data Analysis               | [GDS 1][gds1]     |                           |
+|      | 9-11  | Geopandas                           | [GDA 6][gda6]     |                           |
+| 4    | 9-16  | Area Unit Data                      | [GDS 3][gds3]     |                           |
+|      | 9-18  | Geoprocessing: Area Units           | [GDA 6][gda6]     |                           |
+| 5    | 9-23  | Visualizing Area Unit Data          | [GDS 5][gds5]     | [Python Primer][pp]       |
+|      | 9-25  | Choropleth Mapping                  |                   |                           |
+| 6    | 9-30  | Spatial Weights                     | [GDS 4][gds4]     | Topic Approval            |
+|      | 10-02 | Neighbor Relations                  |                   | Peer Evaluation 1         |
+| 7    | 10-07 | Global Spatial Autocorrelation      | [GDS 6][gds5]     |                           |
+|      | 10-09 | Testing for Clustering              |                   |                           |
+| 8    | 10-14 | Local Spatial Autocorrelation       | [GDS 7][gds6]     | Project Proposal          |
+|      | 10-16 | Cluster Detection                   |                   |                           |
+| 9    | 10-21 | Clustering Area Unit Data           | [GDS 10][gdsreg]  |                           |
+|      | 10-23 | Region Building                     |                   | Peer Evaluation 2         |
+| 10   | 10-28 | Point Pattern Data                  | [GDS 8.1][gds8.1] |                           |
+|      | 10-30 | Geoprocessing: Points               |                   |                           |
+| 11   | 11-04 | Centrography                        | [GDS 8.2][gds8.2] | Data Visualization        |
+|      | 11-06 | Quadrat Analysis                    |                   |                           |
+| 12   | 11-11 | Veteran's Day (Holiday)             |                   |                           |
+|      | 11-13 | NARSC                               |                   | Peer Evaluation 3         |
+| 13   | 11-18 | Distance Based Statistics           | [GDS 8.3][gds8.3] |                           |
+|      | 11-20 | Project Help                        |                   | Data Analysis             |
+| 14   | 11-25 | Simulating Point Processes          |                   | Peer Evaluation 4         |
+|      | 11-27 | Thanksgiving (Holiday)              |                   |                           |
+| 15   | 12-02 | Clustering Point Pattern Data       |                   | Narrative                 |
+|      | 12-04 | Project Help                        |                   |                           |
+| 16   | 12-09 | Integrating Point and Area Data     |                   |                           |
+|      | 12-11 | Next steps in spatial data analysis |                   | Computational Notebook    |
+| 17   | 12-18 | Final Presentations (1-3pm)         |                   |                           |
+
 
 			  				  
 [pp]: studio/python_course.qmd
