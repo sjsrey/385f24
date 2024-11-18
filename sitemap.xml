@@ -2,39 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sjsrey.github.io/385f24/syllabus.html</loc>
-    <lastmod>2024-11-04T22:46:04.474Z</lastmod>
+    <lastmod>2024-11-18T22:28:03.034Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week10/point-processes.html</loc>
     <lastmod>2024-04-23T20:39:48.035Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week11/quadrat.html</loc>
-    <lastmod>2024-11-04T22:53:13.945Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week11/centrography.html</loc>
+    <lastmod>2024-11-04T20:37:42.137Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week01/lecture_sda.html</loc>
-    <lastmod>2024-08-26T02:32:42.591Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week01/studio.html</loc>
+    <lastmod>2024-08-16T21:40:56.263Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week01/lecture.html</loc>
-    <lastmod>2024-08-26T02:32:42.591Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week01/index.html</loc>
+    <lastmod>2024-11-04T21:50:57.773Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week07/global.html</loc>
-    <lastmod>2024-10-14T21:46:57.406Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week07/spatial_dependence.html</loc>
+    <lastmod>2024-10-14T21:46:57.407Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week06/spatial_weights.html</loc>
-    <lastmod>2024-10-14T21:46:57.405Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week08/local.html</loc>
+    <lastmod>2024-10-14T22:02:23.167Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week04/0221_area_1.html</loc>
-    <lastmod>2024-09-11T18:01:55.477Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week04/04-spatial-data.html</loc>
+    <lastmod>2023-02-15T22:57:28.420Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week04/lecture_sda.html</loc>
-    <lastmod>2024-09-09T21:44:17.101Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week04/lecture_area.html</loc>
+    <lastmod>2024-09-25T23:08:12.712Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/lectures/week13/nn.html</loc>
+    <lastmod>2024-11-18T22:11:15.263Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week03/studio.html</loc>
@@ -50,7 +54,7 @@
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/studio/week10/2_processing_points.html</loc>
-    <lastmod>2024-11-04T20:22:29.935Z</lastmod>
+    <lastmod>2024-11-18T20:37:30.988Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/studio/week10/0_data_creation.html</loc>
@@ -109,24 +113,28 @@
     <lastmod>2024-11-04T22:01:18.120Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/assignments/python_course.html</loc>
-    <lastmod>2024-08-20T17:29:31.373Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/assignments/peer3.html</loc>
+    <lastmod>2024-11-11T22:58:39.015Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/assignments/vizmilestone.html</loc>
-    <lastmod>2024-10-23T22:06:40.939Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sjsrey.github.io/385f24/references.html</loc>
-    <lastmod>2024-08-21T02:18:33.072Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/assignments/analysismilestone.html</loc>
+    <lastmod>2024-11-04T21:19:04.684Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/index.html</loc>
     <lastmod>2024-08-16T22:03:19.722Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/assignments/analysismilestone.html</loc>
-    <lastmod>2024-11-04T21:19:04.684Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/references.html</loc>
+    <lastmod>2024-08-21T02:18:33.072Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/assignments/vizmilestone.html</loc>
+    <lastmod>2024-10-23T22:06:40.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/assignments/python_course.html</loc>
+    <lastmod>2024-08-20T17:29:31.373Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/studio/week09/peer2.html</loc>
@@ -205,32 +213,36 @@
     <lastmod>2024-10-14T21:46:57.405Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week04/lecture_area.html</loc>
-    <lastmod>2024-09-25T23:08:12.712Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week04/lecture_sda.html</loc>
+    <lastmod>2024-09-09T21:44:17.101Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week04/04-spatial-data.html</loc>
-    <lastmod>2023-02-15T22:57:28.420Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week04/0221_area_1.html</loc>
+    <lastmod>2024-09-11T18:01:55.477Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week08/local.html</loc>
-    <lastmod>2024-10-14T22:02:23.167Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week06/spatial_weights.html</loc>
+    <lastmod>2024-10-14T21:46:57.405Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week07/spatial_dependence.html</loc>
-    <lastmod>2024-10-14T21:46:57.407Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week07/global.html</loc>
+    <lastmod>2024-10-14T21:46:57.406Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week01/index.html</loc>
-    <lastmod>2024-11-04T21:50:57.773Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week01/lecture.html</loc>
+    <lastmod>2024-08-26T02:32:42.591Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week01/studio.html</loc>
-    <lastmod>2024-08-16T21:40:56.263Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week01/lecture_sda.html</loc>
+    <lastmod>2024-08-26T02:32:42.591Z</lastmod>
   </url>
   <url>
-    <loc>https://sjsrey.github.io/385f24/lectures/week11/centrography.html</loc>
-    <lastmod>2024-11-04T20:37:42.137Z</lastmod>
+    <loc>https://sjsrey.github.io/385f24/lectures/week11/quadrat.html</loc>
+    <lastmod>2024-11-04T22:53:13.945Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sjsrey.github.io/385f24/lectures/nn.html</loc>
+    <lastmod>2024-11-18T20:46:04.981Z</lastmod>
   </url>
   <url>
     <loc>https://sjsrey.github.io/385f24/lectures/week10/point-patterns.html</loc>

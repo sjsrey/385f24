@@ -1,0 +1,385 @@
+---
+title: 'Nearest Neighbor: Clark Evans Statistic'
+jupyter: python3
+execute: 
+  eval: false
+  echo: true
+format:
+  html:
+    code-fold: false
+---
+
+
+This notebook is an exploration of the **Clark-Evans nearest neighbor statistic**, a  measure in spatial statistics used to evaluate the spatial arrangement of points in a region. The Clark-Evans statistic compares the observed mean nearest neighbor distance with the expected mean distance under the assumption of complete spatial randomness (CSR), allowing us to infer whether a point pattern is clustered, dispersed, or random.
+
+Through analytical and simulation-based approaches, this notebook demonstrates how to compute and interpret the Clark-Evans statistic, and assesses the statistical significance of observed spatial patterns. 
+
+## Overview of Sections
+
+1. **Point Pattern Setup and Visualization**  
+   Introduces the dataset used for analysis, creates a scatter plot to visualize the point pattern, and outlines the computation of basic spatial metrics.
+
+2. **Clark-Evans Statistic**  
+   - **Definition and Interpretation**: Explains the formula for the Clark-Evans statistic and its interpretation based on the values of \( R \).  
+   - **Observed Mean Nearest Neighbor Distance**: Computes the observed nearest neighbor distance (\( \bar{r}_o \)) from the data.  
+   - **Expected Mean Nearest Neighbor Distance**: Derives the expected distance (\( \bar{r}_E \)) under CSR.  
+   - **Computation of \( R \)**: Combines observed and expected values to calculate \( R \), interpreting the result.
+
+3. **Analytical Inference**  
+   Discusses the analytical approach to statistical significance testing, using a standard normal distribution and computing the \( z \)-score and \( p \)-value.
+
+4. **Simulation Inference**  
+   Simulates multiple random point patterns to build a reference distribution for the Clark-Evans statistic and computes a pseudo-\( p \)-value for clustering.
+
+5. **Directional and Non-Directional Hypotheses**  
+   Considers the implications of testing for clustering versus dispersion and the allocation of significance levels in one-tailed and two-tailed tests.
+
+This structured approach offers a comprehensive understanding of spatial point pattern analysis, equipping users with theoretical insights and practical implementation techniques.
+
+
+```{python}
+import numpy as np
+```
+
+```{python}
+import pandas as pd
+
+```
+
+```{python}
+x = [5,5,6,6,5]
+y = [5,6,5,6,4]
+
+```
+
+```{python}
+df = pd.DataFrame(data=np.array([x,y]).T, columns=['x','y'])
+```
+
+```{python}
+df
+```
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+
+# Scatter plot
+plt.scatter(df['x'], df['y'], color='blue', edgecolor='black')
+
+# Set x and y limits
+plt.xlim(0, 10)  # Set x-axis range
+plt.ylim(0, 10)  # Set y-axis range
+
+# Add labels and title
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Point Pattern')
+
+# Show plot
+plt.grid(alpha=0.5)
+plt.show()
+```
+
+```{python}
+n = df.shape[0]
+
+n
+```
+
+## Clark Evans Statistic
+
+
+
+$$R = 
+\bar{r}_O / \bar{r}_E$$
+where $\bar{r}_O$ is the observed mean nearest neighbor distance in the point pattern, and $\bar{r}_E$ is the expected mean nearest neighbor distance under the assumtion of a Homogeneous Poisson Point Process (HPPP)
+
+
+### Interpretation
+
+- $R < 1$: points in the pattern are closer to their nearest neighbor than can be expected under a HPPP (Clustering).
+- $R > 1$: points in the pattern are more distant from their nearest neighbor than can be expected under a HPPP (Dispersion)
+- $R \approx
+1$: points separation from their nearest neighbor is as expected under a HPPP.
+
+
+
+
+
+### Observed mean nearest neighbor distance: $\bar{r}_o$
+
+
+```{python}
+
+from scipy.spatial.distance import cdist
+
+# Extract coordinates as a NumPy array
+coordinates = df[['x', 'y']].values
+
+# Calculate the Euclidean distance matrix
+distance_matrix = cdist(coordinates, coordinates, metric='euclidean')
+
+# Convert to a DataFrame for better readability
+distance_matrix_df = pd.DataFrame(distance_matrix, columns=df.index, index=df.index)
+
+print(distance_matrix_df)
+distance = df.x - df.x.T
+```
+
+The nearest neighbor distance for each point is the minimum non-zero value in each row of the distance matrix.
+
+```{python}
+
+# Get the minimum distance greater than zero for each row
+min_distances = distance_matrix_df.apply(lambda row: row[row > 0].min(), axis=1)
+
+
+print(min_distances)
+
+```
+
+```{python}
+observed_r = min_distances.mean()
+observed_r
+
+
+
+```
+
+The observed mean nearest neighbor distance is $\bar{r}_o = 1$.
+
+### Expected mean nearest neighbor distance: $\bar{r}_E$
+
+The expected mean nearest neighbor distance statistic has the following form under CSR:
+
+$$
+\bar{r}_E = \frac{1}{2 * \sqrt{\lambda}}
+$$
+
+where $\lambda$ is the intensity of the point process:
+
+$$
+\lambda = \frac{n}{|W|}
+$$
+
+where $n$ is the number of points and $|W|$ is the area of our window.
+For the window, there are multiple options. Since this data was created by the instructor, the window is known and corresponds to sampling from the range of 0-10 in both the x and y dimensions.
+
+When the window is not available, one could use the minimum bounding rectangle, or convex hull, to get the area of the window given the point coordinates.
+
+In our sample point pattern we have:
+
+- $n=5$
+- $|W| = 10 \times 10 = 100$
+
+This means $\lambda = 5 / 100 = 0.05$.
+
+```{python}
+observed_r = min_distances.mean()
+observed_r
+
+
+```
+
+```{python}
+lam = 5 / 100
+lam
+
+```
+
+```{python}
+expected_r = 1 / (
+    2*
+    np.sqrt(lam))
+```
+
+```{python}
+expected_r
+```
+
+```{python}
+R = observed_r / expected_r
+R
+```
+
+
+Our statistic is less than one, which points towards clustering.
+Intuitively, this is because the observed mean nearest neighbor distance is smaller than what we would expect under the null.
+
+We are left with the question of whether the difference between our observed value and expectation is larger (in absolute value) than what could be due to random chance.
+
+This is a question about inference, and we will develop two approaches to answer our question
+
+- Analytical Inference
+- Simulation Inference
+  
+
+
+## Analytical Inference
+
+In large enough samples, we can rely on the standardized statistic:
+
+$$
+z= 
+(\bar{r}_o - \bar{r}_E
+) / \sigma_{r_{E}}
+$$
+
+which as a standard normal distribution: $z^{\sim}N(0,1)$.
+
+The standard error of the expected mean nearest distance is:
+
+$$
+\sigma_{r_{E}} = \frac{0.26136}{\sqrt{n \times \lambda}}
+$$
+
+
+```{python}
+sig_r = 0.26136 / (np.sqrt(n * lam))
+```
+
+```{python}
+sig_r
+```
+
+```{python}
+z = (observed_r - expected_r) / sig_r
+z
+```
+
+```{python}
+from scipy.stats import norm
+```
+
+```{python}
+p_value = norm.sf(abs(z
+                     ))  # Survival function (1 - CDF)
+```
+
+```{python}
+p_value
+```
+
+## Simulation Inference
+
+Now, since our observed mean nearest neighbor statistic was less than the expected value, we want to determine how likely it is to get a value as small as the one we did if the true point process was CSR? 
+
+To get at this, we are going to simulate a large number of sample point patterns from a known CSR process. For each one of these, we will calculate the mean nearest neighbor statistic and retain all such values. 
+
+We then count how many of the mean nearest neighbor statistics from these random point patterns were as small as the one we observed for our point pattern.
+
+Let that number be called *smaller*. 
+
+With smaller in hand, we can calculate a psuedo  p-value:
+
+$$
+p_{sim}
+= (smaller + 1) / (99 + 1)
+$$
+
+where 99, is the number of random point patterns we simulate from a CSR process.
+
+
+```{python}
+def mean_nnd(x, y
+            ):
+    df = pd.DataFrame(data=np.array([x,y]).T, columns=['x','y'])
+    coordinates = df[['x', 'y']].values
+
+    # Calculate the Euclidean distance matrix
+    distance_matrix = cdist(coordinates, coordinates, metric='euclidean')
+    
+    # Convert to a DataFrame for better readability
+    distance_matrix_df = pd.DataFrame(distance_matrix, columns=df.index, index=df.index)
+    
+
+  
+    distance = df.x - df.x.T
+    min_distances = distance_matrix_df.apply(lambda row: row[row > 0].min(), axis=1)
+    return min_distances.mean()
+
+```
+
+```{python}
+x
+```
+
+```{python}
+y
+```
+
+```{python}
+mean_nnd(x, y)
+```
+
+```{python}
+n_realizations = 99
+mean_nnd(np.random.randint(0, 10, 5), np.random.randint(0, 10, 5))
+```
+
+```{python}
+nrr = np.random.randint(0, 10, 5)
+mean_nnd(nrr, nrr)
+```
+
+```{python}
+xr = np.random.randint(0, 10, 5)
+yr = np.random.randint(0, 10, 5)
+```
+
+```{python}
+mean_nnd(xr, yr)
+```
+
+```{python}
+
+nrr = np.random.randint
+
+```
+
+```{python}
+xr = nrr(0, 10, 5)
+yr = nrr(0, 10, 5)
+```
+
+```{python}
+
+mean_nnd(xr, yr)
+```
+
+
+
+
+```{python}
+rs = np.array([ mean_nnd(nrr(0, 10, 5), nrr(0, 10, 5)) for i in range(99)])
+smaller = (rs <= observed_r).sum()
+```
+
+```{python}
+smaller
+
+```
+
+
+```{python}
+p_sim = (smaller + 1) / (100)
+```
+
+
+```{python}
+p_sim
+```
+
+Note that we were testing for a departure from the null in one direction, clustering.
+In this case we allocated all of our significance level, $\alpha=0.05$ into the lower tail of our reference distribution to determine the significance of our observed mean nearest neighbor statistic.
+
+If we were testing against a non-directional null (i.e., we are looking for departures from the null in either direction), we would have split the signficance equally into both tails of our reference distribution.
+
+
+
+
+![image.png](attachment:111ebdaa-63d7-4c36-8544-a3503a5d47f2.png)
+
+
