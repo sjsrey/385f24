@@ -686,20 +686,20 @@ Considers the implications of testing for clustering versus dispersion and the a
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>We will create an artificial point pattern for purposes of illustration. The coordinates here are in Euclidean space, so no projection is needed. Keep in mind that you should first ensure your own data is projected if the CRS is unprojected before carrying out the analysis.</p>
-<div id="83adcc35" class="cell" data-execution_count="1">
+<div id="0ee90b2f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="473a9dd0" class="cell" data-execution_count="2">
+<div id="009aaf91" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e7dc22eb" class="cell" data-execution_count="3">
+<div id="bb4a3c9f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">5</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7f4c6b46" class="cell" data-execution_count="4">
+<div id="59a34ed2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>np.array([x,y]).T, columns<span class="op">=</span>[<span class="st">'x'</span>,<span class="st">'y'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c005b1f8" class="cell" data-execution_count="5">
+<div id="43d266c3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -745,7 +745,7 @@ Considers the implications of testing for clustering versus dispersion and the a
 </div>
 </div>
 </div>
-<div id="d3930c7a" class="cell" data-execution_count="6">
+<div id="10f3c691" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -772,7 +772,7 @@ Considers the implications of testing for clustering versus dispersion and the a
 </div>
 </div>
 </div>
-<div id="6d2a0859" class="cell" data-execution_count="7">
+<div id="fff84e4e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> df.shape[<span class="dv">0</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -796,7 +796,7 @@ Considers the implications of testing for clustering versus dispersion and the a
 </section>
 <section id="observed-mean-nearest-neighbor-distance-barr_o" class="level3">
 <h3 class="anchored" data-anchor-id="observed-mean-nearest-neighbor-distance-barr_o">Observed mean nearest neighbor distance: <span class="math inline">\(\bar{r}_o\)</span></h3>
-<div id="774f154d" class="cell" data-execution_count="8">
+<div id="a3a88d2b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.distance <span class="im">import</span> cdist</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract coordinates as a NumPy array</span></span>
@@ -820,7 +820,7 @@ Considers the implications of testing for clustering versus dispersion and the a
 </div>
 </div>
 <p>The nearest neighbor distance for each point is the minimum non-zero value in each row of the distance matrix.</p>
-<div id="5c208fee" class="cell" data-execution_count="9">
+<div id="fb5130c1" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the minimum distance greater than zero for each row</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>min_distances <span class="op">=</span> distance_matrix_df.<span class="bu">apply</span>(<span class="kw">lambda</span> row: row[row <span class="op">&gt;</span> <span class="dv">0</span>].<span class="bu">min</span>(), axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -835,7 +835,7 @@ Considers the implications of testing for clustering versus dispersion and the a
 dtype: float64</code></pre>
 </div>
 </div>
-<div id="62e068ad" class="cell" data-execution_count="10">
+<div id="48671258" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>observed_r <span class="op">=</span> min_distances.mean()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>observed_r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -862,32 +862,32 @@ dtype: float64</code></pre>
 <li><span class="math inline">\(|W| = 10 \times 10 = 100\)</span></li>
 </ul>
 <p>This means <span class="math inline">\(\lambda = 5 / 100 = 0.05\)</span>.</p>
-<div id="d2612d84" class="cell" data-execution_count="11">
+<div id="bdf71892" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>observed_r <span class="op">=</span> min_distances.mean()</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>observed_r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>np.float64(1.0)</code></pre>
 </div>
 </div>
-<div id="90a33f5c" class="cell" data-execution_count="12">
+<div id="d919d497" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lam <span class="op">=</span> <span class="dv">5</span> <span class="op">/</span> <span class="dv">100</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>lam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>0.05</code></pre>
 </div>
 </div>
-<div id="a61d86cd" class="cell" data-execution_count="13">
+<div id="f1b0b6ba" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>expected_r <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span><span class="op">*</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    np.sqrt(lam))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4500bc85" class="cell" data-execution_count="14">
+<div id="7abcd5a5" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>expected_r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>np.float64(2.23606797749979)</code></pre>
 </div>
 </div>
-<div id="6be551f9" class="cell" data-execution_count="15">
+<div id="aa71efc5" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> observed_r <span class="op">/</span> expected_r</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
@@ -916,30 +916,30 @@ z=
 <p><span class="math display">\[
 \sigma_{r_{E}} = \frac{0.26136}{\sqrt{n \times \lambda}}
 \]</span></p>
-<div id="f994d916" class="cell" data-execution_count="16">
+<div id="2ce29eac" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sig_r <span class="op">=</span> <span class="fl">0.26136</span> <span class="op">/</span> (np.sqrt(n <span class="op">*</span> lam))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e71b1be7" class="cell" data-execution_count="17">
+<div id="58ebbee6" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sig_r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>np.float64(0.52272)</code></pre>
 </div>
 </div>
-<div id="584dfa92" class="cell" data-execution_count="18">
+<div id="05fd5d59" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> (observed_r <span class="op">-</span> expected_r) <span class="op">/</span> sig_r</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>np.float64(-2.3646846830038832)</code></pre>
 </div>
 </div>
-<div id="709d1d7c" class="cell" data-execution_count="19">
+<div id="599aeeab" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7b5e382c" class="cell" data-execution_count="20">
+<div id="e581a6bc" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> norm.sf(<span class="bu">abs</span>(z</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                     ))  <span class="co"># Survival function (1 - CDF)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e490352f" class="cell" data-execution_count="21">
+<div id="b970f6b9" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>np.float64(0.009022713781885967)</code></pre>
@@ -958,7 +958,7 @@ p_{sim}
 = (smaller + 1) / (99 + 1)
 \]</span></p>
 <p>where 99, is the number of random point patterns we simulate from a CSR process.</p>
-<div id="c46e3da3" class="cell" data-execution_count="22">
+<div id="04c92499" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mean_nnd(x, y</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>            ):</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>np.array([x,y]).T, columns<span class="op">=</span>[<span class="st">'x'</span>,<span class="st">'y'</span>])</span>
@@ -976,25 +976,25 @@ p_{sim}
 <span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    min_distances <span class="op">=</span> distance_matrix_df.<span class="bu">apply</span>(<span class="kw">lambda</span> row: row[row <span class="op">&gt;</span> <span class="dv">0</span>].<span class="bu">min</span>(), axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> min_distances.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ffd9923c" class="cell" data-execution_count="23">
+<div id="507bf8f1" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>[5, 5, 6, 6, 5]</code></pre>
 </div>
 </div>
-<div id="4344e5de" class="cell" data-execution_count="24">
+<div id="f40a3ff1" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>[5, 6, 5, 6, 4]</code></pre>
 </div>
 </div>
-<div id="3a55c9aa" class="cell" data-execution_count="25">
+<div id="0fd04b51" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>mean_nnd(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>np.float64(1.0)</code></pre>
 </div>
 </div>
-<div id="c3bc5e7a" class="cell" data-execution_count="26">
+<div id="d61c08da" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>n_realizations <span class="op">=</span> <span class="dv">99</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>mean_nnd(np.random.randint(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>), np.random.randint(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1002,50 +1002,50 @@ p_{sim}
 <pre><code>np.float64(3.3682905663705123)</code></pre>
 </div>
 </div>
-<div id="59984727" class="cell" data-execution_count="27">
+<div id="ee0a29c7" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>nrr <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>mean_nnd(nrr, nrr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>np.float64(2.262741699796952)</code></pre>
 </div>
 </div>
-<div id="0af1c0d5" class="cell" data-execution_count="28">
+<div id="d444ed21" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>xr <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>yr <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c052acc3" class="cell" data-execution_count="29">
+<div id="82423dae" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>mean_nnd(xr, yr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>np.float64(2.982237931008882)</code></pre>
 </div>
 </div>
-<div id="4d15ffd5" class="cell" data-execution_count="30">
+<div id="e6299ea5" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>nrr <span class="op">=</span> np.random.randint</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="24e7ac31" class="cell" data-execution_count="31">
+<div id="a11919c1" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>xr <span class="op">=</span> nrr(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>yr <span class="op">=</span> nrr(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="60561254" class="cell" data-execution_count="32">
+<div id="14ec6d92" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>mean_nnd(xr, yr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>np.float64(2.801753402449028)</code></pre>
 </div>
 </div>
-<div id="ce967131" class="cell" data-execution_count="33">
+<div id="4cba13f1" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>rs <span class="op">=</span> np.array([ mean_nnd(nrr(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>), nrr(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">5</span>)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">99</span>)])</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>smaller <span class="op">=</span> (rs <span class="op">&lt;=</span> observed_r).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f73ca52f" class="cell" data-execution_count="34">
+<div id="77cbd1d5" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>smaller</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>np.int64(0)</code></pre>
 </div>
 </div>
-<div id="9cdef3af" class="cell" data-execution_count="35">
+<div id="403f0996" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>p_sim <span class="op">=</span> (smaller <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> (<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="535e862d" class="cell" data-execution_count="36">
+<div id="f03e512d" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>p_sim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>np.float64(0.01)</code></pre>
