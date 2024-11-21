@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -588,6 +588,9 @@ window.Quarto = {
  <span class="menu-text">Nearest Neighbor Tests</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Computational Essay Help Session</span>
+  </li>
       </ul>
   </li>
       </ul>
@@ -915,7 +918,7 @@ Figure&nbsp;1: Invariance
 </section>
 <section id="poisson-distribution-lambda20" class="level2">
 <h2 class="anchored" data-anchor-id="poisson-distribution-lambda20">Poisson Distribution <span class="math inline">\(\lambda=20\)</span></h2>
-<div id="1b1cb36f" class="cell" data-execution_count="1">
+<div id="1587467f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -937,7 +940,7 @@ Figure&nbsp;1: Invariance
 </div>
 <p>The example we just did is known as <span class="math inline">\(n-conditioning\)</span> where we will always get <span class="math inline">\(n\)</span> points for the CSR process.</p>
 <p>A slightly different approach to generating a random point process is to use <span class="math inline">\(\lambda-conditioning\)</span></p>
-<div id="7fecae74" class="cell" data-execution_count="2">
+<div id="b334b42a" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span>
@@ -1044,7 +1047,7 @@ Figure&nbsp;1: Invariance
 <p>Second, n offspring events for each parent event are simulated within a circle of radius r centered on the parent. Offspring events are independently and identically distributed.</p>
 <section id="contagion-process-of-size-20-with-10-parents-and-2-children" class="level2">
 <h2 class="anchored" data-anchor-id="contagion-process-of-size-20-with-10-parents-and-2-children">Contagion process of size 20 with 10 parents and 2 children</h2>
-<div id="6f9dcb77" class="cell" data-execution_count="3">
+<div id="9fe39242" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pointpats <span class="im">as</span> pp</span>
@@ -1064,7 +1067,7 @@ Figure&nbsp;1: Invariance
 </section>
 <section id="contagion-process-of-size-20-with-2-parents-and-10-children" class="level2">
 <h2 class="anchored" data-anchor-id="contagion-process-of-size-20-with-2-parents-and-10-children">Contagion process of size 20 with 2 parents and 10 children</h2>
-<div id="e269e071" class="cell" data-execution_count="4">
+<div id="a274186d" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pointpats <span class="im">as</span> pp</span>
@@ -1103,7 +1106,7 @@ Figure&nbsp;1: Invariance
 <p>Intensity function:</p>
 <p><span class="math inline">\(\lambda(s) = 100 e^{-(x^2 + y^2) / \sigma}\)</span></p>
 <p><span class="math inline">\(\sigma\)</span> is a scale parameter here, equal to 0.5</p>
-<div id="c14e0d08" class="cell" data-execution_count="5">
+<div id="e6814f23" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np<span class="op">;</span>  <span class="co"># NumPy package for arrays, random number generation, etc</span></span>
@@ -1187,7 +1190,7 @@ Figure&nbsp;1: Invariance
 </div>
 <p><a href="https://hpaulkeeler.com/simulating-an-inhomogeneous-poisson-point-process/">source</a></p>
 <p>That pattern comes from a spatially-explicit thinning of a CSR pattern:</p>
-<div id="ea8b538a" class="cell" data-execution_count="6">
+<div id="84e6d233" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
@@ -1244,7 +1247,7 @@ Figure&nbsp;1: Invariance
 </section>
 <section id="matern-thinning" class="level2">
 <h2 class="anchored" data-anchor-id="matern-thinning">Matern (Thinning)</h2>
-<div id="ce5054fa" class="cell" data-execution_count="7">
+<div id="139bd456" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
@@ -1265,7 +1268,7 @@ Figure&nbsp;1: Invariance
 </div>
 </div>
 <p>Determine which observations to thin</p>
-<div id="9ffb3aba" class="cell" data-execution_count="8">
+<div id="3071c83f" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ijs <span class="op">=</span> np.where(d<span class="op">&lt;</span>delta)</span>
@@ -1291,7 +1294,7 @@ Observations to drop:
 [np.int64(3), np.int64(9)]</code></pre>
 </div>
 </div>
-<div id="587ee20a" class="cell" data-execution_count="9">
+<div id="a758f113" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1350,7 +1353,7 @@ Observations to drop:
 </div>
 </div>
 </div>
-<div id="a9ad8a0b" class="cell" data-execution_count="10">
+<div id="0b14e9dd" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -1367,7 +1370,7 @@ Observations to drop:
 </section>
 <section id="matern-sequential" class="level2">
 <h2 class="anchored" data-anchor-id="matern-sequential">Matern (Sequential)</h2>
-<div id="4ed87d3e" class="cell" data-execution_count="11">
+<div id="9009d26f" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> <span class="fl">0.1</span></span>
@@ -1396,7 +1399,7 @@ Observations to drop:
 </section>
 <section id="csr-n20" class="level2">
 <h2 class="anchored" data-anchor-id="csr-n20">CSR n=20</h2>
-<div id="a6aadb66" class="cell" data-execution_count="12">
+<div id="8ed0f97f" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> <span class="fl">0.1</span></span>
