@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -175,6 +175,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../lectures/week13/nn.html">
  <span class="dropdown-text">11-18 Nearest Neighbor Tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week14/distancemethods.html">
+ <span class="dropdown-text">11-25 Distance Based Tests</span></a>
   </li>  
     </ul>
   </li>
@@ -561,17 +565,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
       </ul>
   </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
- <span class="menu-text">Resources</span></a>
+ <span class="menu-text">Week 14: 11-25</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week14/distancemethods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distance Based Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Thanksgiving Holiday (no class 11-27)</span>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
@@ -645,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="reading-the-spatial-data-files">Reading the spatial data files</h2>
 <p>Use geosnap to collect 2017 environmental justice screening data for the San Francisco metropolitan region</p>
 <p>(hint: the MSA fips code for the Bay Area is 41860)</p>
-<div id="9cb2a4e5" class="cell" data-execution_count="1">
+<div id="236beb6b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geosnap <span class="im">import</span> DataStore</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>datasets <span class="op">=</span> DataStore(<span class="st">"/srv/data/geosnap"</span>)</span>
@@ -656,21 +680,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="report-whether-the-current-coordinate-reference-system-is-currently-projected" class="level2">
 <h2 class="anchored" data-anchor-id="report-whether-the-current-coordinate-reference-system-is-currently-projected">Report whether the current coordinate reference system is currently projected</h2>
-<div id="46c9cc3c" class="cell" data-execution_count="2">
+<div id="c8ba294d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bay_ejscreen.????.is_projected</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="convert-the-geodataframe-into-a-geographic-coordinate-system" class="level2">
 <h2 class="anchored" data-anchor-id="convert-the-geodataframe-into-a-geographic-coordinate-system">Convert the GeoDataFrame into a geographic coordinate system</h2>
 <p>hint: a the standard GCS is 4326</p>
-<div id="10fb49c7" class="cell" data-execution_count="3">
+<div id="7d81187f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bay_ejscreen = bay_ejscreen.to_crs(????)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="collect-highway-data-in-the-bay-area-from-open-street-map" class="level2">
 <h2 class="anchored" data-anchor-id="collect-highway-data-in-the-bay-area-from-open-street-map">Collect highway data in the Bay Area from Open street map</h2>
 <p>(hint: first take the union of the Bay Area geometries)</p>
-<div id="81816c0c" class="cell" data-execution_count="4">
+<div id="78e3790f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bay_union = bay_ejscreen.???_all()</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#highways = ox.features_from_polygon(bay_union, tags={"highway": "????"})</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -679,7 +703,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="convert-the-bay-area-geodataframe-into-an-appropriate-coordinate-system" class="level2">
 <h2 class="anchored" data-anchor-id="convert-the-bay-area-geodataframe-into-an-appropriate-coordinate-system">Convert the Bay Area GeoDataFrame into an appropriate coordinate system</h2>
 <p>hint: a reasonable coordinate system for the Bay Area is <a href="https://epsg.io/6419">EPSG 6419</a></p>
-<div id="b924f22d" class="cell" data-execution_count="5">
+<div id="0c9830b2" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bay_ejscreen = bay_ejscreen.to_crs(????)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>

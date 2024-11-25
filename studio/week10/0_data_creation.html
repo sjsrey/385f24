@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -174,6 +174,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../lectures/week13/nn.html">
  <span class="dropdown-text">11-18 Nearest Neighbor Tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week14/distancemethods.html">
+ <span class="dropdown-text">11-25 Distance Based Tests</span></a>
   </li>  
     </ul>
   </li>
@@ -560,17 +564,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
       </ul>
   </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
- <span class="menu-text">Resources</span></a>
+ <span class="menu-text">Week 14: 11-25</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week14/distancemethods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distance Based Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Thanksgiving Holiday (no class 11-27)</span>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
@@ -619,82 +643,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="d0f0047d" class="cell" data-execution_count="1">
+<div id="aa15bcf5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="543cebf1" class="cell" data-execution_count="2">
+<div id="689d9bfe" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>place <span class="op">=</span> <span class="st">"San Diego County, California, USA"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1da5cc3d" class="cell" data-execution_count="3">
+<div id="64f4f86b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> {<span class="st">'shop'</span>: <span class="st">'financial'</span>, <span class="st">'amenity'</span>: <span class="st">'bank'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="728deef8" class="cell" data-execution_count="4">
+<div id="3807d336" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> ox.features_from_place(place, tags)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4273e85f" class="cell" data-execution_count="5">
+<div id="d655c546" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8727842c" class="cell" data-execution_count="6">
+<div id="c7645196" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>addresses <span class="op">=</span> gdf[[<span class="st">'name'</span>,<span class="st">'addr:housenumber'</span>,  <span class="st">'addr:street'</span>, <span class="st">'addr:city'</span>, <span class="st">'addr:postcode'</span>,<span class="st">'geometry'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7253be45" class="cell" data-execution_count="7">
+<div id="567169f9" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>addresses <span class="op">=</span> gdf[[<span class="st">'name'</span>,<span class="st">'addr:housenumber'</span>,  <span class="st">'addr:street'</span>, <span class="st">'addr:city'</span>, <span class="st">'addr:postcode'</span>,<span class="st">'geometry'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="85a5f8d1" class="cell" data-execution_count="8">
+<div id="d1b1ccb2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>addresses_clean <span class="op">=</span> addresses.dropna(subset<span class="op">=</span>[<span class="st">'addr:street'</span>,<span class="st">'addr:postcode'</span>, <span class="st">'addr:housenumber'</span>, <span class="st">'name'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1c488c37" class="cell" data-execution_count="9">
+<div id="c7af522b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>addresses_clean.to_csv(<span class="st">"financial.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e1cd84bf" class="cell" data-execution_count="10">
+<div id="edab5a78" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ao <span class="op">=</span> addresses_clean.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ddcea877" class="cell" data-execution_count="11">
+<div id="8c9716f6" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ao[<span class="st">'address'</span>] <span class="op">=</span>  ao[<span class="st">'addr:housenumber'</span>] <span class="op">+</span> <span class="st">" "</span><span class="op">+</span> ao[<span class="st">'addr:street'</span>] <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> ao[<span class="st">'addr:city'</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> ao[<span class="st">'addr:postcode'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ae0fd2cc" class="cell" data-execution_count="12">
+<div id="e4773be1" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ao.address</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5ee871b1" class="cell" data-execution_count="13">
+<div id="f5155bef" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ao <span class="op">=</span> ao[[<span class="st">'name'</span>, <span class="st">'address'</span>]]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ao.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="13d1241c" class="cell" data-execution_count="14">
+<div id="5e904219" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ao.to_csv(<span class="st">'financial_ao.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="geocoding-addresses" class="level2">
 <h2 class="anchored" data-anchor-id="geocoding-addresses">Geocoding addresses</h2>
-<div id="b47f33f4" class="cell" data-execution_count="15">
+<div id="ea4e8dfb" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="08b3c5b6" class="cell" data-execution_count="16">
+<div id="365f6f89" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'financial_ao.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="772cbdd4" class="cell" data-execution_count="17">
+<div id="d8f866df" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="aaa2fefe" class="cell" data-execution_count="18">
+<div id="be3b766a" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="21915ece" class="cell" data-execution_count="19">
+<div id="c4379ab4" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> geopandas.tools.geocode(df.address, provider<span class="op">=</span><span class="st">'nominatim'</span>, user_agent<span class="op">=</span><span class="st">'geog385f24'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2d96f20e" class="cell" data-execution_count="20">
+<div id="a59abc8a" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>results.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d6e8e3f4" class="cell" data-execution_count="21">
+<div id="97d24a78" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f27fe2c5" class="cell" data-execution_count="22">
+<div id="77dcbbd8" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>results.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="create-a-geodataframe" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-geodataframe">Create a geodataframe</h3>
-<div id="f25c473b" class="cell" data-execution_count="23">
+<div id="52946f29" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> geopandas.GeoDataFrame(results, geometry<span class="op">=</span><span class="st">'geometry'</span>, crs<span class="op">=</span><span class="st">"EPSG:4326"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2b24a62c" class="cell" data-execution_count="24">
+<div id="9df3220d" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>gdf.explore()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -703,103 +727,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>use a point in polygon</li>
 </ul>
-<div id="be570a21" class="cell" data-execution_count="25">
+<div id="116d89ca" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>county_boundary <span class="op">=</span> ox.geocode_to_gdf(<span class="st">"San Diego County, California, USA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c10ecc74" class="cell" data-execution_count="26">
+<div id="6b3a1d92" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>county_boundary.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9a7729ca" class="cell" data-execution_count="27">
+<div id="7e198ab9" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>points_in_county <span class="op">=</span> geopandas.sjoin(gdf, county_boundary, how<span class="op">=</span><span class="st">"inner"</span>, predicate<span class="op">=</span><span class="st">"within"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="df65a137" class="cell" data-execution_count="28">
+<div id="fe24390e" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>points_in_county.explore()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e403d983" class="cell" data-execution_count="29">
+<div id="22e2f296" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> points_in_county</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a6388588" class="cell" data-execution_count="30">
+<div id="762aa05f" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fc8b5ca8" class="cell" data-execution_count="31">
+<div id="d1572aff" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>gdf.address.<span class="bu">str</span>.split(<span class="st">","</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">2</span>].<span class="bu">str</span>.strip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="db73771a" class="cell" data-execution_count="32">
+<div id="0464442e" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>gdf[<span class="st">'zipcode'</span>] <span class="op">=</span> gdf.address.<span class="bu">str</span>.split(<span class="st">","</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">2</span>].<span class="bu">str</span>.strip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1e6f1d9a" class="cell" data-execution_count="33">
+<div id="930d0f4c" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>gdf.groupby(by<span class="op">=</span><span class="st">'zipcode'</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4c017d71" class="cell" data-execution_count="34">
+<div id="46de36a4" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geosnap <span class="im">import</span> DataStore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="26ad711f" class="cell" data-execution_count="35">
+<div id="ee142a0d" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>datasets <span class="op">=</span> DataStore(<span class="st">"/srv/data/geosnap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4447d5ba" class="cell" data-execution_count="36">
+<div id="6a318c9c" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(datasets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0a806495" class="cell" data-execution_count="37">
+<div id="1aed0065" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geosnap <span class="im">import</span> io <span class="im">as</span> gio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="561d8fd9" class="cell" data-execution_count="38">
+<div id="e2521d83" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geosnap.io <span class="im">import</span> get_acs</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>ca <span class="op">=</span> get_acs(datasets, state_fips<span class="op">=</span>[<span class="st">'06'</span>], level<span class="op">=</span><span class="st">'tract'</span>, years<span class="op">=</span>[<span class="dv">2016</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c83c6905" class="cell" data-execution_count="39">
+<div id="450716db" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>sd <span class="op">=</span> ca[ca.geoid.<span class="bu">str</span>.startswith(<span class="st">'06073'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="77b53bee" class="cell" data-execution_count="40">
+<div id="c081c34e" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>sd.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="36f53a8c" class="cell" data-execution_count="41">
+<div id="c089dd64" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>sd.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="59a92939" class="cell" data-execution_count="42">
+<div id="b39b77cd" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>gdf.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3cfa5d8e" class="cell" data-execution_count="43">
+<div id="b8aafd0f" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sd <span class="op">=</span> sd.to_crs(gdf.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b360ab81" class="cell" data-execution_count="44">
+<div id="45ebad43" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sd.crs <span class="op">==</span> gdf.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a578bd12" class="cell" data-execution_count="45">
+<div id="a0e5f744" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>tracts <span class="op">=</span> sd</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> gdf[[<span class="st">'geometry'</span>, <span class="st">'address'</span>, <span class="st">'name'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2961c83e" class="cell" data-execution_count="46">
+<div id="dd4a2650" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>points.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="520488f6" class="cell" data-execution_count="47">
+<div id="24b408fc" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>points_with_tracts <span class="op">=</span> geopandas.sjoin(points, tracts, how<span class="op">=</span><span class="st">"inner"</span>, predicate<span class="op">=</span><span class="st">"within"</span>, lsuffix<span class="op">=</span><span class="st">"left"</span>, rsuffix<span class="op">=</span><span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f25b3f2e" class="cell" data-execution_count="48">
+<div id="4c4d3cd8" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>points_with_tracts.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="294246f8" class="cell" data-execution_count="49">
+<div id="6a7b9b02" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>points_with_tracts.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f4ab5541" class="cell" data-execution_count="50">
+<div id="2bf29f0a" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>tracts.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3275019b" class="cell" data-execution_count="51">
+<div id="bfb7e559" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 'GEOID' with the appropriate identifier column in your tracts GeoDataFrame</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>tract_counts <span class="op">=</span> points_with_tracts.groupby(<span class="st">'geoid'</span>).size().reset_index(name<span class="op">=</span><span class="st">'point_count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="87424514" class="cell" data-execution_count="52">
+<div id="41851259" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>tracts <span class="op">=</span> tracts.merge(tract_counts, on<span class="op">=</span><span class="st">'geoid'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>tracts[<span class="st">'point_count'</span>] <span class="op">=</span> tracts[<span class="st">'point_count'</span>].fillna(<span class="dv">0</span>).astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d7b08d36" class="cell" data-execution_count="53">
+<div id="1b486bca" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>tracts.plot(<span class="st">'point_count'</span>, legend<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c198abe5" class="cell" data-execution_count="54">
+<div id="96daf02e" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>tracts[[<span class="st">'geoid'</span>, <span class="st">'point_count'</span>]].sort_values(by<span class="op">=</span><span class="st">'point_count'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a4c53fa1" class="cell" data-execution_count="55">
+<div id="397f7199" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>tracts[[<span class="st">'geoid'</span>, <span class="st">'point_count'</span>]].groupby(by<span class="op">=</span><span class="st">'point_count'</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
