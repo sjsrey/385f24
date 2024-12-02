@@ -180,6 +180,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../lectures/week14/distancemethods.html">
  <span class="dropdown-text">11-25 Distance Based Tests</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../lectures/week14/distancemethods.html">
+ <span class="dropdown-text">12-02 Distance Based Tests</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -230,6 +234,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="https://sdsu.instructure.com/courses/157862/assignments/1436064">
  <span class="dropdown-text">11-13 Studio 11: Peer Evaluation 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://sdsu.instructure.com/courses/157862/assignments/1445786">
+ <span class="dropdown-text">12-04 Studio 12: Project Help</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://sdsu.instructure.com/courses/157862/assignments/1445793">
+ <span class="dropdown-text">12-09 Studio 13: Peer Evaluation 4</span></a>
   </li>  
     </ul>
   </li>
@@ -585,17 +597,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
       </ul>
   </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
- <span class="menu-text">Resources</span></a>
+ <span class="menu-text">Week 15: 12-02, 12-04</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/week14/distancemethods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distance Based Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://sdsu.instructure.com/courses/157862/assignments/1445786" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Studio 12 Project Help</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
@@ -660,7 +695,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<div id="f30b19ed" class="cell" data-execution_count="1">
+<div id="cb46bc3a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"merged.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -668,19 +703,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities" class="level2">
 <h2 class="anchored" data-anchor-id="which-region-has-the-capital-city-with-the-largest-population-of-all-capital-cities">Which region has the capital city with the largest population of all capital cities?</h2>
-<div id="bab30df9" class="cell" data-execution_count="2">
+<div id="d2bce305" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="which-region-contains-the-largest-number-of-people-living-in-its-capital-cities" class="level2">
 <h2 class="anchored" data-anchor-id="which-region-contains-the-largest-number-of-people-living-in-its-capital-cities">Which region contains the largest number of people living in its capital cities?</h2>
-<div id="c6c38a11" class="cell" data-execution_count="3">
+<div id="f5bded32" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="which-region-has-the-capital-cities-with-the-highest-population-density-median" class="level2">
 <h2 class="anchored" data-anchor-id="which-region-has-the-capital-cities-with-the-highest-population-density-median">Which region has the capital cities with the highest population density (median)?</h2>
-<div id="5d7f8148" class="cell" data-execution_count="4">
+<div id="ffd452cf" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
